@@ -5,11 +5,12 @@
 .nav-bar {
     border-right: 2px solid lightgrey;
     width: 20%;
+    min-width: 200px;
 }
 
 .main-content {
-
     width: 80%;
+    min-width: 500px;
 }
 
 .nav-bar,
