@@ -1,0 +1,13 @@
+<svg width="1024" height="768" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <title>background</title>
+    <rect fill="#fff" id="canvas_background" height="770" width="1026" y="-1" x="-1"/>
+    <g display="none" id="canvasGrid">
+      <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+    </g>
+  </g>
+  <g>
+    <title>Layer 1</title>
+    <text xml:space="preserve" font-family="Helvetica, Arial, sans-serif" font-size="76" id="svg_1" y="385" x="158" stroke-width="0" stroke="#000" fill="#000000">It's bad template #12</text>
+  </g>
+</svg>

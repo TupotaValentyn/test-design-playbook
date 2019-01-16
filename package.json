@@ -22,7 +22,12 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "core-js": "^2.5.4",
+<<<<<<< HEAD
     "hammerjs": "^2.0.8",
+=======
+    "express": "^4.16.4",
+    "mongodb": "^3.1.10",
+>>>>>>> d1ade3e350a327f4f7506ff4902eca0904a9ea2f
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
