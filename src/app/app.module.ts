@@ -4,18 +4,23 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-//material modules
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
+// components
 import { MainContainerComponent } from './main-container/main-container.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { SidebarThumbnailComponent } from './sidebar-thumbnail/sidebar-thumbnail.component'
+
+// material modules
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainContainerComponent
+    MainContainerComponent,
+    SidebarThumbnailComponent
   ],
   imports: [
     BrowserModule,
@@ -23,12 +28,13 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
-//material
+// material
 export class PizzaPartyAppModule { }

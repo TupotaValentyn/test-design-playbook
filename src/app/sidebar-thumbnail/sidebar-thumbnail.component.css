@@ -1,0 +1,60 @@
+.thumbnail__wrapper {
+    border-bottom: 1px solid  lightgray;
+    padding: 20px 0;
+}
+
+.thumbnail__image__wrapper {
+    position: relative;
+    width: 86%;
+    margin: auto;
+}
+
+.thumbnail__image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid lightgray;
+}
+
+.thumbnail__index,
+.thumbnail__checkbox {
+    position: absolute;
+}
+
+.thumbnail__index {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    left: 5%;
+    bottom: 3%;
+    font-size: 2vw;
+    font-weight: bold;
+    background-color: #FF9800;
+    color: white;
+    border-radius: 50%;
+}
+
+.thumbnail__index span {
+    margin: auto;
+}
+
+.thumbnail__checkbox {
+    right: 8%;
+    bottom: 8%;
+}
+
+/* sizes of chekcbox */
+::ng-deep .mat-checkbox-inner-container {
+    height: 30px !important;
+    width: 30px !important;
+}
+::ng-deep .mat-checkbox .mat-checkbox-ripple {
+    left: calc(50% - 30px) !important;
+    top: calc(50% - 30px) !important;
+    height: 60px !important;
+    width: 60px !important;
+}
+
+
+
+

@@ -1,0 +1,11 @@
+/* /deep/ - means global style
+   it's color of all checkboxes
+   https://angular.io/guide/component-styles#deprecated-deep--and-ng-deep */
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+       .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: #76FF03 !important;
+}
+
+::ng-deep .mat-ripple-element {
+  background: #76FF03 !important;
+}
