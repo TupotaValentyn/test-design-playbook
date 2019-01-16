@@ -1,10 +1,11 @@
-.card__wrapper {
+.wrapper {
     background-image: url('../../assets/get-Started.jpg');
     width: 100vw;
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 .card {
     position: absolute;
     top: 50%;
