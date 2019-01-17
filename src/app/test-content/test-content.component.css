@@ -36,11 +36,6 @@ h2 {
   height: 100%;
 }
 
-/* .count__images {
-  color: blue;
-  border: 2px solid black;
-} */
-
 .content__main {
   width: 100%;
   height: 80%;
@@ -82,9 +77,6 @@ img {
   display: flex;
   right: 10px;
   position: absolute;
-  /* zoom: 5; */
-  /* font-size: 5em; */
-  /* width: 20px; */
   height: 20px;
   top: calc(50% - 10px);
 }
