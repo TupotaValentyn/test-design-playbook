@@ -46,7 +46,7 @@ h2 {
   position: relative;
 }
 
-main > div {
+.main__image__wrapper {
   bottom: 0;
   position: absolute;
   width: 100%;
