@@ -12,6 +12,8 @@ function resultController(app) {
     }
     /**/
 
+    // Model.find({})
+
     /**/
     const result = new Result({
       models: models,
@@ -19,8 +21,7 @@ function resultController(app) {
     });
     result.save()
       .then(() => {
-        res.status(200);
-        res.send('Data save successful');
+        res.json(result);
       })
       .catch((err) => {
         res.status(500);
