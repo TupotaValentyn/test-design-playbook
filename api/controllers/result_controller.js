@@ -5,13 +5,12 @@ const User = require('../models/user');
 function resultController(app) {
   app.route('/results/save').post((req, res) => {
     const models = req.body.models;
+    const user = req.body.user;
     if (models.length !== 5) {
       res.status(422);
       res.send('Models must have 5 elements. Now length [' + models.length + "]");
     }
     /**/
-
-    
 
     /**/
     const result = new Result({
