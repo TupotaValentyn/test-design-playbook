@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -15,13 +16,26 @@ export class AppComponent implements OnInit{
   test: any = {a: 1111}
 
   ngOnInit():void {
-    this.http.get('http://jsonplaceholder.typicode.com/posts').subscribe(data => {
+    this.http.get('http://localhost:8000/model/all').subscribe(data => {
       this.test = data
+      console.log(data)
     })
-    console.log(this.test)
   }
 
   print () {
-    console.log(this.test)
+    this.http.post('http://localhost:8000/results/save', {
+      models: [
+        {_id: '1'},
+        {_id: '2'},
+        {_id: '3'},
+        {_id: '4'},
+        {_id: '5'}
+      ],
+      user: {
+        _id: '6'
+      }
+    }).subscribe(t => {
+      console.log(t)
+    })
   }
 }
