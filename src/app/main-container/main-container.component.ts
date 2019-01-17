@@ -8,14 +8,24 @@ import { Component, OnInit } from '@angular/core';
 
 export class MainContainerComponent implements OnInit {
 
-  currentModel: {
+  currentModel = {
     _id: "",
     url: "",
     comment: "",
     mark: false
   }
 
-  
+  testComponentSend() {
+    console.log("Sending...");
+  }
+
+  testComponentSave() {
+    console.log("Comment's saving...");
+  }
+
+  testComponentChoose() {
+    console.log("Image's choosing...");
+  }
 
   constructor() { }
 

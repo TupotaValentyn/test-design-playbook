@@ -17,19 +17,11 @@ export class TestContentComponent {
 
   @Output() onChoose = new EventEmitter();
 
-  // element: {
-  //   _id: string;
-  //   url: string;
-  //   comment: string;
-  //   mark: boolean;
-  // }
-
   saveComment(e) {
     console.log("[test-content b] ", e.value);
     this.currentModel.comment = e.value;
     console.log("[test-content a] ", e.value);
-
-    this.onSaveComment.emit(e.value);
+    this.onSaveComment.emit(e.currentModel);
   }
 
   sendAnswers() {
@@ -39,8 +31,7 @@ export class TestContentComponent {
   chooseImage(e) {
     console.log(e.checked);
     this.currentModel.mark = e.checked;
-    
-    this.onChoose.emit(e.checked);
+    this.onChoose.emit(this.currentModel);
   }
 
 }

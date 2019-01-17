@@ -6,7 +6,10 @@
 
   <mat-drawer-content class="main-content">
     <app-test-content 
-    [(currentModel)]="currentModel">
+    [currentModel]="currentModel"
+    (onSaveComment)="testComponentSave()"
+    (onSend)="testComponentSend()"
+    (onChoose)="testComponentChoose()">
 
     </app-test-content>
   </mat-drawer-content>
