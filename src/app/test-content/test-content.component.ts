@@ -1,46 +1,46 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-test-content',
   templateUrl: './test-content.component.html',
   styleUrls: ['./test-content.component.css']
 })
-export class TestContentComponent implements OnInit {
+export class TestContentComponent {
 
-  countCheckedElements: number = 0; // for <span> element
+  @Input() currentModel: any;
 
-  @Input() checkedElem: number; //???
+  @Input() countCheckedElements: number; // for <span> element
 
-  @Output() onSaveComment = new EventEmitter<boolean>();
+  @Output() onSaveComment = new EventEmitter();
 
-  @Output() onSend = new EventEmitter<boolean>();
+  @Output() onSend = new EventEmitter();
 
-  @Output() onChoose = new EventEmitter<boolean>();
+  @Output() onChoose = new EventEmitter();
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  comment: '';
+  // element: {
+  //   _id: string;
+  //   url: string;
+  //   comment: string;
+  //   mark: boolean;
+  // }
 
   saveComment(e) {
-    this.comment = e.value;
-    // console.log(this.comment);
+    console.log("[test-content b] ", e.value);
+    this.currentModel.comment = e.value;
+    console.log("[test-content a] ", e.value);
 
-    // this.onSaveComment.emit();
+    this.onSaveComment.emit(e.value);
   }
 
   sendAnswers() {
-    // this.onSend.emit();
+    this.onSend.emit();
   }
 
   chooseImage(e) {
     console.log(e.checked);
-    if (e.checked) {
-      // send information about this image is checked
-    }
-    // this.onChoose.emit();
+    this.currentModel.mark = e.checked;
+    
+    this.onChoose.emit(e.checked);
   }
 
 }

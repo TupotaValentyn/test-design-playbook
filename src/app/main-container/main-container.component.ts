@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
-
 @Component({
   selector: 'app-main-container',
   templateUrl: './main-container.component.html',
@@ -9,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class MainContainerComponent implements OnInit {
+
+  currentModel: {
+    _id: "",
+    url: "",
+    comment: "",
+    mark: false
+  }
+
+  
 
   constructor() { }
 
