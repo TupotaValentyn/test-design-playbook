@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
-
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-main-container',
@@ -8,11 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-container.component.css']
 })
 
-export class MainContainerComponent implements OnInit {
+export class MainContainerComponent {
 
-  constructor() { }
+  currentModel = {
+    _id: "",
+    url: "",
+    comment: "",
+    mark: false
+  }
 
-  ngOnInit() {
+  testComponentSend() {
+    console.log("Sending...");
+  }
+
+  testComponentSave() {
+    console.log("Comment's saving...");
+  }
+
+  testComponentChoose() {
+    console.log("Image's choosing...");
   }
 
 }

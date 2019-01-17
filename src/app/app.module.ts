@@ -15,6 +15,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
+import { TestContentComponent } from './test-content/test-content.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MatButtonModule } from '@angular/material/button';
     AppComponent,
     MainContainerComponent,
     SidebarThumbnailComponent,
-    GetStartedComponent
+    GetStartedComponent,
+    TestContentComponent
   ],
   imports: [
     BrowserModule,

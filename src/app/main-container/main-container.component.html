@@ -4,5 +4,13 @@
     <app-sidebar-thumbnail></app-sidebar-thumbnail>
   </mat-drawer>
 
-  <mat-drawer-content class="main-content">Main content</mat-drawer-content>
+  <mat-drawer-content class="main-content">
+    <app-test-content 
+    [currentModel]="currentModel"
+    (onSaveComment)="testComponentSave()"
+    (onSend)="testComponentSend()"
+    (onChoose)="testComponentChoose()">
+
+    </app-test-content>
+  </mat-drawer-content>
 </mat-drawer-container>
