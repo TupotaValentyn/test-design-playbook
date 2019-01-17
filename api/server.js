@@ -1,34 +1,30 @@
+// server configuration
 const PORT = 8000;
 
-const express = require('express');
-const app = express();
+// create application
+const app = require('express')();
+console.log('[Server] Application start...');
 
-const connect = require('./data_source/mongodb_connect');
-connect();
+// connect to database
+require('./data_source/mongodb_connect')();
 
+// support json encoded bodies
 const bodyParser = require('body-parser');
-app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Content-Type', 'application/json');
-  next();
-});
 
-const Model = require('./models/model');
-const User = require('./models/user');
+// filters
+app.use(require('./filters/access_control_filter'));
 
-const result_controller = require('./controllers/result_controller');
-result_controller(app);
+console.log('[Server] filters load');
 
-const model_controller = require('./controllers/model_controller');
-model_controller(app);
+// routes
+app.use('', require('./controllers/result_controller'));
+app.use('', require('./controllers/model_controller'));
 
+// start
 app.listen(PORT, () => {
-  console.log('Server started');
-  console.log(`Server listen port [${PORT}]`);
+  console.log('[Server] started');
+  console.log(`[Server] listen port :${PORT}`);
 });
 

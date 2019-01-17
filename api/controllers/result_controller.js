@@ -1,34 +1,53 @@
 const Result = require('../models/result');
-const Model = require('../models/model');
-const User = require('../models/user');
+const router = require('express').Router();
 
-function resultController(app) {
-  app.route('/results/save').post((req, res) => {
-    const models = req.body.models;
-    const user = req.body.user;
-    if (models.length !== 5) {
-      res.status(422);
-      res.send('Models must have 5 elements. Now length [' + models.length + "]");
-    }
-    /**/
+router.post('/results/save', (req, res) => {
+  const models = req.body.models;
+  const user = req.body.user;
+  if (models.length !== 5) {
+    res.status(422);
+    res.send('Models must have 5 elements. Now length [' + models.length + "]");
+  }
 
-    // Model.find({})
-
-    /**/
-    const result = new Result({
-      models: models,
-      user: user
-    });
-    result.save()
-      .then(() => {
-        res.json(result);
-      })
-      .catch((err) => {
-        res.status(500);
-        res.send(err);
-      });
+  const result = new Result({
+    models: models,
+    user: user
   });
-  console.log('[result_controller]', 'set route');
+  result
+    .save()
+    .then(() => res.json(result))
+    .catch(handleException);
+});
+
+function handleException(err, req, res) {
+  res.status(422);
+  res.send(err);
 }
 
-module.exports = resultController;
+console.log('[Result Controller]', 'load routes');
+
+module.exports = router;
+
+/*
+  let idArray = [];
+  models.forEach((item) => {
+    idArray.push(mongoose.Types.ObjectId(item._id));
+  });
+
+  Model
+    .find({'_id': {$in: idArray}})
+    .then((modelDocs) => {
+      User
+        .findById(user._id)
+        .then((userDocs) => {
+          const result = new Result({
+            models: modelDocs,
+            user: userDocs
+          });
+          result
+            .save()
+            .then(() => res.json(result))
+            .catch(handleException);
+        }).catch(handleException)
+    }).catch(handleException);
+*/
