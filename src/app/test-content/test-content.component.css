@@ -109,7 +109,7 @@ button, .button__send {
   text-decoration: none;
   border: solid 1px grey;
   border-radius: 4px;
-  padding: 0.5em 1em;
+  padding: 10px 10px;
   color: black;
   background-color: white;
 }
