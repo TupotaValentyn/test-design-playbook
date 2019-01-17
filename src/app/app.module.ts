@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms'
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
 
 //component
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +19,7 @@ import { GetStartedComponent } from './get-started/get-started.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     MatCardModule,
     BrowserAnimationsModule,
     FormsModule,
