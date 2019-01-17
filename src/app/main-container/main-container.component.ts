@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-main-container',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-container.component.css']
 })
 
-export class MainContainerComponent implements OnInit {
+export class MainContainerComponent {
 
   currentModel = {
     _id: "",
@@ -25,11 +25,6 @@ export class MainContainerComponent implements OnInit {
 
   testComponentChoose() {
     console.log("Image's choosing...");
-  }
-
-  constructor() { }
-
-  ngOnInit() {
   }
 
 }
