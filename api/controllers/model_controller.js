@@ -11,7 +11,12 @@ function modelController(app) {
       let modelMap = [];
 
       models.forEach(function(model) {
-        modelMap.push({ url: model.url, _id: model._id });
+        modelMap.push({
+          _id: model._id,
+          url: model.url,
+          comment: "",
+          mark: false
+        });
       });
 
       res.status(200);
