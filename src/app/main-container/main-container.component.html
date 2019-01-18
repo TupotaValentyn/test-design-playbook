@@ -1,8 +1,15 @@
-<mat-drawer-container class="example-container">
-  <mat-drawer mode="side" opened class="nav-bar">
-    <app-sidebar-thumbnail></app-sidebar-thumbnail>
-    <app-sidebar-thumbnail></app-sidebar-thumbnail>
-  </mat-drawer>
+<div class="main__container">
+  <app-sidebar 
+    class="sidebar__container" 
+    [models]="currentModel"
+    (onSelect)="sideBarSelect($event)">
+  </app-sidebar>
 
-  <mat-drawer-content class="main-content">Main content</mat-drawer-content>
-</mat-drawer-container>
+  <app-test-content
+    class="test__container" 
+    [currentModel]="currentModel"
+    (onSaveComment)="testComponentSave()"
+    (onSend)="testComponentSend()"
+    (onChoose)="testComponentChoose()">
+  </app-test-content>
+</div>

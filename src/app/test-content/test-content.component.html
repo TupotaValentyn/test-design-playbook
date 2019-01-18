@@ -1,0 +1,26 @@
+<div class="test__content">
+  <div class="content">
+    <header class="content__header">
+      <h2>Some text about task... <span class="count__images">{{countCheckedElements}}</span>/5 </h2>
+      <a routerLink="/finish" class="button__send" (click)="sendAnswers()">Send</a>
+    </header>
+
+    <hr>
+
+    <main class="content__main">
+      <div class="empty">1</div>
+      <img src="../../assets/original.jpg" />
+      <div class="main__image__wrapper">
+        <div class="image__size"></div>
+        <input type="checkbox" class="image__checkbox" name="" id="" (click)="chooseImage(checkbox)" #checkbox>
+      </div>
+    </main>
+
+    <hr>
+
+    <footer class="content__footer">
+      <textarea placeholder="Comment" class="comment" #comment></textarea>
+      <button class="button__save" (click)="saveComment(comment)">Save comment</button>
+    </footer>
+  </div>
+</div>

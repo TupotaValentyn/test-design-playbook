@@ -1,9 +1,9 @@
 <div class="thumbnail__wrapper">
   <div class="thumbnail__image__wrapper">
-    <img class="thumbnail__image" src="../../assets/models/bad_template_11.svg" alt="title">
+    <img class="thumbnail__image" src="{{model.url}}" alt="title">
     <div class="thumbnail__index">
-      <span>1</span>
+      <span>{{model._id}}</span>
     </div>
-    <mat-checkbox class="thumbnail__checkbox"></mat-checkbox>
+    <mat-checkbox class="thumbnail__checkbox">{{model.mark}}</mat-checkbox>
   </div>
 </div>

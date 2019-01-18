@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
-
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-main-container',
@@ -8,11 +6,50 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-container.component.css']
 })
 
-export class MainContainerComponent implements OnInit {
+export class MainContainerComponent {
 
-  constructor() { }
+  currentModel = [{
+    _id: "a",
+    url: "../../assets/models/bad_template_1.svg",
+    comment: "",
+    mark: false
+  },
+  {
+    _id: "b",
+    url: "../../assets/models/bad_template_2.svg",
+    comment: "",
+    mark: false
+  },
+  {
+    _id: "c",
+    url: "../../assets/models/bad_template_3.svg",
+    comment: "",
+    mark: false
+  }]
 
-  ngOnInit() {
+  testComponentSend() {
+    console.log("Sending...");
+    this.currentModelLog();
+  }
+
+  testComponentSave() {
+    console.log("Comment's saving...");
+    this.currentModelLog();
+  }
+
+  testComponentChoose() {
+    console.log("Image's choosing...");
+    this.currentModelLog();
+  }
+
+  sideBarSelect() {
+    console.log('[MainContainer]', 'sideBarSelect');
+    this.currentModelLog();
+  }
+
+  currentModelLog() {
+    console.log(this.currentModel);
+    
   }
 
 }

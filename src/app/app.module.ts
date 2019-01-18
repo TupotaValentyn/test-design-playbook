@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { GetStartedComponent } from './get-started/get-started.component';
 import { MainContainerComponent } from './main-container/main-container.component';
 import { SidebarThumbnailComponent } from './sidebar-thumbnail/sidebar-thumbnail.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { TestContentComponent } from './test-content/test-content.component';
 
 // material modules
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,7 +26,9 @@ import { ThxPageComponent } from './thx-page/thx-page.component';
     MainContainerComponent,
     SidebarThumbnailComponent,
     GetStartedComponent,
-    ThxPageComponent
+    ThxPageComponent,
+    TestContentComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
