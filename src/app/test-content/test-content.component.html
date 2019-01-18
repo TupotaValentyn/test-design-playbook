@@ -10,18 +10,22 @@
 
     <main class="content__main">
       <div class="empty"></div>
+
       <img src="{{ currentModel.url }}" />
       <div class="main__image__wrapper">
         <div class="image__size"></div>
-        <input type="checkbox" class="image__checkbox" name="" id="" (click)="chooseImage(checkbox)" #checkbox>
+        <mat-checkbox class="image__checkbox" [(ngModel)]="currentModel.mark" (click)="chooseImage(checkbox)" #checkbox></mat-checkbox>
       </div>
+
+
     </main>
 
     <hr>
 
     <footer class="content__footer">
-      <textarea placeholder="Ваша думка" class="comment" (ngModelChange)="checkParams($event, button_save)" #comment [(ngModel)]="currentModel.comment" ></textarea>
-      <button class="button__save" (click)="saveComment(comment)" disabled="disabled" #button_save mat-button>Save comment</button>
+      <textarea placeholder="Leave comment about this image" class="comment" (ngModelChange)="checkParams($event)" #comment [(ngModel)]="currentModel.comment" ></textarea>
+      <!-- <button class="button__save" (click)="saveComment(comment)" disabled="disabled" #button_save mat-button>Save comment</button> -->
     </footer>
+
   </div>
 </div>

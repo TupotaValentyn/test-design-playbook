@@ -24,16 +24,17 @@ hr {
 
 .content__header {
   width: 100%;
-  height: 70px;
+  min-height: 70px;
+  max-height: 90px;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
 }
 
 h2 {
   width: 85%;
   height: 100%;
+  margin: 0;
 }
 
 .content__main {
@@ -95,29 +96,31 @@ img {
   right: 10px;
   position: absolute;
   height: 20px;
+  z-index: 10000;
   top: calc(50% - 10px);
 }
 
 .content__footer {
   width: 100%;
-  height: 70px;
+  height: 90px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 textarea {
-  width: 85%;
+  width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: flex-start;
+  resize: none;
+  border-radius: 5px;
+  padding: 5px 10px;
 }
 
 button, .button__send {
-  width: 15%;
-  height: 100%;
-
-  padding: 20px 40px;
-
+  height: fit-content;
+  width: fit-content;
   background: #79c753;
   color: white;
+  margin-right: 10px;
+  margin-left: 10px;
 }

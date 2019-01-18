@@ -36,8 +36,8 @@ export class TestContentComponent {
     this.onChoose.emit(this.currentModel);
   }
 
-  checkParams(comment, button) {
-    button.disabled = comment.length === 0;
+  checkParams(comment) {
+    // button check
   }
 
 }

@@ -48,6 +48,8 @@
     bottom: 8%;
 }
 
+
+
 /* sizes of chekcbox */
 ::ng-deep .mat-checkbox-inner-container {
     height: 30px !important;

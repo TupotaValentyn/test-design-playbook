@@ -3,3 +3,6 @@
     display: block !important;
 }
 
+app-sidebar-thumbnail {
+    cursor: pointer;
+}
