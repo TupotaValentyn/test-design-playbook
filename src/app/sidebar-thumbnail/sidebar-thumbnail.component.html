@@ -1,0 +1,9 @@
+<div class="thumbnail__wrapper">
+  <div class="thumbnail__image__wrapper">
+    <img class="thumbnail__image" src="{{model.url}}" alt="title">
+    <div class="thumbnail__index">
+      <span>{{ index }}</span>
+    </div>
+    <mat-checkbox [(ngModel)]="model.mark" class="thumbnail__checkbox"></mat-checkbox>
+  </div>
+</div>

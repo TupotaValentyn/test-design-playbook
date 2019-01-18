@@ -1,0 +1,31 @@
+<div class="test__content">
+  <div class="content">
+    <header class="content__header">
+      <h2>Task: Choose <span class="max__count__images">{{maxCountCheckedElements}}</span> best image from 23. <br> Count of chosen images: <span class="count__images">{{countCheckedElements}}</span>/<span class="max__count__images">{{maxCountCheckedElements}}</span>
+      </h2>
+      <a routerLink="/finish" class="button__send" (click)="sendAnswers()" mat-button>Send</a>
+    </header>
+
+    <hr>
+
+    <main class="content__main">
+      <div class="empty"></div>
+
+      <img src="{{ currentModel.url }}" />
+      <div class="main__image__wrapper">
+        <div class="image__size"></div>
+        <mat-checkbox class="image__checkbox" [(ngModel)]="currentModel.mark" (click)="chooseImage(checkbox)" #checkbox></mat-checkbox>
+      </div>
+
+
+    </main>
+
+    <hr>
+
+    <footer class="content__footer">
+      <textarea placeholder="Leave comment about this image" class="comment" (ngModelChange)="checkParams($event)" #comment [(ngModel)]="currentModel.comment" ></textarea>
+      <!-- <button class="button__save" (click)="saveComment(comment)" disabled="disabled" #button_save mat-button>Save comment</button> -->
+    </footer>
+
+  </div>
+</div>

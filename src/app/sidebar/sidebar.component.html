@@ -1,0 +1,10 @@
+<div class="sidebar__container">
+  <app-sidebar-thumbnail *ngFor="let model of models; let index = index"
+                         [model]="model"
+                         [index]="index + 1"
+                         (click)="onSelectElement(model)"
+                         [class.selected]="isSelectedThumbnail(model)">
+  </app-sidebar-thumbnail>
+</div>  
+
+

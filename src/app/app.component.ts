@@ -1,41 +1,37 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Subscriber } from 'rxjs';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
 
-  constructor(private http: HttpClient) {
+export class AppComponent {
+  title = 'test-design-playbook';
 
-  }
+  // receivedDataArray = [
+  //   {
+  //     _id: `1a`,
+  //     url: `../../asset/p1.svg`,
+  //     comment: `it's good`,
+  //     marked: false
+  //   },
+  //   {
+  //     _id: `2b`,
+  //     url: `../../asset/p2.svg`,
+  //     comment: `it's bad`,
+  //     marked: false
+  //   }
+  // ];
 
-  test: any = {a: 1111}
+  // onReceivedData = new EventEmitter<[
+  //   {
+  //     _id: string,
+  //     url: string,
+  //     comment: string,
+  //     marked: false
+  //   }
+  // ]>();
 
-  ngOnInit():void {
-    this.http.get('http://localhost:8000/model/all').subscribe(data => {
-      this.test = data
-      console.log(data)
-    })
-  }
 
-  print () {
-    this.http.post('http://localhost:8000/results/save', {
-      models: [
-        {_id: '1'},
-        {_id: '2'},
-        {_id: '3'},
-        {_id: '4'},
-        {_id: '5'}
-      ],
-      user: {
-        _id: '6'
-      }
-    }).subscribe(t => {
-      console.log(t)
-    })
-  }
 }

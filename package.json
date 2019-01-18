@@ -25,7 +25,7 @@
     "hammerjs": "^2.0.8",
     "express": "^4.16.4",
     "mongodb": "^3.1.10",
-    "mongoose": "^5.4.4",
+
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
