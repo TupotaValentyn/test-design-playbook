@@ -1,7 +1,7 @@
 <div class="test__content">
   <div class="content">
     <header class="content__header">
-      <h2>Task: Choose 5 best image from 23. <br> Count of chosen images: <span class="count__images">{{countCheckedElements}}</span>/5
+      <h2>Task: Choose <span class="max__count__images">{{maxCountCheckedElements}}</span> best image from 23. <br> Count of chosen images: <span class="count__images">{{countCheckedElements}}</span>/<span class="max__count__images">{{maxCountCheckedElements}}</span>
       </h2>
       <a routerLink="/finish" class="button__send" (click)="sendAnswers()" mat-button>Send</a>
     </header>
@@ -20,11 +20,8 @@
     <hr>
 
     <footer class="content__footer">
-      <!-- <textarea placeholder="Comment" class="comment" (ngModelChange)="checkParams(comment)" #comment>{{currentModel[0].comment}}</textarea>
-      <button class="button__save" (click)="saveComment(comment)" disabled="disabled" mat-button>Save comment</button> -->
-
-      <textarea placeholder="Comment" class="comment" #comment [(ngModel)]="currentModel.comment" ></textarea>
-      <button class="button__save" (click)="saveComment(comment)" mat-button>Save comment</button>
+      <textarea placeholder="Ваша думка" class="comment" (ngModelChange)="checkParams($event, button_save)" #comment [(ngModel)]="currentModel.comment" ></textarea>
+      <button class="button__save" (click)="saveComment(comment)" disabled="disabled" #button_save mat-button>Save comment</button>
     </footer>
   </div>
 </div>

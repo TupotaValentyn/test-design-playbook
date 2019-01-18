@@ -11,6 +11,8 @@ export class TestContentComponent {
 
   @Input() countCheckedElements = 0; // for <span> element
 
+  @Input() maxCountCheckedElements = 5;
+
   @Output() onSaveComment = new EventEmitter();
 
   @Output() onSend = new EventEmitter();
@@ -34,16 +36,8 @@ export class TestContentComponent {
     this.onChoose.emit(this.currentModel);
   }
 
-  // checkParams(comment) {
-  //   // let comment = document.getElementsByClassName('.comment');
-  //   console.log(comment);
-  //   let button = document.getElementsByClassName('.button__save');
-     
-  //   // if(comment.length != 0) {
-  //   //   button.removeAttr('disabled');
-  //   // } else {
-  //   //   button.attr('disabled', 'disabled');
-  //   // }
-  // }
+  checkParams(comment, button) {
+    button.disabled = comment.length === 0;
+  }
 
 }
