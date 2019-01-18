@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-main-container',
@@ -6,34 +8,45 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-container.component.css']
 })
 
-export class MainContainerComponent {
+export class MainContainerComponent implements OnInit {
 
+  constructor (private http: HttpClient) {
 
-  currentModel = [{
-    _id: "a",
-    url: "../../assets/models/bad_template_1.svg",
-    comment: "",
-    mark: false
-  },
-  {
-    _id: "b",
-    url: "../../assets/models/bad_template_2.svg",
-    comment: "",
-    mark: false
-  },
-  {
-    _id: "c",
-    url: "../../assets/models/bad_template_3.svg",
-    comment: "",
-    mark: false
+  }
+
+  currentModel:any = [{
+    _id: "",
+    url: "",
+    mark: false,
+    comment: ""
   }]
+  currentSelectedCount: number = 0;
 
+  ngOnInit() {
+    this.http.get('http://localhost:8000/model/all').subscribe(data => {
+      this.currentModel = data
+      console.log(data)
+      this.currentModel.forEach(e => {
+        e.url = "../../assets" + e.url
+      });
+      this.currentSelectModel = this.currentModel[0]
+    })
+  }
 
   currentSelectModel = this.currentModel[0];
 
   testComponentSend() {
     console.log("Sending...");
     this.currentModelLog();
+    const sendData = this.currentModel.filter(e => e.mark)
+    this.http.post('http://localhost:8000/results/save', {
+      models: sendData,
+      user: {
+        _id: ''
+      }
+    }).subscribe(t => {
+      console.log(t)
+    })
   }
 
   testComponentSave() {
@@ -47,14 +60,17 @@ export class MainContainerComponent {
   }
 
   sideBarSelect(selectedModel) {
-    console.log('[MainContainer]', 'sideBarSelect');
-    this.currentModelLog();
-    this.currentSelectModel = selectedModel;
+    console.log(this.currentSelectedCount)
+
+    console.log('[MainContainer]', 'sideBarSelect')
+    this.currentModelLog()
+    this.currentSelectModel = selectedModel
+    console.log(this.currentModel.filter(e => e.mark).length)
+    setTimeout(() => this.currentSelectedCount = this.currentModel.filter(e => e.mark).length, 0)
   }
 
   currentModelLog() {
     console.log(this.currentModel);
-    
   }
 
 }

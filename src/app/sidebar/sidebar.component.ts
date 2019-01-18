@@ -13,22 +13,21 @@ export class SidebarComponent implements OnInit {
   markCoosenThumbnail(e) {
     console.log();
   }
+
   selectedModel
 
   ngOnInit() {
     this.selectedModel = this.models[0];
-
   }
-
 
   isSelectedThumbnail(model) {
     return this.selectedModel === model;
   }
 
   onSelectElement(model) {
-    this.onSelect.emit(model);
-
     this.selectedModel = model; 
+    this.onSelect.emit(model);
+    console.log(this.selectedModel)
   }
 
 

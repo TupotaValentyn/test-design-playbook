@@ -3,7 +3,8 @@
                          [model]="model"
                          [index]="index + 1"
                          (click)="onSelectElement(model)"
-                         [class.selected]="isSelectedThumbnail(model)">
+                         [class.selected]="isSelectedThumbnail(model)"
+                         (onSelectElement)="onSelectElement(model)">
   </app-sidebar-thumbnail>
 </div>  
 
