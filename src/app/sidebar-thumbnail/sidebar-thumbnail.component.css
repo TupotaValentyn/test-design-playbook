@@ -6,6 +6,11 @@
 .thumbnail__wrapper {
     border-bottom: 1px solid  lightgray;
     padding: 20px 0;
+    transition: all .5s linear;
+}
+
+.thumbnail__wrapper:hover {
+    background-color: rgba(134, 134, 172, 0.2);
 }
 
 .thumbnail__image__wrapper {
@@ -47,8 +52,6 @@
     right: 8%;
     bottom: 8%;
 }
-
-
 
 /* sizes of chekcbox */
 ::ng-deep .mat-checkbox-inner-container {

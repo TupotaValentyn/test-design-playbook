@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
+
 @Component({
   selector: 'app-test-content',
   templateUrl: './test-content.component.html',
@@ -39,5 +40,14 @@ export class TestContentComponent {
   checkParams(comment) {
     // button check
   }
+
+  //open close picture (resize)
+  isPictureOpened = false;
+
+  openClosePicture() {
+    this.isPictureOpened = !this.isPictureOpened
+  }
+
+
 
 }
