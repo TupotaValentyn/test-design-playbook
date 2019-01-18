@@ -17,6 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
+import { ThxPageComponent } from './thx-page/thx-page.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
     MainContainerComponent,
     SidebarThumbnailComponent,
     GetStartedComponent,
+    ThxPageComponent,
     TestContentComponent,
     SidebarComponent
   ],
