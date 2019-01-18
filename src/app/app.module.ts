@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { GetStartedComponent } from './get-started/get-started.component';
 import { MainContainerComponent } from './main-container/main-container.component';
 import { SidebarThumbnailComponent } from './sidebar-thumbnail/sidebar-thumbnail.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { TestContentComponent } from './test-content/test-content.component';
 
 // material modules
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,7 +17,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
-import { TestContentComponent } from './test-content/test-content.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { TestContentComponent } from './test-content/test-content.component';
     MainContainerComponent,
     SidebarThumbnailComponent,
     GetStartedComponent,
-    TestContentComponent
+    TestContentComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

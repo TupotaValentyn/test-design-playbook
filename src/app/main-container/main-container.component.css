@@ -1,19 +1,18 @@
-.example-container {
+.main__container {
+    width: 100vw;
     height: 100vh;
+    display: flex;
+    justify-content: stretch;
 }
 
-.nav-bar {
-    border-right: 2px solid lightgrey;
-    width: 20%;
-    min-width: 200px;
+
+
+.sidebar__container {
+    width: 20%; 
+    overflow-y: auto;
+    border-right: 2px solid lightgray;
 }
 
-.main-content {
+.test__container {
     width: 80%;
-    min-width: 500px;
-}
-
-.nav-bar,
-.main-content {
-    /* padding: 5px 10px; */
 }

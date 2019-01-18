@@ -9,7 +9,7 @@ export class TestContentComponent {
 
   @Input() currentModel: any;
 
-  @Input() countCheckedElements: number; // for <span> element
+  @Input() countCheckedElements = 0; // for <span> element
 
   @Output() onSaveComment = new EventEmitter();
 
@@ -19,7 +19,7 @@ export class TestContentComponent {
 
   saveComment(e) {
     console.log("[test-content b] ", e.value);
-    this.currentModel.comment = e.value;
+    this.currentModel[0].comment = e.value;
     console.log("[test-content a] ", e.value);
     this.onSaveComment.emit(e.currentModel);
   }
