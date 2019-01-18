@@ -9,4 +9,8 @@ export class SidebarThumbnailComponent {
 
   @Input() model: any;
 
+  @Input() index: number;
+
+  
+
 }

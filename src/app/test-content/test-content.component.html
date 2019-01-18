@@ -10,7 +10,7 @@
 
     <main class="content__main">
       <div class="empty"></div>
-      <img src="{{ currentModel[0].url }}" />
+      <img src="{{ currentModel.url }}" />
       <div class="main__image__wrapper">
         <div class="image__size"></div>
         <input type="checkbox" class="image__checkbox" name="" id="" (click)="chooseImage(checkbox)" #checkbox>
@@ -23,7 +23,7 @@
       <!-- <textarea placeholder="Comment" class="comment" (ngModelChange)="checkParams(comment)" #comment>{{currentModel[0].comment}}</textarea>
       <button class="button__save" (click)="saveComment(comment)" disabled="disabled" mat-button>Save comment</button> -->
 
-      <textarea placeholder="Comment" class="comment" #comment>{{currentModel[0].comment}}</textarea>
+      <textarea placeholder="Comment" class="comment" #comment [(ngModel)]="currentModel.comment" ></textarea>
       <button class="button__save" (click)="saveComment(comment)" mat-button>Save comment</button>
     </footer>
   </div>

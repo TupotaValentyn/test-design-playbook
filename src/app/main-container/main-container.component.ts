@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 
 export class MainContainerComponent {
 
+
   currentModel = [{
     _id: "a",
     url: "../../assets/models/bad_template_1.svg",
@@ -27,6 +28,9 @@ export class MainContainerComponent {
     mark: false
   }]
 
+
+  currentSelectModel = this.currentModel[0];
+
   testComponentSend() {
     console.log("Sending...");
     this.currentModelLog();
@@ -42,9 +46,10 @@ export class MainContainerComponent {
     this.currentModelLog();
   }
 
-  sideBarSelect() {
+  sideBarSelect(selectedModel) {
     console.log('[MainContainer]', 'sideBarSelect');
     this.currentModelLog();
+    this.currentSelectModel = selectedModel;
   }
 
   currentModelLog() {

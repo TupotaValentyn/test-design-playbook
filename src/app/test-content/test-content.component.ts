@@ -19,7 +19,7 @@ export class TestContentComponent {
 
   saveComment(e) {
     console.log("[test-content b] ", e.value);
-    this.currentModel[0].comment = e.value;
+    this.currentModel.comment = e.value;
     console.log("[test-content a] ", e.value);
     this.onSaveComment.emit(e.currentModel);
   }
