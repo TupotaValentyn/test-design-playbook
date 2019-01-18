@@ -11,7 +11,7 @@ router.get('/model/all', (req, res) => {
     }
     let modelMap = [];
 
-    models.forEach(function(model) {
+    models.forEach((model) => {
       modelMap.push({
         _id: model._id,
         url: model.url,

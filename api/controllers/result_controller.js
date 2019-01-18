@@ -19,7 +19,7 @@ router.post('/results/save', (req, res) => {
     .catch(handleException);
 });
 
-function handleException(err, req, res) {
+function handleException(err) {
   res.status(422);
   res.send(err);
 }
