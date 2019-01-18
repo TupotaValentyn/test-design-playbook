@@ -28,7 +28,8 @@ hr {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
+  justify-content: space-between;
 }
 
 h2 {
@@ -49,7 +50,10 @@ h2 {
 
 .empty {
   position: absolute;
-  background: url('../../assets/original.jpg');
+  background: url('../../assets/models/bad_template_1.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   filter: blur(5px) grayscale(50%);
   width: 100%;
   height: 100%;
@@ -61,7 +65,11 @@ h2 {
   width: 100%;
   height: 75px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: space-between; */
+  padding-left: calc(100%-20px);
+  padding-right: calc(100%-20px);
 }
 
 img {
@@ -97,7 +105,8 @@ img {
   height: 70px;
   display: flex;
   /* flex-direction: row; */
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
+  justify-content: space-between;
 }
 
 textarea {
@@ -107,7 +116,7 @@ textarea {
   justify-content: flex-start;
 }
 
-button, .button__send {
+/* button, .button__send {
   width: 15%;
   height: 100%;
   display: flex;
@@ -123,4 +132,14 @@ button, .button__send {
   padding: 10px 10px;
   color: black;
   background-color: white;
+} */
+
+button, .button__send {
+  width: 15%;
+  height: 100%;
+
+  padding: 20px 40px;
+
+  background: #79c753;
+  color: white;
 }
