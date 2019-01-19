@@ -16,13 +16,11 @@ router.post('/results/save', (req, res) => {
   result
     .save()
     .then(() => res.json(result))
-    .catch(handleException);
+    .catch((err) => {
+      res.status(422);
+      res.send(err);
+    });
 });
-
-function handleException(err) {
-  res.status(422);
-  res.send(err);
-}
 
 console.log('[Result Controller]', 'load routes');
 

@@ -1,3 +1,18 @@
+.example-card {
+  margin: 10px;
+}
+
+.header_index {
+  border-radius: 50%;
+  font-weight: bold;
+  background-color: #3e4db8;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
 .selected {
     background: red;
     color: red;
@@ -7,6 +22,7 @@
     border-bottom: 1px solid  lightgray;
     padding: 20px 0;
     transition: all .5s linear;
+    margin: 10px;
 }
 
 .thumbnail__wrapper:hover {
@@ -23,25 +39,27 @@
     display: block;
     max-width: 100%;
     height: auto;
-    border: 1px solid lightgray;
+    /*border: 1px solid lightgray;*/
 }
 
 .thumbnail__index,
 .thumbnail__checkbox {
-    position: absolute;
+    /*position: absolute;*/
 }
 
 .thumbnail__index {
     display: flex;
-    width: 50px;
-    height: 50px;
-    left: 5%;
-    bottom: 3%;
-    font-size: 2vw;
+    width: 35px;
+    height: 35px;
+    /*left: 5%;*/
+    /*bottom: 3%;*/
+    font-size: 2em;
     font-weight: bold;
     background-color: #FF9800;
     color: white;
     border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .thumbnail__index span {

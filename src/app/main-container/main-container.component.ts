@@ -16,21 +16,52 @@ export class MainContainerComponent implements OnInit {
 
   currentModel:any = [{
     _id: "",
-    url: "",
+    url: "../../assets/models/Colorful-1.jpg",
     mark: false,
-    comment: ""
-  }]
+    comment: "",
+    name: "Bad template #1"
+  },{
+    _id: "",
+    url: "../../assets/models/Colorful-5.jpg",
+    mark: false,
+    comment: "",
+    name: "Bad template #2"
+  },{
+    _id: "",
+    url: "../../assets/models/bad_template_3.svg",
+    mark: false,
+    comment: "",
+    name: "Bad template #3"
+  },{
+    _id: "",
+    url: "../../assets/models/bad_template_4.svg",
+    mark: false,
+    comment: "",
+    name: "Bad template #4"
+  },{
+    _id: "",
+    url: "../../assets/models/bad_template_5.svg",
+    mark: false,
+    comment: "",
+    name: "Bad template #5"
+  },{
+    _id: "",
+    url: "../../assets/models/bad_template_6.svg",
+    mark: false,
+    comment: "",
+    name: "Bad template #6"
+  },]
   currentSelectedCount: number = 0;
 
   ngOnInit() {
-    this.http.get('http://localhost:8000/model/all').subscribe(data => {
-      this.currentModel = data
-      console.log(data)
-      this.currentModel.forEach(e => {
-        e.url = "../../assets" + e.url
-      });
-      this.currentSelectModel = this.currentModel[0]
-    })
+    // this.http.get('http://localhost:8000/model/all').subscribe(data => {
+    //   this.currentModel = data
+    //   console.log(data)
+    //   this.currentModel.forEach(e => {
+    //     e.url = "../../assets" + e.url
+    //   });
+    //   this.currentSelectModel = this.currentModel[0]
+    // })
   }
 
   currentSelectModel = this.currentModel[0];

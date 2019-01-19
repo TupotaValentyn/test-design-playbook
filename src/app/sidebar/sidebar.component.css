@@ -1,8 +1,10 @@
 .selected {
-    background: lightblue;
-    display: block !important;
+    background-color: #e61669 !important;
+    box-sizing: content-box;
+    width: 100%;
 }
 
 app-sidebar-thumbnail {
     cursor: pointer;
 }
+

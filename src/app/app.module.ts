@@ -19,6 +19,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { ThxPageComponent } from './thx-page/thx-page.component';
+import {MatFormFieldModule, MatInputModule} from '@angular/material';
 
 
 @NgModule({
@@ -40,7 +41,9 @@ import { ThxPageComponent } from './thx-page/thx-page.component';
     MatSidenavModule,
     MatCheckboxModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule
 
   ],
   providers: [],

@@ -5,12 +5,10 @@
     justify-content: stretch;
 }
 
-
-
 .sidebar__container {
     width: 20%; 
     overflow-y: auto;
-    border-right: 2px solid lightgray;
+    border-right: 1px solid lightgray;
 }
 
 .test__container {

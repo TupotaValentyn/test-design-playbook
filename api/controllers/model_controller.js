@@ -20,7 +20,6 @@ router.get('/model/all', (req, res) => {
       });
     });
 
-    res.status(200);
     res.send(modelMap);
   })
 });
