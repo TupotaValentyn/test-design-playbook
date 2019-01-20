@@ -1,6 +1,8 @@
 <div class="full__screen__content" [ngStyle]="{display: (isPictureOpened) ? 'block' : 'none'}">
-  <img class="full__screen__image" src="{{ currentModel.url }}" alt="image"/>
-  <button (click)="changeScreenMode()">X</button>
+  <img src="{{ currentModel.url }}" alt="image"/>
+  <div (click)="changeScreenMode()">
+    <img src="../../assets/cancel.svg" class="exit__full__screen__image"/>
+  </div>
 </div>
 
 <div class="container__wrapper">
