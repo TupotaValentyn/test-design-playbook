@@ -1,17 +1,14 @@
-<div class="sidebar__container" style="background: white">
-  <mat-card style="margin: 10px; background-color: #fafafa; text-align: center">
-    Макети для вибору
-  </mat-card>
-  <app-sidebar-thumbnail *ngFor="let model of models; let index = index"
-                         [model]="model"
-                         [index]="index + 1"
-                         (click)="onSelectElement(model)"
-                         [class.selected]="isSelectedThumbnail(model)"
-                         (onMarkElement)="onSelectElement(model)">
-  </app-sidebar-thumbnail>
-  <mat-card style="margin: 10px; background-color: #fafafa; text-align: center">
-    Завершення списку
-  </mat-card>
-</div>  
+<mat-card class="static__text">
+  Макети для вибору
+</mat-card>
+<app-sidebar-thumbnail *ngFor="let model of models; let index = index"
+                       [model]="model"
+                       [index]="index + 1"
+                       [currentSelected]="selectedModel"
+                       (click)="onSelectElement(model)">
+</app-sidebar-thumbnail>
+<mat-card class="static__text">
+  Завершення списку
+</mat-card>
 
 

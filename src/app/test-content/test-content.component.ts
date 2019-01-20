@@ -10,7 +10,7 @@ export class TestContentComponent {
 
   @Input() currentModel: any;
 
-  @Input() countCheckedElements = 0; // for <span> element
+  @Input() countCheckedElements = 0;
 
   @Input() maxCountCheckedElements = 5;
 
@@ -19,6 +19,8 @@ export class TestContentComponent {
   @Output() onSend = new EventEmitter();
 
   @Output() onChoose = new EventEmitter();
+
+  isPictureOpened = false;
 
   saveComment(e) {
     console.log("[test-content b] ", e.value);
@@ -37,14 +39,7 @@ export class TestContentComponent {
     this.onChoose.emit(this.currentModel);
   }
 
-  checkParams(comment) {
-    // button check
-  }
-
-  //open close picture (resize)
-  isPictureOpened = false;
-
-  openClosePicture() {
+  changeScreenMode() {
     this.isPictureOpened = !this.isPictureOpened
   }
 

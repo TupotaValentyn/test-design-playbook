@@ -1,35 +1,22 @@
-<!--<mat-card class="thumbnail__wrapper">-->
-<!--<div class="thumbnail__image__wrapper">-->
-<!--<mat-card-content>-->
-<!--<img class="thumbnail__image" src="{{model.url}}" alt="title">-->
-<!--</mat-card-content>-->
-<!--<mat-card-subtitle>-->
-<!--<div class="thumbnail__index">-->
-<!--<span>{{ index }}</span>-->
-<!--</div>-->
-<!--Короткий опис зображення-->
-<!--</mat-card-subtitle>-->
-<!--<mat-checkbox [(ngModel)]="model.mark" class="thumbnail__checkbox"></mat-checkbox>-->
-<!--</div>-->
-<!--</mat-card>-->
-<mat-card class="example-card">
+<mat-card class="example__card" [class.selected]="currentSelected == model">
+
   <mat-card-header>
-    <div mat-card-avatar class="header_index">
-      <span class="header_index_inner">{{index}}</span>
+    <div mat-card-avatar class="header__index">
+      <span> {{ index }} </span>
     </div>
-    <mat-card-title>
-      {{model.name}}
-    </mat-card-title>
+    <mat-card-title> {{ model.name }} </mat-card-title>
     <mat-card-subtitle>
       <div *ngIf="model.mark; else empty_text">
-        <span style="color: indianred;">You like it!</span>
+        <span class="like__notification">You like it!</span>
       </div>
       <ng-template #empty_text>
         <br>
       </ng-template>
     </mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="{{model.url}}" alt="{{model.name}}">
+
+  <img mat-card-image src="{{ model.url }}" alt="{{ model.name }}">
+
   <mat-card-actions>
     <div *ngIf="!model.mark; else unset">
       <button mat-button color="primary" (click)="model.mark = true">LIKE</button>
@@ -38,4 +25,5 @@
       <button mat-button color="accent" (click)="model.mark = false">DISLIKE</button>
     </ng-template>
   </mat-card-actions>
+
 </mat-card>

@@ -10,18 +10,10 @@ export class SidebarComponent implements OnInit {
   @Input() models: any;
   @Output() onSelect = new EventEmitter<any>();
 
-  markCoosenThumbnail(e) {
-    console.log();
-  }
-
-  selectedModel
+  selectedModel: any;
 
   ngOnInit() {
     this.selectedModel = this.models[0];
-  }
-
-  isSelectedThumbnail(model) {
-    return this.selectedModel === model;
   }
 
   onSelectElement(model) {
@@ -29,6 +21,5 @@ export class SidebarComponent implements OnInit {
     this.onSelect.emit(model);
     console.log(this.selectedModel)
   }
-
 
 }

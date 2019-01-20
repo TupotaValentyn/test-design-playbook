@@ -10,9 +10,7 @@ import { Subscriber } from 'rxjs';
 
 export class MainContainerComponent implements OnInit {
 
-  constructor (private http: HttpClient) {
-
-  }
+  constructor (private http: HttpClient) { }
 
   currentModel:any = [{
     _id: "",
@@ -50,7 +48,7 @@ export class MainContainerComponent implements OnInit {
     mark: false,
     comment: "",
     name: "Bad template #6"
-  },]
+  }];
   currentSelectedCount: number = 0;
 
   ngOnInit() {
@@ -69,7 +67,7 @@ export class MainContainerComponent implements OnInit {
   testComponentSend() {
     console.log("Sending...");
     this.currentModelLog();
-    const sendData = this.currentModel.filter(e => e.mark)
+    const sendData = this.currentModel.filter(e => e.mark);
     this.http.post('http://localhost:8000/results/save', {
       models: sendData,
       user: {
@@ -91,13 +89,13 @@ export class MainContainerComponent implements OnInit {
   }
 
   sideBarSelect(selectedModel) {
-    console.log(this.currentSelectedCount)
+    console.log(this.currentSelectedCount);
 
-    console.log('[MainContainer]', 'sideBarSelect')
-    this.currentModelLog()
-    this.currentSelectModel = selectedModel
-    console.log(this.currentModel.filter(e => e.mark).length)
-    setTimeout(() => this.currentSelectedCount = this.currentModel.filter(e => e.mark).length, 0)
+    console.log('[MainContainer]', 'sideBarSelect');
+    this.currentModelLog();
+    this.currentSelectModel = selectedModel;
+    console.log(this.currentModel.filter(e => e.mark).length);
+    setTimeout(() => this.currentSelectedCount = this.currentModel.filter(e => e.mark).length, 0);
   }
 
   currentModelLog() {

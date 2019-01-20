@@ -1,16 +1,18 @@
 .main__container {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: stretch;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: stretch;
+  background: #fafafa;
 }
 
 .sidebar__container {
-    width: 20%; 
-    overflow-y: auto;
-    border-right: 1px solid lightgray;
+  flex: 2;
+  overflow-y: auto;
+  border-right: 1px solid lightgray;
+  background: white;
 }
 
 .test__container {
-    width: 80%;
+  flex: 8;
 }

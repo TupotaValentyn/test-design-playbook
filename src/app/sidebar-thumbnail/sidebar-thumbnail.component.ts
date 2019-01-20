@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar-thumbnail',
@@ -11,6 +11,6 @@ export class SidebarThumbnailComponent {
 
   @Input() index: number;
 
-  @Output() onMarkElement = new EventEmitter
+  @Input() currentSelected: any;
 
 }

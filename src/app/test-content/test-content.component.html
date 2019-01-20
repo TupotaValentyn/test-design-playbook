@@ -1,64 +1,65 @@
-<div class="opened__image" [ngStyle]="{display: (isPictureOpened) ? 'block' : 'none'}">
-   <!--<div class="blur"></div>-->
-  <img class="show__image" src="{{ currentModel.url }}" alt="image" />
-  <button (click)="openClosePicture()">X</button>
+<div class="full__screen__content" [ngStyle]="{display: (isPictureOpened) ? 'block' : 'none'}">
+  <img class="full__screen__image" src="{{ currentModel.url }}" alt="image"/>
+  <button (click)="changeScreenMode()">X</button>
 </div>
 
+<div class="container__wrapper">
+  <div class="container">
 
-  <div class="test__content">
-    <div class="content">
-      <div style="display: flex; flex-direction: row; width: 100%">
-        <mat-card style="flex: 1; margin-right: 10px">
-          Всього 23 макети <br>
-          Обрано {{countCheckedElements}}/{{maxCountCheckedElements}}
-          <span *ngIf="countCheckedElements > maxCountCheckedElements" style="color: red">
+    <div class="container__header">
+      <mat-card class="counters">
+        Всього: 23 макети <br>
+        Обрано: {{countCheckedElements}}/{{maxCountCheckedElements}}
+        <span *ngIf="countCheckedElements > maxCountCheckedElements" class="warning__message">
             (обрано забагато елементів)
-          </span>
-        </mat-card>
-
-        <mat-card style="width: 100%; display: flex; flex-direction: row; justify-content: center; align-items: center; flex: 1;">
-          <div>
-            <h3>Завдання:</h3>
-            Обрати {{maxCountCheckedElements}} найкращих макетів з 23 поданих
-          </div>
-          <div style="margin-left: auto">
-            <button
-              mat-raised-button
-              color="accent"
-              routerLink="/finish"
-              (click)="sendAnswers()"
-              [disabled]="countCheckedElements !== 5">
-              Продовжити
-            </button>
-          </div>
-        </mat-card>
-      </div>
-
-      <mat-card class="content__main">
-        <!--<div class="empty"></div>-->
-        <img src="{{ currentModel.url }}" />
-        <div class="main__image__wrapper">
-          <div class="image__size" (click)="openClosePicture()">
-            <img src="../../assets/full-screen.svg" class="image__resize__inner"/>
-          </div>
-          <mat-checkbox class="image__checkbox" [(ngModel)]="currentModel.mark" (click)="chooseImage(checkbox)" #checkbox disabled="true"></mat-checkbox>
-        </div>
+        </span>
       </mat-card>
 
+      <mat-card class="tasks">
+        <div>
+          <h3>Завдання:</h3>
+          Обрати {{maxCountCheckedElements}} найкращих макетів з 23 поданих
+        </div>
+        <button
+          mat-raised-button
+          color="accent"
+          routerLink="/finish"
+          (click)="sendAnswers()"
+          [disabled]="countCheckedElements !== 5">
+          Продовжити
+        </button>
+      </mat-card>
+    </div>
 
-      <footer class="content__footer">
-        <mat-form-field class="comment">
+    <mat-card class="main__image__card">
+      <!--<div class="empty"></div>-->
+      <img src="{{ currentModel.url }}"/>
+      <div class="main__image__wrapper">
+        <div class="full__screen__button" (click)="changeScreenMode()">
+          <img src="../../assets/full-screen.svg" class="full__screen__image__inner"/>
+        </div>
+        <mat-checkbox
+          class="image__status__checkbox"
+          [(ngModel)]="currentModel.mark"
+          (click)="chooseImage(checkbox)"
+          #checkbox
+          disabled="true">
+        </mat-checkbox>
+      </div>
+    </mat-card>
+
+    <footer class="footer">
+      <mat-form-field class="comment">
           <textarea
             matInput
             placeholder="Leave comment about this image"
-            class="comment"
-            (ngModelChange)="checkParams($event)"
             #comment
+            class="comment"
             [(ngModel)]="currentModel.comment">
           </textarea>
-        </mat-form-field>
-        <!-- <button class="button__save" (click)="saveComment(comment)" disabled="disabled" #button_save mat-button>Save comment</button> -->
-      </footer>
+      </mat-form-field>
+      <!-- <button class="button__save" (click)="saveComment(comment)" disabled="disabled" #button_save mat-button>Save comment</button> -->
+    </footer>
 
-    </div>
   </div>
+</div>

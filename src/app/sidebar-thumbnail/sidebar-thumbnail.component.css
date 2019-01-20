@@ -1,8 +1,8 @@
-.example-card {
+.example__card {
   margin: 10px;
 }
 
-.header_index {
+.header__index {
   border-radius: 50%;
   font-weight: bold;
   background-color: #3e4db8;
@@ -14,75 +14,10 @@
 }
 
 .selected {
-    background: red;
-    color: red;
+  background: #eaebff;
+  transition: 0.2s;
 }
 
-.thumbnail__wrapper {
-    border-bottom: 1px solid  lightgray;
-    padding: 20px 0;
-    transition: all .5s linear;
-    margin: 10px;
+.like__notification {
+  color: indianred;
 }
-
-.thumbnail__wrapper:hover {
-    background-color: rgba(134, 134, 172, 0.2);
-}
-
-.thumbnail__image__wrapper {
-    position: relative;
-    width: 86%;
-    margin: auto;
-}
-
-.thumbnail__image {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    /*border: 1px solid lightgray;*/
-}
-
-.thumbnail__index,
-.thumbnail__checkbox {
-    /*position: absolute;*/
-}
-
-.thumbnail__index {
-    display: flex;
-    width: 35px;
-    height: 35px;
-    /*left: 5%;*/
-    /*bottom: 3%;*/
-    font-size: 2em;
-    font-weight: bold;
-    background-color: #FF9800;
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.thumbnail__index span {
-    margin: auto;
-}
-
-.thumbnail__checkbox {
-    right: 8%;
-    bottom: 8%;
-}
-
-/* sizes of chekcbox */
-::ng-deep .mat-checkbox-inner-container {
-    height: 30px !important;
-    width: 30px !important;
-}
-::ng-deep .mat-checkbox .mat-checkbox-ripple {
-    left: calc(50% - 30px) !important;
-    top: calc(50% - 30px) !important;
-    height: 60px !important;
-    width: 60px !important;
-}
-
-
-
-

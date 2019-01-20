@@ -1,10 +1,11 @@
-.selected {
-    background-color: #e61669 !important;
-    box-sizing: content-box;
-    width: 100%;
+app-sidebar-thumbnail {
+  cursor: pointer;
 }
 
-app-sidebar-thumbnail {
-    cursor: pointer;
+.static__text {
+  margin: 10px;
+  background-color: #fafafa;
+  text-align: center;
 }
+
 
