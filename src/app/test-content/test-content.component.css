@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  clear: both;
 }
 
 .container__header {
@@ -138,7 +139,7 @@ img {
   height: 100vh;
   background: whitesmoke;
   z-index: 1001;
-  width: 79%;
+  width: 79.9%;
 }
 
 /* .blur {
@@ -157,8 +158,8 @@ img {
 
 .full__screen__content div {
   position: absolute;
-  right: 20px;
-  top: 15px;
+  right: 50px;
+  top: 50px;
   cursor: pointer;
   z-index: 102;
   height: 32px;
