@@ -21,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ThxPageComponent } from './thx-page/thx-page.component';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { FullResultContainerComponent } from './full-result-container/full-result-container.component';
+import { ResultItemComponent } from './result-item/result-item.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { FullResultContainerComponent } from './full-result-container/full-resul
     ThxPageComponent,
     TestContentComponent,
     SidebarComponent,
-    FullResultContainerComponent
+    FullResultContainerComponent,
+    ResultItemComponent
   ],
   imports: [
     BrowserModule,
