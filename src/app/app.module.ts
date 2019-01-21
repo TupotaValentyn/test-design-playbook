@@ -20,6 +20,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { ThxPageComponent } from './thx-page/thx-page.component';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { FullResultContainerComponent } from './full-result-container/full-result-container.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
     GetStartedComponent,
     ThxPageComponent,
     TestContentComponent,
-    SidebarComponent
+    SidebarComponent,
+    FullResultContainerComponent
   ],
   imports: [
     BrowserModule,
