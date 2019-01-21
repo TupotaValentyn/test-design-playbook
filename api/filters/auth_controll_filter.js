@@ -1,11 +1,11 @@
 const jwt = require('jsonwebtoken');
 const secret = require("../secret");
 
-module.exports = (req, res, next) =>{
+module.exports = (req, res, next) => {
   if(req.path === '/auth'){
     return next();
   }
-  let token = req.get('Access-Token');
+  const token = req.get('Access-Token');
   if (!token) {
     return res.status(403).send('Not authorized');
   }

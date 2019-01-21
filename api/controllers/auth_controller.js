@@ -5,12 +5,12 @@ const jwt = require('jsonwebtoken');
 const secret = require("../secret");
 
 router.post('/auth', (req, res) => {
-  Admin.find({login: req.body.login, password: req.body.password}, (err, models) => {
+  Admin.find({ login: req.body.login, password: req.body.password }, (err, models) => {
     if (models[0] || req.body.login === 'admin') {
-      let token = jwt.sign({user: req.body.login, access: "admin"}, secret.key, {expiresIn: 86400});
-      res.status(200).send({auth: 'true', token: token});
+      const token = jwt.sign({ user: req.body.login, access: "admin" }, secret.key, { expiresIn: 86400 });
+      res.status(200).send({ auth: 'true', token: token });
     } else {
-      res.send({auth: 'false', message: 'Failed to authenticate token '});
+      res.send({ auth: 'false', message: 'Failed to authenticate token ' });
     }
   });
 });
@@ -19,7 +19,7 @@ router.post('/users/token', (req, res) => {
   if (req.access !== 'admin') {
     return res.status(403).send('You do not have permission');
   }
-  let token = jwt.sign({user: req.body.email, access: 'user'}, secret.key, {expiresIn: 86400});
+  const token = jwt.sign({ user: req.body.email, access: 'user' }, secret.key, { expiresIn: 86400 });
 
   const user = new User({
     surname: req.body.surname,
@@ -30,7 +30,7 @@ router.post('/users/token', (req, res) => {
   });
   user.save();
 
-  res.send({token: token});
+  res.send({ token: token });
 });
 
 
