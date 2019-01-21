@@ -1,0 +1,46 @@
+.wrapper {
+  background-image: url('../../assets/get-started-background.jpg');
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  /* font-size: 20px; */
+}
+
+/* default fz is too small */
+
+/* mat-toolbar {
+  font-size: 30px;
+} */
+
+/* button {
+  font-size: 20px;
+} */
+
+mat-card {
+  margin: auto;
+  width: 90%;
+  max-width: 500px;
+  height: 300px;
+  display: flex;
+  align-items: stretch;
+}
+
+.example-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.example-form > * {
+  width: 100%;
+}
+
+.example-form > mat-form-field:nth-of-type(2) mat-icon {
+  cursor: pointer !important;
+}
+
+
+

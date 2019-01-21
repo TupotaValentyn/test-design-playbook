@@ -10,7 +10,8 @@
 }
 
 .card {
-  width: 500px;
+  width: 90%;
+  max-width: 500px;
   height: 300px;
   display: flex;
   flex-direction: column;

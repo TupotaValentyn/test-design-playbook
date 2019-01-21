@@ -11,6 +11,7 @@ import { MainContainerComponent } from './main-container/main-container.componen
 import { SidebarThumbnailComponent } from './sidebar-thumbnail/sidebar-thumbnail.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TestContentComponent } from './test-content/test-content.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 // material modules
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +21,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { ThxPageComponent } from './thx-page/thx-page.component';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -30,7 +33,8 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
     GetStartedComponent,
     ThxPageComponent,
     TestContentComponent,
-    SidebarComponent
+    SidebarComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,9 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
     FormsModule,
     HttpClientModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatToolbarModule,
+    MatIconModule
 
   ],
   providers: [],
