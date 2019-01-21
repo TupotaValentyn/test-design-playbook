@@ -19,8 +19,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { ThxPageComponent } from './thx-page/thx-page.component';
-import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatToolbarModule, MatIconModule, MatListModule } from '@angular/material';
+import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
+import { MatMenuModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
     GetStartedComponent,
     ThxPageComponent,
     TestContentComponent,
-    SidebarComponent
+    SidebarComponent,
+    AdminNavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,14 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
     FormsModule,
     HttpClientModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+
+    MatMenuModule,
+    MatIconModule
 
   ],
   providers: [],
