@@ -4,7 +4,6 @@
 
 .container__header {
   display: flex;
-  flex-direction: row;
   width: 100%;
 }
 
@@ -19,7 +18,6 @@
 
 .tasks {
   display: flex;
-  flex-direction: row;
   flex: 1;
   justify-content: space-between;
 }
@@ -36,6 +34,7 @@
   align-items: center;
   justify-content: center;
   display: flex;
+  width: 100%;
 }
 
 h3 {
@@ -43,23 +42,37 @@ h3 {
 }
 
 .main__image__card {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0;
   width: 100%;
   height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  /*background-size: cover;*/
-  /*position: relative;*/
+}
+
+.empty__wrapper {
+  background: transparent;
+  z-index: 5;
+  position: absolute;
+  border: 12px solid #fafafa;
+  top: 3px; left: 3px;
+  bottom: 3px; right: 3px;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
 }
 
 .empty {
   position: absolute;
-  display: flex;
-  filter: blur(5px) grayscale(50%);
-  width: 96%;
-  height: 95%;
+  z-index: 4;
+  /* display: flex; */
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  filter: blur(3px) grayscale(50%);
+  /* background: url('../../assets/models/Colorful-5.jpg'); */
+  background-size: cover;
+  top: 10px; left: 10px;
+  bottom: 10px; right: 10px;
+  border-radius: 5px; 
 }
 
 .main__image__wrapper {
@@ -68,7 +81,6 @@ h3 {
   width: 100%;
   height: 75px;
   display: flex;
-  flex-direction: row;
   align-items: center;
 }
 
@@ -88,23 +100,20 @@ img {
   cursor: pointer;
   z-index: 1000;
   position: absolute;
-  left: 1%;
   width: 50px;
 }
 
 .full__screen__image__inner {
   width: 30px;
   height: 30px;
-  transition: 0.2s;
-  opacity: 0.5;
-  filter: alpha(opacity=50);
+  transition: .2s;
+  opacity: .5;
 }
 
 .full__screen__image__inner:hover {
   width: 40px;
   height: 40px;
   opacity: 1;
-  filter: alpha(opacity=100);
 }
 
 .image__status__checkbox {
@@ -113,7 +122,6 @@ img {
   position: absolute;
   height: 20px;
   z-index: 999;
-  top: calc(50% - 10px);
 }
 
 .footer {
@@ -127,10 +135,10 @@ img {
 /* classes for big picture */
 .full__screen__content {
   position: absolute;
-  width: calc(100vw - 20% - 5px);
   height: 100vh;
-  background-color: black;
+  background: whitesmoke;
   z-index: 1001;
+  /* width: 79%; */
 }
 
 /* .blur {
@@ -149,8 +157,8 @@ img {
 
 .full__screen__content div {
   position: absolute;
-  right: 2%;
-  top: 3%;
+  right: 20px;
+  top: 15px;
   cursor: pointer;
   z-index: 102;
   height: 32px;

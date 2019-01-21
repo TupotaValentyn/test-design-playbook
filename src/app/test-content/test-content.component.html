@@ -34,19 +34,21 @@
     </div>
 
     <mat-card class="main__image__card">
-      <!--<div class="empty"></div>-->
+      <div class="empty__wrapper"></div>
+      <div class="empty" [ngStyle]="{'background': 'url(' + currentModel.url + ')'}"></div>
+      
       <img src="{{ currentModel.url }}"/>
       <div class="main__image__wrapper">
         <div class="full__screen__button" (click)="changeScreenMode()">
           <img src="../../assets/full-screen.svg" class="full__screen__image__inner"/>
         </div>
-        <mat-checkbox
+        <!-- <mat-checkbox
           class="image__status__checkbox"
           [(ngModel)]="currentModel.mark"
           (click)="chooseImage(checkbox)"
           #checkbox
           disabled="true">
-        </mat-checkbox>
+        </mat-checkbox> -->
       </div>
     </mat-card>
 
