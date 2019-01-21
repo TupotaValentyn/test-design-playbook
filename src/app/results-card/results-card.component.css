@@ -1,8 +1,13 @@
+.card__wrapper {
+  display: flex;
+}
+
 mat-card {
   display: flex;
   width: fit-content;
   height: fit-content;
-  align-items: center;  
+  align-items: center;
+  margin: 10px 0;
 }
 
 .wrapper {

@@ -1,4 +1,4 @@
-<div *ngFor="let card of mainData; index as index">
+<div class="card__wrapper" *ngFor="let card of mainData; index as index">
   <app-results-card 
     [childData]="card" 
     [index]="index + 1"
