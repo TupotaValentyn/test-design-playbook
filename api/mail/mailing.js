@@ -1,24 +1,22 @@
-var Mailgun = require('mailgun-js');
+const Mailgun = require('mailgun-js');
 
-var api_key = '905b6d8793aa95dae52d5c62e5931962-2d27312c-d3893eba';
-var domain = 'sandboxb98f54e9299c4c9cb51f00c87e5c4804.mailgun.org';
-var from_who = 'postmaster@sandboxb98f54e9299c4c9cb51f00c87e5c4804.mailgun.org';//'test-design-playbook@protonmail.com';
+const API_KEY = '905b6d8793aa95dae52d5c62e5931962-2d27312c-d3893eba';
+const DOMAIN = 'sandboxb98f54e9299c4c9cb51f00c87e5c4804.mailgun.org';
+const FROM_WHO = 'postmaster@sandboxb98f54e9299c4c9cb51f00c87e5c4804.mailgun.org';//'test-design-playbook@protonmail.com';
 
-function sendMail (email, subject, text){
-    var mailgun = new Mailgun({apiKey: api_key, domain: domain});
-    var data = {
-        from: from_who,
+module.exports = function (email, subject, text) {
+    const mailgun = new Mailgun({apiKey: API_KEY, domain: DOMAIN});
+    const data = {
+        from: FROM_WHO,
         to: email,
         subject: subject,
         text: text
     };
     mailgun.messages().send(data, function (error, body) {
         if (error) {
-            console.log("Not sending mail. ", error);
+            throw error ;
         } else {
-            console.log(body);
+            return body;
         }
       });
-}
-
-module.exports = sendMail;
+};
