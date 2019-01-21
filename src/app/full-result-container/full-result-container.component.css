@@ -1,0 +1,42 @@
+.full__result__container {
+    border: 2px solid black;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    overflow-y: scroll;
+
+    width: 100%;
+}
+
+.result__title {
+    color: blue;
+    font-size: 14px;
+}
+
+.result__value {
+    color: blue;
+    text-decoration: underline;
+}
+
+.results__container {
+    border: 2px solid black;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    
+    width: 100%;
+}
+
+.result__item__container {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+}

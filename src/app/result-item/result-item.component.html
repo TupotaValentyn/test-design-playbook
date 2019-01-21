@@ -1,3 +1,12 @@
-<p>
-  result-item works!
-</p>
+<div class="result__item__container">
+  <div class="result__image__block">
+    <img class="result__image" src="{{item.url}}" />
+  </div>
+
+  <div class="result__information__block">
+    <h3 class="result__title"># <span class="result__value">{{index}}</span></h3>
+    <h3 class="result__title">Name of image: <span class="result__value">{{item.name}}</span></h3>
+    <h3 class="result__title">Mark: <span class="result__value">{{item.mark}}</span></h3>
+    <h3 class="result__title">Comment to image: <span class="result__value">{{item.comment}}</span></h3>
+  </div>
+</div>

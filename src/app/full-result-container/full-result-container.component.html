@@ -1,3 +1,14 @@
-<p>
-  full-result-container works!
-</p>
+<div class="full__result__container">
+  <h3 class="result__title">Surname: <span class="result__value">{{resultItem.surname}}</span></h3>
+  <h3 class="result__title">Name: <span class="result__value">{{resultItem.name}}</span></h3>
+  <h3 class="result__title">Second name: <span class="result__value">{{resultItem.secondName}}</span></h3>
+  <h3 class="result__title">E-mail: <span class="result__value">{{resultItem.email}}</span></h3>
+
+  <h3 class="result__title">Count of answers: <span class="result__value">{{resultItem.answers}}</span> of <span class="result__value">{{resultItem.maxCountAnswers}}</span></h3>
+
+  <div class="results__container">
+    <app-result-item class="result__item__container" *ngFor="let item of resultItem.results; let i = index" [item]="item"
+      [index]="i"></app-result-item>
+  </div>
+
+</div>
