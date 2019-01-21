@@ -23,6 +23,7 @@ import { ThxPageComponent } from './thx-page/thx-page.component';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import { AdminPanelLinkComponent } from './admin-panel-link/admin-panel-link.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {MatIconModule} from '@angular/material/icon';
     ThxPageComponent,
     TestContentComponent,
     SidebarComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    AdminPanelLinkComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,31 @@
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.side__bar {
+    flex-grow: 1;
+    background-color: lightgray;
+}
+
+.main__content {
+    flex-grow: 5;
+}
+
+.example-form {
+    width: 40%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .example-form > * {
+    width: 100%;
+  }
+
+  .buttons__panel {
+      width: 50% !important;
+      border: 1px solid red;
+  }
