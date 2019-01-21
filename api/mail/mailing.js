@@ -10,7 +10,7 @@ function sendMail (email, subject, text){
         from: from_who,
         to: email,
         subject: subject,
-        html: text
+        text: text
     };
     mailgun.messages().send(data, function (error, body) {
         if (error) {
@@ -18,7 +18,6 @@ function sendMail (email, subject, text){
         } else {
             console.log(body);
         }
-        console.log(body, error);
       });
 }
 
