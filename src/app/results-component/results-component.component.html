@@ -1,3 +1,8 @@
-<app-results-card [childData]="mainData">
+<div *ngFor="let card of mainData; index as index">
+  <app-results-card 
+    [childData]="card" 
+    [index]="index + 1"
+  >
 
-</app-results-card>
+  </app-results-card>
+</div>
