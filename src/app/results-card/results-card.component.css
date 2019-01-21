@@ -1,0 +1,46 @@
+mat-card {
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  align-items: center;  
+}
+
+.wrapper {
+  display: flex;
+  height: calc(100% + 500px);
+}
+
+.info__group {
+  display: flex;
+}
+
+.info__group.number {
+  margin: 0 20px;
+  border-right: 1px solid red;
+  padding: 10px;
+}
+
+.info__number {
+  height: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0 10px;
+}
+
+.button__containet {
+  margin: 0 10px;
+}
+
+.btn {
+  margin: 5px 0;
+  display: block;
+  width: 80px;
+}
+
+.info {
+  cursor: pointer;
+}

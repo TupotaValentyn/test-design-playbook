@@ -1,0 +1,38 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-results-component',
+  templateUrl: './results-component.component.html',
+  styleUrls: ['./results-component.component.css']
+})
+export class ResultsComponentComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+
+  }
+
+  mainData = [
+    {
+      commentExternal: 'external - comment',
+      surname: 'tupota',
+      firstname: 'valintin',
+      secondname: 'uriyovich',
+      answers: 2,
+      maxAnswers: 5,
+      results: [
+        {
+          url: 'img.jpg',
+          commentInto: 'some comment',
+          mark: false,
+          name: 'Some full-name'
+        }
+      ]
+    }
+  ]
+
+
+
+
+}
