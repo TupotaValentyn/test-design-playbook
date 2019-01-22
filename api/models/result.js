@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const result = mongoose.Schema({
   models: Array,
-  user: Object
+  token: String
 });
 
 result.virtual('mark').get(() => {

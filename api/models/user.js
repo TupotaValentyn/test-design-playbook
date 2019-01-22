@@ -5,7 +5,15 @@ const user = mongoose.Schema({
   name: String,
   second_name: String,
   email: String,
-  token: String
+  token: String,
+  status: {
+    type: String,
+    default: 'Is solved'
+  },
+  created: {
+    type: Date,
+    default: Date()
+  }
 });
 
 const User = mongoose.model('users', user);
