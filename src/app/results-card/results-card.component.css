@@ -1,4 +1,4 @@
-mat-card, .info__number, .card__wrapper, .wrapper, .info__group, .content, .button__containet {
+mat-card, .card__wrapper, .wrapper, .info__group, .content, .button__containet {
   display: flex;
 }
 
@@ -19,7 +19,7 @@ mat-card {
   margin: 0 20px;
 }
 
-mat-card, .info__number, .button__containet {
+mat-card, .button__containet {
   align-items: center;
 }
 
@@ -38,4 +38,10 @@ mat-card, .info__number, .button__containet {
 
 .info {
   cursor: pointer;
+}
+
+.info__number {
+  white-space: pre;
+  width: 60px;
+  text-align: right; 
 }
