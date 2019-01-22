@@ -9,10 +9,7 @@ router.post('/results/save', async (req, res) => {
   const models = req.body.models;
   const token = req.token;
 
-  let idArray = [];
-  models.forEach((item) => {
-    idArray.push(mongoose.Types.ObjectId(item._id));
-  });
+  const idArray = models.map(item => mongoose.Types.ObjectId(item._id));
 
   Model
     .find({ '_id': { $in: idArray } })
@@ -40,27 +37,3 @@ router.post('/results/save', async (req, res) => {
 console.log('[Result Controller]', 'load routes');
 
 module.exports = router;
-
-/*
-  let idArray = [];
-  models.forEach((item) => {
-    idArray.push(mongoose.Types.ObjectId(item._id));
-  });
-
-  Model
-    .find({'_id': {$in: idArray}})
-    .then((modelDocs) => {
-      User
-        .findById(user._id)
-        .then((userDocs) => {
-          const result = new Result({
-            models: modelDocs,
-            user: userDocs
-          });
-          result
-            .save()
-            .then(() => res.json(result))
-            .catch(handleException);
-        }).catch(handleException)
-    }).catch(handleException);
-*/
