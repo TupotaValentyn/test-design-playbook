@@ -5,12 +5,18 @@
 }
 
 .side__bar {
-    flex-grow: 1;
-    background-color: lightgray;
+    width: 20%;
+    background-color: #eeeeee;
+    padding: 0 20px;
+}
+
+.side__bar > mat-card {
+    margin-top: 5px;
+    text-align: center;
 }
 
 .main__content {
-    flex-grow: 3;
+    width: 70%;
 }
 
 .example-form {
@@ -34,3 +40,5 @@ mat-toolbar {
 .buttons__panel button:nth-child(2) {
     margin-left: 5%;
 }
+
+

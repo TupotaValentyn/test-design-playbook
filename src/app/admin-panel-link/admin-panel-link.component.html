@@ -1,6 +1,10 @@
 <div class="wrapper">
   <div class="side__bar">
-    <app-admin-panel-link-info></app-admin-panel-link-info>
+    <mat-card>Active links</mat-card>
+    <app-admin-panel-link-info
+        *ngFor="let userInfoItem of usersDateInforArray"
+        [usersDataItem]="userInfoItem">
+    </app-admin-panel-link-info>
   </div>
 
   <div class="main__content">
@@ -13,15 +17,20 @@
             <input matInput placeholder="Email" required>
             <mat-icon matSuffix>email</mat-icon>
           </mat-form-field>
-        
+          
+          <mat-form-field type="text" class="example-full-width">
+              <input matInput placeholder="Name" required>
+              <mat-icon matSuffix>perm_identity</mat-icon>
+          </mat-form-field>
+
           <mat-form-field type="text" class="example-full-width">
               <input matInput placeholder="Surname" required>
               <mat-icon matSuffix>face</mat-icon>
           </mat-form-field>
 
           <mat-form-field type="text" class="example-full-width">
-              <input matInput placeholder="Name" required>
-              <mat-icon matSuffix>perm_identity</mat-icon>
+            <input matInput placeholder="Second name" required>
+            <mat-icon matSuffix>supervised_user_circle</mat-icon>
           </mat-form-field>
           
           <div class="buttons__panel">

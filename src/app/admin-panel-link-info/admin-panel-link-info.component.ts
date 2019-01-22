@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-admin-panel-link-info',
@@ -11,5 +11,7 @@ export class AdminPanelLinkInfoComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  @Input() usersDataItem: any;
 
 }
