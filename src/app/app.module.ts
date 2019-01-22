@@ -19,10 +19,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { ThxPageComponent } from './thx-page/thx-page.component';
-import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatToolbarModule, MatIconModule, MatListModule } from '@angular/material';
+import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { LayoutModule } from '@angular/cdk/layout';
 import { ResultsPageComponent } from './results-page/results-page.component';
 import { ResultsCardComponent } from './results-card/results-card.component';
 
+import { MatMenuModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { ResultsCardComponent } from './results-card/results-card.component';
     ThxPageComponent,
     TestContentComponent,
     SidebarComponent,
+    AdminNavbarComponent,
     ResultsPageComponent,
     ResultsCardComponent
   ],
@@ -47,7 +51,14 @@ import { ResultsCardComponent } from './results-card/results-card.component';
     FormsModule,
     HttpClientModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+
+    MatMenuModule,
+    MatIconModule
 
   ],
   providers: [],
