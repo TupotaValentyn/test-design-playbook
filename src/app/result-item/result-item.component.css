@@ -1,15 +1,9 @@
 .result__item__container {
-    border: 1px solid black;
-    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-
-    /* background-color: red; */
-    background-color: #fcb9b5;
-
-    width: 100%;
+    align-items: flex-start;
+    margin: 10px;
 }
 
 .result__image__block {
@@ -18,28 +12,26 @@
 }
 
 .result__information__block {
-    margin: 5px 20px;
     display: flex;
     flex: 4;
     flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
 }
 
 .result__image {
     width: 250px;
     height: 250px;
-    /* border: 1px solid red; */
 }
 
 .result__title {
-    color: blue;
-    font-size: 12px;
+    margin-left: 15px;
 }
 
-.result__value {
-    color: blue;
-    text-decoration: underline;
+.template__index {
+    padding: 10px 15px;
+    background: #3e4db8;
+    color: white;
+    border-radius: 50%;
 }
 
 mat-form-field {
@@ -53,6 +45,19 @@ textarea {
 }
 
 .right {
-    /* background-color: green; */
-    background-color: #a9fc72;
+    color: cadetblue;
+}
+
+.wrong {
+    color: indianred;
+}
+
+.index {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+mat-form-field {
+    width: 100%;
 }

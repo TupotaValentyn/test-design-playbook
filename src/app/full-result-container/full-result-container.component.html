@@ -1,16 +1,77 @@
 <div class="full__result__container">
-  <div class="title__container">
-    <h3 mat-title>User profile</h3>
-    <h3 mat-title class="result__title">{{resultItem.surname}} {{resultItem.name}} {{resultItem.secondName}}</h3>
-    <h3 class="result__title">E-mail: <span class="result__value">{{resultItem.email}}</span></h3>
-    <h3>Created: </h3>
-    <h3>Pass test: </h3>
-    <!-- <h3 class="result__title">Count of answers: <span class="result__value">{{resultItem.answers}}</span> of <span
-        class="result__value">{{resultItem.maxCountAnswers}}</span></h3> -->
+  <div class="sidebar__container">
+    <div>
+      <mat-card class="sidebar__card">
+        <mat-card-header>
+          <mat-card-title>
+            Profile
+          </mat-card-title>
+          <mat-card-subtitle>
+            information about user
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <ul>
+            <li>
+              {{resultItem.surname}} {{resultItem.name}} {{resultItem.secondName}}
+            </li>
+            <mat-divider></mat-divider>
+            <li>
+              E-mail: <a href="mailto:{{resultItem.email}}">{{resultItem.email}}</a>
+            </li>
+            <mat-divider></mat-divider>
+            <li>
+              Created link: <time datetime="2018-01-01 12:00">01/01/2019 12:00</time>
+            </li>
+            <mat-divider></mat-divider>
+            <li>
+              Test pass: <time datetime="2019-01-01 12:00">01/01/2019 12:00</time>
+            </li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="sidebar__card">
+        <mat-card-header>
+          <mat-card-title>
+            Employer feedback
+          </mat-card-title>
+          <mat-card-subtitle>
+            you can leave your feedback about this applicant
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field class="sidebar__textarea">
+            <textarea
+              matInput
+              placeholder="Leave feedback here"
+              style="width: 100%; resize: none"
+              cdkTextareaAutosize
+              cdkAutosizeMinRows="5"
+              cdkAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <mat-card class="sidebar__card">
+      <mat-card-header>
+        <mat-card-title>
+          Tasks information
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        Counts of tasks: 23 <br>
+        Max selected tasks: 5
+      </mat-card-content>
+    </mat-card>
   </div>
 
   <div class="results__container">
-    <app-result-item mat-divider class="result__item__container" *ngFor="let item of resultItem.results; let i = index" [item]="item"
-      [index]="i"></app-result-item>
+    <app-result-item
+      class="result__item__container"
+      *ngFor="let item of resultItem.results; let i = index"
+      [item]="item"
+      [index]="i + 1">
+    </app-result-item>
   </div>
 </div>

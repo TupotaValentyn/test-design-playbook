@@ -22,7 +22,8 @@ import { ThxPageComponent } from './thx-page/thx-page.component';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { FullResultContainerComponent } from './full-result-container/full-result-container.component';
 import { ResultItemComponent } from './result-item/result-item.component';
-
+import { MatDividerModule } from '@angular/material/divider';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -47,8 +48,9 @@ import { ResultItemComponent } from './result-item/result-item.component';
     FormsModule,
     HttpClientModule,
     MatFormFieldModule,
-    MatInputModule
-
+    MatInputModule,
+    MatDividerModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

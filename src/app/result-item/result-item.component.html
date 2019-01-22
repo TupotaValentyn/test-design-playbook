@@ -1,29 +1,37 @@
-<!-- <mat-divider></mat-divider> -->
-<div class="result__item__container" [class.right]="item.mark == item.answer">
-  <div class="result__image__block">
-    <img class="result__image" src="{{item.url}}" />
-  </div>
-
+<mat-card class="result__item__container">
   <div class="result__information__block">
-    <h3 class="result__title"># <span class="result__value">{{index}}</span></h3>
-    <h3 class="result__title"><span class="result__value">{{item.name}}</span></h3>
-    <!-- <h3 class="result__title">Mark: <span class="result__value">{{item.mark}}</span></h3> -->
-    <!-- <h3 class="result__title">Comment to image: <span class="result__value">{{item.comment}}</span></h3> -->
-    <label>{{value}}</label>
-
-    <!-- changed textarea -->
-    <!-- <textarea readonly="readonly">{{item.comment}}</textarea> -->
-
+    <div class="index">
+      <span class="template__index">{{index}}</span>
+      <span class="result__title">{{item.name}}</span>
+    </div>
+    <label
+      *ngIf="item.mark; else applicant_not_like"
+      [class.right]="item.mark == item.answer"
+      [class.wrong]="item.mark != item.answer">
+      Applicant like it!
+    </label>
+    <ng-template #applicant_not_like>
+      <span
+        [class.right]="item.mark == item.answer"
+        [class.wrong]="item.mark != item.answer">
+        Applicant not like it!
+      </span>
+    </ng-template>
     <mat-form-field>
       <mat-label>User comment</mat-label>
       <textarea matInput
                 cdkTextareaAutosize
-                #autosize="cdkTextareaAutosize"
-                cdkAutosizeMinRows="1"
+                cdkAutosizeMinRows="3"
                 cdkAutosizeMaxRows="5"
                 readonly="readonly">{{item.comment}}</textarea>
     </mat-form-field>
   </div>
-</div>
+
+  <div class="result__image__block">
+    <img
+      class="result__image"
+      src="{{item.url}}"/>
+  </div>
+</mat-card>
 
 <!-- <hr> -->

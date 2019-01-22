@@ -11,66 +11,45 @@ export class FullResultContainerComponent {
 
   constructor() {
     this.resultItem = {
-      surname: "TestSurname",
-      name: "TestName",
-      secondName: "TestSecondName",
-      email: "TestEmail",
+      surname: "Surname",
+      name: "Name",
+      secondName: "Second name",
+      email: "example@example.com",
       answers: 2,
       maxCountAnswers: 5,
       results: [{
         url: "../assets/models/good_template_1.svg",
-        comment: "some commentar about template",
+        comment: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n" +
+          "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n" +
+          "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n" +
+          "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n" +
+          "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n" +
+          "proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         mark: true,
         answer: true,
         name: "Good template #1"
       },{
         url: "../../assets/models/Colorful-5.jpg",
-        comment: "like!",
+        comment: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n" +
+          "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n" +
+          "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n" +
+          "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n" +
+          "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n" +
+          "proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         mark: true,
         answer: false,
         name: "Bad template #2"
       },{
         url: "../../assets/models/bad_template_3.svg",
-        comment: "so bad...",
+        comment: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\n" +
+          "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\n" +
+          "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\n" +
+          "consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\n" +
+          "cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\n" +
+          "proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         mark: false,
         answer: false,
         name: "Bad template #3"
-      },{
-        url: "../../assets/models/Colorful-1.jpg",
-        mark: false,
-        answer: true,
-        comment: "",
-        name: "Bad template #1"
-      },{
-        url: "../../assets/models/Colorful-5.jpg",
-        mark: false,
-        answer: false,
-        comment: "",
-        name: "Bad template #2"
-      },{
-        url: "../../assets/models/bad_template_3.svg",
-        mark: false,
-        answer: false,
-        comment: "",
-        name: "Bad template #3"
-      },{
-        url: "../../assets/models/bad_template_4.svg",
-        mark: false,
-        answer: false,
-        comment: "",
-        name: "Bad template #4"
-      },{
-        url: "../../assets/models/bad_template_5.svg",
-        mark: false,
-        answer: false,
-        comment: "",
-        name: "Bad template #5"
-      },{
-        url: "../../assets/models/bad_template_6.svg",
-        mark: false,
-        answer: false,
-        comment: "",
-        name: "Bad template #6"
       }]
     }
   }

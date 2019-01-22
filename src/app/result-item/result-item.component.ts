@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-result-item',
@@ -6,18 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./result-item.component.css']
 })
 
-export class ResultItemComponent implements OnInit {
+export class ResultItemComponent {
 
   @Input() index: number;
   @Input() item: any;
-
-  value: string;
-
-  constructor() {
-  }
-
-  ngOnInit() {
-    this.value = this.item.mark ? "User liked it!" : "User disliked it!";
-  }
 
 }
