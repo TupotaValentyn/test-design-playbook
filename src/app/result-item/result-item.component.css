@@ -1,10 +1,13 @@
 .result__item__container {
-    border: 2px solid black;
+    border: 1px solid black;
     
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
+
+    /* background-color: red; */
+    background-color: #fcb9b5;
 
     width: 100%;
 }
@@ -15,6 +18,7 @@
 }
 
 .result__information__block {
+    margin: 5px 20px;
     display: flex;
     flex: 4;
     flex-direction: column;
@@ -25,7 +29,7 @@
 .result__image {
     width: 250px;
     height: 250px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .result__title {
@@ -36,4 +40,15 @@
 .result__value {
     color: blue;
     text-decoration: underline;
+}
+
+textarea {
+    resize: none;
+    width: 100px;
+    height: 100px;
+}
+
+.right {
+    /* background-color: green; */
+    background-color: #a9fc72;
 }

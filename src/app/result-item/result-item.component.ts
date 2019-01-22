@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-result-item',
@@ -6,18 +6,18 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./result-item.component.css']
 })
 
-export class ResultItemComponent {
+export class ResultItemComponent implements OnInit {
 
   @Input() index: number;
   @Input() item: any;
 
+  value: string;
+
   constructor() {
-    // this.item = {
-    //   url: "../assets/models/good_template_1.svg",
-    //   comment: "some commentar about template",
-    //   mark: true,
-    //   name: "Good template #1"
-    // }
+  }
+
+  ngOnInit() {
+    this.value = !this.item.mark ? "User liked it!" : "User disliked it!";
   }
 
 }
