@@ -9,7 +9,7 @@ import { ThxPageComponent } from './thx-page/thx-page.component'
 const routes: Routes = [
   { path: 'main', component: MainContainerComponent },
   { path: '', component: GetStartedComponent },
-  { path: 'finish', component: ThxPageComponent}
+  { path: 'finish', component: ThxPageComponent }
 ];
 
 @NgModule({
