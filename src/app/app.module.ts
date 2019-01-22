@@ -22,6 +22,8 @@ import { ThxPageComponent } from './thx-page/thx-page.component';
 import { MatFormFieldModule, MatInputModule, MatToolbarModule, MatIconModule, MatListModule } from '@angular/material';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { ResultsPageComponent } from './results-page/results-page.component';
+import { ResultsCardComponent } from './results-card/results-card.component';
 
 import { MatMenuModule } from '@angular/material';
 
@@ -34,7 +36,9 @@ import { MatMenuModule } from '@angular/material';
     ThxPageComponent,
     TestContentComponent,
     SidebarComponent,
-    AdminNavbarComponent
+    AdminNavbarComponent,
+    ResultsPageComponent,
+    ResultsCardComponent
   ],
   imports: [
     BrowserModule,
