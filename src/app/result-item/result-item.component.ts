@@ -17,7 +17,7 @@ export class ResultItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.value = !this.item.mark ? "User liked it!" : "User disliked it!";
+    this.value = this.item.mark ? "User liked it!" : "User disliked it!";
   }
 
 }
