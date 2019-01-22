@@ -10,7 +10,7 @@
         <!-- {{ test }} -->
         {{ fullname }}
       </span>
-      <span class="info__rating">
+      <span class="info info__rating">
         Rating :
         <span>
           {{ answer }}
@@ -28,6 +28,11 @@
     </div> -->
   </div>
   <div class="button__containet">
+    <div *ngIf="true">
+      <button class="new__data" mat-stroked-button color="primary">
+        new
+      </button>
+    </div>
     <button class="btn accept"  color="primary" mat-raised-button>
       accept
     </button>

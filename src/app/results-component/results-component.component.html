@@ -1,8 +1,9 @@
-<div class="card__wrapper" *ngFor="let card of mainData; index as index">
-  <app-results-card 
-    [childData]="card" 
-    [index]="index + 1"
-  >
-
-  </app-results-card>
-</div>
+<ol>
+  <li class="card__wrapper" *ngFor="let card of mainData; index as index">
+    <app-results-card 
+      [childData]="card" 
+      [index]="index + 1">
+  
+    </app-results-card>
+  </li>
+</ol>
