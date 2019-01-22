@@ -1,8 +1,8 @@
-mat-card, .card__wrapper, .wrapper, .info__group, .content, .button__containet {
+mat-card, .card__wrapper, .wrapper, .info__group, .content, .button__container{
   display: flex;
 }
 
-.content, .button__containet {
+.content, .button__container {
   margin: 0 10px;
 }
 
@@ -19,7 +19,7 @@ mat-card {
   margin: 0 20px;
 }
 
-mat-card, .button__containet {
+mat-card, .button__container {
   align-items: center;
 }
 
