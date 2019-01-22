@@ -1,0 +1,47 @@
+mat-card, .card__wrapper, .wrapper, .info__group, .content, .button__container{
+  display: flex;
+}
+
+.content, .button__container {
+  margin: 0 10px;
+}
+
+mat-card {
+  width: 900px;
+  height: fit-content;
+  margin: 10px 0;
+  justify-content: space-between;
+}
+
+.info__group.number {
+  padding: 10px;
+  border-right: 1px solid red;
+  margin: 0 20px;
+}
+
+mat-card, .button__container {
+  align-items: center;
+}
+
+.content {
+  flex-direction: column;  
+}
+
+.new__data {
+  margin: 0 20px 0 0;
+}
+
+.btn {
+  width: 80px;
+  margin: 5px;
+}
+
+.info {
+  cursor: pointer;
+}
+
+.info__number {
+  white-space: pre;
+  width: 60px;
+  text-align: right; 
+}
