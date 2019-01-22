@@ -33,7 +33,7 @@ function mailTemplate(title, text) {
             img {
                 width: 80%;
                 padding: 0 38px;
-                margin: 0px auto;
+                pointer-events: none;
             }
             
             div {
@@ -78,7 +78,7 @@ function mailTemplate(title, text) {
         <div class="mail"><img src="https://i.ibb.co/hYtzT1v/logo.png" />
             <p class="mail_welcome_user">${ title }</p>
             <p>${ text }</p>
-            <p class="mail_error_send">Дане повідомлення є конфіденційним. Якщо Ви отримали його помилково проігноруйте. Якщо Ви отримали його знову, напишіть нам на example@email.com.</p>
+            <p class="mail_error_send">Дане повідомлення є конфіденційним. Якщо Ви отримали його помилково проігноруйте. Якщо Ви отримали його повторно, напишіть нам на example@email.com.</p>
         </div>
     </body>
 
@@ -86,9 +86,22 @@ function mailTemplate(title, text) {
 };
 
 module.exports.invite = (user, link) => {
-    return sendMail(user.email, 'Invite link.', mailTemplate(`Привіт, ${ user.surname } ${ user.name }. `, `Наша команда запрошує Вас пройти тестове завдання для можливості влаштуватися на роботу.
-            Для продовження перейдіть за <a class="button_start_test" href="${ link }">посиланням</a>.`))
+    return sendMail(
+        user.email, 
+        'Invite link.', 
+        mailTemplate(
+            `Привіт, ${ user.surname } ${ user.name }. `, 
+            `Наша команда запрошує Вас пройти тестове завдання. Для продовження перейдіть за <a class="button_start_test" href="${ link }">посиланням</a>.`
+        )
+    )
 };
 module.exports.testCompleted = (user) => {
-    return sendMail(user.email, 'Test completed.', mailTemplate('', `Кандидат ${user.surname} ${user.name}, завершив тестування. Результати можна переглянути на нашому сайті.`))
+    return sendMail(
+        user.email, 
+        'Test completed.', 
+        mailTemplate(
+            '', 
+            `Кандидат ${user.surname} ${user.name}, завершив тестування. Результати можна переглянути на нашому сайті.`
+        )
+    )
 };
