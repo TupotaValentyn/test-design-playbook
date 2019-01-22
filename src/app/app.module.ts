@@ -24,6 +24,7 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { AdminPanelLinkComponent } from './admin-panel-link/admin-panel-link.component';
+import { AdminPanelLinkInfoComponent } from './admin-panel-link-info/admin-panel-link-info.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { AdminPanelLinkComponent } from './admin-panel-link/admin-panel-link.com
     TestContentComponent,
     SidebarComponent,
     AdminLoginComponent,
-    AdminPanelLinkComponent
+    AdminPanelLinkComponent,
+    AdminPanelLinkInfoComponent
   ],
   imports: [
     BrowserModule,

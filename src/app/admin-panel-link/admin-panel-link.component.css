@@ -10,22 +10,27 @@
 }
 
 .main__content {
-    flex-grow: 5;
+    flex-grow: 3;
 }
 
 .example-form {
     width: 40%;
+    height: 500px;
     margin-left: 5%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  }
-  
-  .example-form > * {
-    width: 100%;
-  }
+}
 
-  .buttons__panel {
-      width: 50% !important;
-      border: 1px solid red;
-  }
+.example-form,
+mat-toolbar {
+    background-color: white;
+}
+  
+.example-form > * {
+    width: 100%;
+}
+
+.buttons__panel button:nth-child(2) {
+    margin-left: 5%;
+}
