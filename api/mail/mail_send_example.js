@@ -1,4 +1,4 @@
-const {sendMail, invite, test_completed} = require('./mailing');
+const { sendMail, invite, testCompleted } = require('./mailing');
 
 
 // user.email = 'kvsochka@gmail.com';
@@ -15,4 +15,4 @@ user = new User({
 })
 invite(user, 'newTest1.com');
 
-test_completed(user);
+testCompleted(user);

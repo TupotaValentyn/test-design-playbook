@@ -4,7 +4,7 @@ const API_KEY = '905b6d8793aa95dae52d5c62e5931962-2d27312c-d3893eba';
 const DOMAIN = 'sandboxb98f54e9299c4c9cb51f00c87e5c4804.mailgun.org';
 const FROM_WHO = 'postmaster@sandboxb98f54e9299c4c9cb51f00c87e5c4804.mailgun.org';
 
-function sendMail (email, subject, text) {
+function sendMail(email, subject, text) {
     const mailgun = new Mailgun({apiKey: API_KEY, domain: DOMAIN});
     const data = {
         from: FROM_WHO,
@@ -22,7 +22,7 @@ function sendMail (email, subject, text) {
 };
 module.exports.sendMail = sendMail;
 
-function mail_template (title, text) {
+function mailTemplate(title, text) {
     return `<html>
     <head>
         <style>
@@ -86,9 +86,9 @@ function mail_template (title, text) {
 };
 
 module.exports.invite = (user, link) => {
-    return sendMail(user.email, 'Invite link.', mail_template(`Привіт, ${ user.surname } ${ user.name }. `, `Наша команда запрошує Вас пройти тестове завдання для можливості влаштуватися на роботу.
+    return sendMail(user.email, 'Invite link.', mailTemplate(`Привіт, ${ user.surname } ${ user.name }. `, `Наша команда запрошує Вас пройти тестове завдання для можливості влаштуватися на роботу.
             Для продовження перейдіть за <a class="button_start_test" href="${ link }">посиланням</a>.`))
 };
-module.exports.test_completed = (user) => {
-    return sendMail(user.email, 'Test completed.', mail_template('', `Кандидат ${user.surname} ${user.name}, завершив тестування. Результати можна переглянути на нашому сайті.`))
+module.exports.testCompleted = (user) => {
+    return sendMail(user.email, 'Test completed.', mailTemplate('', `Кандидат ${user.surname} ${user.name}, завершив тестування. Результати можна переглянути на нашому сайті.`))
 };
