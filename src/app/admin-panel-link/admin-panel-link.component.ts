@@ -7,8 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AdminPanelLinkComponent {
 
-  constructor() { }
-
   //TEST ARR OF DATE
   usersDateInforArray = [
     {

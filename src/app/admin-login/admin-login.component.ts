@@ -7,8 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AdminLoginComponent {
 
-  constructor() { }
-
   //for password field
   hide = true;
 

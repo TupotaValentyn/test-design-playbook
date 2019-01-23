@@ -23,10 +23,8 @@ export class TestContentComponent {
   isPictureOpened = false;
 
   saveComment(e) {
-    console.log("[test-content b] ", e.value);
-    this.currentModel.comment = e.value;
-    console.log("[test-content a] ", e.value);
-    this.onSaveComment.emit(e.currentModel); 
+    this.currentModel.comment = e.target.value;
+    this.onSaveComment.emit(this.currentModel); 
   }
 
   sendAnswers() {
