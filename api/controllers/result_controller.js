@@ -20,12 +20,12 @@ router.post('/results/save', async (req, res) => {
         models: models,
         token: token
       });
-      result.save().catch(err => throw err)
+      result.save().catch(err => { throw err } )
     })
     .then(() =>
         User
           .findOneAndUpdate({ token: token }, { status: 'Evaluated' })
-          .catch(err => throw err))
+          .catch(err => { throw err }))
     .then(res.send('Saved successfully'))
     .catch((err) => res.status(422).send(err));
 
