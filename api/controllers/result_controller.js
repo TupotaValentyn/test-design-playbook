@@ -32,43 +32,54 @@ router.post('/results/save', (req, res) => {
   const models = req.body.models;
   const token = req.token;
 
-  Result.findOneAndUpdate({ token: token }, { models: models}).catch(err => res.send(err))
-    .then(()=> {
-      User.findOneAndUpdate({ token: token }, { status: 'Evaluated' })
+  Result.findOneAndUpdate({ token: token }, { models: models})
+    .catch(err => res.send(err))
+    .then(() => {
+      User.findOneAndUpdate({ token: token }, { status: User.STATUS_EVALUATED })
         .then(() => {
           res.send('Saved successfully');
         });
     });
 
-
 });
+
+function updateResultToFillingStatus(user, models, token, res) {
+  const result = new Result({
+    user: user,
+    models: models,
+    token: token
+  });
+  result
+    .save()
+    .then(() => {
+      User
+        .findOneAndUpdate({ token: token }, { status: User.STATUS_IS_FILLING })
+        .then(() => {
+          res.send('Updated successfully');
+        });
+    });
+}
+
+function findMoreInfoAboutUser(docs, token, models, res) {
+  if (docs.status === User.STATUS_IS_SOLVED) {
+    User
+      .findOne({ token: token }, { token: 0, _id: 0, status: 0 })
+      .then((user) => {
+        updateResultToFillingStatus(user, models, token, res);
+      });
+  } else {
+    Result.findOneAndUpdate({ token: token }, { models: models }).catch(err => res.send(err));
+  }
+}
 
 router.post('/results/update', (req, res) => {
   const models = req.body.models;
   const token = req.token;
-  User.findOne({ token: token}, { status: 1 })
+  User
+    .findOne({ token: token}, { status: 1 })
     .then((docs) => {
-      if (docs.status === 'Is solved'){
-        User.findOne({ token: token}, { token: 0, _id: 0, status: 0 })
-          .then((user) => {
-            const result = new Result({
-              user: user,
-              models: models,
-              token: token
-            });
-            result.save()
-              .then(()=>{
-                User.findOneAndUpdate({ token: token }, { status: 'Is filling' })
-                  .then(() => {
-                    res.send('Updated successfully');
-                  });
-              });
-          });
-      } else {
-        Result.findOneAndUpdate({ token: token }, { models: models}).catch(err => res.send(err));
-      }
+      findMoreInfoAboutUser(docs, token, models, res);
     })
-
 
 });
 
@@ -76,13 +87,14 @@ router.get('/results/all', (req, res) => {
   if (req.access !== 'admin') {
     return res.status(403).send('You do not have permission');
   }
-  Result.find({}, (err, docs) =>{
-    if (err) {
-      return res.status(500).send(err);
-    }
+  Result
+    .find({}, (err, docs) =>{
+      if (err) {
+        return res.status(500).send(err);
+      }
 
-    res.send(docs);
-  })
+      res.send(docs);
+    })
 });
 console.log('[Result Controller]', 'load routes');
 
