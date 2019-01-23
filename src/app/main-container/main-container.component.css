@@ -1,0 +1,18 @@
+.main__container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background: #fafafa;
+}
+
+.sidebar__container {
+  flex: 2;
+  overflow-y: auto;
+  border-right: 1px solid lightgray;
+  background: white;
+}
+
+.test__container {
+  flex: 8;
+  overflow: hidden;
+}

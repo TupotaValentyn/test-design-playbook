@@ -1,0 +1,16 @@
+<div class="main__container">
+  <app-sidebar 
+    class="sidebar__container" 
+    [models]="currentModel"
+    (onSelect)="sideBarSelect($event)">
+  </app-sidebar>
+
+  <app-test-content
+    class="test__container" 
+    [currentModel]="currentSelectModel"
+    (onSaveComment)="testComponentSave()"
+    (onSend)="testComponentSend()"
+    (onChoose)="testComponentChoose()"
+    [countCheckedElements]="currentSelectedCount">
+  </app-test-content>
+</div>

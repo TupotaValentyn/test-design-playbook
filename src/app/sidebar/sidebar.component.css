@@ -1,0 +1,12 @@
+app-sidebar-thumbnail {
+  cursor: pointer;
+}
+
+.static__text {
+  margin: 10px;
+  background-color: #fafafa;
+  text-align: center;
+  cursor: pointer;
+}
+
+

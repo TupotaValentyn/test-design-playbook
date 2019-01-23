@@ -1,0 +1,23 @@
+.example__card {
+  margin: 10px;
+}
+
+.header__index {
+  border-radius: 50%;
+  font-weight: bold;
+  background-color: #3e4db8;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.selected {
+  background: #eaebff;
+  transition: 0.2s;
+}
+
+.like__notification {
+  color: indianred;
+}

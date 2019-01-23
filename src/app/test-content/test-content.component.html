@@ -1,0 +1,60 @@
+<div class="full__screen__content" [ngStyle]="{display: (isPictureOpened) ? 'block' : 'none'}">
+  <img src="{{ currentModel.url }}" alt="image" class="img"/>
+  <div (click)="changeScreenMode()" class="img__container">
+    <img src="../../assets/cancel.svg" class="img exit__full__screen__image"/>
+  </div>
+</div>
+
+<div class="container__wrapper">
+  <div class="container">
+    <div class="container__header">
+      <mat-card class="counters">
+        Всього: 23 макети <br>
+        Обрано: {{ countCheckedElements }}/{{ maxCountCheckedElements }}
+        <span *ngIf="countCheckedElements > maxCountCheckedElements" class="warning__message">
+            (обрано забагато елементів)
+        </span>
+      </mat-card>
+
+      <mat-card class="tasks">
+        <div>
+          <h3>Завдання:</h3>
+          Обрати {{ maxCountCheckedElements }} найкращих макетів з 23 поданих
+        </div>
+        <button
+          mat-raised-button
+          color="accent"
+          routerLink="/finish"
+          (click)="sendAnswers()"
+          [disabled]="countCheckedElements !== 5">
+          Продовжити
+        </button>
+      </mat-card>
+    </div>
+
+    <mat-card class="main__image__card">
+      <div class="empty__wrapper"></div>
+      <div class="empty" [ngStyle]="{'background': 'url(' + currentModel.url + ')'}"></div>
+      
+      <img src="{{ currentModel.url }}" class="img"/>
+      <div class="main__image__wrapper">
+        <div class="full__screen__button" (click)="changeScreenMode()">
+          <img src="../../assets/full-screen.svg" class="img full__screen__image__inner"/>
+        </div>
+      </div>
+    </mat-card>
+
+    <footer class="footer">
+      <mat-form-field class="comment">
+          <textarea
+            matInput
+            placeholder="Leave comment about this image"
+            #comment
+            class="comment"
+            [(ngModel)]="currentModel.comment">
+          </textarea>
+      </mat-form-field>
+    </footer>
+
+  </div>
+</div>

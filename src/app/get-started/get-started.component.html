@@ -1,8 +1,12 @@
 <div class="wrapper">
   <mat-card class="card">
-    <mat-card-title class="card__name">
-      Привіт, 'Kористувач'
-    </mat-card-title>
+
+    <mat-card-header>
+      <mat-card-title>
+        Привіт, {{userName}}
+      </mat-card-title>
+    </mat-card-header>
+
     <mat-card-content class="card__description">
       У наступному вікні перед Вами буде 23 макети, з яких Вам потрібно обрати 5 найкращих.
       <span>
@@ -10,8 +14,10 @@
       </span>
       Якщо готові, натисніть кнопку 'GET STARTED'.
     </mat-card-content>
+
     <mat-card-actions>
-      <button class="card__button" mat-button> GET STARTED </button>
+      <a color="primary" routerLink="/main" mat-raised-button> GET STARTED </a>
     </mat-card-actions>
+
   </mat-card>
 </div>

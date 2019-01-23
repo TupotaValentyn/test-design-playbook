@@ -1,0 +1,14 @@
+<mat-card class="static__text">
+  Макети для вибору
+</mat-card>
+<app-sidebar-thumbnail *ngFor="let model of models; let index = index"
+                       [model]="model"
+                       [index]="index + 1"
+                       [currentSelected]="selectedModel"
+                       (click)="onSelectElement(model)">
+</app-sidebar-thumbnail>
+<mat-card class="static__text">
+  Завершення списку
+</mat-card>
+
+
