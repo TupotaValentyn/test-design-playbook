@@ -1,0 +1,49 @@
+<app-admin-navbar></app-admin-navbar>
+<div class="wrapper">
+  <div class="side__bar">
+    <mat-card class="sidebar__title">Active links</mat-card>
+    <app-admin-panel-link-info
+        *ngFor="let userInfoItem of usersDateInforArray"
+        [usersDataItem]="userInfoItem">
+    </app-admin-panel-link-info>
+  </div>
+
+  <div class="main__content">
+      <form>
+          <mat-toolbar>
+              <span>Link</span>
+          </mat-toolbar>
+          
+          <mat-form-field type="text">
+            <input matInput placeholder="Email" required>
+            <mat-icon matSuffix>email</mat-icon>
+          </mat-form-field>
+          
+          <mat-form-field type="text">
+              <input matInput placeholder="Name" required>
+              <mat-icon matSuffix>perm_identity</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field type="text">
+              <input matInput placeholder="Surname" required>
+              <mat-icon matSuffix>face</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field type="text">
+            <input matInput placeholder="Second name" required>
+            <mat-icon matSuffix>supervised_user_circle</mat-icon>
+          </mat-form-field>
+          
+          <div>
+            <button mat-raised-button color="primary">GET</button>
+            <button mat-raised-button color="accent" class="send">SEND</button>
+          </div>
+
+          <mat-form-field appearance="outline">
+              <mat-label>User invite link</mat-label>
+              <input matInput placeholder="Try one more time..." readonly>
+              <mat-icon matSuffix>link</mat-icon>
+          </mat-form-field>
+      </form>
+  </div>
+</div>

@@ -51,7 +51,8 @@
             placeholder="Leave comment about this image"
             #comment
             class="comment"
-            [(ngModel)]="currentModel.comment">
+            [(ngModel)]="currentModel.comment"
+            (blur)="saveComment($event)">
           </textarea>
       </mat-form-field>
     </footer>
