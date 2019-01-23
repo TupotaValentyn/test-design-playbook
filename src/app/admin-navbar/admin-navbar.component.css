@@ -1,0 +1,27 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #3f51b5;
+  padding: 10px 10px;
+}
+
+.navbar__icon {
+  height: 30px;
+  width: 30px;
+}
+
+.navbar__links {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.navbar__title {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+a {
+  color: white;
+}

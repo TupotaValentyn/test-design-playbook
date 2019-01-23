@@ -14,11 +14,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // filters
+
 app.use(require('./filters/access_control_filter'));
+app.use(require('./filters/auth_controll_filter'));
 
 console.log('[Server] filters load');
 
 // routes
+app.use('', require('./controllers/auth_controller'));
 app.use('', require('./controllers/result_controller'));
 app.use('', require('./controllers/model_controller'));
 

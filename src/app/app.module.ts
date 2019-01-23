@@ -19,11 +19,17 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { ThxPageComponent } from './thx-page/thx-page.component';
-import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { FullResultContainerComponent } from './full-result-container/full-result-container.component';
 import { ResultItemComponent } from './result-item/result-item.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatFormFieldModule, MatInputModule, MatToolbarModule, MatIconModule, MatListModule } from '@angular/material';
+import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { ResultsPageComponent } from './results-page/results-page.component';
+import { ResultsCardComponent } from './results-card/results-card.component';
+
+import { MatMenuModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -35,7 +41,10 @@ import { MatBadgeModule } from '@angular/material/badge';
     TestContentComponent,
     SidebarComponent,
     FullResultContainerComponent,
-    ResultItemComponent
+    ResultItemComponent,
+    AdminNavbarComponent,
+    ResultsPageComponent,
+    ResultsCardComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +59,12 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatFormFieldModule,
     MatInputModule,
     MatDividerModule,
-    MatBadgeModule
+    MatBadgeModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
