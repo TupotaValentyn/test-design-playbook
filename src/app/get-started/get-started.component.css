@@ -1,8 +1,7 @@
 .wrapper {
-  background-image: url('../../assets/get-started-background.jpg');
   width: 100vw;
   height: 100vh;
-  background-repeat: no-repeat;
+  background: url('../../assets/get-started-background.jpg') no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;
