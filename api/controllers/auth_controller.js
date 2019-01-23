@@ -35,7 +35,7 @@ router.post('/users/token', (req, res) => {
 
 router.post('users/deactivate', (req, res) => {
   const token = req.body.token;
-  User.findOneAndUpdate({ 'token': token }, { 'status': 'deactivated' }, (err) => {
+  User.findOneAndUpdate({ token: token }, { status: 'deactivated' }, (err) => {
     if(err){
       res.status(500).send(err);
     }
