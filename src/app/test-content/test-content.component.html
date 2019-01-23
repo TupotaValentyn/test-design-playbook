@@ -1,7 +1,7 @@
 <div class="full__screen__content" [ngStyle]="{display: (isPictureOpened) ? 'block' : 'none'}">
-  <img src="{{ currentModel.url }}" alt="image"/>
-  <div (click)="changeScreenMode()">
-    <img src="../../assets/cancel.svg" class="exit__full__screen__image"/>
+  <img src="{{ currentModel.url }}" alt="image" class="img"/>
+  <div (click)="changeScreenMode()" class="img__container">
+    <img src="../../assets/cancel.svg" class="img exit__full__screen__image"/>
   </div>
 </div>
 
@@ -36,18 +36,11 @@
       <div class="empty__wrapper"></div>
       <div class="empty" [ngStyle]="{'background': 'url(' + currentModel.url + ')'}"></div>
       
-      <img src="{{ currentModel.url }}"/>
+      <img src="{{ currentModel.url }}" class="img"/>
       <div class="main__image__wrapper">
         <div class="full__screen__button" (click)="changeScreenMode()">
-          <img src="../../assets/full-screen.svg" class="full__screen__image__inner"/>
+          <img src="../../assets/full-screen.svg" class="img full__screen__image__inner"/>
         </div>
-        <!-- <mat-checkbox
-          class="image__status__checkbox"
-          [(ngModel)]="currentModel.mark"
-          (click)="chooseImage(checkbox)"
-          #checkbox
-          disabled="true">
-        </mat-checkbox> -->
       </div>
     </mat-card>
 
@@ -61,7 +54,6 @@
             [(ngModel)]="currentModel.comment">
           </textarea>
       </mat-form-field>
-      <!-- <button class="button__save" (click)="saveComment(comment)" disabled="disabled" #button_save mat-button>Save comment</button> -->
     </footer>
 
   </div>
