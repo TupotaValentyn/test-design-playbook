@@ -19,11 +19,11 @@ function sendMail(email, subject, text) {
             return body;
         }
     });
-};
-module.exports.sendMail = sendMail;
+}
 
 function mailTemplate(title, text) {
-    return `<html>
+    return `
+<html>
     <head>
         <style>
             body {
@@ -83,7 +83,9 @@ function mailTemplate(title, text) {
     </body>
 
     </html>`;
-};
+}
+
+module.exports.sendMail = sendMail;
 
 module.exports.invite = (user, link) => {
     return sendMail(
@@ -95,6 +97,7 @@ module.exports.invite = (user, link) => {
         )
     )
 };
+
 module.exports.testCompleted = (user) => {
     return sendMail(
         user.email, 
