@@ -1,3 +1,9 @@
-<p>
-  Обрано: {{ countCheckedElements }}/{{ maxCountCheckedElements }}
-</p>
+<mat-card class="test__result__table">
+  <div class="count__images">
+    <mat-label>Обрано: {{ countCheckedElements }}/{{ maxCountCheckedElements }}</mat-label>
+  </div>
+
+  <div class="test__result__row">
+    <!-- <test-result-row *ngFor="let item of models; let i = index" [item]="item" [index]="i + 1"></test-result-row> -->
+  </div>
+</mat-card>
