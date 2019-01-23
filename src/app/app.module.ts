@@ -19,6 +19,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { ThxPageComponent } from './thx-page/thx-page.component';
+import { FullResultContainerComponent } from './full-result-container/full-result-container.component';
+import { ResultItemComponent } from './result-item/result-item.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatBadgeModule } from '@angular/material/badge';
 import { MatFormFieldModule, MatInputModule, MatToolbarModule, MatIconModule, MatListModule } from '@angular/material';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -36,6 +40,8 @@ import { MatMenuModule } from '@angular/material';
     ThxPageComponent,
     TestContentComponent,
     SidebarComponent,
+    FullResultContainerComponent,
+    ResultItemComponent,
     AdminNavbarComponent,
     ResultsPageComponent,
     ResultsCardComponent
@@ -52,14 +58,13 @@ import { MatMenuModule } from '@angular/material';
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDividerModule,
+    MatBadgeModule,
     LayoutModule,
     MatToolbarModule,
     MatIconModule,
     MatListModule,
-
-    MatMenuModule,
-    MatIconModule
-
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
