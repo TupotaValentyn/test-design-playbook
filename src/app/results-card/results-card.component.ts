@@ -10,20 +10,20 @@ export class ResultsCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.results = this.childData.results
+    this.results = this.childData.results;
     this.fullname = `
       ${ this.childData.surname } 
       ${ this.childData.firstname } 
       ${ this.childData.secondname }
       `;
-    this.comment = this.childData.comment
-    this.answer = this.childData.answers
-    this.maxAnswer = this.childData.maxAnswers
-
+    this.comment = this.childData.comment;
+    this.answer = this.childData.answers;
+    this.maxAnswer = this.childData.maxAnswers;
   }
 
   @Input() childData: any;
-  @Input() index: any;
+  @Input() index: number;
+
   results: any;
   fullname: string;
   comment: string;
