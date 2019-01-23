@@ -1,8 +1,10 @@
 .navbar {
+  width: 100vw;
   display: flex;
   justify-content: space-between;
   background-color: #3f51b5;
   padding: 10px;
+  box-sizing: border-box;
 }
 
 .navbar__icon {

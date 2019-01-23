@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ usersDataItem.name }} {{ usersDataItem.surname }} {{ usersDataItem.secondName }}</mat-card-title>
+      <mat-card-subtitle>
+          <a href="mailto:{{ usersDataItem.email }}">{{ usersDataItem.email }}</a>
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="info__field">
+        <span class="info">Created:</span>
+        <span>{{ usersDataItem.created | date:"mediumDate" }}</span>
+      </div>
+      <div class="info__field">
+        <span class="info">Expires:</span>
+        <span>{{ usersDataItem.expires | date:"mediumDate" }}</span>
+      </div>
+    </mat-card-content>
+      
+    <mat-card-actions>
+      <button mat-raised-button color="warn">DISABLE</button>
+    </mat-card-actions>
+</mat-card>

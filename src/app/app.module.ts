@@ -11,6 +11,7 @@ import { MainContainerComponent } from './main-container/main-container.componen
 import { SidebarThumbnailComponent } from './sidebar-thumbnail/sidebar-thumbnail.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TestContentComponent } from './test-content/test-content.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 // material modules
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,6 +20,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { ThxPageComponent } from './thx-page/thx-page.component';
+import { AdminPanelLinkComponent } from './admin-panel-link/admin-panel-link.component';
+import { AdminPanelLinkInfoComponent } from './admin-panel-link-info/admin-panel-link-info.component';
 import { FullResultContainerComponent } from './full-result-container/full-result-container.component';
 import { ResultItemComponent } from './result-item/result-item.component';
 import { MatDividerModule } from '@angular/material/divider';
@@ -28,7 +31,6 @@ import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ResultsPageComponent } from './results-page/results-page.component';
 import { ResultsCardComponent } from './results-card/results-card.component';
-
 import { MatMenuModule } from '@angular/material';
 
 @NgModule({
@@ -40,6 +42,9 @@ import { MatMenuModule } from '@angular/material';
     ThxPageComponent,
     TestContentComponent,
     SidebarComponent,
+    AdminLoginComponent,
+    AdminPanelLinkComponent,
+    AdminPanelLinkInfoComponent,
     FullResultContainerComponent,
     ResultItemComponent,
     AdminNavbarComponent,
@@ -58,10 +63,10 @@ import { MatMenuModule } from '@angular/material';
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
+    MatToolbarModule,
     MatDividerModule,
     MatBadgeModule,
     LayoutModule,
-    MatToolbarModule,
     MatIconModule,
     MatListModule,
     MatMenuModule
