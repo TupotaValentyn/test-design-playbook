@@ -1,13 +1,12 @@
 <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title>{{ usersDataItem.name }} {{ usersDataItem.surname }} {{ usersDataItem.secondName }}</mat-card-title>
+      <mat-card-subtitle>
+          <a href="mailto:{{ usersDataItem.email }}">{{ usersDataItem.email }}</a>
+      </mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>
-      <div class="info__field">
-        <span class="info">Email:</span>
-        <a href="mailto:{{ usersDataItem.email }}">{{ usersDataItem.email }}</a>
-      </div>
       <div class="info__field">
         <span class="info">Created:</span>
         <span>{{ usersDataItem.created | date:"mediumDate" }}</span>

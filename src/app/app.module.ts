@@ -25,7 +25,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { AdminPanelLinkComponent } from './admin-panel-link/admin-panel-link.component';
 import { AdminPanelLinkInfoComponent } from './admin-panel-link-info/admin-panel-link-info.component';
-
+import { MatListModule } from '@angular/material';
+import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { ResultsPageComponent } from './results-page/results-page.component';
+import { ResultsCardComponent } from './results-card/results-card.component';
+import { MatMenuModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,10 @@ import { AdminPanelLinkInfoComponent } from './admin-panel-link-info/admin-panel
     SidebarComponent,
     AdminLoginComponent,
     AdminPanelLinkComponent,
-    AdminPanelLinkInfoComponent
+    AdminPanelLinkInfoComponent,
+    AdminNavbarComponent,
+    ResultsPageComponent,
+    ResultsCardComponent
   ],
   imports: [
     BrowserModule,
@@ -53,8 +61,12 @@ import { AdminPanelLinkInfoComponent } from './admin-panel-link-info/admin-panel
     MatFormFieldModule,
     MatInputModule,
     MatToolbarModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+    MatMenuModule,
     MatIconModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

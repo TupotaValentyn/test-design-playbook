@@ -6,13 +6,18 @@ mat-card {
     margin-top: 15px;
 }
 
+mat-card-subtitle a {
+    font-size: 12px;
+    text-decoration: none;
+}
+
 mat-card-actions {
     display: flex;
     justify-content: flex-end;
 }
 
 .info__field {
-    height: 20px;
+    height: 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

@@ -38,6 +38,38 @@ export class AdminPanelLinkComponent implements OnInit {
       email: 'smthverylognemail@ukr.net',
       created: new Date(),
       expires: new Date()
+    },
+    {
+      name: 'Boris',
+      surname: 'Dmitrovich',
+      secondName: 'Vorobeev',
+      email: 'smthverylognemail@ukr.net',
+      created: new Date(),
+      expires: new Date()
+    },
+    {
+      name: 'Boris',
+      surname: 'Dmitrovich',
+      secondName: 'Vorobeev',
+      email: 'smthverylognemail@ukr.net',
+      created: new Date(),
+      expires: new Date()
+    },
+    {
+      name: 'Boris',
+      surname: 'Dmitrovich',
+      secondName: 'Vorobeev',
+      email: 'smthverylognemail@ukr.net',
+      created: new Date(),
+      expires: new Date()
+    },
+    {
+      name: 'Boris',
+      surname: 'Dmitrovich',
+      secondName: 'Vorobeev',
+      email: 'smthverylognemail@ukr.net',
+      created: new Date(),
+      expires: new Date()
     }
   ];
 }
