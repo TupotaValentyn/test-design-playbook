@@ -12,6 +12,9 @@ import { SidebarThumbnailComponent } from './sidebar-thumbnail/sidebar-thumbnail
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TestContentComponent } from './test-content/test-content.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { FullResultContainerComponent } from './full-result-container/full-result-container.component';
+import { AdminPanelLinkComponent } from './admin-panel-link/admin-panel-link.component';
+import { AdminPanelLinkInfoComponent } from './admin-panel-link-info/admin-panel-link-info.component';
 
 // material modules
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,9 +23,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { ThxPageComponent } from './thx-page/thx-page.component';
-import { AdminPanelLinkComponent } from './admin-panel-link/admin-panel-link.component';
-import { AdminPanelLinkInfoComponent } from './admin-panel-link-info/admin-panel-link-info.component';
-import { FullResultContainerComponent } from './full-result-container/full-result-container.component';
 import { ResultItemComponent } from './result-item/result-item.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -63,10 +63,10 @@ import { MatMenuModule } from '@angular/material';
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
-    MatToolbarModule,
     MatDividerModule,
     MatBadgeModule,
     LayoutModule,
+    MatToolbarModule,
     MatIconModule,
     MatListModule,
     MatMenuModule
