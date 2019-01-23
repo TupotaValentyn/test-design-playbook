@@ -64,6 +64,8 @@ export class MainContainerComponent implements OnInit {
 
   currentSelectModel = this.currentModel[0];
 
+
+  //saving data to the local storage (used in checkbox's and saveComment functions)
   saveUserTestResult() {
     console.log('IMAGE CHOOSEN', this.currentModel);
     // localStorage.setItem('savedTestResults', JSON.stringify(this.currentModel));

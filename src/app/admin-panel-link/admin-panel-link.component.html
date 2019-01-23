@@ -1,7 +1,7 @@
 <app-admin-navbar></app-admin-navbar>
 <div class="wrapper">
   <div class="side__bar">
-    <mat-card>Active links</mat-card>
+    <mat-card class="sidebar__title">Active links</mat-card>
     <app-admin-panel-link-info
         *ngFor="let userInfoItem of usersDateInforArray"
         [usersDataItem]="userInfoItem">
@@ -34,9 +34,9 @@
             <mat-icon matSuffix>supervised_user_circle</mat-icon>
           </mat-form-field>
           
-          <div class="buttons__panel">
+          <div>
             <button mat-raised-button color="primary">GET</button>
-            <button mat-raised-button color="accent">SEND</button>
+            <button mat-raised-button color="accent" class="send">SEND</button>
           </div>
 
           <mat-form-field appearance="outline">

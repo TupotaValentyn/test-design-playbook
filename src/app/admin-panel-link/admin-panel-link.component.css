@@ -13,7 +13,7 @@
     overflow-y: auto;
 }
 
-.side__bar > mat-card {
+.sidebar__title {
     margin-top: 10px;
     text-align: center;
 }
@@ -23,9 +23,9 @@
 }
 
 form {
-    width: 40%;
+    width: 300px;
     height: 500px;
-    margin-left: 5%;
+    margin-left: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -37,8 +37,8 @@ mat-toolbar {
     width: 380px;
 }
   
-.buttons__panel button:nth-child(2) {
-    margin-left: 5%;
+.send {
+    margin-left: 10px;
 }
 
 
