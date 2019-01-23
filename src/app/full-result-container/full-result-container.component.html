@@ -11,23 +11,16 @@
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          <ul>
-            <li>
-              {{ resultItem.surname }} {{ resultItem.name }} {{ resultItem.secondName }}
-            </li>
+          <mat-list>
             <mat-divider></mat-divider>
-            <li>
-              E-mail: <a href="mailto:{{resultItem.email}}">{{ resultItem.email }}</a>
-            </li>
+            <mat-list-item>{{ resultItem.surname }} {{ resultItem.name }} {{ resultItem.secondName }}</mat-list-item>
             <mat-divider></mat-divider>
-            <li>
-              Created link: <time datetime="2018-01-01 12:00">01/01/2019 12:00</time>
-            </li>
+            <mat-list-item>E-mail: <a href="mailto:{{resultItem.email}}">{{ resultItem.email }}</a></mat-list-item>
             <mat-divider></mat-divider>
-            <li>
-              Test pass: <time datetime="2019-01-01 12:00">01/01/2019 12:00</time>
-            </li>
-          </ul>
+            <mat-list-item>Created link: <time datetime="2018-01-01 12:00">01/01/2019 12:00</time></mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Test pass: <time datetime="2019-01-01 12:00">01/01/2019 12:00</time></mat-list-item>
+          </mat-list>
         </mat-card-content>
       </mat-card>
       <mat-card class="sidebar__card">
@@ -41,11 +34,7 @@
         </mat-card-header>
         <mat-card-content>
           <mat-form-field class="sidebar__textarea">
-            <textarea
-              matInput
-              placeholder="Leave feedback here"
-              cdkTextareaAutosize
-              cdkAutosizeMinRows="5"
+            <textarea matInput placeholder="Leave feedback here" cdkTextareaAutosize cdkAutosizeMinRows="5"
               cdkAutosizeMaxRows="5"></textarea>
           </mat-form-field>
         </mat-card-content>
@@ -66,10 +55,7 @@
   </div>
 
   <div class="results__container">
-    <app-result-item
-      class="result__item__container"
-      *ngFor="let item of resultItem.results; let i = index"
-      [item]="item"
+    <app-result-item class="result__item__container" *ngFor="let item of resultItem.results; let i = index" [item]="item"
       [index]="i + 1">
     </app-result-item>
   </div>
