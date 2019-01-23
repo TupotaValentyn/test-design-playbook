@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-test-result-row',
@@ -7,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestResultRowComponent implements OnInit {
 
-  constructor() { }
+  @Input() item: any;
+  @Input() index: number;
+
+  constructor() {
+    this.index = 1;
+    this.item = {
+      url: "",
+      mark: true,
+      comment: "Good!"
+    };
+  }
 
   ngOnInit() {
   }

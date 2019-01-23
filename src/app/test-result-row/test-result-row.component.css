@@ -1,0 +1,25 @@
+.test__result__row {
+    display: flex;
+}
+
+.image__block {
+    display: flex;
+    /**/
+}
+
+.information__block {
+    display: flex;
+    flex-direction: column;
+}
+
+.test__index {
+    /**/
+}
+
+.answer__label {
+    /**/
+}
+
+.comment__field {
+    /**/
+}
