@@ -10,7 +10,7 @@
     <div class="container__header">
       <mat-card class="counters">
         Всього: 23 макети <br>
-        Обрано: {{countCheckedElements}}/{{maxCountCheckedElements}}
+        Обрано: {{ countCheckedElements }}/{{ maxCountCheckedElements }}
         <span *ngIf="countCheckedElements > maxCountCheckedElements" class="warning__message">
             (обрано забагато елементів)
         </span>
@@ -19,7 +19,7 @@
       <mat-card class="tasks">
         <div>
           <h3>Завдання:</h3>
-          Обрати {{maxCountCheckedElements}} найкращих макетів з 23 поданих
+          Обрати {{ maxCountCheckedElements }} найкращих макетів з 23 поданих
         </div>
         <button
           mat-raised-button
