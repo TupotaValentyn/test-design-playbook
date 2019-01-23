@@ -6,7 +6,9 @@
 
 .count__images {
     display: flex;
+    justify-content: space-between;
     width: 100%;
+    padding: 15px 0;
 }
 
 .test__result__table {

@@ -1,6 +1,8 @@
 <mat-card class="test__result__table__container">
   <div class="count__images">
-    <mat-label>Обрано: {{ countCheckedElements }}/{{ maxCountCheckedElements }}</mat-label>
+    <a class="back__button" mat-button routerLink="/main">Back</a>
+    <span>Обрано: {{ countCheckedElements }}/{{ maxCountCheckedElements }}</span>
+    <a class="finish__button" mat-button routerLink="/finish">Finish</a>
   </div>
 
   <mat-divider></mat-divider>

@@ -34,3 +34,7 @@
 .mat__comment__field {
     width: 100%;
 }
+
+.test__index, .answer__label, .comment__field {
+    margin: 15px 15px 15px 15px;
+}

@@ -13,7 +13,7 @@ export class TestResultTableComponent {
   @Input() models: any;
 
   constructor() {
-    this.countCheckedElements = 1;
+    this.countCheckedElements = 5;
     this.maxCountCheckedElements = 5;
 
     this.models = [{
