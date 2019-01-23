@@ -1,25 +1,36 @@
 .test__result__row {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .image__block {
     display: flex;
-    /**/
+    width: 300px;
+    height: 250px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.image {
+    width: 300px;
+    height: 250px;
+    object-fit: cover;
 }
 
 .information__block {
     display: flex;
     flex-direction: column;
-}
-
-.test__index {
-    /**/
-}
-
-.answer__label {
-    /**/
+    align-items: stretch;
+    width: 100%;
+    margin: 0 0 0 20px;
 }
 
 .comment__field {
-    /**/
+    width: 100%;
+}
+
+.mat__comment__field {
+    width: 100%;
 }

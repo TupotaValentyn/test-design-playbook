@@ -1,9 +1,23 @@
 <mat-card class="test__result__row">
-  <div class="image__block"></div>
+  <div class="image__block">
+    <img class="image" src="{{ item.url }}" alt="">
+  </div>
 
   <div class="information__block">
-    <div class="test__index"></div>
-    <div class="answer__label"></div>
-    <div class="comment__field"></div>
+    <div class="test__index">
+      <span># {{ index }}</span>
+    </div>
+    <div class="answer__label">
+      <label *ngIf="item.mark; else dislike">You liked it!</label>
+      <ng-template #dislike><span>You disliked it!</span></ng-template>
+    </div>
+    <div class="comment__field">
+      <mat-form-field class="mat__comment__field">
+        <textarea matInput class="comment" placeholder="User comment" cdkTextareaAutosize cdkAutosizeMinRows="3"
+          cdkAutosizeMaxRows="5" readonly="readonly">{{ item.comment }}</textarea>
+      </mat-form-field>
+    </div>
   </div>
 </mat-card>
+
+<mat-divider></mat-divider>

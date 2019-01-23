@@ -1,4 +1,4 @@
-.test__result__table {
+.test__result__table__container {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
@@ -6,6 +6,12 @@
 
 .count__images {
     display: flex;
+    width: 100%;
+}
+
+.test__result__table {
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
 
