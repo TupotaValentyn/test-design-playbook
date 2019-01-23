@@ -5,17 +5,20 @@ module.exports = (req, res, next) => {
   if(req.path === '/auth'){
     return next();
   }
-  const token = req.get('Access-Token');
-  if (!token) {
+  const token = req.get('Authorization');
+  let arr = token.split(' ');
+
+  if (!arr[1]) {
     return res.status(403).send('Not authorized');
   }
-  jwt.verify(token, secret.key, (err, decoded) => {
+  console.log(arr[1]);
+  jwt.verify(arr[1], secret.key, (err, decoded) => {
     if(err) {
       return res.status(403).send({ auth : 'false', message: 'Failed to authenticate token ' });
     }
     req.user = decoded.user;
     req.access = decoded.access;
-    req.token = token;
+    req.token = arr[1];
   });
   next();
 };
