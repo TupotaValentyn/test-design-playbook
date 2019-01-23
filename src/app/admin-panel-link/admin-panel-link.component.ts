@@ -1,17 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-admin-panel-link',
   templateUrl: './admin-panel-link.component.html',
   styleUrls: ['./admin-panel-link.component.css']
 })
-export class AdminPanelLinkComponent implements OnInit {
+export class AdminPanelLinkComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
 
   //TEST ARR OF DATE
   usersDateInforArray = [

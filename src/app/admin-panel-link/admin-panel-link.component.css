@@ -22,7 +22,7 @@
     width: 70%;
 }
 
-.example-form {
+form {
     width: 40%;
     height: 500px;
     margin-left: 5%;
@@ -31,18 +31,12 @@
     justify-content: space-between;
 }
 
-.example-form,
+form,
 mat-toolbar {
     background-color: white;
-    border: 1px solid red;
-    max-width: 380px;
-    width: 100%;
+    width: 380px;
 }
   
-.example-form > * {
-    width: 100%;
-}
-
 .buttons__panel button:nth-child(2) {
     margin-left: 5%;
 }

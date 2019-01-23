@@ -5,18 +5,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  /* font-size: 20px; */
 }
-
-/* default fz is too small */
-
-/* mat-toolbar {
-  font-size: 30px;
-} */
-
-/* button {
-  font-size: 20px;
-} */
 
 mat-card {
   margin: auto;
@@ -27,20 +16,13 @@ mat-card {
   align-items: stretch;
 }
 
-.example-form {
+form {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.example-form > * {
-  width: 100%;
+.icon__show__hide {
+  cursor: pointer;
 }
-
-.example-form > mat-form-field:nth-of-type(2) mat-icon {
-  cursor: pointer !important;
-}
-
-
-

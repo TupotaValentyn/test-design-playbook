@@ -26,22 +26,25 @@ export class TestContentComponent {
     console.log("[test-content b] ", e.value);
     this.currentModel.comment = e.value;
     console.log("[test-content a] ", e.value);
-    this.onSaveComment.emit(e.currentModel);
+    this.onSaveComment.emit(e.currentModel); 
   }
 
   sendAnswers() {
     this.onSend.emit();
   }
 
+  //delete
   chooseImage(e) {
     console.log(e.checked);
     this.currentModel.mark = e.checked;
     this.onChoose.emit(this.currentModel);
+    console.log('IMAGE CHOOSEN');
   }
 
   changeScreenMode() {
     this.isPictureOpened = !this.isPictureOpened
   }
+
 
 
 
