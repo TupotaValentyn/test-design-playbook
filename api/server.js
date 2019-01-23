@@ -25,6 +25,7 @@ console.log('[Server] filters load');
 app.use('', require('./controllers/auth_controller'));
 app.use('', require('./controllers/result_controller'));
 app.use('', require('./controllers/model_controller'));
+app.use('', require('./controllers/user_controller'));
 
 // start
 app.listen(PORT, () => {
