@@ -25,7 +25,6 @@ export class MainContainerComponent implements OnInit {
   ngOnInit() {
     this.http.get(
       'http://localhost:8000/model/all',
-      { headers: AppComponent.getAuthorizationHeader() }
       ).subscribe(data => {
         this.currentModel = data;
         console.log(data);
@@ -53,7 +52,6 @@ export class MainContainerComponent implements OnInit {
     this.http.post(
       'http://localhost:8000/results/save',
       { models: sendData },
-      {headers: AppComponent.getAuthorizationHeader()}
       ).subscribe(data => {
       console.log(data)
     })

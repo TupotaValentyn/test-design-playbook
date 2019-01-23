@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 // component
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +32,9 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { ResultsPageComponent } from './results-page/results-page.component';
 import { ResultsCardComponent } from './results-card/results-card.component';
 import { MatMenuModule } from '@angular/material';
+
+// service
+import { JwtInterceptorService } from './components/shared/interceptors/jwt-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -71,7 +74,9 @@ import { MatMenuModule } from '@angular/material';
     MatListModule,
     MatMenuModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
