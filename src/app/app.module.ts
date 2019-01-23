@@ -20,12 +20,20 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { ThxPageComponent } from './thx-page/thx-page.component';
+<<<<<<< HEAD
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { AdminPanelLinkComponent } from './admin-panel-link/admin-panel-link.component';
 import { AdminPanelLinkInfoComponent } from './admin-panel-link-info/admin-panel-link-info.component';
 import { MatListModule } from '@angular/material';
+=======
+import { FullResultContainerComponent } from './full-result-container/full-result-container.component';
+import { ResultItemComponent } from './result-item/result-item.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatFormFieldModule, MatInputModule, MatToolbarModule, MatIconModule, MatListModule } from '@angular/material';
+>>>>>>> 53d8c01ed8a7daec3af04a31bf04322db8e2f1cd
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ResultsPageComponent } from './results-page/results-page.component';
@@ -41,9 +49,14 @@ import { MatMenuModule } from '@angular/material';
     ThxPageComponent,
     TestContentComponent,
     SidebarComponent,
+<<<<<<< HEAD
     AdminLoginComponent,
     AdminPanelLinkComponent,
     AdminPanelLinkInfoComponent,
+=======
+    FullResultContainerComponent,
+    ResultItemComponent,
+>>>>>>> 53d8c01ed8a7daec3af04a31bf04322db8e2f1cd
     AdminNavbarComponent,
     ResultsPageComponent,
     ResultsCardComponent
@@ -60,13 +73,22 @@ import { MatMenuModule } from '@angular/material';
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
+<<<<<<< HEAD
     MatToolbarModule,
+=======
+    MatDividerModule,
+    MatBadgeModule,
+>>>>>>> 53d8c01ed8a7daec3af04a31bf04322db8e2f1cd
     LayoutModule,
     MatToolbarModule,
     MatIconModule,
     MatListModule,
+<<<<<<< HEAD
     MatMenuModule,
     MatIconModule
+=======
+    MatMenuModule
+>>>>>>> 53d8c01ed8a7daec3af04a31bf04322db8e2f1cd
   ],
   providers: [],
   bootstrap: [AppComponent]

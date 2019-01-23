@@ -21,9 +21,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { 
-  
-  showData(txt: string) {
-    console.log(txt);
-  }
 
 }

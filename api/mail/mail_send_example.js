@@ -1,5 +1,4 @@
-const { sendMail, invite, testCompleted } = require('./mailing');
-
+const { invite, testCompleted } = require('./mailing');
 
 // user.email = 'kvsochka@gmail.com';
 //sendMail('kvsochka@gmail.com', 'Тема розмови', 'Текст повідомлення')
@@ -12,7 +11,8 @@ user = new User({
     second_name: '2name',
     email: 'kvsochka@gmail.com',
     token: 'token'
-})
+});
+
 invite(user, 'newTest1.com');
 
 testCompleted(user);
