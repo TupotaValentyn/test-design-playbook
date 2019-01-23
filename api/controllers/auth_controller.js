@@ -33,6 +33,14 @@ router.post('/users/token', (req, res) => {
   res.send({ token: token });
 });
 
+router.post('users/deactivate', (req, res) => {
+  const token = req.body.token;
+  User.findOneAndUpdate({ 'token': token }, { 'status': 'deactivated' }, (err) => {
+    if(err){
+      res.status(500).send(err);
+    }
+  });
+});
 
 console.log('[Auth Controller]', 'load routes');
 

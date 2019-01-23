@@ -10,22 +10,21 @@ router.post('/results/save', async (req, res) => {
   const token = req.token;
 
   const idArray = models.map(item => mongoose.Types.ObjectId(item._id));
-
   Model
     .find({ '_id': { $in: idArray } })
     .then((modelDocs) => {
       if (modelDocs.length !== models.length) {
-        return res.status(422).send('Unprocessable Entity')
+        throw ('Unprocessable Entity');
       }
       const result = new Result({
         models: models,
         token: token
       });
-      result
-        .save()
-        .then(() => res.json(result))
-        .catch(res.status(422).send('Unprocessable Entity'));
-    }).catch(res.status(422).send('Unprocessable Entity'));
+      result.save()})
+    .then((docs) => res.send(docs))
+    .catch((err) => {
+      res.status(422).send(err);
+    });
 
   User.findOneAndUpdate({ 'token': token }, { 'status': 'Evaluated' }, (err, data) => {
     if (err) {
