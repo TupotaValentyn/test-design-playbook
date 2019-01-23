@@ -31,6 +31,7 @@ import { ResultsCardComponent } from './results-card/results-card.component';
 
 import { MatMenuModule } from '@angular/material';
 import { TestResultTableComponent } from './test-result-table/test-result-table.component';
+import { TestResultRowComponent } from './test-result-row/test-result-row.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { TestResultTableComponent } from './test-result-table/test-result-table.
     AdminNavbarComponent,
     ResultsPageComponent,
     ResultsCardComponent,
-    TestResultTableComponent
+    TestResultTableComponent,
+    TestResultRowComponent
   ],
   imports: [
     BrowserModule,
