@@ -2,8 +2,8 @@
     display: flex;
     justify-content: space-around;
     align-content: stretch;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 .sidebar__container {
@@ -38,7 +38,7 @@ ul {
 
 li {
   padding: 10px 0;
-  margin-left: 0;
+  margin: 0 0 0 0;
 }
 
 .sidebar__card {
@@ -47,4 +47,9 @@ li {
 
 .sidebar__textarea {
   width: 100%;
+}
+
+textarea {
+    width: 100%;
+    resize: none;
 }

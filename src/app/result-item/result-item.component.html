@@ -1,8 +1,8 @@
 <mat-card class="result__item__container">
   <div class="result__information__block">
     <div class="index">
-      <span class="template__index">{{index}}</span>
-      <span class="result__title">{{item.name}}</span>
+      <span class="template__index">{{ index }}</span>
+      <span class="result__title">{{ item.name }}</span>
     </div>
     <label
       *ngIf="item.mark; else applicant_not_like"
@@ -23,15 +23,13 @@
                 cdkTextareaAutosize
                 cdkAutosizeMinRows="3"
                 cdkAutosizeMaxRows="5"
-                readonly="readonly">{{item.comment}}</textarea>
+                readonly="readonly">{{ item.comment }}</textarea>
     </mat-form-field>
   </div>
 
   <div class="result__image__block">
     <img
       class="result__image"
-      src="{{item.url}}"/>
+      src="{{ item.url }}"/>
   </div>
 </mat-card>
-
-<!-- <hr> -->

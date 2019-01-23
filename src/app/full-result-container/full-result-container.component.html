@@ -13,11 +13,11 @@
         <mat-card-content>
           <ul>
             <li>
-              {{resultItem.surname}} {{resultItem.name}} {{resultItem.secondName}}
+              {{ resultItem.surname }} {{ resultItem.name }} {{ resultItem.secondName }}
             </li>
             <mat-divider></mat-divider>
             <li>
-              E-mail: <a href="mailto:{{resultItem.email}}">{{resultItem.email}}</a>
+              E-mail: <a href="mailto:{{resultItem.email}}">{{ resultItem.email }}</a>
             </li>
             <mat-divider></mat-divider>
             <li>
@@ -44,7 +44,6 @@
             <textarea
               matInput
               placeholder="Leave feedback here"
-              style="width: 100%; resize: none"
               cdkTextareaAutosize
               cdkAutosizeMinRows="5"
               cdkAutosizeMaxRows="5"></textarea>
