@@ -66,4 +66,10 @@ export class AdminPanelLinkComponent {
       expires: new Date()
     }
   ];
+
+  copyLink(target) { 
+    target.focus();
+    target.select();
+    document.execCommand('copy');
+  }
 }
