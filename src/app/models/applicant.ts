@@ -15,19 +15,4 @@ export class Applicant {
   comment: string;
   expired: Date;
 
-  getFullName() {
-    return `${this.surname} ${this.first_name} ${this.second_name}`;
-  }
-
-  getShortFullName() {
-    let shortName: string = this.surname;
-    if (this.first_name && this.first_name.charAt) {
-      shortName += this.first_name.charAt(0) + ".";
-    }
-    if (this.second_name && this.second_name.charAt) {
-      shortName += this.second_name.charAt(0) + ".";
-    }
-    return shortName;
-  }
-
 }
