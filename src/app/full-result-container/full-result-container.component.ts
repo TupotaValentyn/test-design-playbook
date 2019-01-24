@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+import {Result} from '../models/result';
+import {ActivatedRoute} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-full-result-container',
@@ -7,35 +10,38 @@ import { Component, Input } from '@angular/core';
 })
 export class FullResultContainerComponent {
 
-  @Input() resultItem: any;
-
-  constructor() {
-    this.resultItem = {
-      surname: "Surname",
-      name: "Name",
-      secondName: "Second name",
-      email: "example@example.com",
-      answers: 2,
-      maxCountAnswers: 5,
-      results: [{
-        url: "../assets/models/good_template_1.svg",
-        comment: "",
-        mark: true,
+  resultItem: Result = {
+    applicant: {
+      surname: "Поліщук",
+      first_name: "Володимир",
+      second_name: "Павлович",
+      email: "thevivalley@gmail.com",
+      token: "come key",
+      status: "Is solved",
+      created: new Date(),
+      comment: "Nice men",
+      expired: new Date()
+    },
+    solved_models: [{
+      model: {
+        _id: "id",
+        url: "../../assets/models/bad_template_1.svg",
         answer: true,
-        name: "Good template #1"
-      },{
-        url: "../../assets/models/Colorful-5.jpg",
-        comment: "",
-        mark: true,
-        answer: false,
-        name: "Bad template #2"
-      },{
-        url: "../../assets/models/bad_template_3.svg",
-        comment: "",
-        mark: false,
-        answer: false,
-        name: "Bad template #3"
-      }]
-    }
+        name: "Bad template #1"
+      },
+      mark: false,
+      comment: "Nice picture. Minimalism"
+    }],
+    solved_date: new Date()
+  };
+
+  constructor(private route: ActivatedRoute, private http: HttpClient) {
+   let token = route.snapshot.paramMap.get('token');
+   if (token) {
+     http.post('http://localhost:8000/results/one', {token: token})
+       .subscribe((data: Result) => {
+         this.resultItem = data;
+       });
+   }
   }
 }

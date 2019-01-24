@@ -41,7 +41,7 @@
 
           <mat-form-field appearance="outline">
               <mat-label>{{ token }}</mat-label>
-              <input matInput placeholder="Try one more time..." #linkField readonly>
+              <input matInput placeholder="Try one more time..." value="{{ token }}" #linkField readonly>
               <mat-icon matSuffix class="copy__icon" (click)="copyLink(linkField)">link</mat-icon>
           </mat-form-field>
       </form>

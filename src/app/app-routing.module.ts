@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'invite/:token', component: GetStartedComponent },
   { path: 'finish', component: ThxPageComponent },
   { path: 'admin/results', component: ResultsPageComponent },
-  { path: 'admin/results/full', component: FullResultContainerComponent },
+  { path: 'admin/results/full/:token', component: FullResultContainerComponent },
   { path: 'admin/links', component: AdminPanelLinkComponent },
   { path: 'admin/login', component: AdminLoginComponent }
 ];

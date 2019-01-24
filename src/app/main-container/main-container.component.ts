@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subscriber } from 'rxjs';
 import {AppComponent} from '../app.component';
+import {SolvedModel} from '../models/solved-model';
 
 @Component({
   selector: 'app-main-container',
@@ -64,10 +65,20 @@ export class MainContainerComponent implements OnInit {
     console.log("Sending...");
     this.currentModelLog();
     const sendData = this.currentModel;
+    let solvedResults: Array<SolvedModel> = sendData.map(item => ({
+      solved_model: {
+        _id: item._id,
+        url: item.url,
+        answer: false,
+        name: item.name
+      },
+      mark: item.mark,
+      comment: item.comment
+    }));
 
     this.http.post(
       'http://localhost:8000/results/save/force',
-      { models: sendData }
+      { models: solvedResults }
       ).subscribe(data => {
       console.log('1', data);
     })
