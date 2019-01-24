@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   constructor() {  }
 
   ngOnInit() {
-    // localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4iLCJhY2Nlc3MiOiJhZG1pbiIsImlhdCI6MTU0ODMzOTc0MiwiZXhwIjoxNTQ4NDI2MTQyfQ.ZvIMmzWh198CnxvRCSi59p4EsEoQc65tXTvcfnam_Rg');
+    // localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWxlc2V5a29AZ21haWwuY29tIiwiYWNjZXNzIjoidXNlciIsImlhdCI6MTU0ODIzNjgzNSwiZXhwIjoxNTQ4MzIzMjM1fQ.2dGDRptmOUO-LLcI_9TR8Nt9cV9Cl2No92dhZ3ZQfwo');
   }
 
 }

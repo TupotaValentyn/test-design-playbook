@@ -27,6 +27,24 @@ const router = require('express').Router();
 //
 // });
 
+router.post('/results/save/force', (req, res) => {
+  const models = req.body.models;
+  const token = req.token;
+
+  Applicant.findOneAndUpdate({ token: token }, { status: Applicant.STATUS_EVALUATED })
+    .then((docs) => {
+      console.log(docs);
+      let result = new Result({
+        applicant: docs,
+        models: models,
+        solved_date: new Date(),
+        token: token
+      });
+      result.save();
+      res.json(result);
+    })
+});
+
 router.post('/results/save', (req, res) => {
   const models = req.body.models;
   const token = req.token;

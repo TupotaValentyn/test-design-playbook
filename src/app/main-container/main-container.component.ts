@@ -66,10 +66,10 @@ export class MainContainerComponent implements OnInit {
     const sendData = this.currentModel;
 
     this.http.post(
-      'http://localhost:8000/results/save',
-      { models: sendData },
+      'http://localhost:8000/results/save/force',
+      { models: sendData }
       ).subscribe(data => {
-      console.log(data)
+      console.log('1', data);
     })
   }
 

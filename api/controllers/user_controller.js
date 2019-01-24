@@ -11,7 +11,7 @@ router.post('/users/token', (req, res) => {
 
   const user = new User({
     surname: req.body.surname,
-    first_name: req.body.name,
+    first_name: req.body.first_name,
     second_name: req.body.second_name,
     email: req.body.email,
     token: token
@@ -31,12 +31,13 @@ router.post('/users/token/status', (req, res) => {
   })
 });
 
-router.post('users/token/deactivate', (req, res) => {
+router.post('/users/token/deactivate', (req, res) => {
   const token = req.body.token;
   User.findOneAndUpdate({ token: token }, { status: 'deactivated' }, (err) => {
     if(err){
-      res.status(500).send(err);
+      return res.status(500).send(err);
     }
+    res.send('Deactivated succesfully');
   });
 });
 
@@ -44,7 +45,7 @@ router.get('/users/token/all', (req, res) => {
   if (req.access !== 'admin') {
     return res.status(403).send('You do not have permission');
   }
-  User.find({ status: { $nin: ['deactivated', 'expired']}}, {status: 1})
+  User.find({ status: { $nin: ['deactivated', 'expired']}})
     .then((docs) => {
       res.send(docs);
     })
