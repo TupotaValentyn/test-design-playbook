@@ -39,8 +39,6 @@ router.post('/results/save', (req, res) => {
           res.send('Saved successfully');
         });
     });
-
-
 });
 
 router.post('/results/update', (req, res) => {
@@ -83,6 +81,20 @@ router.get('/results/all', (req, res) => {
 
     res.send(docs);
   })
+});
+
+router.post('/results/one', (req, res) => {
+  const token = req.body.token;
+  Result.findOne({ token: token })
+    .then((docs) => {
+      if (!docs) {
+        return res.send('Can not find this token');
+      }
+      res.send(docs)
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    })
 });
 console.log('[Result Controller]', 'load routes');
 
