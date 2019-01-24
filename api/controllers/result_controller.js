@@ -1,5 +1,5 @@
 const Result = require('../models/result');
-const User = require('../models/user');
+const Applicant = require('../models/user');
 const router = require('express').Router();
 // const Model = require('../models/model');
 // const mongoose = require('mongoose');
@@ -35,7 +35,7 @@ router.post('/results/save', (req, res) => {
   Result.findOneAndUpdate({ token: token }, { models: models})
     .catch(err => res.send(err))
     .then(() => {
-      User.findOneAndUpdate({ token: token }, { status: User.STATUS_EVALUATED })
+      Applicant.findOneAndUpdate({ token: token }, { status: Applicant.STATUS_EVALUATED })
         .then(() => {
           res.send('Saved successfully');
         });
@@ -52,8 +52,8 @@ function updateResultToFillingStatus(user, models, token, res) {
   result
     .save()
     .then(() => {
-      User
-        .findOneAndUpdate({ token: token }, { status: User.STATUS_IS_FILLING })
+      Applicant
+        .findOneAndUpdate({ token: token }, { status: Applicant.STATUS_IS_FILLING })
         .then(() => {
           res.send('Updated successfully');
         });
@@ -61,8 +61,8 @@ function updateResultToFillingStatus(user, models, token, res) {
 }
 
 function findMoreInfoAboutUser(docs, token, models, res) {
-  if (docs.status === User.STATUS_IS_SOLVED) {
-    User
+  if (docs.status === Applicant.STATUS_IS_SOLVED) {
+    Applicant
       .findOne({ token: token }, { token: 0, _id: 0, status: 0 })
       .then((user) => {
         updateResultToFillingStatus(user, models, token, res);
@@ -75,7 +75,7 @@ function findMoreInfoAboutUser(docs, token, models, res) {
 router.post('/results/update', (req, res) => {
   const models = req.body.models;
   const token = req.token;
-  User
+  Applicant
     .findOne({ token: token}, { status: 1 })
     .then((docs) => {
       findMoreInfoAboutUser(docs, token, models, res);

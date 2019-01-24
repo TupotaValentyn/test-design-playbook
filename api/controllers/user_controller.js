@@ -11,7 +11,7 @@ router.post('/users/token', (req, res) => {
 
   const user = new User({
     surname: req.body.surname,
-    name: req.body.name,
+    first_name: req.body.name,
     second_name: req.body.second_name,
     email: req.body.email,
     token: token
