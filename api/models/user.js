@@ -28,6 +28,8 @@ const Applicant = mongoose.model('applicants', applicant);
 
 module.exports = Applicant;
 
-module.exports.STATUS_EVALUATED = 'Evaluated';
-module.exports.STATUS_IS_FILLING = 'Is filling';
-module.exports.STATUS_IS_SOLVED = 'Is solved';
+module.exports.STATUS_EVALUATED = 'Evaluated'; // Тест завершено
+module.exports.STATUS_IS_FILLING = 'Is filling'; // Тест почали проходити
+module.exports.STATUS_IS_SOLVED = 'Is solved'; //Відправлений
+module.exports.STATUS_DEACTIVATED = 'Deactivated'; //Деактивовано з адмінки
+module.exports.STATUS_EXPIRED = 'Expired'; // Час для проходження вичерпано

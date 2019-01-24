@@ -10,22 +10,19 @@ export class AdminPanelLinkComponent implements OnInit{
 
   constructor (private http: HttpClient) { }
 
-  usersDateInforArray
+  usersDateInforArray;
 
   ngOnInit() {
     this.http.get(
       'http://localhost:8000/users/token/all',
       ).subscribe(data => {
-        this.usersDateInforArray = data
-        console.log(data)
+        this.usersDateInforArray = data;
+        console.log(data);
         console.log(this.usersDateInforArray)
       })
   }
 
-
-
   token = 'User invite link';
-
 
   getLink(email, name, surname, secondname) {
     this.http.post(
@@ -46,63 +43,10 @@ export class AdminPanelLinkComponent implements OnInit{
       }
     })
   }
-  //TEST ARR OF DATE
-  // usersDateInforArray = [
-  //   {
-  //     name: 'Mirek',
-  //     surname: 'Sokol',
-  //     secondName: 'Smth',
-  //     email: 'smthverylognemail@ukr.net',
-  //     created: new Date(),
-  //     expires: new Date()
-  //   },
-  //   {
-  //     name: 'Anton',
-  //     surname: 'Olexanrovich',
-  //     secondName: 'Olegiv',
-  //     email: 'smthverylognemail@ukr.net',
-  //     created: new Date(),
-  //     expires: new Date()
-  //   },
-  //   {
-  //     name: 'Boris',
-  //     surname: 'Dmitrovich',
-  //     secondName: 'Vorobeev',
-  //     email: 'smthverylognemail@ukr.net',
-  //     created: new Date(),
-  //     expires: new Date()
-  //   },
-  //   {
-  //     name: 'Boris',
-  //     surname: 'Dmitrovich',
-  //     secondName: 'Vorobeev',
-  //     email: 'smthverylognemail@ukr.net',
-  //     created: new Date(),
-  //     expires: new Date()
-  //   },
-  //   {
-  //     name: 'Boris',
-  //     surname: 'Dmitrovich',
-  //     secondName: 'Vorobeev',
-  //     email: 'smthverylognemail@ukr.net',
-  //     created: new Date(),
-  //     expires: new Date()
-  //   },
-  //   {
-  //     name: 'Boris',
-  //     surname: 'Dmitrovich',
-  //     secondName: 'Vorobeev',
-  //     email: 'smthverylognemail@ukr.net',
-  //     created: new Date(),
-  //     expires: new Date()
-  //   },
-  //   {
-  //     name: 'Boris',
-  //     surname: 'Dmitrovich',
-  //     secondName: 'Vorobeev',
-  //     email: 'smthverylognemail@ukr.net',
-  //     created: new Date(),
-  //     expires: new Date()
-  //   }
-  // ];
+
+  copyLink(target) {
+    target.focus();
+    target.select();
+    document.execCommand('copy');
+  }
 }

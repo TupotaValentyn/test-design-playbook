@@ -19,6 +19,13 @@ export class MainContainerComponent implements OnInit {
     mark: false,
     comment: 'Nothing found',
     name: "Nothing found"
+  },
+  {
+    _id: "",
+    url: "../../assets/empty-img.png",
+    mark: false,
+    comment: 'Nothing found',
+    name: "Nothing found"
   }];
   currentSelectedCount: number = 0;
 
@@ -31,17 +38,26 @@ export class MainContainerComponent implements OnInit {
         this.currentModel.forEach(e => {
           e.url = "../../assets" + e.url
         });
+        //need to check
         this.currentSelectModel = this.currentModel[0];
-      })
+      });
+    
+    //take user date from local storage if exist
+    if (localStorage.getItem('savedTestResults')) {
+      this.currentModel = JSON.parse( localStorage.getItem('savedTestResults') );
+    }
+    //setting first element of test after defining existing localStorageDate
+    this.currentSelectModel = this.currentModel[0];
+
   }
 
-  currentSelectModel = this.currentModel[0];
+  currentSelectModel: Object;
 
 
   //saving data to the local storage (used in checkbox's and saveComment functions)
   saveUserTestResult() {
     console.log('IMAGE CHOOSEN', this.currentModel);
-    // localStorage.setItem('savedTestResults', JSON.stringify(this.currentModel));
+    localStorage.setItem('savedTestResults', JSON.stringify(this.currentModel));
   }
 
   testComponentSend() {
@@ -58,7 +74,7 @@ export class MainContainerComponent implements OnInit {
   }
 
   testComponentSave() {
-    this.currentModelLog();
+    this.saveUserTestResult();
   }
 
   testComponentChoose() {
@@ -66,7 +82,6 @@ export class MainContainerComponent implements OnInit {
   }
 
   sideBarSelect(selectedModel) {
-    //HERE
     this.saveUserTestResult();
 
     console.log(this.currentSelectedCount);

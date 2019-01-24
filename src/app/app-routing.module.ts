@@ -13,6 +13,7 @@ import {AdminLoginComponent} from './admin-login/admin-login.component';
 const routes: Routes = [
   { path: 'main', component: MainContainerComponent },
   { path: '', component: GetStartedComponent },
+  { path: 'invite/:token', component: GetStartedComponent },
   { path: 'finish', component: ThxPageComponent },
   { path: 'admin/results', component: ResultsPageComponent },
   { path: 'admin/results/full', component: FullResultContainerComponent },

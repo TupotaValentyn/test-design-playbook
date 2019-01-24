@@ -4,7 +4,6 @@ const router = require('express').Router();
 // const Model = require('../models/model');
 // const mongoose = require('mongoose');
 
-
 // router.post('/results/save',(req, res) => {
 //   const models = req.body.models;
 //   const token = req.token;
@@ -37,7 +36,7 @@ router.post('/results/save', (req, res) => {
     .then(() => {
       Applicant.findOneAndUpdate({ token: token }, { status: Applicant.STATUS_EVALUATED })
         .then(() => {
-          res.send('Saved successfully');
+          res.json({res: "successful"});
         });
     });
 
@@ -45,8 +44,9 @@ router.post('/results/save', (req, res) => {
 
 function updateResultToFillingStatus(user, models, token, res) {
   const result = new Result({
-    user: user,
+    applicant: user,
     models: models,
+    solved_date: Date(),
     token: token
   });
   result
@@ -55,7 +55,7 @@ function updateResultToFillingStatus(user, models, token, res) {
       Applicant
         .findOneAndUpdate({ token: token }, { status: Applicant.STATUS_IS_FILLING })
         .then(() => {
-          res.send('Updated successfully');
+          res.json({m:'Updated successfully'});
         });
     });
 }
@@ -63,12 +63,12 @@ function updateResultToFillingStatus(user, models, token, res) {
 function findMoreInfoAboutUser(docs, token, models, res) {
   if (docs.status === Applicant.STATUS_IS_SOLVED) {
     Applicant
-      .findOne({ token: token }, { token: 0, _id: 0, status: 0 })
+      .findOne({ token: token }, { token: 0, _id: 0})
       .then((user) => {
         updateResultToFillingStatus(user, models, token, res);
       });
   } else {
-    Result.findOneAndUpdate({ token: token }, { models: models }).catch(err => res.send(err)).then(() => res.send('Updated successfully'));
+    Result.findOneAndUpdate({ token: token }, { models: models }).catch(err => res.send(err)).then(() => res.json({ m:'Updated successfully' }));
   }
 }
 
@@ -76,7 +76,7 @@ router.post('/results/update', (req, res) => {
   const models = req.body.models;
   const token = req.token;
   Applicant
-    .findOne({ token: token}, { status: 1 })
+    .findOne({ token: token})
     .then((docs) => {
       findMoreInfoAboutUser(docs, token, models, res);
     })

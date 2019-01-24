@@ -7,19 +7,19 @@
     </div>
     <div class="info__group content">
       <span class="info info__name">
-        {{ fullname }}
+        {{ result_item.applicant.surname }} {{ result_item.applicant.first_name }} {{ result_item.applicant.second_name }}
       </span>
       <span class="info info__rating">
         Rating :
         <span>
-          {{ answer }}
+          {{ "0" }}
         </span> /
         <span>
-          {{ maxAnswer }}
+          {{ "5" }}
         </span>
       </span>
       <span class="info info__comment">
-        Comment from HR Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur veritatis sunt ipsam, consectetur possimus delectus omnis. Nostrum natus cumque quia nobis incidunt veniam voluptates recusandae impedit, expedita, cupiditate enim possimus, ut quis harum repellat perspiciatis eaque obcaecati iusto officia exercitationem provident porro omnis nisi. Consectetur accusantium ducimus assumenda consequuntur hic.
+        {{ result_item.applicant.comment }}
       </span>
     </div>
   </div>
