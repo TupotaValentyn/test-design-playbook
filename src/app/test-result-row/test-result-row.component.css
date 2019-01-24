@@ -5,7 +5,7 @@
     align-items: center;
 }
 
-.block__for__image {
+.img__wrapper {
     display: flex;
     width: 300px;
     height: 250px;
@@ -19,7 +19,7 @@
     object-fit: cover;
 }
 
-.block__for__answer {
+.answer__wrapper {
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -27,13 +27,13 @@
     margin: 0 0 0 20px;
 }
 
-.comment__field,
-.mat__comment__field {
+.comment,
+.comment__field {
     width: 100%;
 }
 
-.index__of__task,
-.applicant__answer,
-.comment__field {
+.index,
+.answer,
+.comment {
     margin: 15px;
 }

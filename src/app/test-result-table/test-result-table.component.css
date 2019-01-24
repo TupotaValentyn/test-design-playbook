@@ -1,10 +1,10 @@
-.test__result__table__container {
+.wrapper {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
 }
 
-.navigation__buttons {
+.nav {
     display: flex;
     justify-content: space-between;
     width: 100%;
