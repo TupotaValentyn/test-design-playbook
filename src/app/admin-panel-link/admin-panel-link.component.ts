@@ -67,23 +67,9 @@ export class AdminPanelLinkComponent {
     }
   ];
 
-  copyLink(target) {
-    let textToClipboard = target.value;
-
-    let selBox = document.createElement('textarea');
-    selBox.style.cssText = `position: fixed;
-      left: 0;
-      top: 0;
-      opacity: 0;`;
-
-    selBox.value = textToClipboard;
-
-    document.querySelector('.wrapper').append(selBox);
-    selBox.focus();
-    selBox.select();
-    document.execCommand('copy');
-    selBox.remove();
-
+  copyLink(target) { 
+    target.focus();
     target.select();
+    document.execCommand('copy');
   }
 }
