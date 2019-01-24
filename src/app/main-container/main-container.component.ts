@@ -73,9 +73,7 @@ export class MainContainerComponent implements OnInit {
   }
 
   testComponentSave() {
-    //HERE
     this.saveUserTestResult();
-    // this.currentModelLog();
   }
 
   testComponentChoose() {
@@ -83,7 +81,6 @@ export class MainContainerComponent implements OnInit {
   }
 
   sideBarSelect(selectedModel) {
-    //HERE
     this.saveUserTestResult();
 
     console.log(this.currentSelectedCount);
