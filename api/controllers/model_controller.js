@@ -35,7 +35,7 @@ router.get('/model/generate', (req, res) => {
     model.save()
       .then((docs) => {
         console.log(docs);
-        res.send('zbs')
+        res.json({m: 'Success'});
       })});
 
 console.log('[Model Controller]', 'load routes');
