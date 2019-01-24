@@ -12,10 +12,11 @@ export class GetStartedComponent {
 
   constructor(private route: ActivatedRoute) {
     this.token = this.route.snapshot.paramMap.get('token');
+    console.log(this.token);
     if (this.token) {
-      console.log(this.token);
+      localStorage.setItem('token', this.token);
     } else {
-      console.error(`404 (auth error)`);
+      alert('Something went wrong');
     }
   }
 
