@@ -18,6 +18,6 @@ module.exports = (req, res, next) => {
     req.user = decoded.user;
     req.access = decoded.access;
     req.token = arr[1];
+    next();
   });
-  next();
 };

@@ -36,7 +36,7 @@ router.post('/results/save', (req, res) => {
     .then(() => {
       Applicant.findOneAndUpdate({ token: token }, { status: Applicant.STATUS_EVALUATED })
         .then(() => {
-          res.send('Saved successfully');
+          res.json({res: "successful"});
         });
     });
 

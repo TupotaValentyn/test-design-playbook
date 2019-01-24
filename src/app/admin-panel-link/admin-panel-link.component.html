@@ -41,8 +41,8 @@
 
           <mat-form-field appearance="outline">
               <mat-label>User invite link</mat-label>
-              <input matInput placeholder="Try one more time..." readonly>
-              <mat-icon matSuffix>link</mat-icon>
+              <input matInput placeholder="Try one more time..." #linkField readonly>
+              <mat-icon matSuffix class="copy__icon" (click)="copyLink(linkField)">link</mat-icon>
           </mat-form-field>
       </form>
   </div>

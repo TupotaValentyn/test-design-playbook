@@ -41,4 +41,14 @@ mat-toolbar {
     margin-left: 10px;
 }
 
+.copy__icon {
+   cursor: pointer;
+   transition: all .1s linear;
+}
+
+.copy__icon:hover {
+    transform: scale(1.1);
+}
+
+
 
