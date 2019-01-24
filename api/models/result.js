@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
 const result = mongoose.Schema({
+  applicant: Object,
   models: Array,
-  token: String
+  solved_date: Date
 });
 
 result.virtual('mark').get(() => {
