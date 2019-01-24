@@ -27,14 +27,13 @@
     margin: 0 0 0 20px;
 }
 
-.comment__field {
-    width: 100%;
-}
-
+.comment__field,
 .mat__comment__field {
     width: 100%;
 }
 
-.test__index, .answer__label, .comment__field {
-    margin: 15px 15px 15px 15px;
+.test__index,
+.answer__label,
+.comment__field {
+    margin: 15px;
 }
