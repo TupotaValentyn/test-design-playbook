@@ -19,3 +19,7 @@ const user = mongoose.Schema({
 const User = mongoose.model('users', user);
 
 module.exports = User;
+
+module.exports.STATUS_EVALUATED = 'Evaluated';
+module.exports.STATUS_IS_FILLING = 'Is filling';
+module.exports.STATUS_IS_SOLVED = 'Is solved';
