@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <mat-card>
+    <form>
+      <mat-toolbar>
+        <span>Sign In</span>
+      </mat-toolbar>
+      
+      <mat-form-field>
+        <input matInput placeholder="Enter your email" required>
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+    
+      <mat-form-field>
+        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" required>
+        <mat-icon class="icon__show__hide" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary">LOGIN</button>
+      </form> 
+  </mat-card>
+</div>

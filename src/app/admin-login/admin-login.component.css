@@ -1,0 +1,28 @@
+.wrapper {
+  background-image: url('../../assets/get-started-background.jpg');
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+}
+
+mat-card {
+  margin: auto;
+  width: 90%;
+  max-width: 500px;
+  height: 300px;
+  display: flex;
+  align-items: stretch;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.icon__show__hide {
+  cursor: pointer;
+}

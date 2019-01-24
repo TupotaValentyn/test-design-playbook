@@ -2,7 +2,9 @@
 const PORT = 8000;
 
 // create application
-const app = require('express')();
+const express = require('express');
+const app = express();
+const cors = require('cors');
 console.log('[Server] Application start...');
 
 // connect to database
@@ -15,7 +17,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // filters
 
-app.use(require('./filters/access_control_filter'));
+app.use(cors());
+app.use(express.static(__dirname + '/../src/assets'));
 app.use(require('./filters/auth_controll_filter'));
 
 console.log('[Server] filters load');
