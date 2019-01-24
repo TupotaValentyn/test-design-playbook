@@ -4,7 +4,6 @@ const router = require('express').Router();
 const Model = require('../models/model');
 const mongoose = require('mongoose');
 
-
 router.post('/results/save', async (req, res) => {
   const models = req.body.models;
   const token = req.token;

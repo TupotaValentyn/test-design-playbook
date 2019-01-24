@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Result } from '../models/result';
 
 @Component({
   selector: 'app-results-card',
@@ -10,23 +11,10 @@ export class ResultsCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.results = this.childData.results;
-    this.fullname = `
-      ${ this.childData.surname } 
-      ${ this.childData.firstname } 
-      ${ this.childData.secondname }
-      `;
-    this.comment = this.childData.comment;
-    this.answer = this.childData.answers;
-    this.maxAnswer = this.childData.maxAnswers;
+
   }
 
-  @Input() childData: any;
+  @Input() result_item: Result;
   @Input() index: number;
 
-  results: any;
-  fullname: string;
-  comment: string;
-  answer: number;
-  maxAnswer: number;
 }
