@@ -13,11 +13,11 @@
       </div>
       <div class="info__field">
         <span class="info">Expires:</span>
-        <span>{{ usersDataItem.expires | date:"mediumDate" }}</span>
+        <span>{{ usersDataItem.expired | date:"mediumDate" }}</span>
       </div>
     </mat-card-content>
       
     <mat-card-actions>
-      <button mat-raised-button color="warn">DISABLE</button>
+      <button mat-raised-button color="warn" (click)="disable(usersDataItem.token)" >DISABLE</button>
     </mat-card-actions>
 </mat-card>

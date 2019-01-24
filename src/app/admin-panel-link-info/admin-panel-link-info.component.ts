@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin-panel-link-info',
@@ -8,5 +9,19 @@ import { Component, Input } from '@angular/core';
 export class AdminPanelLinkInfoComponent {
 
   @Input() usersDataItem: any;
+  constructor(private http: HttpClient) {
+
+  }
+
+  disable(token: string) {
+    this.http.post(
+      'http://localhost:8000/users/token/deactivate',
+      { 
+        token: token
+      }
+      ).subscribe((data: any) => {
+        console.log(data)
+    })
+  }
   
 }

@@ -20,7 +20,7 @@ export class JwtInterceptorService  implements HttpInterceptor {
     if (authReq) {
       return next.handle(authReq);
     } else {
-      next.handle(req);
+      return next.handle(req);
     }
   }
 }

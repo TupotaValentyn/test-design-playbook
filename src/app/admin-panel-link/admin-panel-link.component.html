@@ -15,32 +15,32 @@
           </mat-toolbar>
           
           <mat-form-field type="text">
-            <input matInput placeholder="Email" required autocomplete="off">
+            <input matInput placeholder="Email" #email required autocomplete="off">
             <mat-icon matSuffix>email</mat-icon>
           </mat-form-field>
           
           <mat-form-field type="text">
-              <input matInput placeholder="Name" required>
+              <input matInput placeholder="Name" #name required>
               <mat-icon matSuffix>perm_identity</mat-icon>
           </mat-form-field>
 
           <mat-form-field type="text">
-              <input matInput placeholder="Surname" required>
+              <input matInput placeholder="Surname" #surname required>
               <mat-icon matSuffix>face</mat-icon>
           </mat-form-field>
 
           <mat-form-field type="text">
-            <input matInput placeholder="Second name" required>
+            <input matInput placeholder="Second name" #secondName required>
             <mat-icon matSuffix>supervised_user_circle</mat-icon>
           </mat-form-field>
           
           <div>
-            <button mat-raised-button color="primary">GET</button>
+            <button mat-raised-button color="primary" (click)="getLink(email.value, name.value, surname.value, secondName.value)">GET</button>
             <button mat-raised-button color="accent" class="send">SEND</button>
           </div>
 
           <mat-form-field appearance="outline">
-              <mat-label>User invite link</mat-label>
+              <mat-label>{{ token }}</mat-label>
               <input matInput placeholder="Try one more time..." #linkField readonly>
               <mat-icon matSuffix class="copy__icon" (click)="copyLink(linkField)">link</mat-icon>
           </mat-form-field>
