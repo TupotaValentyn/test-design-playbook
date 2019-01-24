@@ -1,76 +1,93 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Result } from '../models/result';
+import { Applicant } from '../models/applicant';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-results-page',
   templateUrl: './results-page.component.html',
   styleUrls: ['./results-page.component.css']
 })
-export class ResultsPageComponent {
+export class ResultsPageComponent implements OnInit {
 
-  mainData = [
-    {
-      commentExternal: 'external - comment',
-      surname: 'tupota',
-      firstname: 'valintin',
-      secondname: 'uriyovich',
-      answers: 2,
-      maxAnswers: 5,
-      results: [
-        {
-          url: 'img.jpg',
-          commentInto: 'some comment',
-          mark: false,
-          name: 'Some full-name'
-        }
-      ]
+  results: Array<Result> = [{
+    solved_models: [{
+      model: {
+        _id: "some_id",
+        url: "../../assets/models/bat_template_1.svg",
+        answer: true,
+        name: "Bad model"
+      },
+      mark: true,
+      comment: ""
+    }],
+    applicant: {
+      surname: "Polishchuk",
+      first_name: "Volodymyr",
+      second_name: "Petrovych",
+      email: "thevivalley@gmail.com",
+      token: "random_key",
+      status: Applicant.STATUS_EVALUATED,
+      created: new Date(),
+      comment: "",
+      expired: new Date()
     },
-    {
-      commentExternal: 'external - comment',
-      surname: 'bondar',
-      firstname: 'oleksit',
-      secondname: 'volodymirivich',
-      answers: 4,
-      maxAnswers: 5,
-      results: [
-        {
-          url: 'img.jpg',
-          commentInto: 'some comment',
-          mark: false,
-          name: 'Some full-name'
-        }
-      ]
+    solved_date: new Date()
+  },{
+    solved_models: [{
+      model: {
+        _id: "some_id",
+        url: "../../assets/models/bat_template_1.svg",
+        answer: true,
+        name: "Bad model"
+      },
+      mark: true,
+      comment: ""
+    }],
+    applicant: {
+      surname: "Polishchuk",
+      first_name: "Volodymyr",
+      second_name: "Petrovych",
+      email: "thevivalley@gmail.com",
+      token: "random_key",
+      status: Applicant.STATUS_EVALUATED,
+      created: new Date(),
+      comment: "Good man",
+      expired: new Date()
     },
-    {
-      commentExternal: 'external - comment',
-      surname: 'tupota',
-      firstname: 'valintin',
-      secondname: 'uriyovich',
-      answers: 2,
-      maxAnswers: 5,
-      results: [
-        {
-          url: 'img.jpg',
-          commentInto: 'some comment',
-          mark: false,
-          name: 'Some full-name'
-        }
-      ]
+    solved_date: new Date()
+  },{
+    solved_models: [{
+      model: {
+        _id: "some_id",
+        url: "../../assets/models/bat_template_1.svg",
+        answer: true,
+        name: "Bad model"
+      },
+      mark: true,
+      comment: ""
+    }],
+    applicant: {
+      surname: "Polishchuk",
+      first_name: "Volodymyr",
+      second_name: "Petrovych",
+      email: "thevivalley@gmail.com",
+      token: "random_key",
+      status: Applicant.STATUS_EVALUATED,
+      created: new Date(),
+      comment: "",
+      expired: new Date()
     },
-    {
-      commentExternal: 'external - comment',
-      surname: 'tupota',
-      firstname: 'valintin',
-      secondname: 'uriyovich',
-      answers: 2,
-      maxAnswers: 5,
-      results: [
-        {
-          url: 'img.jpg',
-          commentInto: 'some comment',
-          mark: false,
-          name: 'Some full-name'
-        }
-      ]
-    }
-  ]
+    solved_date: new Date()
+  }];
+
+  constructor(private http: HttpClient) {  }
+
+  ngOnInit(): void {
+    this.http
+      .get('http://localhost:8000/results/all')
+      .subscribe((data: Array<Result>) => {
+        this.results = data;
+      });
+  }
 }

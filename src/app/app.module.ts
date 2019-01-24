@@ -32,6 +32,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { ResultsPageComponent } from './results-page/results-page.component';
 import { ResultsCardComponent } from './results-card/results-card.component';
 import { MatMenuModule } from '@angular/material';
+import { TestResultTableComponent } from './test-result-table/test-result-table.component';
+import { TestResultRowComponent } from './test-result-row/test-result-row.component';
 
 // service
 import { JwtInterceptorService } from './components/shared/interceptors/jwt-interceptor.service';
@@ -52,7 +54,9 @@ import { JwtInterceptorService } from './components/shared/interceptors/jwt-inte
     ResultItemComponent,
     AdminNavbarComponent,
     ResultsPageComponent,
-    ResultsCardComponent
+    ResultsCardComponent,
+    TestResultTableComponent,
+    TestResultRowComponent
   ],
   imports: [
     BrowserModule,

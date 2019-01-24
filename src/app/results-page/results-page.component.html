@@ -1,8 +1,8 @@
 <app-admin-navbar></app-admin-navbar>
 <ol>
-  <li class="card__wrapper" *ngFor="let card of mainData; index as index">
-    <app-results-card 
-      [childData]="card" 
+  <li class="card__wrapper" *ngFor="let resultItem of results; index as index">
+    <app-results-card
+      [result_item]="resultItem"
       [index]="index + 1">
   
     </app-results-card>

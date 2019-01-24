@@ -1,0 +1,23 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 0;
+}
+
+.result__table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.result__row {
+    display: flex;
+    width: 100%;
+}
