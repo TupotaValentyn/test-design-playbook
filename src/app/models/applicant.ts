@@ -13,7 +13,7 @@ export class Applicant {
   status: string;
   created: Date;
   comment: string;
-  expires: Date;
+  expired: Date;
 
   getFullName() {
     return `${this.surname} ${this.first_name} ${this.second_name}`;
