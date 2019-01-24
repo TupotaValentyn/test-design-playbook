@@ -6,16 +6,16 @@
       </mat-toolbar>
       
       <mat-form-field>
-        <input matInput placeholder="Enter your email" required>
+        <input matInput placeholder="Enter your email" #login required>
         <mat-icon matSuffix>email</mat-icon>
       </mat-form-field>
     
       <mat-form-field>
-        <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" required>
+        <input matInput placeholder="Enter your password" #pass [type]="hide ? 'password' : 'text'" required>
         <mat-icon class="icon__show__hide" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </mat-form-field>
 
-      <button mat-raised-button color="primary">LOGIN</button>
+      <button mat-raised-button color="primary" (click)="auth(login.value, pass.value)">LOGIN</button>
       </form> 
   </mat-card>
 </div>
