@@ -31,6 +31,7 @@ export class MainContainerComponent implements OnInit {
         this.currentModel.forEach(e => {
           e.url = "../../assets" + e.url
         });
+        //need to check
         this.currentSelectModel = this.currentModel[0];
       })
   }
