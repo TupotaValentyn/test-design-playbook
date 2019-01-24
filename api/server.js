@@ -1,10 +1,13 @@
 // server configuration
-const PORT = 8000;
+require('dotenv').config();
+
+const PORT = process.env.PORT || 8000;
 
 // create application
 const express = require('express');
 const app = express();
 const cors = require('cors');
+
 console.log('[Server] Application start...');
 
 // connect to database
