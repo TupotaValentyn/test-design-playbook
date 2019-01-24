@@ -4,14 +4,14 @@
     overflow-y: scroll;
 }
 
-.count__images {
+.navigation__buttons {
     display: flex;
     justify-content: space-between;
     width: 100%;
     padding: 15px 0;
 }
 
-.test__result__table {
+.result__table {
     display: flex;
     flex-direction: column;
     width: 100%;
