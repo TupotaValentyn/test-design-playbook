@@ -66,7 +66,7 @@ export class MainContainerComponent implements OnInit {
     this.currentModelLog();
     const sendData = this.currentModel;
     let solvedResults: Array<SolvedModel> = sendData.map(item => ({
-      solved_model: {
+      model: {
         _id: item._id,
         url: item.url,
         answer: false,
@@ -77,10 +77,16 @@ export class MainContainerComponent implements OnInit {
     }));
 
     this.http.post(
-      'http://localhost:8000/results/save/force',
+      'http://localhost:8000/results/update',
       { models: solvedResults }
       ).subscribe(data => {
       console.log('1', data);
+      this.http.post(
+        'http://localhost:8000/results/save',
+        { models: solvedResults }
+      ).subscribe( data => {
+        console.log('2', data);
+      })
     })
   }
 
