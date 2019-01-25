@@ -15,8 +15,8 @@ export class GetStartedComponent {
     console.log(this.token);
     if (this.token) {
       localStorage.setItem('token', this.token);
-    } else {
-      alert('Something went wrong');
+    } else if (!localStorage.getItem('token')) {
+      alert('You don`t have permission');
     }
   }
 

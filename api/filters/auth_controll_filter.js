@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
     return next();
   }
   const token = req.get('Authorization');
-  let arr = token.split(' ');
+  const arr = token.split(' ');
 
   if (!arr[1]) {
     return res.status(403).send('Not authorized');

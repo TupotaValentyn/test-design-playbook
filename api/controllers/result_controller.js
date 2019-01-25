@@ -27,6 +27,24 @@ const router = require('express').Router();
 //
 // });
 
+router.post('/results/save/force', (req, res) => {
+  const models = req.body.models;
+  const token = req.token;
+
+  Applicant.findOneAndUpdate({ token: token }, { status: Applicant.STATUS_EVALUATED })
+    .then((docs) => {
+      console.log(docs);
+      let result = new Result({
+        applicant: docs,
+        solved_models: models,
+        solved_date: new Date(),
+        token: token
+      });
+      result.save();
+      res.json(result);
+    })
+});
+
 router.post('/results/save', (req, res) => {
   const models = req.body.models;
   const token = req.token;
@@ -45,7 +63,7 @@ router.post('/results/save', (req, res) => {
 function updateResultToFillingStatus(user, models, token, res) {
   const result = new Result({
     applicant: user,
-    models: models,
+    solved_models: models,
     solved_date: Date(),
     token: token
   });
@@ -63,7 +81,7 @@ function updateResultToFillingStatus(user, models, token, res) {
 function findMoreInfoAboutUser(docs, token, models, res) {
   if (docs.status === Applicant.STATUS_IS_SOLVED) {
     Applicant
-      .findOne({ token: token }, { token: 0, _id: 0})
+      .findOne({ token: token })
       .then((user) => {
         updateResultToFillingStatus(user, models, token, res);
       });

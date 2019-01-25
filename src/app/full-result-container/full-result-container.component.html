@@ -14,13 +14,13 @@
         <mat-card-content>
           <mat-list>
             <mat-divider></mat-divider>
-            <mat-list-item>{{ resultItem.surname }} {{ resultItem.name }} {{ resultItem.secondName }}</mat-list-item>
+            <mat-list-item>{{ resultItem.applicant.surname }} {{ resultItem.applicant.first_name }} {{ resultItem.applicant.second_name }}</mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>E-mail: <a href="mailto:{{resultItem.email}}">{{ resultItem.email }}</a></mat-list-item>
+            <mat-list-item><a href="mailto:{{ resultItem.applicant.email }}">{{ resultItem.applicant.email }}</a></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>Created link: <time datetime="2018-01-01 12:00">01/01/2019 12:00</time></mat-list-item>
+            <mat-list-item>Created link: <time datetime="2018-01-01 12:00">{{ resultItem.applicant.created | date: "mediumDate" }}</time></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>Test pass: <time datetime="2019-01-01 12:00">01/01/2019 12:00</time></mat-list-item>
+            <mat-list-item>Test pass: <time datetime="2019-01-01 12:00">{{ resultItem.solved_date | date: "mediumDate" }}</time></mat-list-item>
           </mat-list>
         </mat-card-content>
       </mat-card>
@@ -56,7 +56,10 @@
   </div>
 
   <div class="results__container">
-    <app-result-item class="result__item__container" *ngFor="let item of resultItem.results; let i = index" [item]="item"
+    <app-result-item
+      class="result__item__container"
+      *ngFor="let item of resultItem.solved_models; let i = index"
+      [item]="item"
       [index]="i + 1">
     </app-result-item>
   </div>
