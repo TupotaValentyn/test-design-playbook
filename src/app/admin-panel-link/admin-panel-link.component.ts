@@ -22,7 +22,8 @@ export class AdminPanelLinkComponent implements OnInit{
       })
   }
 
-  token = 'User invite link';
+  token = '';
+  link = '';
 
   getLink(email, name, surname, secondname) {
     this.http.post(
@@ -37,6 +38,7 @@ export class AdminPanelLinkComponent implements OnInit{
       if(data.token) {
         console.log(data.token);
         this.token = `/invite/${data.token}`
+        this.link = `http://localhost:8000${this.token}`;
       }
       else {
         alert('don\'t have permission')

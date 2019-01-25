@@ -18,15 +18,15 @@
             <input matInput placeholder="Email" #email required autocomplete="off">
             <mat-icon matSuffix>email</mat-icon>
           </mat-form-field>
-          
+
           <mat-form-field type="text">
-              <input matInput placeholder="Name" #name required>
-              <mat-icon matSuffix>perm_identity</mat-icon>
+            <input matInput placeholder="Surname" #surname required>
+            <mat-icon matSuffix>face</mat-icon>
           </mat-form-field>
 
           <mat-form-field type="text">
-              <input matInput placeholder="Surname" #surname required>
-              <mat-icon matSuffix>face</mat-icon>
+              <input matInput placeholder="Name" #name required>
+              <mat-icon matSuffix>perm_identity</mat-icon>
           </mat-form-field>
 
           <mat-form-field type="text">
@@ -35,13 +35,21 @@
           </mat-form-field>
           
           <div>
-            <button mat-raised-button color="primary" (click)="getLink(email.value, name.value, surname.value, secondName.value)">GET</button>
-            <button mat-raised-button color="accent" class="send" (click)="sendLink(email.value, name.value, surname.value, secondName.value, token)" >SEND</button>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="getLink(email.value, name.value, surname.value, secondName.value)">GET</button>
+            <button
+              mat-raised-button
+              color="accent"
+              class="send"
+              (click)="sendLink(email.value, name.value, surname.value, secondName.value, token)"
+              [disabled]="token.length == 0">SEND</button>
           </div>
 
           <mat-form-field appearance="outline">
-              <mat-label>{{ token }}</mat-label>
-              <input matInput placeholder="Try one more time..." value="{{ token }}" #linkField readonly>
+              <mat-label>Invite link here...</mat-label>
+              <input matInput placeholder="Try one more time..." value="{{ link }}" #linkField readonly>
               <mat-icon matSuffix class="copy__icon" (click)="copyLink(linkField)">link</mat-icon>
           </mat-form-field>
       </form>
