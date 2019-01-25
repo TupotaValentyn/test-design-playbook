@@ -33,9 +33,9 @@ export class AdminPanelLinkComponent implements OnInit{
         email: email,
         second_name: secondname
       }).subscribe((data: any) => {
-        console.log(data)
+        console.log(data);
       if(data.token) {
-        console.log(data.token)
+        console.log(data.token);
         this.token = `/invite/${data.token}`
       }
       else {
@@ -43,6 +43,21 @@ export class AdminPanelLinkComponent implements OnInit{
       }
     })
   }
+
+  sendLink(email, name, surname, secondname, link) {
+    const newLink = 'http://localhost:4200' + link;
+    this.http.post(
+      'http://localhost:8000/users/token/send',
+      {
+        surname: surname,
+        first_name: name,
+        email: email,
+        second_name: secondname,
+        link: newLink
+      }).subscribe((data: any) => {
+      console.log(data)
+    })
+}
 
   copyLink(target) {
     target.focus();

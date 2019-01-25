@@ -20,6 +20,5 @@ export class GetStartedComponent {
     }
   }
 
-  userName = 'Мирослав';
-
+  userName = 'Myroslav';
 }

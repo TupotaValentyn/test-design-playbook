@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-navbar.component.css']
 })
 export class AdminNavbarComponent {
+  
+  deleteToken() {
+    localStorage.removeItem('token');  
+  }
+  
 }
