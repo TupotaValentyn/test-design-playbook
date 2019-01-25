@@ -42,9 +42,8 @@ router.post('/users/token/send',async (req, res) => {
   try {
     await mail.invite(user, req.body.link);
 
-    res.json({m: 'Sent successfully'});
-  }
-  catch(e) {
+    res.json({ message: 'Sent successfully' });
+  } catch(e) {
     console.log(e);
   }
 
