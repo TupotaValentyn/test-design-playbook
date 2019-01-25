@@ -2,7 +2,12 @@
   <nav class="nav">
     <a mat-button routerLink="/main">Back</a>
     <span>Обрано: {{ countCheckedElements }}/{{ maxCountCheckedElements }}</span>
-    <a mat-button routerLink="/finish">Finish</a>
+    <a 
+      mat-button 
+      (click)="sendData()"
+      >
+        Finish
+      </a>
   </nav>
 
   <mat-divider></mat-divider>
