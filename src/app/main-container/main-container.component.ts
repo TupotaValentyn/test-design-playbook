@@ -82,7 +82,7 @@ export class MainContainerComponent implements OnInit {
       'http://localhost:8000/results/update',
       { models: solvedResults }
       ).subscribe(data => {
-      this.route.navigate(['/results-table'])
+      this.route.navigate(['/result/table'])
     })
   }
 

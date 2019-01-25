@@ -51,7 +51,7 @@ router.post('/users/token/send',async (req, res) => {
 
 router.post('/users/token/deactivate', (req, res) => {
   const token = req.body.token;
-  User.findOneAndUpdate({ token: token }, { status: 'deactivated' }, (err) => {
+  User.findOneAndUpdate({ token: token }, { status: User.STATUS_DEACTIVATED }, (err) => {
     if(err){
       return res.status(500).send(err);
     }
@@ -63,7 +63,7 @@ router.get('/users/token/all', (req, res) => {
   if (req.access !== 'admin') {
     return res.status(403).send('You do not have permission');
   }
-  User.find({ status: { $nin: ['deactivated', 'expired', 'evaluated']}})
+  User.find({ status: { $nin: [User.STATUS_DEACTIVATED, User.STATUS_EXPIRED, User.STATUS_EVALUATED]}})
     .then((docs) => {
       res.send(docs);
     })
