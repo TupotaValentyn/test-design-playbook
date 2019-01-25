@@ -6,12 +6,11 @@ module.exports = (req, res, next) => {
     return next();
   }
   const token = req.get('Authorization');
-  let arr = token.split(' ');
+  const arr = token.split(' ');
 
   if (!arr[1]) {
     return res.status(403).send('Not authorized');
   }
-  console.log(arr[1]);
   jwt.verify(arr[1], secret.key, (err, decoded) => {
     if(err) {
       return res.status(403).send({ auth : 'false', message: 'Failed to authenticate token ' });
@@ -19,6 +18,6 @@ module.exports = (req, res, next) => {
     req.user = decoded.user;
     req.access = decoded.access;
     req.token = arr[1];
+    next();
   });
-  next();
 };

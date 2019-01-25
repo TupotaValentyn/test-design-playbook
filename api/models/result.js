@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 
 const result = mongoose.Schema({
-  models: Array,
+  applicant: Object,
+  solved_models: Array,
+  solved_date: Date,
   token: String
 });
 

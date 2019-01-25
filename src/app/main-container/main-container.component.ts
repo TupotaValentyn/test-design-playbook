@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subscriber } from 'rxjs';
-import {AppComponent} from '../app.component';
+import { SolvedModel } from '../models/solved-model';
 
 @Component({
   selector: 'app-main-container',
@@ -19,6 +18,13 @@ export class MainContainerComponent implements OnInit {
     mark: false,
     comment: 'Nothing found',
     name: "Nothing found"
+  },
+  {
+    _id: "",
+    url: "../../assets/empty-img.png",
+    mark: false,
+    comment: 'Nothing found',
+    name: "Nothing found"
   }];
   currentSelectedCount: number = 0;
 
@@ -29,36 +35,59 @@ export class MainContainerComponent implements OnInit {
         this.currentModel = data;
         console.log(data);
         this.currentModel.forEach(e => {
-          e.url = "../../assets" + e.url
+          e.url = "../../assets" + e.url;
         });
+        //need to check
         this.currentSelectModel = this.currentModel[0];
-      })
+      });
+    
+    //take user date from local storage if exist
+    if (localStorage.getItem('savedTestResults')) {
+      this.currentModel = JSON.parse( localStorage.getItem('savedTestResults') );
+    }
+    //setting first element of test after defining existing localStorageDate
+    this.currentSelectModel = this.currentModel[0];
+
   }
 
-  currentSelectModel = this.currentModel[0];
+  currentSelectModel: Object;
 
 
   //saving data to the local storage (used in checkbox's and saveComment functions)
   saveUserTestResult() {
     console.log('IMAGE CHOOSEN', this.currentModel);
-    // localStorage.setItem('savedTestResults', JSON.stringify(this.currentModel));
+    localStorage.setItem('savedTestResults', JSON.stringify(this.currentModel));
   }
 
   testComponentSend() {
     console.log("Sending...");
     this.currentModelLog();
     const sendData = this.currentModel;
+    const solvedResults: Array<SolvedModel> = sendData.map(item => ({
+      model: {
+        _id: item._id,
+        url: item.url,
+        answer: false,
+        name: item.name
+      },
+      mark: item.mark,
+      comment: item.comment
+    }));
 
     this.http.post(
-      'http://localhost:8000/results/save',
-      { models: sendData },
+      'http://localhost:8000/results/update',
+      { models: solvedResults }
       ).subscribe(data => {
-      console.log(data)
+      this.http.post(
+        'http://localhost:8000/results/save',
+        { models: solvedResults }
+      ).subscribe( data => {
+      })
     })
   }
 
   testComponentSave() {
-    this.currentModelLog();
+    this.saveUserTestResult();
   }
 
   testComponentChoose() {
@@ -66,7 +95,6 @@ export class MainContainerComponent implements OnInit {
   }
 
   sideBarSelect(selectedModel) {
-    //HERE
     this.saveUserTestResult();
 
     console.log(this.currentSelectedCount);

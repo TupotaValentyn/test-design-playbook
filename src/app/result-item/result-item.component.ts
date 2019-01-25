@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { SolvedModel } from '../models/solved-model';
 
 @Component({
   selector: 'app-result-item',
@@ -9,6 +10,6 @@ import { Component, Input } from '@angular/core';
 export class ResultItemComponent {
 
   @Input() index: number;
-  @Input() item: any;
+  @Input() item: SolvedModel;
 
 }
