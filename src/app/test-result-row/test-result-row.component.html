@@ -10,10 +10,11 @@
       <ng-template #dislike><span>You disliked it!</span></ng-template>
     </div>
     <div class="comment">
-      <mat-form-field class="comment__field">
-        <textarea matInput placeholder="User comment" cdkTextareaAutosize cdkAutosizeMinRows="3"
-          cdkAutosizeMaxRows="5" readonly="readonly">{{ item.comment }}</textarea>
-      </mat-form-field>
+      <div class="comment__field">
+        <label class="cursor" for="">
+          {{ item.comment }}
+        </label>
+      </div>
     </div>
   </div>
 </mat-card>

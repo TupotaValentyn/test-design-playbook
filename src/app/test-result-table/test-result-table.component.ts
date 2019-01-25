@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-test-result-table',
@@ -12,34 +15,20 @@ export class TestResultTableComponent {
 
   @Input() models: any;
 
-  constructor() {
+  constructor(private http: HttpClient, private route: Router) {
     this.countCheckedElements = 5;
     this.maxCountCheckedElements = 5;
 
-    this.models = [{
-      url: "../../assets/models/Colorful-1.jpg",
-      mark: false,
-      comment: "Bad template"
-    },{
-      url: "../../assets/models/Colorful-5.jpg",
-      mark: false,
-      comment: "Bad colors"
-    },{
-      url: "../../assets/models/bad_template_3.svg",
-      mark: false,
-      comment: "so bad..."
-    },{
-      url: "../../assets/models/bad_template_4.svg",
-      mark: false,
-      comment: ":(",
-    },{
-      url: "../../assets/models/bad_template_5.svg",
-      mark: true,
-      comment: "I really liked it!"
-    },{
-      url: "../../assets/models/bad_template_6.svg",
-      mark: true,
-      comment: "It's good too."
-    }];
+    this.models = JSON.parse(localStorage.getItem('savedTestResults'))
+  }
+
+  sendData() {
+    this.http.post(
+      'http://localhost:8000/results/save',
+      { models: this.models }
+    ).subscribe( data => {
+      this.route.navigate(['/finish'])
+    })
+
   }
 }

@@ -27,7 +27,7 @@ export class TestContentComponent {
     this.onSaveComment.emit(this.currentModel); 
   }
 
-  sendAnswers() {
+  moveToNextPage() {
     this.onSend.emit();
   }
 

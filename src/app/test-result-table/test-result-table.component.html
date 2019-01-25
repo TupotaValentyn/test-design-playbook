@@ -1,10 +1,13 @@
 <div class="wrapper">
   <nav class="nav">
     <a mat-button routerLink="/main">Back</a>
-    <span>Ticked: {{ countCheckedElements }}/{{ maxCountCheckedElements }}</span>
-    <a mat-button routerLink="/finish">Finish</a>
+    <span>Please check your choice before sending</span>
+    <a 
+      mat-button 
+      (click)="sendData()">
+      Finish
+      </a>
   </nav>
-
   <mat-divider></mat-divider>
 
   <div class="result__table">
