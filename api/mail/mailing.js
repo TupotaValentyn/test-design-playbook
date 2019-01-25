@@ -23,7 +23,7 @@ function sendMail(email, subject, text) {
 }
 
 function mailTemplate(title, text) {
-    let template = fs.readFileSync('./main-template.html', 'UTF-8');
+    let template = fs.readFileSync(__dirname + '/mail-template.html', 'UTF-8');
     return template
       .replace('$[title]', title)
       .replace('$[text]', text);
@@ -36,8 +36,8 @@ module.exports.invite = (user, link) => {
         user.email,
         'Invite link.',
         mailTemplate(
-            `Привіт, ${ user.surname } ${ user.name }. `,
-            `Наша команда запрошує Вас пройти тестове завдання. Для продовження перейдіть за <a class="button_start_test" href="${ link }">посиланням</a>.`
+            `Привіт, ${ user.surname } ${ user.first_name }. `,
+            `Наша команда запрошує Вас пройти тестове завдання. Для продовження перейдіть за <a class="button_start_test" href="${ link }">посиланням.</a>.`
         )
     )
 };
