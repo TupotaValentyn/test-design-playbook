@@ -36,8 +36,8 @@ module.exports.invite = (user, link) => {
         user.email,
         'Invite link.',
         mailTemplate(
-            `Привіт, ${ user.surname } ${ user.name }. `,
-            `Наша команда запрошує Вас пройти тестове завдання. Для продовження перейдіть за <a class="button_start_test" href="${ link }">посиланням</a>.`
+            `Hello, ${ user.surname } ${ user.name }. `,
+            `Our team invites you to pass the test. In order to continue you need to follow the <a class="button_start_test" href="${ link }">link</a>.`
         )
     )
 };
@@ -48,7 +48,7 @@ module.exports.testCompleted = (user) => {
         'Test completed.',
         mailTemplate(
             '',
-            `Кандидат ${user.surname} ${user.name}, завершив тестування. Результати можна переглянути на нашому сайті.`
+            `Candidate ${user.surname} ${user.name} passed the test. Results are available on our website.`
         )
     )
 };
