@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subscriber } from 'rxjs';
-import {AppComponent} from '../app.component';
-import {SolvedModel} from '../models/solved-model';
+import { SolvedModel } from '../models/solved-model';
 
 @Component({
   selector: 'app-main-container',
@@ -65,7 +63,7 @@ export class MainContainerComponent implements OnInit {
     console.log("Sending...");
     this.currentModelLog();
     const sendData = this.currentModel;
-    let solvedResults: Array<SolvedModel> = sendData.map(item => ({
+    const solvedResults: Array<SolvedModel> = sendData.map(item => ({
       model: {
         _id: item._id,
         url: item.url,
@@ -80,12 +78,10 @@ export class MainContainerComponent implements OnInit {
       'http://localhost:8000/results/update',
       { models: solvedResults }
       ).subscribe(data => {
-      console.log('1', data);
       this.http.post(
         'http://localhost:8000/results/save',
         { models: solvedResults }
       ).subscribe( data => {
-        console.log('2', data);
       })
     })
   }

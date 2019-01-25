@@ -27,16 +27,17 @@ router.get('/model/all', (req, res) => {
 router.get('/model/generate', (req, res) => {
   const url = '/models/good_template_' + req.body.i + '.svg';
   const name = 'good_template_' + req.body.i;
-    const model = new Model({
-      url: url,
-      name: name,
-      answer: false
-    });
-    model.save()
-      .then((docs) => {
-        console.log(docs);
-        res.json({m: 'Success'});
-      })});
+  const model = new Model({
+    url: url,
+    name: name,
+    answer: false
+  });
+  model.save()
+    .then((docs) => {
+      console.log(docs);
+      res.json({m: 'Success'});
+    })
+});
 
 console.log('[Model Controller]', 'load routes');
 
