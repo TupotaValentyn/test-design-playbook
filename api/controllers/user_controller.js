@@ -63,7 +63,7 @@ router.get('/users/token/all', (req, res) => {
   if (req.access !== 'admin') {
     return res.status(403).send('You do not have permission');
   }
-  User.find({ status: { $nin: ['deactivated', 'expired']}})
+  User.find({ status: { $nin: ['deactivated', 'expired', 'evaluated']}})
     .then((docs) => {
       res.send(docs);
     })
