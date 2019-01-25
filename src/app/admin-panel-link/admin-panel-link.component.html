@@ -36,7 +36,7 @@
           
           <div>
             <button mat-raised-button color="primary" (click)="getLink(email.value, name.value, surname.value, secondName.value)">GET</button>
-            <button mat-raised-button color="accent" class="send">SEND</button>
+            <button mat-raised-button color="accent" class="send" (click)="sendLink(email.value, name.value, surname.value, secondName.value, token)" >SEND</button>
           </div>
 
           <mat-form-field appearance="outline">

@@ -2,6 +2,7 @@ const router = require('express').Router();
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const secret = require("../secret");
+const mail = require('../mail/mailing');
 
 router.post('/users/token', (req, res) => {
   if (req.access !== 'admin') {
@@ -29,6 +30,24 @@ router.post('/users/token/status', (req, res) => {
     }
     return res.send({status: docs.status});
   })
+});
+
+router.post('/users/token/send',async (req, res) => {
+  const user = new User({
+    surname: req.body.surname,
+    first_name: req.body.first_name,
+    second_name: req.body.second_name,
+    email: req.body.email,
+  });
+  try {
+    await mail.invite(user, req.body.link);
+
+    res.json({m: 'Sent successfully'});
+  }
+  catch(e) {
+    console.log(e);
+  }
+
 });
 
 router.post('/users/token/deactivate', (req, res) => {
