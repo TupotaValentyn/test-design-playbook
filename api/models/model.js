@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const model = mongoose.Schema({
   url: String,
   answer: Boolean,
-  mark: Number
+  name: String
 });
 
 const Model = mongoose.model('models', model);

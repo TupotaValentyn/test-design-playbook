@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-get-started',
@@ -7,6 +8,17 @@ import { Component } from '@angular/core';
 })
 export class GetStartedComponent {
 
-  userName = 'Myroslav';
+  token: string;
 
+  constructor(private route: ActivatedRoute) {
+    this.token = this.route.snapshot.paramMap.get('token');
+    console.log(this.token);
+    if (this.token) {
+      localStorage.setItem('token', this.token);
+    } else if (!localStorage.getItem('token')) {
+      alert('You don`t have permission');
+    }
+  }
+
+  userName = 'Myroslav';
 }
