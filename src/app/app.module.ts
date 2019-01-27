@@ -6,15 +6,15 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 // component
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GetStartedComponent } from './get-started/get-started.component';
-import { MainContainerComponent } from './main-container/main-container.component';
-import { SidebarThumbnailComponent } from './sidebar-thumbnail/sidebar-thumbnail.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { TestContentComponent } from './test-content/test-content.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
-import { FullResultContainerComponent } from './full-result-container/full-result-container.component';
-import { AdminPanelLinkComponent } from './admin-panel-link/admin-panel-link.component';
-import { AdminPanelLinkInfoComponent } from './admin-panel-link-info/admin-panel-link-info.component';
+import { GetStartedComponent } from './components/pages/get-started/get-started.component';
+import { MainContainerComponent } from './components/pages/main-container/main-container.component';
+import { SidebarThumbnailComponent } from './components/pages/main-container/sidebar/sidebar-thumbnail/sidebar-thumbnail.component';
+import { SidebarComponent } from './components/pages/main-container/sidebar/sidebar.component';
+import { TestContentComponent } from './components/pages/main-container/test-content/test-content.component';
+import { AdminLoginComponent } from './components/pages/admin-login/admin-login.component';
+import { FullResultContainerComponent } from './components/pages/full-result-container/full-result-container.component';
+import { AdminPanelLinkComponent } from './components/pages/admin-panel-link/admin-panel-link.component';
+import { AdminPanelLinkInfoComponent } from './components/pages/admin-panel-link/admin-panel-link-info/admin-panel-link-info.component';
 
 // material modules
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,18 +22,18 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
-import { ThxPageComponent } from './thx-page/thx-page.component';
-import { ResultItemComponent } from './result-item/result-item.component';
+import { ThxPageComponent } from './components/pages/thx-page/thx-page.component';
+import { ResultItemComponent } from './components/pages/full-result-container/result-item/result-item.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatFormFieldModule, MatInputModule, MatToolbarModule, MatIconModule, MatListModule } from '@angular/material';
-import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { AdminNavbarComponent } from './components/shared/admin-navbar/admin-navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { ResultsPageComponent } from './results-page/results-page.component';
-import { ResultsCardComponent } from './results-card/results-card.component';
+import { ResultsPageComponent } from './components/pages/results-page/results-page.component';
+import { ResultsCardComponent } from './components/pages/results-page/results-card/results-card.component';
 import { MatMenuModule } from '@angular/material';
-import { TestResultTableComponent } from './test-result-table/test-result-table.component';
-import { TestResultRowComponent } from './test-result-row/test-result-row.component';
+import { TestResultTableComponent } from './components/pages/test-result-table/test-result-table.component';
+import { TestResultRowComponent } from './components/pages/test-result-table/test-result-row/test-result-row.component';
 
 // service
 import { JwtInterceptorService } from './components/shared/interceptors/jwt-interceptor.service';

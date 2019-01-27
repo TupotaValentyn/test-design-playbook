@@ -37,7 +37,7 @@ export class AdminPanelLinkComponent implements OnInit{
         console.log(data);
       if(data.token) {
         console.log(data.token);
-        this.token = `/invite/${data.token}`
+        this.token = `/invite/${data.token}`;
         this.link = `http://localhost:4200${this.token}`;
       }
       else {

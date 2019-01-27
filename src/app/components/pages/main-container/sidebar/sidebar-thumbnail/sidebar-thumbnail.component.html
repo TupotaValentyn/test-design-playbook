@@ -15,7 +15,7 @@
     </mat-card-subtitle>
   </mat-card-header>
 
-  <img mat-card-image src="{{ model.url }}" alt="{{ model.name }}">
+  <img mat-card-image [src]="model.url" [alt]="model.name">
 
   <mat-card-actions>
     <div *ngIf="!model.mark; else unset">

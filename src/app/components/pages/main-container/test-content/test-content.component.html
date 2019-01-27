@@ -1,7 +1,7 @@
 <div class="full__screen__content" [ngStyle]="{display: (isPictureOpened) ? 'block' : 'none'}">
-  <img src="{{ currentModel.url }}" alt="image" class="img"/>
+  <img [src]="currentModel.url" alt="image" class="img"/>
   <div (click)="changeScreenMode()" class="img__container">
-    <img src="../../assets/cancel.svg" class="img exit__full__screen__image"/>
+    <img src="../../../../../assets/cancel.svg" class="img exit__full__screen__image" alt="cancel"/>
   </div>
 </div>
 
@@ -35,10 +35,10 @@
       <div class="empty__wrapper"></div>
       <div class="empty" [ngStyle]="{'background': 'url(' + currentModel.url + ')'}"></div>
       
-      <img src="{{ currentModel.url }}" class="img"/>
+      <img [src]="currentModel.url" class="img" alt="current model"/>
       <div class="main__image__wrapper">
         <div class="full__screen__button" (click)="changeScreenMode()">
-          <img src="../../assets/full-screen.svg" class="img full__screen__image__inner"/>
+          <img src="../../../../../assets/full-screen.svg" class="img full__screen__image__inner" alt="full screen image"/>
         </div>
       </div>
     </mat-card>

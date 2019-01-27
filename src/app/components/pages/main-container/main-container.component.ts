@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { SolvedModel } from '../models/solved-model';
+import { SolvedModel } from '../../shared/models/solved-model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -81,7 +81,7 @@ export class MainContainerComponent implements OnInit {
     this.http.post(
       'http://localhost:8000/results/update',
       { models: solvedResults }
-      ).subscribe(data => {
+      ).subscribe(() => {
       this.route.navigate(['/result/table'])
     })
   }

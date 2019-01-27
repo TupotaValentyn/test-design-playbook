@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router'
-import { Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-admin-login',
@@ -15,8 +14,6 @@ export class AdminLoginComponent {
   }
   //for password field
   hide = true;
-  check = false
-
   auth(login, pass) {
     this.http.post(
       'http://localhost:8000/auth',
@@ -26,7 +23,7 @@ export class AdminLoginComponent {
       }
       ).subscribe((data: any) => {
       if(data.auth === 'true') {
-        localStorage.setItem('token', data.token)
+        localStorage.setItem('token', data.token);
         this.router.navigate(['admin/links'])
       } else {
         alert('Саша, не ламай')

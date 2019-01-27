@@ -1,6 +1,6 @@
 <mat-card class="result__row">
   <div class="img__wrapper">
-    <img class="image" src="{{ item.url }}">
+    <img class="image" [src]="item.url" alt="item.url">
   </div>
 
   <div class="answer__wrapper">
@@ -11,7 +11,7 @@
     </div>
     <div class="comment">
       <div class="comment__field">
-        <label class="cursor" for="">
+        <label class="cursor">
           {{ item.comment }}
         </label>
       </div>

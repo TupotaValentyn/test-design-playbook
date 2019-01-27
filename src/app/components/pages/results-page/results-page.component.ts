@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Result } from '../models/result';
-import { Applicant } from '../models/applicant';
+import { Result } from '../../shared/models/result';
+import { Applicant } from '../../shared/models/applicant';
 import { HttpClient } from '@angular/common/http';
 
 @Component({

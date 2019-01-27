@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Result } from '../models/result';
+import { Result } from '../../shared/models/result';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Applicant } from '../models/applicant';
+import { Applicant } from '../../shared/models/applicant';
 
 @Component({
   selector: 'app-full-result-container',
