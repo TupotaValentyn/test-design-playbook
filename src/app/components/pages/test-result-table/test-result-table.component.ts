@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { DataSourceService } from '../../shared/service/data-source.service';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class TestResultTableComponent {
 
   @Input() models: any;
 
-  constructor(private http: HttpClient, private route: Router) {
+  constructor(private dataSource: DataSourceService, private route: Router) {
     this.countCheckedElements = 5;
     this.maxCountCheckedElements = 5;
 
@@ -23,10 +23,7 @@ export class TestResultTableComponent {
   }
 
   sendData() {
-    this.http.post(
-      'http://localhost:8000/api/results/save',
-      { models: this.models }
-    ).subscribe( () => {
+    this.dataSource.saveResults(this.models).subscribe( () => {
       this.route.navigate(['/finish'])
     })
 

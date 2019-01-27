@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Result } from '../../shared/models/result';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { Applicant } from '../../shared/models/applicant';
+import { DataSourceService } from '../../shared/service/data-source.service';
 
 @Component({
   selector: 'app-full-result-container',
@@ -17,12 +17,12 @@ export class FullResultContainerComponent implements OnInit {
     solved_date: new Date()
   };
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {  }
+  constructor(private route: ActivatedRoute, private dataSource: DataSourceService) {  }
 
   ngOnInit(): void {
     const token = this.route.snapshot.paramMap.get('token');
     if (token) {
-      this.http.post('http://localhost:8000/api/results/one', {token: token})
+      this.dataSource.getResultForUser(token)
         .subscribe((data: Result) => {
 
           this.resultItem = data;

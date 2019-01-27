@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Result } from '../../shared/models/result';
-import { HttpClient } from '@angular/common/http';
+import { DataSourceService } from '../../shared/service/data-source.service';
 
 @Component({
   selector: 'app-results-page',
@@ -11,11 +11,10 @@ export class ResultsPageComponent implements OnInit {
 
   results: Array<Result> = [];
 
-  constructor(private http: HttpClient) {  }
+  constructor(private dataSource: DataSourceService) {  }
 
   ngOnInit(): void {
-    this.http
-      .get('http://localhost:8000/api/results/all')
+    this.dataSource.getAllResults()
       .subscribe((data: Array<Result>) => {
         this.results = data;
       }, (error) => {

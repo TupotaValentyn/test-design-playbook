@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router'
+import { DataSourceService } from '../../shared/service/data-source.service';
 
 @Component({
   selector: 'app-admin-login',
@@ -9,22 +9,17 @@ import { Router } from '@angular/router'
 })
 export class AdminLoginComponent {
 
-  constructor (private http: HttpClient, private router: Router) {
+  constructor (private dataSource: DataSourceService, private router: Router) {
 
   }
   //for password field
   hide = true;
   auth(login, pass) {
-    this.http.post(
-      'http://localhost:8000/api/auth',
-      { 
-        login: login, 
-        password: pass
-      }
-      ).subscribe((data: any) => {
+    this.dataSource.authorize(login, pass).subscribe((data: any) => {
       if(data.auth === 'true') {
         localStorage.setItem('token', data.token);
         this.router.navigate(['admin/links'])
+          .catch((error) => alert(error));
       } else {
         alert('Саша, не ламай')
       }

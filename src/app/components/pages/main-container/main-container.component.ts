@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { SolvedModel } from '../../shared/models/solved-model';
 import { Router } from '@angular/router';
+import { DataSourceService } from '../../shared/service/data-source.service';
 
 @Component({
   selector: 'app-main-container',
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 
 export class MainContainerComponent implements OnInit {
 
-  constructor (private http: HttpClient, private route: Router) { }
+  constructor (private dataSource: DataSourceService, private route: Router) { }
 
   currentModel: any = [{
     _id: "",
@@ -31,9 +31,8 @@ export class MainContainerComponent implements OnInit {
 
   ngOnInit() {
     if(!localStorage.getItem('savedTestResults')) {
-      this.http.get(
-        'http://localhost:8000/api/model/all',
-        ).subscribe(data => {
+      this.dataSource.getAllModels()
+        .subscribe(data => {
           this.currentModel = data;
           console.log(data);
           this.currentModel.forEach(e => {
@@ -78,10 +77,7 @@ export class MainContainerComponent implements OnInit {
       comment: item.comment
     }));
 
-    this.http.post(
-      'http://localhost:8000/api/results/update',
-      { models: solvedResults }
-      ).subscribe(() => {
+    this.dataSource.updateResult(solvedResults).subscribe(() => {
       this.route.navigate(['/result/table'])
     })
   }

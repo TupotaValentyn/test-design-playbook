@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { DataSourceService } from '../../../shared/service/data-source.service';
 
 @Component({
   selector: 'app-admin-panel-link-info',
@@ -9,17 +9,13 @@ import { HttpClient } from '@angular/common/http';
 export class AdminPanelLinkInfoComponent {
 
   @Input() usersDataItem: any;
-  constructor(private http: HttpClient) {
+  constructor(private dataSource: DataSourceService) {
 
   }
 
   disable(token: string) {
-    this.http.post(
-      'http://localhost:8000/api/users/token/deactivate',
-      { 
-        token: token
-      }
-      ).subscribe((data: any) => {
+    this.dataSource.disableLink(token)
+      .subscribe((data: any) => {
         console.log(data)
     })
   }
