@@ -32,7 +32,7 @@ export class MainContainerComponent implements OnInit {
   ngOnInit() {
     if(!localStorage.getItem('savedTestResults')) {
       this.http.get(
-        'http://localhost:8000/model/all',
+        'http://localhost:8000/api/model/all',
         ).subscribe(data => {
           this.currentModel = data;
           console.log(data);
@@ -79,7 +79,7 @@ export class MainContainerComponent implements OnInit {
     }));
 
     this.http.post(
-      'http://localhost:8000/results/update',
+      'http://localhost:8000/api/results/update',
       { models: solvedResults }
       ).subscribe(() => {
       this.route.navigate(['/result/table'])

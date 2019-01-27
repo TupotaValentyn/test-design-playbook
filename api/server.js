@@ -21,16 +21,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // filters
 
 app.use(cors());
-app.use(express.static(__dirname + '/../src/assets'));
-app.use(require('./filters/auth_controll_filter'));
+// app.use(express.static(__dirname + '/../src/assets'));
+
+app.use('/api/*', require('./middleware/auth_controll_filter'));
 
 console.log('[Server] filters load');
 
 // routes
-app.use('', require('./controllers/auth_controller'));
-app.use('', require('./controllers/result_controller'));
-app.use('', require('./controllers/model_controller'));
-app.use('', require('./controllers/user_controller'));
+app.use('/api', require('./controllers/auth_controller'));
+app.use('/api', require('./controllers/result_controller'));
+app.use('/api', require('./controllers/model_controller'));
+app.use('/api', require('./controllers/user_controller'));
 
 // start
 app.listen(PORT, () => {

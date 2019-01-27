@@ -24,7 +24,7 @@ export class TestResultTableComponent {
 
   sendData() {
     this.http.post(
-      'http://localhost:8000/results/save',
+      'http://localhost:8000/api/results/save',
       { models: this.models }
     ).subscribe( () => {
       this.route.navigate(['/finish'])

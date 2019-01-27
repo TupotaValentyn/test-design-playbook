@@ -14,7 +14,7 @@ export class AdminPanelLinkComponent implements OnInit{
 
   ngOnInit() {
     this.http.get(
-      'http://localhost:8000/users/token/all',
+      'http://localhost:8000/api/users/token/all',
       ).subscribe(data => {
         this.usersDateInforArray = data;
         console.log(data);
@@ -27,7 +27,7 @@ export class AdminPanelLinkComponent implements OnInit{
 
   getLink(email, name, surname, secondname) {
     this.http.post(
-      'http://localhost:8000/users/token',
+      'http://localhost:8000/api/users/token',
       {
         surname: surname,
         first_name: name,
@@ -49,7 +49,7 @@ export class AdminPanelLinkComponent implements OnInit{
   sendLink(email, name, surname, secondname, link) {
     const newLink = 'http://localhost:4200' + link;
     this.http.post(
-      'http://localhost:8000/users/token/send',
+      'http://localhost:8000/api/users/token/send',
       {
         surname: surname,
         first_name: name,

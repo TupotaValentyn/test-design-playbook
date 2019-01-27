@@ -15,7 +15,7 @@ export class AdminPanelLinkInfoComponent {
 
   disable(token: string) {
     this.http.post(
-      'http://localhost:8000/users/token/deactivate',
+      'http://localhost:8000/api/users/token/deactivate',
       { 
         token: token
       }

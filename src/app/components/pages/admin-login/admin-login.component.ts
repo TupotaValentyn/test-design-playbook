@@ -16,7 +16,7 @@ export class AdminLoginComponent {
   hide = true;
   auth(login, pass) {
     this.http.post(
-      'http://localhost:8000/auth',
+      'http://localhost:8000/api/auth',
       { 
         login: login, 
         password: pass

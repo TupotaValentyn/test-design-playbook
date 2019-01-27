@@ -22,7 +22,7 @@ export class FullResultContainerComponent implements OnInit {
   ngOnInit(): void {
     const token = this.route.snapshot.paramMap.get('token');
     if (token) {
-      this.http.post('http://localhost:8000/results/one', {token: token})
+      this.http.post('http://localhost:8000/api/results/one', {token: token})
         .subscribe((data: Result) => {
 
           this.resultItem = data;
