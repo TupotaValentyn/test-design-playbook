@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataSourceService } from '../../shared/service/data-source.service';
-import {SolvedModel} from '../../shared/models/solved-model';
+import { SolvedModel } from '../../shared/models/solved-model';
 
 
 @Component({

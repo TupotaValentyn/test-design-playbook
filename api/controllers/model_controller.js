@@ -9,9 +9,7 @@ router.get('/model/all', (req, res) => {
     if (docs.status === Applicant.STATUS_IS_SOLVED) {
       Model.find({}, (err, models) => {
         if (err) {
-          res.status(500);
-          res.send(err);
-          return;
+          return res.status(500).res.send(err);
         }
         let modelMap = [];
 
@@ -30,9 +28,7 @@ router.get('/model/all', (req, res) => {
     } else if(docs.status === Applicant.STATUS_IS_FILLING) {
       Result.findOne({ token: req.token }, (err, docs) => {
         if (err) {
-          res.status(500);
-          res.send(err);
-          return;
+          return res.status(500).res.send(err);
         }
         res.send(docs);
       })
