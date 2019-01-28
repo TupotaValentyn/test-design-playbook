@@ -1,57 +1,55 @@
 <div class="full__screen__content" [ngStyle]="{display: (isPictureOpened) ? 'block' : 'none'}">
-  <img [src]="currentModel.url" alt="image" class="img"/>
+  <img [src]="currentModel.url" alt="image" class="img" />
   <div (click)="changeScreenMode()" class="img__container">
-    <img src="../../../../../assets/cancel.svg" class="img exit__full__screen__image" alt="cancel"/>
+    <img src="../../../../../assets/cancel.svg" class="img exit__full__screen__image" alt="cancel" />
   </div>
 </div>
 
 <div class="container__wrapper">
   <div class="container">
     <div class="container__header">
-      <mat-card class="counters">
-        Total amount: 23.<br>
-        Ticked: {{ countCheckedElements }}/{{ maxCountCheckedElements }}.
-        <span *ngIf="countCheckedElements > maxCountCheckedElements" class="warning__message">
-            (too many templates are ticked.)
-        </span>
-      </mat-card>
 
       <mat-card class="tasks">
         <div>
-          <h3>Task:</h3>
+          Task:<br>
           To choose {{ maxCountCheckedElements }} the best templates of 23.
         </div>
-        <button
-          mat-raised-button
-          color="accent"
-          (click)="moveToNextPage()"
-          [disabled]="countCheckedElements !== 5">
+      </mat-card>
+
+      <mat-card class="counters">
+        <div class="counter__wrapper">
+          Total amount: 23.<br>
+          Ticked: {{ countCheckedElements }}/{{ maxCountCheckedElements }}.
+          <span *ngIf="countCheckedElements > maxCountCheckedElements" class="warning__message">
+            (too many templates are ticked.)
+          </span>
+        </div>
+
+        <button mat-raised-button color="accent" (click)="moveToNextPage()" [disabled]="countCheckedElements !== 5"
+          class="btn__continue">
           Continue
         </button>
       </mat-card>
+
+
     </div>
 
     <mat-card class="main__image__card">
       <div class="empty__wrapper"></div>
       <div class="empty" [ngStyle]="{'background': 'url(' + currentModel.url + ')'}"></div>
-      
-      <img [src]="currentModel.url" class="img" alt="current model"/>
+
+      <img [src]="currentModel.url" class="img" alt="current model" />
       <div class="main__image__wrapper">
         <div class="full__screen__button" (click)="changeScreenMode()">
-          <img src="../../../../../assets/full-screen.svg" class="img full__screen__image__inner" alt="full screen image"/>
+          <img src="../../../../../assets/full-screen.svg" class="img full__screen__image__inner" alt="full screen image" />
         </div>
       </div>
     </mat-card>
 
     <footer class="footer">
       <mat-form-field class="comment">
-          <textarea
-            matInput
-            placeholder="Leave comment about this image"
-            #comment
-            class="comment"
-            [(ngModel)]="currentModel.comment"
-            (blur)="saveComment($event)">
+        <textarea matInput placeholder="Leave comment about this image" #comment class="comment" [(ngModel)]="currentModel.comment"
+          (blur)="saveComment($event)">
           </textarea>
       </mat-form-field>
     </footer>
