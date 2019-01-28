@@ -86,7 +86,9 @@ function findMoreInfoAboutUser(docs, token, models, res) {
         updateResultToFillingStatus(user, models, token, res);
       });
   } else {
-    Result.findOneAndUpdate({ token: token }, { models: models }).catch(err => res.send(err)).then(() => res.json({ m:'Updated successfully' }));
+    Result.findOneAndUpdate({ token: token }, { solved_models: models })
+      .catch(err => res.send(err))
+      .then(() => {res.json({ m:'Updated successfully' })});
   }
 }
 
