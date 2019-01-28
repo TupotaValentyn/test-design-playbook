@@ -9,7 +9,6 @@
   <div class="container">
     <div class="container__header">
       <mat-card class="status">
-        <!-- <mat-card-title> {{ currentModel.name }} </mat-card-title> -->
         {{ currentModel.name }}
         <div *ngIf="currentModel.mark; else empty_text">
           <span class="status__message">You like it!</span>
