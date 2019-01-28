@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataSourceService } from '../../shared/service/data-source.service';
+import {SolvedModel} from '../../shared/models/solved-model';
 
 
 @Component({
@@ -23,7 +24,18 @@ export class TestResultTableComponent {
   }
 
   sendData() {
-    this.dataSource.saveResults(this.models).subscribe( () => {
+    const sendData = this.models;
+    const solvedResults: Array<SolvedModel> = sendData.map(item => ({
+      model: {
+        _id: item._id,
+        url: item.url,
+        answer: false,
+        name: item.name
+      },
+      mark: item.mark,
+      comment: item.comment
+    }));
+    this.dataSource.saveResults(solvedResults).subscribe( () => {
       this.route.navigate(['/finish'])
     })
 

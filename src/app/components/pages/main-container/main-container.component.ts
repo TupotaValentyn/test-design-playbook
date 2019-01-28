@@ -30,26 +30,35 @@ export class MainContainerComponent implements OnInit {
   currentSelectedCount: number = 0;
 
   ngOnInit() {
-    if(!localStorage.getItem('savedTestResults')) {
-      this.dataSource.getAllModels()
-        .subscribe(data => {
+    this.dataSource.getAllModels()
+      .subscribe(data => {
+        if(!data['token']) {
+          console.log('tut data');
+          console.log(data);
           this.currentModel = data;
           console.log(data);
           this.currentModel.forEach(e => {
-          e.url = "../../assets" + e.url
-        });
-        //need to check
-        this.currentSelectModel = this.currentModel[0];
-      });
-    }
+            e.url = "../../assets" + e.url
+          });
+          console.log(this.currentModel);
+          //need to check
+          this.currentSelectModel = this.currentModel[0];
+        } else{
+          console.log(data);
+          this.currentModel = data['solved_models'].map((item) => (
+            {_id: item.model._id, url: item.model.url, mark: item.mark, comment: item.comment,})
+          );
+          this.currentSelectedCount = this.currentModel.filter(e => e.mark).length;
+          this.currentSelectModel = this.currentModel[0];
+        }});
 
     //take user date from local storage if exist
-    if (localStorage.getItem('savedTestResults')) {
-      this.currentModel = JSON.parse( localStorage.getItem('savedTestResults') );
-      this.currentSelectedCount = this.currentModel.filter(e => e.mark).length;
-    }
-    //setting first element of test after defining existing localStorageDate
-    this.currentSelectModel = this.currentModel[0];
+    // if (localStorage.getItem('savedTestResults')) {
+    //   this.currentModel = JSON.parse( localStorage.getItem('savedTestResults') );
+    //   this.currentSelectedCount = this.currentModel.filter(e => e.mark).length;
+    // }
+    // //setting first element of test after defining existing localStorageDate
+    // this.currentSelectModel = this.currentModel[0];
 
   }
 
@@ -60,12 +69,29 @@ export class MainContainerComponent implements OnInit {
   saveUserTestResult() {
     console.log('IMAGE CHOOSEN', this.currentModel);
     localStorage.setItem('savedTestResults', JSON.stringify(this.currentModel));
+    console.log("Sending...");
+    this.currentModelLog();
+    const sendData = this.currentModel;
+    const solvedResults: Array<SolvedModel> = sendData.map(item => ({
+      model: {
+        _id: item._id,
+        url: item.url,
+        answer: false,
+        name: item.name
+      },
+      mark: item.mark,
+      comment: item.comment
+    }));
+
+    this.dataSource.updateResult(solvedResults).subscribe(() => {})
+
   }
 
   testComponentSend() {
     console.log("Sending...");
     this.currentModelLog();
     const sendData = this.currentModel;
+    console.log(this.currentModel);
     const solvedResults: Array<SolvedModel> = sendData.map(item => ({
       model: {
         _id: item._id,
