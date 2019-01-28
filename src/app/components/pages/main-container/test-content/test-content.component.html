@@ -1,8 +1,6 @@
 <div class="full__screen__content" [ngStyle]="{display: (isPictureOpened) ? 'block' : 'none'}">
   <img [src]="currentModel.url" alt="image" class="img"/>
-  <div (click)="changeScreenMode()" class="img__container">
-    <img src="../../../../../assets/cancel.svg" class="img exit__full__screen__image" alt="cancel"/>
-  </div>
+  <mat-icon class="img exit__full__screen__image" (click)="changeScreenMode()">fullscreen_exit</mat-icon>
 </div>
 
 <div class="container__wrapper">
@@ -34,26 +32,46 @@
     <mat-card class="main__image__card">
       <div class="empty__wrapper"></div>
       <div class="empty" [ngStyle]="{'background': 'url(' + currentModel.url + ')'}"></div>
-      
       <img [src]="currentModel.url" class="img" alt="current model"/>
-      <div class="main__image__wrapper">
-        <div class="full__screen__button" (click)="changeScreenMode()">
-          <img src="../../../../../assets/full-screen.svg" class="img full__screen__image__inner" alt="full screen image"/>
-        </div>
-      </div>
+      <mat-icon class="full__screen__icon" (click)="changeScreenMode()">fullscreen</mat-icon>
     </mat-card>
 
-    <footer class="footer">
-      <mat-form-field class="comment">
-          <textarea
-            matInput
-            placeholder="Leave comment about this image"
-            #comment
-            class="comment"
-            [(ngModel)]="currentModel.comment"
-            (blur)="saveComment($event)">
-          </textarea>
-      </mat-form-field>
+    <footer class="comments__contaner">
+      <mat-tab-group>      
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="comment__tab__icon">thumb_up</mat-icon>
+            Positive
+          </ng-template>
+          <mat-form-field class="comment__field">
+            <textarea
+              matInput
+              placeholder="Leave positive comment about this image"
+              #comment
+              class="comment__field__text"
+              [(ngModel)]="currentModel.comment"
+              (blur)="saveComment($event)">
+            </textarea>
+          </mat-form-field>
+        </mat-tab>
+      
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="comment__tab__icon">thumb_down</mat-icon>
+            Negative 
+          </ng-template>
+          <mat-form-field class="comment__field">
+            <textarea
+              matInput
+              placeholder="Leave negative comment about this image"
+              #comment
+              class="comment__field__text"
+              [(ngModel)]="currentModel.comment"
+              (blur)="saveComment($event)">
+            </textarea>
+          </mat-form-field>
+        </mat-tab>
+      </mat-tab-group>
     </footer>
 
   </div>

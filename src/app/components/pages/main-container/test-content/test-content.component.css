@@ -77,15 +77,6 @@ h3 {
   border-radius: 5px;
 }
 
-.main__image__wrapper {
-  bottom: 0;
-  position: absolute;
-  width: 100%;
-  height: 75px;
-  display: flex;
-  align-items: center;
-}
-
 .img {
   z-index: 999;
   width: 100%;
@@ -95,28 +86,40 @@ h3 {
   object-fit: contain;
 }
 
-.full__screen__button {
+/* icons fullscreen and small screen */
+.full__screen__icon,
+.exit__full__screen__image {
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-  z-index: 1000;
+  font-size: 40px;
   position: absolute;
-  width: 50px;
+  z-index: 1000;
+  cursor: pointer;
+  background-color: rgb(198, 202, 209, .8);
+  border-radius: 5px;
+  transition: all .3s linear;
 }
 
-.full__screen__image__inner {
-  width: 30px;
-  height: 30px;
-  transition: .2s;
-  opacity: .5;
+.full__screen__icon {
+  bottom: 25px;
+  left: 25px;
 }
 
-.full__screen__image__inner:hover {
-  width: 40px;
-  height: 40px;
-  opacity: 1;
+.exit__full__screen__image {
+  top: 40px;
+  right: 25px;
 }
+
+
+.full__screen__icon:hover,
+.exit__full__screen__image:hover {
+  transform: scale(1.2); 
+}
+/*  */
+
 
 .image__status__checkbox {
   display: flex;
@@ -124,14 +127,6 @@ h3 {
   position: absolute;
   height: 20px;
   z-index: 999;
-}
-
-.footer {
-  width: 100%;
-  height: 90px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 /* classes for big picture */
@@ -143,31 +138,23 @@ h3 {
   width: 79.9%;
 }
 
-.img__container {
-  position: absolute;
-  right: 50px;
-  top: 50px;
-  cursor: pointer;
-  z-index: 102;
-  height: 32px;
-  width: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.exit__full__screen__image {
-  height: 24px;
-  width: 24px;
-  transition: 0.1s;
-}
-
-.exit__full__screen__image:hover {
-  height: 32px;
-  width: 32px;
-}
-
-.comment {
+/* tabs footer and textarea styles */
+.comments__contaner {
   width: 100%;
+  height: 130px;
+  margin-top: 10px;  
+}
+
+.comment__tab__icon {
+  margin-right: 8px;
+}
+
+.comment__field {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.comment__field__text {
   resize: none;
 }

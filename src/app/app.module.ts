@@ -34,6 +34,7 @@ import { ResultsCardComponent } from './components/pages/results-page/results-ca
 import { MatMenuModule } from '@angular/material';
 import { TestResultTableComponent } from './components/pages/test-result-table/test-result-table.component';
 import { TestResultRowComponent } from './components/pages/test-result-table/test-result-row/test-result-row.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 // service
 import { JwtInterceptorService } from './components/shared/interceptors/jwt-interceptor.service';
@@ -76,7 +77,8 @@ import { JwtInterceptorService } from './components/shared/interceptors/jwt-inte
     MatToolbarModule,
     MatIconModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTabsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
