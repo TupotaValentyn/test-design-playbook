@@ -1,0 +1,24 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: url('../../../../assets/get-started-background.jpg') no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 500px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__description {
+  padding: 20px;
+  text-align: justify;
+  text-indent: 30px;
+}

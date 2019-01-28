@@ -1,0 +1,35 @@
+<mat-card class="result__item__container">
+  <div class="result__information__block">
+    <div class="index">
+      <span class="template__index">{{ index }}</span>
+      <span class="result__title">{{ item.model.name }}</span>
+    </div>
+    <label
+      *ngIf="item.mark; else applicant_not_like"
+      [class.right]="item.mark == item.model.answer"
+      [class.wrong]="item.mark != item.model.answer">
+      Applicant like it!
+    </label>
+    <ng-template #applicant_not_like>
+      <span
+        [class.right]="item.mark == item.model.answer"
+        [class.wrong]="item.mark != item.model.answer">
+        Applicant doesn't like it!
+      </span>
+    </ng-template>
+    <mat-form-field>
+      <mat-label>User comment</mat-label>
+      <textarea matInput
+                cdkTextareaAutosize
+                cdkAutosizeMinRows="3"
+                cdkAutosizeMaxRows="5"
+                readonly="readonly">{{ item.comment }}</textarea>
+    </mat-form-field>
+  </div>
+
+  <div class="result__image__block">
+    <img
+      class="result__image"
+      [src]="item.model.url" alt="result image"/>
+  </div>
+</mat-card>

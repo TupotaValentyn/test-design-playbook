@@ -55,7 +55,7 @@ router.post('/users/token/deactivate', (req, res) => {
     if(err){
       return res.status(500).send(err);
     }
-    res.send('Deactivated succesfully');
+    res.send({message: 'Deactivated succesfully'});
   });
 });
 
