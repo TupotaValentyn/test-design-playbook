@@ -3,7 +3,8 @@
   <div class="side__bar">
     <mat-card class="sidebar__title">Active links</mat-card>
     <app-admin-panel-link-info
-        *ngFor="let userInfoItem of usersDateInforArray"
+        *ngFor="let userInfoItem of userDataInfoList"
+        (onDisable)="updateUsersDataList()"
         [usersDataItem]="userInfoItem">
     </app-admin-panel-link-info>
   </div>
@@ -13,7 +14,7 @@
           <mat-toolbar>
               <span>Link</span>
           </mat-toolbar>
-          
+
           <mat-form-field type="text">
             <input matInput placeholder="Email" #email required autocomplete="off">
             <mat-icon matSuffix>email</mat-icon>
@@ -33,7 +34,7 @@
             <input matInput placeholder="Second name" #secondName required>
             <mat-icon matSuffix>supervised_user_circle</mat-icon>
           </mat-form-field>
-          
+
           <div>
             <button
               mat-raised-button
