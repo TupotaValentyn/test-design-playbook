@@ -93,6 +93,7 @@ export class MainContainerComponent implements OnInit {
   testComponentSend() {
     console.log("Sending...");
     this.currentModelLog();
+    localStorage.setItem('savedTestResults', JSON.stringify(this.currentModel));
     const sendData = this.currentModel;
     console.log(this.currentModel);
     const solvedResults: Array<SolvedModel> = sendData.map(item => ({
