@@ -84,9 +84,11 @@ export class MainContainerComponent implements OnInit {
       good_comment: item.good_comment
     }));
 
-    this.dataSource.updateResult(solvedResults).subscribe(() => {
-      this.route.navigate(['/result/table'])
-    })
+    // this doesn't work, that's why I used next thing
+    // this.dataSource.updateResult(solvedResults).subscribe(() => {
+    //   this.route.navigate(['/result/table']);
+    // })
+    this.route.navigate(['/result/table']);
   }
 
   // just a test

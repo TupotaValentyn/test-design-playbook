@@ -32,12 +32,12 @@ export class TestContentComponent {
   // }
 
   saveCommentGood(e) {
-    this.currentModel.comment_good = e.target.value;
+    this.currentModel.good_comment = e.target.value;
     this.onSaveGoodComment.emit(this.currentModel); 
   }
 
   saveCommentBad(e) {
-    this.currentModel.comment_bad = e.target.value;
+    this.currentModel.bad_comment = e.target.value;
     this.onSaveBadComment.emit(this.currentModel); 
   }
 
