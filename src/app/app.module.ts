@@ -38,7 +38,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // service
 import { JwtInterceptorService } from './components/shared/interceptors/jwt-interceptor.service';
-import {ErrorInterceptorService} from './components/shared/interceptors/error-interceptor.service';
+import { ErrorInterceptorService } from './components/shared/interceptors/error-interceptor.service';
 
 @NgModule({
   declarations: [
