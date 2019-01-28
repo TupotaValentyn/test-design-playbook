@@ -1,7 +1,14 @@
-<mat-card class="example__card" [class.selected]="currentSelected == model">
+<mat-card class="example__card"
+          [ngClass]="{
+            'liked': model.mark,
+            'selected': currentSelected == model
+          }">
 
   <mat-card-header>
-    <div mat-card-avatar class="header__index">
+    <div mat-card-avatar class="header__index" 
+         [ngStyle]="{
+           'background-color': model.mark ? '#FF4081' : '#3e4db8'
+         }">
       <span> {{ index }} </span>
     </div>
     <mat-card-title> {{ model.name }} </mat-card-title>

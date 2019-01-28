@@ -19,7 +19,7 @@ export class SidebarComponent implements OnInit {
   onSelectElement(model) {
     this.selectedModel = model; 
     this.onSelect.emit(model);
-    console.log(this.selectedModel)
+    console.log('[onSelectElement]',this.selectedModel);
   }
 
 }

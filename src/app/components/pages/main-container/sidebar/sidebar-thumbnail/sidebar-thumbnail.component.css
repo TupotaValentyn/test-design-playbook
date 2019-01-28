@@ -14,8 +14,13 @@
 }
 
 .selected {
-  background: #eaebff;
+  border: 1px solid #3e4db8;
+  background-color: #eaebff;
   transition: 0.2s;
+}
+
+.liked {
+  background: rgba(54, 228, 247, .3);
 }
 
 .like__notification {
