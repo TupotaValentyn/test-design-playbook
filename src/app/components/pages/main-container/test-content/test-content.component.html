@@ -49,8 +49,8 @@
               placeholder="Leave positive comment about this image"
               #comment
               class="comment__field__text"
-              [(ngModel)]="currentModel.comment"
-              (blur)="saveComment($event)">
+              [(ngModel)]="currentModel.comment_good"
+              (blur)="saveCommentGood($event)">
             </textarea>
           </mat-form-field>
         </mat-tab>
@@ -66,8 +66,8 @@
               placeholder="Leave negative comment about this image"
               #comment
               class="comment__field__text"
-              [(ngModel)]="currentModel.comment"
-              (blur)="saveComment($event)">
+              [(ngModel)]="currentModel.comment_bad"
+              (blur)="saveCommentBad($event)">
             </textarea>
           </mat-form-field>
         </mat-tab>

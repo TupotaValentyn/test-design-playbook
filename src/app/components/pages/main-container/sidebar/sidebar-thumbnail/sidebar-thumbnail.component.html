@@ -6,9 +6,7 @@
 
   <mat-card-header>
     <div mat-card-avatar class="header__index" 
-         [ngStyle]="{
-           'background-color': model.mark ? '#FF4081' : '#3e4db8'
-         }">
+         [class.index__marked]="model.mark">
       <span> {{ index }} </span>
     </div>
     <mat-card-title> {{ model.name }} </mat-card-title>

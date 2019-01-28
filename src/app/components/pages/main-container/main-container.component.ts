@@ -14,18 +14,20 @@ export class MainContainerComponent implements OnInit {
   constructor (private dataSource: DataSourceService, private route: Router) { }
 
   currentModel: any = [{
-    _id: "",
+    _id: "test1",
     url: "../../assets/empty-img.png",
     mark: false,
-    comment: 'Nothing found',
-    name: "Nothing found"
+    comment_good: "Nothing found comment good",
+    comment_bad: "Nothing found comment bad",
+    name: "Nothing found name"
   },
   {
-    _id: "",
+    _id: "test2",
     url: "../../assets/empty-img.png",
     mark: false,
-    comment: 'Nothing found',
-    name: "Nothing found"
+    comment_good: "Nothing found comment good",
+    comment_bad: "Nothing found comment bad",
+    name: "Nothing found name"
   }];
   currentSelectedCount: number = 0;
 
@@ -74,7 +76,9 @@ export class MainContainerComponent implements OnInit {
         name: item.name
       },
       mark: item.mark,
-      comment: item.comment
+      // comment: item.comment,
+      bad_comment: item.bad_comment,
+      good_comment: item.good_comment
     }));
 
     this.dataSource.updateResult(solvedResults).subscribe(() => {
@@ -82,7 +86,16 @@ export class MainContainerComponent implements OnInit {
     })
   }
 
-  testComponentSave() {
+  // just a test
+  // testComponentSave() {
+  //   this.saveUserTestResult();
+  // }
+
+  commentSaveGood() {
+    this.saveUserTestResult();
+  }
+
+  commentSaveBad() {
     this.saveUserTestResult();
   }
 

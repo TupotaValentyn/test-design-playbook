@@ -9,6 +9,8 @@
     class="test__container" 
     [currentModel]="currentSelectModel"
     (onSaveComment)="testComponentSave()"
+    (onSaveGoodComment)="commentSaveGood()"
+    (onSaveBadComment)="commentSaveBad()"
     (onSend)="testComponentSend()"
     (onChoose)="testComponentChoose()"
     [countCheckedElements]="currentSelectedCount">
