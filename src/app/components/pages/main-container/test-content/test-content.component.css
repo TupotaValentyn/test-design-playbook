@@ -7,23 +7,28 @@
   width: 100%;
 }
 
-/*Title in mat-card in header*/
-.title {
-  font-size: 12px;
-  margin: 0;
-  padding: 0;
-}
-
 .counters {
   flex: 2;
   display: flex;
+  padding-top: 0;
   justify-content: space-between;
+}
+
+.counter__wrapper {
+  flex: 2;
+}
+
+.btn__continue {
+  display: flex;
+  align-self: center;
 }
 
 .status {
   flex: 1;
+  align-items: center;
   justify-content: center;
   margin-right: 10px;
+  padding-top: 0;
 }
 
 .status__message {
@@ -41,9 +46,10 @@
 
 .tasks {
   display: flex;
+  justify-content: space-between;
   flex: 2;
   margin-right: 10px;
-  justify-content: space-between;
+  padding-top: 0;
 }
 
 .container__wrapper {
