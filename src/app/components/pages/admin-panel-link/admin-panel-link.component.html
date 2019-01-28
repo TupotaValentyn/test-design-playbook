@@ -4,6 +4,7 @@
     <mat-card class="sidebar__title">Active links</mat-card>
     <app-admin-panel-link-info
         *ngFor="let userInfoItem of usersDateInforArray"
+        [updateUsersDataList]="updateUsersDataList"
         [usersDataItem]="userInfoItem">
     </app-admin-panel-link-info>
   </div>

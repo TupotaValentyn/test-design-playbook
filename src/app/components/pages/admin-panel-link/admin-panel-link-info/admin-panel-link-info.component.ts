@@ -9,6 +9,7 @@ import { DataSourceService } from '../../../shared/service/data-source.service';
 export class AdminPanelLinkInfoComponent {
 
   @Input() usersDataItem: any;
+  @Input() updateUsersDataList: Function;
   constructor(private dataSource: DataSourceService) {
 
   }
@@ -16,8 +17,9 @@ export class AdminPanelLinkInfoComponent {
   disable(token: string) {
     this.dataSource.disableLink(token)
       .subscribe((data: any) => {
-        console.log(data)
-    })
+        this.updateUsersDataList();
+        console.log(data);
+    });
   }
-  
+
 }

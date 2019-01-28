@@ -13,8 +13,6 @@ export class AdminPanelLinkComponent implements OnInit{
   usersDateInforArray;
   token = '';
   link = '';
-
-
   ngOnInit() {
     this.updateUsersDataList();
   }
