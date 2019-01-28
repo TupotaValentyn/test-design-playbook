@@ -34,9 +34,11 @@ import { ResultsCardComponent } from './components/pages/results-page/results-ca
 import { MatMenuModule } from '@angular/material';
 import { TestResultTableComponent } from './components/pages/test-result-table/test-result-table.component';
 import { TestResultRowComponent } from './components/pages/test-result-table/test-result-row/test-result-row.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // service
 import { JwtInterceptorService } from './components/shared/interceptors/jwt-interceptor.service';
+import {ErrorInterceptorService} from './components/shared/interceptors/error-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -76,10 +78,12 @@ import { JwtInterceptorService } from './components/shared/interceptors/jwt-inte
     MatToolbarModule,
     MatIconModule,
     MatListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSnackBarModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]
 })
