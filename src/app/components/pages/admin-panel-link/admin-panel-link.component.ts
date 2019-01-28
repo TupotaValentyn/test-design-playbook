@@ -16,11 +16,15 @@ export class AdminPanelLinkComponent implements OnInit{
 
 
   ngOnInit() {
+    this.updateUsersDataArray();
+  }
+
+  updateUsersDataArray() {
     this.dataSource.getAllLinks().subscribe(data => {
-        this.usersDateInforArray = data;
-        console.log(data);
-        console.log(this.usersDateInforArray)
-      })
+      this.usersDateInforArray = data;
+      console.log(data);
+      console.log(this.usersDateInforArray);
+    });
   }
 
   getLink(email, name, surname, secondname) {
@@ -35,7 +39,8 @@ export class AdminPanelLinkComponent implements OnInit{
         else {
           alert('don\'t have permission')
         }
-    })
+    });
+    this.updateUsersDataArray();
   }
 
   sendLink(email, name, surname, secondname, link) {
