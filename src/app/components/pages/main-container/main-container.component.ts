@@ -34,7 +34,7 @@ export class MainContainerComponent implements OnInit {
       .subscribe(data => {
         if(!data['token']) {
           this.giveNewModels(data)
-        } else{
+        } else {
           this.giveSavedModels(data)
         }});
 
