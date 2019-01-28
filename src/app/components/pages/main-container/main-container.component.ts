@@ -13,6 +13,7 @@ export class MainContainerComponent implements OnInit {
 
   constructor (private dataSource: DataSourceService, private route: Router) { }
 
+  //test model
   currentModel: any = [{
     _id: "test1",
     url: "../../assets/empty-img.png",
@@ -38,7 +39,9 @@ export class MainContainerComponent implements OnInit {
           this.currentModel = data;
           console.log(data);
           this.currentModel.forEach(e => {
-          e.url = "../../assets" + e.url
+          e.url = "../../assets" + e.url;
+          e.bad_comment = "";
+          e.good_comment = "";
         });
         //need to check
         this.currentSelectModel = this.currentModel[0];
