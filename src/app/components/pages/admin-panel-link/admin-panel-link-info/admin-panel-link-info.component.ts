@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DataSourceService } from '../../../shared/service/data-source.service';
 
 @Component({
@@ -9,15 +9,14 @@ import { DataSourceService } from '../../../shared/service/data-source.service';
 export class AdminPanelLinkInfoComponent {
 
   @Input() usersDataItem: any;
-  @Input() updateUsersDataList: Function;
-  constructor(private dataSource: DataSourceService) {
+  @Output() onDisable = new EventEmitter();
 
-  }
+  constructor(private dataSource: DataSourceService) { }
 
   disable(token: string) {
     this.dataSource.disableLink(token)
       .subscribe((data: any) => {
-        this.updateUsersDataList();
+        this.onDisable.emit();
         console.log(data);
     });
   }

@@ -3,8 +3,8 @@
   <div class="side__bar">
     <mat-card class="sidebar__title">Active links</mat-card>
     <app-admin-panel-link-info
-        *ngFor="let userInfoItem of usersDateInforArray"
-        [updateUsersDataList]="updateUsersDataList"
+        *ngFor="let userInfoItem of userDataInfoList"
+        (onDisable)="updateUsersDataList()"
         [usersDataItem]="userInfoItem">
     </app-admin-panel-link-info>
   </div>
