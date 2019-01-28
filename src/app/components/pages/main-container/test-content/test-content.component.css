@@ -12,13 +12,27 @@
   margin-right: 10px;
 }
 
+.status {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.status__message {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: green;
+  padding: 5px;
+  border-radius: 5px;
+}
+
 .warning__message {
   color: indianred;
 }
 
 .tasks {
   display: flex;
-  flex: 1;
+  flex: 2;
   justify-content: space-between;
 }
 
