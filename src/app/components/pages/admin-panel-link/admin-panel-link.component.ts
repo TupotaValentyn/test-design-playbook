@@ -14,15 +14,17 @@ export class AdminPanelLinkComponent implements OnInit{
   userDataInfoList: Array<Applicant>;
   token = '';
   link = '';
+
   ngOnInit() {
     this.updateUsersDataList();
   }
 
   updateUsersDataList() {
-    this.dataSource.getAllLinks().subscribe((data: Array<Applicant>) => {
-      this.userDataInfoList = data;
-      console.log(data);
-    });
+    this.dataSource.getAllLinks()
+      .subscribe((data: Array<Applicant>) => {
+        this.userDataInfoList = data;
+        console.log(data);
+      });
   }
 
   getLink(email, name, surname, secondname) {
@@ -34,11 +36,10 @@ export class AdminPanelLinkComponent implements OnInit{
           this.token = `/invite/${data.token}`;
           this.link = `http://localhost:4200${this.token}`;
           this.updateUsersDataList();
-        }
-        else {
+        } else {
           alert('don\'t have permission')
         }
-    });
+      });
   }
 
   sendLink(email, name, surname, secondname, link) {
