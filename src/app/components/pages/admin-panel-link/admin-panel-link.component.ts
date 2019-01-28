@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataSourceService } from '../../shared/service/data-source.service';
+import { Applicant } from '../../shared/models/applicant';
 
 @Component({
   selector: 'app-admin-panel-link',
@@ -10,17 +11,20 @@ export class AdminPanelLinkComponent implements OnInit{
 
   constructor (private dataSource: DataSourceService) { }
 
-  usersDateInforArray;
+  userDataInfoList: Array<Applicant>;
   token = '';
   link = '';
 
-
   ngOnInit() {
-    this.dataSource.getAllLinks().subscribe(data => {
-        this.usersDateInforArray = data;
+    this.updateUsersDataList();
+  }
+
+  updateUsersDataList() {
+    this.dataSource.getAllLinks()
+      .subscribe((data: Array<Applicant>) => {
+        this.userDataInfoList = data;
         console.log(data);
-        console.log(this.usersDateInforArray)
-      })
+      });
   }
 
   getLink(email, name, surname, secondname) {
@@ -31,11 +35,11 @@ export class AdminPanelLinkComponent implements OnInit{
           console.log(data.token);
           this.token = `/invite/${data.token}`;
           this.link = `http://localhost:4200${this.token}`;
-        }
-        else {
+          this.updateUsersDataList();
+        } else {
           alert('don\'t have permission')
         }
-    })
+      });
   }
 
   sendLink(email, name, surname, secondname, link) {
