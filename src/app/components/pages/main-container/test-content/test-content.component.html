@@ -10,12 +10,16 @@
     <div class="container__header">
       <mat-card class="tasks">
         <div>
-          Task:<br>
+          <span class="title">Task</span>
+          <br>
+          <!-- Task:<br> -->
           To choose {{ maxCountCheckedElements }} the best templates of 23.
         </div>
       </mat-card>
 
       <mat-card class="status">
+        <span class="title">Status</span>
+        <br>
         {{ currentModel.name }}
         <div *ngIf="currentModel.mark; else empty_text">
           <span class="status__message">You like it!</span>
@@ -25,6 +29,8 @@
 
       <mat-card class="counters">
         <div>
+          <span class="title">Counter</span>
+          <br>
           Total amount: 23.<br>
           Ticked: {{ countCheckedElements }}/{{ maxCountCheckedElements }}.
           <span *ngIf="countCheckedElements > maxCountCheckedElements" class="warning__message">

@@ -7,6 +7,13 @@
   width: 100%;
 }
 
+/*Title in mat-card in header*/
+.title {
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+
 .counters {
   flex: 2;
   display: flex;
