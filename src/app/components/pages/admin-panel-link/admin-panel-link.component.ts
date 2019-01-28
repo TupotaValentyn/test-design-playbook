@@ -35,12 +35,12 @@ export class AdminPanelLinkComponent implements OnInit{
           console.log(data.token);
           this.token = `/invite/${data.token}`;
           this.link = `http://localhost:4200${this.token}`;
+          this.updateUsersDataArray();
         }
         else {
           alert('don\'t have permission')
         }
     });
-    this.updateUsersDataArray();
   }
 
   sendLink(email, name, surname, secondname, link) {
