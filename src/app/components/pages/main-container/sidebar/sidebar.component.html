@@ -4,11 +4,9 @@
 <app-sidebar-thumbnail *ngFor="let model of models; let index = index"
                        [model]="model"
                        [index]="index + 1"
-                       [currentSelected]="selectedModel"
+                       [currentSelected]="currentSelectedModel"
                        (click)="onSelectElement(model)">
 </app-sidebar-thumbnail>
 <mat-card class="static__text">
   End of the list
 </mat-card>
-
-
