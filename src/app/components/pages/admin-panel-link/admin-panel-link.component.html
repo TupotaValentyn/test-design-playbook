@@ -10,7 +10,7 @@
   </div>
 
   <div class="main__content">
-      <form (ngSubmit)="onSubmit(userDataForm)" #userDataForm="ngForm">
+      <form #userDataForm="ngForm">
           <mat-toolbar>
               <span>Link</span>
           </mat-toolbar>
@@ -41,6 +41,7 @@
               color="primary"
               type="submit"
               [disabled]="!userDataForm.valid"
+              (click)="onSubmit(userDataForm)"
               >GET</button>
             <button
               mat-raised-button
