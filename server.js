@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // filters
 
 app.use(cors());
-app.use(express.static(__dirname + '/../src/assets'));
+app.use(express.static(__dirname + '/dist/test-design-playbook/'));
 
 app.use('/api/*', require('./api/middleware/auth_controll_filter'));
 
