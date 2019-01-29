@@ -45,8 +45,16 @@
         </div>
       </div>
 
-      <div class="left" (click)="openPrevImage()"></div>
-      <div class="right" (click)="openNextImage()"></div>
+      <div class="left" (click)="openPrevImage()">
+        <div class="arrow">
+          <mat-icon>arrow_back_ios</mat-icon>
+        </div>
+      </div>
+      <div class="right" (click)="openNextImage()">
+        <div class="arrow">
+          <mat-icon>arrow_forward_ios</mat-icon>
+        </div>
+      </div>
     </mat-card>
 
     <footer class="footer">
