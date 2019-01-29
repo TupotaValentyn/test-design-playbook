@@ -1,7 +1,9 @@
 const Result = require('../models/result');
 const Applicant = require('../models/user');
 const router = require('express').Router();
-// const Model = require('../models/model');
+const Employer = require('../models/employer');
+const mailgun = require('../mail/mailing');
+const Model = require('../models/model');
 // const mongoose = require('mongoose');
 
 // router.post('/results/save',(req, res) => {
@@ -45,19 +47,53 @@ router.post('/results/save/force', (req, res) => {
     })
 });
 
-router.post('/results/save', (req, res) => {
+async function getThisModelMark(item) {
+  return new Promise((resolve, reject) => {
+    if (item.mark) {
+      Model.findOne({ _id: item.model._id })
+        .then(docs => {
+          resolve(docs.mark);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    } else {
+      resolve(0);
+    }
+  })
+}
+
+async function updateMark(models) {
+  return new Promise(async (resolve) => {
+    let mark = 0;
+    for(let i = 0; i<models.length; i++){
+      mark += await getThisModelMark(models[i]);
+    }
+    resolve(mark);
+  });
+}
+
+router.post('/results/save',async (req, res) => {
   const models = req.body.models;
   const token = req.token;
+  let mark = await updateMark(models);
+  console.log(mark);
 
-  Result.findOneAndUpdate({ token: token }, { models: models})
-    .catch(err => res.send(err))
-    .then(() => {
-      Applicant.findOneAndUpdate({ token: token }, { status: Applicant.STATUS_EVALUATED })
+  Applicant.findOneAndUpdate({ token: token }, { status: Applicant.STATUS_EVALUATED, mark: mark }, { upsert: true, new: true })
+    .then((applicant) => {
+      Result.findOneAndUpdate({ token: token }, { models: models, applicant: applicant})
+        .catch(err => res.send(err))
         .then(() => {
-          res.json({res: "successful"});
+          Employer.findOne({}, async (err, docs) => {
+            await mailgun.testCompleted({
+              name: applicant.first_name,
+              surname: applicant.surname,
+              email: docs.email
+            });
+            res.json({ res: "successful" })
+          })
         });
     });
-
 });
 
 function updateResultToFillingStatus(user, models, token, res) {
@@ -108,11 +144,10 @@ router.get('/results/all', (req, res) => {
     return res.status(403).send('You do not have permission');
   }
   Result
-    .find({}, (err, docs) =>{
+    .find({ deleted: false }, { deleted:0 }, (err, docs) =>{
       if (err) {
         return res.status(500).send(err);
       }
-
       res.send(docs);
     })
 });
@@ -130,6 +165,17 @@ router.post('/results/one', (req, res) => {
       res.status(500).send(err);
     })
 });
+
+router.post('/results/delete', (req, res) => {
+  const token = req.body.token;
+  Result.findOneAndUpdate({ token: token }, { deleted: true }, (err) => {
+    if (err) {
+      return res.send(err);
+    }
+    return res.send({m: 'Deleted successfully'});
+  })
+});
+
 console.log('[Result Controller]', 'load routes');
 
 module.exports = router;

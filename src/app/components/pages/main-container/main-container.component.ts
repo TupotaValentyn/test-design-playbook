@@ -18,14 +18,16 @@ export class MainContainerComponent implements OnInit {
     url: "../../assets/empty-img.png",
     mark: false,
     comment: 'Nothing found',
-    name: "Nothing found"
+    name: "Nothing found",
+    numberMark: 0
   },
   {
     _id: "",
     url: "../../assets/empty-img.png",
     mark: false,
     comment: 'Nothing found',
-    name: "Nothing found"
+    name: "Nothing found",
+    numberMark: 0
   }];
   currentSelectedCount: number = 0;
 
@@ -82,7 +84,6 @@ export class MainContainerComponent implements OnInit {
       model: {
         _id: item._id,
         url: item.url,
-        answer: false,
         name: item.name
       },
       mark: item.mark,
@@ -103,7 +104,6 @@ export class MainContainerComponent implements OnInit {
       model: {
         _id: item._id,
         url: item.url,
-        answer: false,
         name: item.name
       },
       mark: item.mark,
