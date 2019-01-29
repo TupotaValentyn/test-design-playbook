@@ -46,7 +46,7 @@ export class DataSourceService {
         first_name: name,
         email: email,
         second_name: secondname
-      })
+      });
   }
 
   sendMailWithLink(email, name, surname, secondname, link): Observable<Object> {
