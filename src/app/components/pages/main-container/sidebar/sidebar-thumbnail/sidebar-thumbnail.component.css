@@ -19,5 +19,10 @@
 }
 
 .like__notification {
-  color: indianred;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: green;
+  padding: 5px;
+  border-radius: 5px;
 }

@@ -8,7 +8,7 @@ router.post('/users/token', (req, res) => {
   if (req.access !== 'admin') {
     return res.status(403).send('You do not have permission');
   }
-  const token = jwt.sign({ user: req.body.email, access: 'user' }, secret.key, { expiresIn: 86400 });
+  const token = jwt.sign({ user: req.body.email, access: 'user' }, secret.key, { expiresIn: 86400*7 });
 
   const user = new User({
     surname: req.body.surname,

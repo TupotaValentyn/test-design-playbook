@@ -70,8 +70,8 @@ export class DataSourceService {
   getAllModels(): Observable<Object> {
     return this.http
       .get(
-      'http://localhost:8000/api/model/all',
-    )
+        'http://localhost:8000/api/model/all',
+      )
   }
 
   updateResult(solvedResults): Observable<Object> {

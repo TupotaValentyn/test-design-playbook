@@ -8,8 +8,18 @@
 }
 
 .counters {
-  flex: 1;
-  margin-right: 10px;
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+}
+
+.counter__wrapper {
+  flex: 2;
+}
+
+.btn__continue {
+  display: flex;
+  align-self: center;
 }
 
 .warning__message {
@@ -18,8 +28,9 @@
 
 .tasks {
   display: flex;
-  flex: 1;
   justify-content: space-between;
+  flex: 2;
+  margin-right: 10px;
 }
 
 .container__wrapper {
