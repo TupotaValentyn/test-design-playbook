@@ -4,8 +4,8 @@
   <p><b>Created:</b> {{ data.created | date:"mediumDate"}}🗓</p>
   <p><b>Expired:</b> {{ data.expired | date:"mediumDate"}}⏱</p>
   <p><b>Status:</b> {{ data.status }}</p>
-  <mat-form-field class="input__field">
-    <input matInput [value]="getLink(data.token)" (click)="selectLink(element)" #element placeholder="User invite link">
+  <mat-form-field class="max_width">
+    <input class="max_width" matInput [value]="getLink(data.token)" (click)="selectLink(element)" #element placeholder="User invite link">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>

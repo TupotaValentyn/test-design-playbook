@@ -5,6 +5,7 @@ import { Applicant } from '../../../../shared/models/applicant';
 @Component({
   selector: 'link-info-dialog',
   templateUrl: './link-info-dialog.component.html',
+  styleUrls: ['./link-info-dialog.component.css']
 })
 export class LinkInfoDialogComponent {
 
@@ -17,6 +18,10 @@ export class LinkInfoDialogComponent {
   }
 
   selectLink(element): void {
-    element.select();
+    if (element && element.select) {
+      element.select();
+    } else {
+      alert("Element not found");
+    }
   }
 }

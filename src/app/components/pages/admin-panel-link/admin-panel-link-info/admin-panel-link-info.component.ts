@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DataSourceService } from '../../../shared/service/data-source.service';
 import { Applicant } from '../../../shared/models/applicant';
 import { MatDialog } from '@angular/material';
-import {LinkInfoDialogComponent} from './link-info-dialog/link-info-dialog.component';
+import { LinkInfoDialogComponent } from './link-info-dialog/link-info-dialog.component';
 
 @Component({
   selector: 'app-admin-panel-link-info',
@@ -24,14 +24,10 @@ export class AdminPanelLinkInfoComponent {
     });
   }
 
-  showMoreInfo(token: string): void {
-    const dialogRef = this.dialog.open(LinkInfoDialogComponent, {
+  showMoreInfoDialog(): void {
+    this.dialog.open(LinkInfoDialogComponent, {
       width: '350px',
       data: this.usersDataItem
-    });
-
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
     });
   }
 
