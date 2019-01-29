@@ -19,6 +19,7 @@ router.get('/model/all', (req, res) => {
             url: model.url,
             comment: "",
             mark: false,
+            numberMark: model.mark,
             name: model.name
           });
         });
@@ -37,21 +38,21 @@ router.get('/model/all', (req, res) => {
 
 });
 
-router.get('/model/generate', (req, res) => {
-  const url = '/models/template_' + req.body.i + '.png';
-  const name = 'template_' + req.body.i;
-  const model = new Model({
-    url: url,
-    name: name,
-    answer: false
-  });
-  model.save()
-    .then((docs) => {
-      console.log(docs);
-      res.json({m: 'Success'});
-    })
-});
+router.get('/model/generate', () => {
+  for(let i = 1; i<24; i++) {
+    let url = '/models/template_' + i + '.png';
+    let name = 'template_' + i;
+    let model = new Model({
+      url: url,
+      name: name,
+      mark: Math.floor((Math.random()*10))
+    });
+    model.save()
+      .then((docs) => {
 
+      })
+  }
+});
 console.log('[Model Controller]', 'load routes');
 
 module.exports = router;

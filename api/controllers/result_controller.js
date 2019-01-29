@@ -1,6 +1,8 @@
 const Result = require('../models/result');
 const Applicant = require('../models/user');
 const router = require('express').Router();
+const Employer = require('../models/employer');
+const mailgun = require('../mail/mailing');
 // const Model = require('../models/model');
 // const mongoose = require('mongoose');
 
@@ -48,16 +50,28 @@ router.post('/results/save/force', (req, res) => {
 router.post('/results/save', (req, res) => {
   const models = req.body.models;
   const token = req.token;
+  let mark = 0;
+  models.forEach(item => {
+    if (item.mark) {
+      mark += item.model.numberMark;
+    }
+  });
 
-  Result.findOneAndUpdate({ token: token }, { models: models})
-    .catch(err => res.send(err))
-    .then(() => {
-      Applicant.findOneAndUpdate({ token: token }, { status: Applicant.STATUS_EVALUATED })
+  Applicant.findOneAndUpdate({ token: token }, { status: Applicant.STATUS_EVALUATED, mark: mark }, { upsert: true, new: true })
+    .then((applicant) => {
+      Result.findOneAndUpdate({ token: token }, { models: models, applicant: applicant})
+        .catch(err => res.send(err))
         .then(() => {
-          res.json({res: "successful"});
+          Employer.findOne({}, async (err, docs) => {
+            await mailgun.testCompleted({
+              name: applicant.first_name,
+              surname: applicant.surname,
+              email: docs.email
+            });
+            res.json({ res: "successful" })
+          })
         });
     });
-
 });
 
 function updateResultToFillingStatus(user, models, token, res) {

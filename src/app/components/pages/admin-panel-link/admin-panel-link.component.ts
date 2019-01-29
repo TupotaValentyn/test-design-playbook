@@ -55,7 +55,7 @@ export class AdminPanelLinkComponent implements OnInit {
 
   sendLink(email, name, surname, secondname, link) {
     const newLink = 'http://localhost:4200' + link;
-    this.dataSource.sendMailWithLink(email, name, surname, secondname, link)
+    this.dataSource.sendMailWithLink(email, name, surname, secondname, newLink)
       .subscribe((data: any) => {
       console.log(data);
     });
