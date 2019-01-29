@@ -31,13 +31,13 @@ export class AdminPanelLinkInfoComponent {
     });
   }
 
-  getShortUserName() {
+  getShortUserName(): string {
     if (this.usersDataItem) {
-      if (this.usersDataItem.second_name
-        && this.usersDataItem.second_name.charAt
-        && this.usersDataItem.first_name
-        && this.usersDataItem.first_name.charAt) {
-        return this.usersDataItem.surname + " " + this.usersDataItem.first_name.charAt(0) + "." + this.usersDataItem.second_name.charAt(0) + ".";
+      if (this.usersDataItem.second_name && this.usersDataItem.second_name.charAt
+        && this.usersDataItem.first_name && this.usersDataItem.first_name.charAt) {
+        return this.usersDataItem.surname + " "
+          + this.usersDataItem.first_name.charAt(0) + "."
+          + this.usersDataItem.second_name.charAt(0) + ".";
       }
       return this.usersDataItem.surname;
     } else {
