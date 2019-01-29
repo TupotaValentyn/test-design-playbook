@@ -73,7 +73,7 @@ async function updateMark(models) {
   });
 }
 
-router.post('/results/save',async  (req, res) => {
+router.post('/results/save',async (req, res) => {
   const models = req.body.models;
   const token = req.token;
   let mark = await updateMark(models);
@@ -144,7 +144,7 @@ router.get('/results/all', (req, res) => {
     return res.status(403).send('You do not have permission');
   }
   Result
-    .find({ deleted: false }, (err, docs) =>{
+    .find({ deleted: false }, { deleted:0 }, (err, docs) =>{
       if (err) {
         return res.status(500).send(err);
       }
@@ -166,7 +166,7 @@ router.post('/results/one', (req, res) => {
     })
 });
 
-router.post('results/delete', (req, res) => {
+router.post('/results/delete', (req, res) => {
   const token = req.body.token;
   Result.findOneAndUpdate({ token: token }, { deleted: true }, (err) => {
     if (err) {
@@ -174,7 +174,8 @@ router.post('results/delete', (req, res) => {
     }
     return res.send({m: 'Deleted successfully'});
   })
-})
+});
+
 console.log('[Result Controller]', 'load routes');
 
 module.exports = router;

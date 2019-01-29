@@ -19,7 +19,6 @@ router.get('/model/all', (req, res) => {
             url: model.url,
             comment: "",
             mark: false,
-            numberMark: model.mark,
             name: model.name
           });
         });
