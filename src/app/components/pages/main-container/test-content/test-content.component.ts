@@ -14,8 +14,6 @@ export class TestContentComponent {
 
   @Input() maxCountCheckedElements = 5;
 
-  // @Output() onSaveComment = new EventEmitter();
-
   @Output() onSaveGoodComment = new EventEmitter();
 
   @Output() onSaveBadComment = new EventEmitter();
@@ -25,11 +23,6 @@ export class TestContentComponent {
   @Output() onChoose = new EventEmitter();
 
   isPictureOpened = false;
-
-  // saveComment(e) {
-  //   this.currentModel.comment = e.target.value;
-  //   this.onSaveComment.emit(this.currentModel); 
-  // }
 
   saveCommentGood(e) {
     this.currentModel.good_comment = e.target.value;
@@ -56,8 +49,5 @@ export class TestContentComponent {
   changeScreenMode() {
     this.isPictureOpened = !this.isPictureOpened
   }
-
-
-
 
 }

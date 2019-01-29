@@ -50,7 +50,6 @@
 }
 
 .comments__field {
-  /* border: 1px solid red; */
   display: flex;
   justify-content: space-around;
   height: 110px;
@@ -60,12 +59,6 @@
   width: 46%;
   overflow-y: auto;
   padding-bottom: 10px;
-  /* border: 1px solid green;   */
-}
-
-.comment__positive__textfield,
-.comment__negative__textfield {
-  /* border: 1px solid blue; */
 }
 
 .empty {

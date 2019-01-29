@@ -1,11 +1,11 @@
-import { Component, Input, AfterContentInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-test-result-row',
   templateUrl: './test-result-row.component.html',
   styleUrls: ['./test-result-row.component.css']
 })
-export class TestResultRowComponent implements AfterContentInit{
+export class TestResultRowComponent {
 
   @Input() index: number;
   @Input() userDataItem: any;
@@ -17,9 +17,4 @@ export class TestResultRowComponent implements AfterContentInit{
     return !(str === null || str.match(/^ *$/) !== null);
   }
 
-  //to delete
-  ngAfterContentInit() {
-    console.log('[userDataItem]', this.userDataItem);
-  }
 }
-

@@ -13,14 +13,14 @@ export class MainContainerComponent implements OnInit {
 
   constructor (private dataSource: DataSourceService, private route: Router) { }
 
-  //test model
+  //test
   currentModel: any = [{
     _id: "test1",
     url: "../../assets/empty-img.png",
     mark: false,
     comment_good: "Nothing found comment good",
     comment_bad: "Nothing found comment bad",
-    name: "Nothing found name"
+    name: "Nothing found name",
   },
   {
     _id: "test2",
@@ -30,6 +30,7 @@ export class MainContainerComponent implements OnInit {
     comment_bad: "Nothing found comment bad",
     name: "Nothing found name"
   }];
+
   currentSelectedCount: number = 0;
 
   ngOnInit() {
@@ -84,17 +85,10 @@ export class MainContainerComponent implements OnInit {
       good_comment: item.good_comment
     }));
 
-    // this doesn't work, that's why I used next thing
-    // this.dataSource.updateResult(solvedResults).subscribe(() => {
-    //   this.route.navigate(['/result/table']);
-    // })
-    this.route.navigate(['/result/table']);
+    this.dataSource.updateResult(solvedResults).subscribe(() => {
+      this.route.navigate(['/result/table']);
+    });
   }
-
-  // just a test
-  // testComponentSave() {
-  //   this.saveUserTestResult();
-  // }
 
   commentSaveGood() {
     this.saveUserTestResult();

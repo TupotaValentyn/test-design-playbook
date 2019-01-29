@@ -1,8 +1,5 @@
 <mat-card class="example__card"
-          [ngClass]="{
-            'liked': model.mark,
-            'selected': currentSelected == model
-          }">
+          [class.selected]="currentSelected == model">
 
   <mat-card-header>
     <div mat-card-avatar class="header__index" 
