@@ -145,7 +145,6 @@ h3 {
   position: absolute;
   z-index: 750;
   cursor: pointer;
-  /* border: 1px solid blue; */
 }
 
 .right {
@@ -155,7 +154,6 @@ h3 {
   position: absolute;
   z-index: 750;
   cursor: pointer;
-  /* border: 1px solid green; */
 }
 
 .footer {

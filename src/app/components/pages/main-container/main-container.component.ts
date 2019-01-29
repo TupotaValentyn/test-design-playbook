@@ -142,7 +142,7 @@ export class MainContainerComponent implements OnInit {
   }
 
   nextImg() {
-    if (this.currentIndex == (this.currentModel.length - 1)) {
+    if (this.currentIndex === (this.currentModel.length - 1)) {
       console.log("Index more than the index of last image");
     } else {
       this.currentIndex = this.currentIndex + 1;
@@ -151,7 +151,7 @@ export class MainContainerComponent implements OnInit {
   }
 
   prevImg() {
-    if (this.currentIndex == 0) {
+    if (this.currentIndex === 0) {
       console.log("Index less than the index of first image");
     } else {
       this.currentIndex = this.currentIndex - 1;
