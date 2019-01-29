@@ -81,7 +81,6 @@ export class MainContainerComponent implements OnInit {
       model: {
         _id: item._id,
         url: item.url,
-        numberMark: item.numberMark,
         name: item.name
       },
       mark: item.mark,
@@ -102,7 +101,6 @@ export class MainContainerComponent implements OnInit {
       model: {
         _id: item._id,
         url: item.url,
-        numberMark: item.numberMark,
         name: item.name
       },
       mark: item.mark,

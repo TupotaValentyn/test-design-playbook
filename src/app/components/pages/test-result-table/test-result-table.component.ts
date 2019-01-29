@@ -31,7 +31,6 @@ export class TestResultTableComponent {
         url: item.url,
         answer: false,
         name: item.name,
-        numberMark: item.numberMark
       },
       mark: item.mark,
       comment: item.comment

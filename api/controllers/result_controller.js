@@ -3,7 +3,7 @@ const Applicant = require('../models/user');
 const router = require('express').Router();
 const Employer = require('../models/employer');
 const mailgun = require('../mail/mailing');
-// const Model = require('../models/model');
+const Model = require('../models/model');
 // const mongoose = require('mongoose');
 
 // router.post('/results/save',(req, res) => {
@@ -47,15 +47,37 @@ router.post('/results/save/force', (req, res) => {
     })
 });
 
-router.post('/results/save', (req, res) => {
+async function getThisModelMark(item) {
+  return new Promise((resolve, reject) => {
+    if (item.mark) {
+      Model.findOne({ _id: item.model._id })
+        .then(docs => {
+          resolve(docs.mark);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    } else {
+      resolve(0);
+    }
+  })
+}
+
+async function updateMark(models) {
+  return new Promise(async (resolve) => {
+    let mark = 0;
+    for(let i = 0; i<models.length; i++){
+      mark += await getThisModelMark(models[i]);
+    }
+    resolve(mark);
+  });
+}
+
+router.post('/results/save',async  (req, res) => {
   const models = req.body.models;
   const token = req.token;
-  let mark = 0;
-  models.forEach(item => {
-    if (item.mark) {
-      mark += item.model.numberMark;
-    }
-  });
+  let mark = await updateMark(models);
+  console.log(mark);
 
   Applicant.findOneAndUpdate({ token: token }, { status: Applicant.STATUS_EVALUATED, mark: mark }, { upsert: true, new: true })
     .then((applicant) => {
