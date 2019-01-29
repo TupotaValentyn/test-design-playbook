@@ -17,6 +17,7 @@ export class AdminPanelLinkComponent implements OnInit {
   token = '';
   link = '';
 
+
   ngOnInit() {
     this.updateUsersDataList();
   }

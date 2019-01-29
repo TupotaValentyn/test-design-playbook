@@ -14,6 +14,10 @@ export class ResultsPageComponent implements OnInit {
   constructor(private dataSource: DataSourceService) {  }
 
   ngOnInit(): void {
+    this.updateResults();
+  }
+
+  updateResults() {
     this.dataSource.getAllResults()
       .subscribe((data: Array<Result>) => {
         this.results = data;

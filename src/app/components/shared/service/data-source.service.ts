@@ -79,7 +79,12 @@ export class DataSourceService {
       .post(
       'http://localhost:8000/api/results/update',
       { models: solvedResults }
-    )
+    );
+  }
+
+  removeResult(result): void {
+    console.log(result);
+    console.log('Result removed');
   }
 
   getAllResults(): Observable<Object> {
