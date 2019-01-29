@@ -35,10 +35,12 @@ import { MatMenuModule } from '@angular/material';
 import { TestResultTableComponent } from './components/pages/test-result-table/test-result-table.component';
 import { TestResultRowComponent } from './components/pages/test-result-table/test-result-row/test-result-row.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 // service
 import { JwtInterceptorService } from './components/shared/interceptors/jwt-interceptor.service';
 import { ErrorInterceptorService } from './components/shared/interceptors/error-interceptor.service';
+import {LinkInfoDialogComponent} from './components/pages/admin-panel-link/admin-panel-link-info/link-info-dialog/link-info-dialog.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,8 @@ import { ErrorInterceptorService } from './components/shared/interceptors/error-
     ResultsPageComponent,
     ResultsCardComponent,
     TestResultTableComponent,
-    TestResultRowComponent
+    TestResultRowComponent,
+    LinkInfoDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +82,11 @@ import { ErrorInterceptorService } from './components/shared/interceptors/error-
     MatIconModule,
     MatListModule,
     MatMenuModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    LinkInfoDialogComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },

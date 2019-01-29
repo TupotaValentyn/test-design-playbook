@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>{{ data.surname + " " + data.first_name + " " + data.second_name }}</h1>
+<div mat-dialog-content>
+  <p><a href="mailto:{{ data.email }}">{{ data.email }}</a></p>
+  <p><b>Created:</b> {{ data.created | date:"mediumDate"}}🗓</p>
+  <p><b>Expired:</b> {{ data.expired | date:"mediumDate"}}⏱</p>
+  <p><b>Status:</b> {{ data.status }}</p>
+  <mat-form-field class="input__field">
+    <input matInput [value]="getLink(data.token)" (click)="selectLink(element)" #element placeholder="User invite link">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial class="close__button__align">Close</button>
+</div>
