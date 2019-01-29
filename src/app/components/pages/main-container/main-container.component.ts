@@ -144,19 +144,23 @@ export class MainContainerComponent implements OnInit {
   nextImg() {
     if (this.currentIndex === (this.currentModel.length - 1)) {
       console.log("Index more than the index of last image");
+      this.currentIndex = 0;
     } else {
       this.currentIndex = this.currentIndex + 1;
-      this.currentSelectModel = this.currentModel[this.currentIndex];
     }
+
+    this.currentSelectModel = this.currentModel[this.currentIndex];
   }
 
   prevImg() {
     if (this.currentIndex === 0) {
       console.log("Index less than the index of first image");
+      this.currentIndex = (this.currentModel.length - 1);
     } else {
       this.currentIndex = this.currentIndex - 1;
-      this.currentSelectModel = this.currentModel[this.currentIndex];
     }
+
+    this.currentSelectModel = this.currentModel[this.currentIndex];
   }
 
 }
