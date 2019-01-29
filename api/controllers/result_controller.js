@@ -144,11 +144,10 @@ router.get('/results/all', (req, res) => {
     return res.status(403).send('You do not have permission');
   }
   Result
-    .find({}, (err, docs) =>{
+    .find({ deleted: false }, (err, docs) =>{
       if (err) {
         return res.status(500).send(err);
       }
-
       res.send(docs);
     })
 });
@@ -166,6 +165,16 @@ router.post('/results/one', (req, res) => {
       res.status(500).send(err);
     })
 });
+
+router.post('results/delete', (req, res) => {
+  const token = req.body.token;
+  Result.findOneAndUpdate({ token: token }, { deleted: true }, (err) => {
+    if (err) {
+      return res.send(err);
+    }
+    return res.send({m: 'Deleted successfully'});
+  })
+})
 console.log('[Result Controller]', 'load routes');
 
 module.exports = router;
