@@ -2,17 +2,18 @@
   <app-sidebar 
     class="sidebar__container" 
     [models]="currentModel"
+    [countCheckedElements]="currentSelectedCount"
     (onSelect)="sideBarSelect($event)">
   </app-sidebar>
 
   <app-test-content
     class="test__container" 
     [currentModel]="currentSelectModel"
+    [countCheckedElements]="currentSelectedCount"
     (onSaveComment)="testComponentSave()"
     (onSaveGoodComment)="commentSaveGood()"
     (onSaveBadComment)="commentSaveBad()"
     (onSend)="testComponentSend()"
-    (onChoose)="testComponentChoose()"
-    [countCheckedElements]="currentSelectedCount">
+    (onChoose)="testComponentChoose()">
   </app-test-content>
 </div>

@@ -2,11 +2,21 @@ app-sidebar-thumbnail {
   cursor: pointer;
 }
 
-.static__text {
+.task__info__card {
   margin: 10px;
-  background-color: #fafafa;
-  text-align: center;
   cursor: pointer;
 }
 
+.warning__message {
+  color: indianred;
+}
 
+.task__info__title,
+.warning__message {
+  font-weight: bold;
+}
+
+.task__elements {
+  height: 100%;
+  overflow-y: auto;
+}

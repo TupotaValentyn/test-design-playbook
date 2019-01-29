@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, AfterContentInit } from '@angular/core';
 import { SolvedModel } from '../../../shared/models/solved-model';
 
 @Component({
@@ -7,9 +7,13 @@ import { SolvedModel } from '../../../shared/models/solved-model';
   styleUrls: ['./result-item.component.css']
 })
 
-export class ResultItemComponent {
+export class ResultItemComponent implements AfterContentInit {
 
   @Input() index: number;
   @Input() item: SolvedModel;
+  
+  ngAfterContentInit() {
+    console.log('showItem', this.item);
+  }
 
 }

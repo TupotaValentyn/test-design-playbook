@@ -2,11 +2,6 @@
   box-sizing: border-box;
 }
 
-.container__header {
-  display: flex;
-  width: 100%;
-}
-
 .counters {
   flex: 2;
   display: flex;
@@ -20,17 +15,6 @@
 .btn__continue {
   display: flex;
   align-self: center;
-}
-
-.warning__message {
-  color: indianred;
-}
-
-.tasks {
-  display: flex;
-  justify-content: space-between;
-  flex: 2;
-  margin-right: 10px;
 }
 
 .container__wrapper {

@@ -1,14 +1,30 @@
-<mat-card class="static__text">
-  Templates to choose
-</mat-card>
-<app-sidebar-thumbnail *ngFor="let model of models; let index = index"
-                       [model]="model"
-                       [index]="index + 1"
-                       [currentSelected]="selectedModel"
-                       (click)="onSelectElement(model)">
-</app-sidebar-thumbnail>
-<mat-card class="static__text">
-  End of the list
-</mat-card>
+<div class="task__info__container">
+  <mat-card class="task__info__card">
+    <p>
+      <span class="task__info__title">Task:</span> to choose {{ maxCountCheckedElements }} the best templates of {{
+      models.length }}.
+    </p>
+    <p>
+      <span class="task__info__title">Total amount:</span> {{ models.length }}.
+    </p>
+    <p>
+      <span class="task__info__title">Ticked: </span>
+      <span 
+        [class.warning__message]="countCheckedElements > maxCountCheckedElements">
+        {{ countCheckedElements }}/{{ maxCountCheckedElements }}.
+      </span>
+    </p>
+  </mat-card>
+</div>
 
+<mat-divider></mat-divider>
 
+<div class="task__elements">
+  <app-sidebar-thumbnail *ngFor="let model of models; let index = index" [model]="model" [index]="index + 1"
+    [currentSelected]="selectedModel" (click)="onSelectElement(model)">
+  </app-sidebar-thumbnail>
+</div>
+
+<!-- <button mat-raised-button color="accent" (click)="moveToNextPage()" [disabled]="countCheckedElements !== 5" class="btn__continue">
+    Continue
+  </button> -->

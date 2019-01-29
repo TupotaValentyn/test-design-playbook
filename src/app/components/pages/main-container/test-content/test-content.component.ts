@@ -10,17 +10,20 @@ export class TestContentComponent {
 
   @Input() currentModel: any;
 
-  @Input() countCheckedElements = 0;
-
-  @Input() maxCountCheckedElements = 5;
-
   @Output() onSaveGoodComment = new EventEmitter();
 
   @Output() onSaveBadComment = new EventEmitter();
 
+  @Output() onChoose = new EventEmitter();
+
+  //for button "Continue" (Input from main-cont)
+  @Input() countCheckedElements: number;
+
   @Output() onSend = new EventEmitter();
 
-  @Output() onChoose = new EventEmitter();
+  moveToNextPage() {
+    this.onSend.emit();
+  }
 
   isPictureOpened = false;
 
@@ -32,10 +35,6 @@ export class TestContentComponent {
   saveCommentBad(e) {
     this.currentModel.bad_comment = e.target.value;
     this.onSaveBadComment.emit(this.currentModel); 
-  }
-
-  moveToNextPage() {
-    this.onSend.emit();
   }
 
   //delete

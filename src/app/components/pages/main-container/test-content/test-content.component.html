@@ -1,79 +1,53 @@
 <div class="full__screen__content" [ngStyle]="{display: (isPictureOpened) ? 'block' : 'none'}">
-  <img [src]="currentModel.url" alt="image" class="img"/>
+  <img [src]="currentModel.url" alt="image" class="img" />
   <mat-icon class="img exit__full__screen__image" (click)="changeScreenMode()">fullscreen_exit</mat-icon>
 </div>
 
 <div class="container__wrapper">
   <div class="container">
-    <div class="container__header">
-
-      <mat-card class="tasks">
-        <div>
-          Task:<br>
-          To choose {{ maxCountCheckedElements }} the best templates of 23.
-        </div>
-      </mat-card>
-
-      <mat-card class="counters">
-        <div class="counter__wrapper">
-          Total amount: 23.<br>
-          Ticked: {{ countCheckedElements }}/{{ maxCountCheckedElements }}.
-          <span *ngIf="countCheckedElements > maxCountCheckedElements" class="warning__message">
-            (too many templates are ticked.)
-          </span>
-        </div>
-
-        <button mat-raised-button color="accent" (click)="moveToNextPage()" [disabled]="countCheckedElements !== 5"
-          class="btn__continue">
-          Continue
-        </button>
-      </mat-card>
-
-
-    </div>
-
+    
     <mat-card class="main__image__card">
       <div class="empty__wrapper"></div>
       <div class="empty" [ngStyle]="{'background': 'url(' + currentModel.url + ')'}"></div>
-      <img [src]="currentModel.url" class="img" alt="current model"/>
+      <img [src]="currentModel.url" class="img" alt="current model" />
       <mat-icon class="full__screen__icon" (click)="changeScreenMode()">fullscreen</mat-icon>
     </mat-card>
 
     <footer class="comments__contaner">
-      <mat-tab-group>      
+      <mat-tab-group>
         <mat-tab>
           <ng-template mat-tab-label>
             <mat-icon class="comment__tab__icon">thumb_up</mat-icon>
             Positive
           </ng-template>
           <mat-form-field class="comment__field">
-            <textarea
-              matInput
-              placeholder="Leave positive comment about this image"
-              #comment
-              class="comment__field__text"
-              [(ngModel)]="currentModel.good_comment"
-              (blur)="saveCommentGood($event)">
+            <textarea matInput placeholder="Leave positive comment about this image" #comment class="comment__field__text"
+              [(ngModel)]="currentModel.good_comment" (blur)="saveCommentGood($event)">
             </textarea>
           </mat-form-field>
         </mat-tab>
-      
+
         <mat-tab>
           <ng-template mat-tab-label>
             <mat-icon class="comment__tab__icon">thumb_down</mat-icon>
-            Negative 
+            Negative
           </ng-template>
           <mat-form-field class="comment__field">
-            <textarea
-              matInput
-              placeholder="Leave negative comment about this image"
-              #comment
-              class="comment__field__text"
-              [(ngModel)]="currentModel.bad_comment"
-              (blur)="saveCommentBad($event)">
+            <textarea matInput placeholder="Leave negative comment about this image" #comment class="comment__field__text"
+              [(ngModel)]="currentModel.bad_comment" (blur)="saveCommentBad($event)">
             </textarea>
           </mat-form-field>
         </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <button mat-raised-button color="accent" (click)="moveToNextPage()" [disabled]="countCheckedElements !== 5"
+              class="btn__continue">
+              Continue
+            </button>
+          </ng-template>
+        </mat-tab>
+
       </mat-tab-group>
     </footer>
 

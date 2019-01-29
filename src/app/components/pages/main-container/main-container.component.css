@@ -7,9 +7,10 @@
 
 .sidebar__container {
   flex: 2;
-  overflow-y: auto;
   border-right: 1px solid lightgray;
-  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .test__container {
