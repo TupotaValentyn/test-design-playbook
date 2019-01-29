@@ -7,7 +7,7 @@ COPY server.js ./
 COPY ./dist ./dist
 COPY ./api ./api
 
-RUN npm install
+RUN npm install --only=prod
 
 EXPOSE 8000
 
