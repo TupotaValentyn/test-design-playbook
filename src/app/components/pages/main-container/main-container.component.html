@@ -8,6 +8,8 @@
   <app-test-content
     class="test__container" 
     [currentModel]="currentSelectModel"
+    (onNextImg)="nextImg()"
+    (onPrevImg)="prevImg()"
     (onSaveComment)="testComponentSave()"
     (onSend)="testComponentSend()"
     (onChoose)="testComponentChoose()"

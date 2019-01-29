@@ -20,6 +20,9 @@ export class TestContentComponent {
 
   @Output() onChoose = new EventEmitter();
 
+  @Output() onNextImg = new EventEmitter();
+  @Output() onPrevImg = new EventEmitter();
+
   isPictureOpened = false;
 
   saveComment(e) {
@@ -43,8 +46,12 @@ export class TestContentComponent {
     this.isPictureOpened = !this.isPictureOpened
   }
 
-  openPrevImage() {}
+  openPrevImage() {
+    this.onPrevImg.emit();
+  }
 
-  openNextImage() {}
+  openNextImage() {
+    this.onNextImg.emit();
+  }
 
 }
