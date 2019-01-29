@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 8000;
 // create application
 const express = require('express');
 const app = express();
+const path = require('path');
 const cors = require('cors');
 
 console.log('[Server] Application start...');
@@ -34,7 +35,7 @@ app.use('/api', require('./api/controllers/model_controller'));
 app.use('/api', require('./api/controllers/user_controller'));
 
 app.get('*', (req, res, next) => {
-  res.sendFile('./dist/test-design-playbook/index.html');
+  res.sendFile(path.resolve(__dirname + '/dist/test-design-playbook/index.html'));
 });
 
 // start
