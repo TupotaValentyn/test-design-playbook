@@ -1,5 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DataSourceService } from '../../../shared/service/data-source.service';
+import { Applicant } from '../../../shared/models/applicant';
+import { MatDialog } from '@angular/material';
+import { LinkInfoDialogComponent } from './link-info-dialog/link-info-dialog.component';
 
 @Component({
   selector: 'app-admin-panel-link-info',
@@ -8,16 +11,38 @@ import { DataSourceService } from '../../../shared/service/data-source.service';
 })
 export class AdminPanelLinkInfoComponent {
 
-  @Input() usersDataItem: any;
-  constructor(private dataSource: DataSourceService) {
+  @Input() usersDataItem: Applicant;
+  @Output() onDisable = new EventEmitter();
 
-  }
+  constructor(private dataSource: DataSourceService, public dialog: MatDialog) { }
 
-  disable(token: string) {
+  disable(token: string): void {
     this.dataSource.disableLink(token)
       .subscribe((data: any) => {
-        console.log(data)
-    })
+        this.onDisable.emit();
+        console.log(data);
+    });
   }
-  
+
+  showMoreInfoDialog(): void {
+    this.dialog.open(LinkInfoDialogComponent, {
+      width: '350px',
+      data: this.usersDataItem
+    });
+  }
+
+  getShortUserName(): string {
+    if (this.usersDataItem) {
+      if (this.usersDataItem.second_name && this.usersDataItem.second_name.charAt
+        && this.usersDataItem.first_name && this.usersDataItem.first_name.charAt) {
+        return this.usersDataItem.surname + " "
+          + this.usersDataItem.first_name.charAt(0) + "."
+          + this.usersDataItem.second_name.charAt(0) + ".";
+      }
+      return this.usersDataItem.surname;
+    } else {
+      return "Unknown"
+    }
+  }
+
 }

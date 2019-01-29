@@ -6,27 +6,30 @@
 <div class="container__wrapper">
   <div class="container">
     <div class="container__header">
-      <mat-card class="counters">
-        Total amount: 23.<br>
-        Ticked: {{ countCheckedElements }}/{{ maxCountCheckedElements }}.
-        <span *ngIf="countCheckedElements > maxCountCheckedElements" class="warning__message">
-            (too many templates are ticked.)
-        </span>
-      </mat-card>
 
       <mat-card class="tasks">
         <div>
-          <h3>Task:</h3>
+          Task:<br>
           To choose {{ maxCountCheckedElements }} the best templates of 23.
         </div>
-        <button
-          mat-raised-button
-          color="accent"
-          (click)="moveToNextPage()"
-          [disabled]="countCheckedElements !== 5">
+      </mat-card>
+
+      <mat-card class="counters">
+        <div class="counter__wrapper">
+          Total amount: 23.<br>
+          Ticked: {{ countCheckedElements }}/{{ maxCountCheckedElements }}.
+          <span *ngIf="countCheckedElements > maxCountCheckedElements" class="warning__message">
+            (too many templates are ticked.)
+          </span>
+        </div>
+
+        <button mat-raised-button color="accent" (click)="moveToNextPage()" [disabled]="countCheckedElements !== 5"
+          class="btn__continue">
           Continue
         </button>
       </mat-card>
+
+
     </div>
 
     <mat-card class="main__image__card">
