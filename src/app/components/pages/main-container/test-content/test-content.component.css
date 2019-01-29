@@ -137,6 +137,18 @@ h3 {
   z-index: 999;
 }
 
+.left {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+}
+
+.right {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+}
+
 .footer {
   width: 100%;
   height: 90px;
