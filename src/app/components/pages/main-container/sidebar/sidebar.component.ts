@@ -10,6 +10,8 @@ export class SidebarComponent implements OnInit {
   @Input() models: any;
   @Output() onSelect = new EventEmitter<any>();
 
+  @Input() currentSelectedModel: any;
+
   selectedModel: any;
 
   ngOnInit() {
@@ -17,7 +19,7 @@ export class SidebarComponent implements OnInit {
   }
 
   onSelectElement(model) {
-    this.selectedModel = model; 
+    this.selectedModel = model;
     this.onSelect.emit(model);
     console.log(this.selectedModel)
   }

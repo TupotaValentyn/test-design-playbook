@@ -2,12 +2,15 @@
   <app-sidebar 
     class="sidebar__container" 
     [models]="currentModel"
+    [currentSelectedModel]="currentSelectModel"
     (onSelect)="sideBarSelect($event)">
   </app-sidebar>
 
   <app-test-content
     class="test__container" 
     [currentModel]="currentSelectModel"
+    (onNextImg)="nextImg()"
+    (onPrevImg)="prevImg()"
     (onSaveComment)="testComponentSave()"
     (onSend)="testComponentSend()"
     (onChoose)="testComponentChoose()"
