@@ -12,7 +12,14 @@ export class TestResultRowComponent implements AfterContentInit{
 
   constructor() { }
 
+  //checking comments for null and spaced
+  isNotEmptyOrSpaces(str){
+    return !(str === null || str.match(/^ *$/) !== null);
+  }
+
+  //to delete
   ngAfterContentInit() {
     console.log('[userDataItem]', this.userDataItem);
   }
 }
+

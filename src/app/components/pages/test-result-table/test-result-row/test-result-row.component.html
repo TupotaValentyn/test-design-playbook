@@ -4,20 +4,41 @@
   </div>
 
   <div class="answer__wrapper">
-    <span class="index"># {{ index }}</span>
-    <div class="answer">
-      <label *ngIf="userDataItem.mark; else dislike">You liked it!</label>
-      <ng-template #dislike><span>You disliked it!</span></ng-template>
-    </div>
-    <div class="comment">
-      <div class="comment__field">
-        <label class="cursor">
-          <!-- {{ userDataItem.comment }} -->
-          {{ userDataItem.comment_bad }}
-        </label>
-      </div>
+    <p>
+      <span class="index"># {{ index }}</span>
+      <span class="users__mark__true" *ngIf="userDataItem.mark; else dislike">You liked it!</span>
+      <ng-template #dislike>
+        <span class="users__mark__false">You disliked it!</span>
+      </ng-template>
+    </p>
+
+    <div class="comments__field">
+      <mat-card class="comment__positive">
+        <mat-card-header>
+          <mat-card-title class="comments__field__title">Positive comment</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="comment__positive__textfield">
+          <p *ngIf="isNotEmptyOrSpaces(userDataItem.good_comment); else empty">
+            {{ userDataItem.good_comment }}
+          </p>
+          <ng-template #empty>
+            <p class="empty">Empty...</p>
+          </ng-template>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="comment__negative">
+        <mat-card-header>
+          <mat-card-title class="comments__field__title">Negative comment</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="comment__negative_textfield">
+          <p *ngIf="isNotEmptyOrSpaces(userDataItem.bad_comment); else empty">
+            {{ userDataItem.bad_comment }}
+          </p>
+          <ng-template #empty>
+            <p class="empty">Empty...</p>
+          </ng-template>
+        </mat-card-content>
+      </mat-card>
     </div>
   </div>
 </mat-card>
-
-<mat-divider></mat-divider>
