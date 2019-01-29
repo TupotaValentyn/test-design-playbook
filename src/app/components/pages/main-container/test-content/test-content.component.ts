@@ -43,7 +43,7 @@ export class TestContentComponent {
     this.isPictureOpened = !this.isPictureOpened
   }
 
-  openPredImage() {}
+  openPrevImage() {}
 
   openNextImage() {}
 
