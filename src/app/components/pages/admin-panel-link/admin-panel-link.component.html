@@ -10,28 +10,28 @@
   </div>
 
   <div class="main__content">
-      <form>
+      <form (ngSubmit)="onSubmit(userDataForm)" #userDataForm="ngForm">
           <mat-toolbar>
               <span>Link</span>
           </mat-toolbar>
 
-          <mat-form-field type="text">
-            <input matInput placeholder="Email" #email required autocomplete="off">
+          <mat-form-field type="email">
+            <input matInput type="email" placeholder="Email" autocomplete="off" ngModel #email name="email" required email>
             <mat-icon matSuffix>email</mat-icon>
           </mat-form-field>
 
           <mat-form-field type="text">
-            <input matInput placeholder="Surname" #surname required>
+            <input matInput type="text" placeholder="Surname" #surname ngModel name="surname" required>
             <mat-icon matSuffix>face</mat-icon>
           </mat-form-field>
 
           <mat-form-field type="text">
-              <input matInput placeholder="Name" #name required>
+              <input matInput type="text" placeholder="Name" #name ngModel name="firstName" required>
               <mat-icon matSuffix>perm_identity</mat-icon>
           </mat-form-field>
 
           <mat-form-field type="text">
-            <input matInput placeholder="Second name" #secondName required>
+            <input matInput type="text" placeholder="Second name" #secondName ngModel name="secondName" required>
             <mat-icon matSuffix>supervised_user_circle</mat-icon>
           </mat-form-field>
 
@@ -39,7 +39,9 @@
             <button
               mat-raised-button
               color="primary"
-              (click)="getLink(email.value, name.value, surname.value, secondName.value)">GET</button>
+              type="submit"
+              [disabled]="!userDataForm.valid"
+              >GET</button>
             <button
               mat-raised-button
               color="accent"
@@ -50,7 +52,7 @@
 
           <mat-form-field appearance="outline">
               <mat-label>Invite link here...</mat-label>
-              <input matInput placeholder="Try one more time..." value="{{ link }}" #linkField readonly>
+              <input matInput type="url" placeholder="Try one more time..." value="{{ link }}" #linkField readonly>
               <mat-icon matSuffix class="copy__icon" (click)="copyLink(linkField)">link</mat-icon>
           </mat-form-field>
       </form>
