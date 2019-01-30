@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 // component
 import { AppRoutingModule } from './app-routing.module';
@@ -36,11 +37,14 @@ import { TestResultTableComponent } from './components/pages/test-result-table/t
 import { TestResultRowComponent } from './components/pages/test-result-table/test-result-row/test-result-row.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 // service
 import { JwtInterceptorService } from './components/shared/interceptors/jwt-interceptor.service';
 import { ErrorInterceptorService } from './components/shared/interceptors/error-interceptor.service';
 import { LinkInfoDialogComponent } from './components/pages/admin-panel-link/admin-panel-link-info/link-info-dialog/link-info-dialog.component';
+import { DragDropComponent } from './drag-drop/drag-drop.component';
+import { CommentEditDialogComponent } from './comment-edit-dialog/comment-edit-dialog.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +65,9 @@ import { LinkInfoDialogComponent } from './components/pages/admin-panel-link/adm
     ResultsCardComponent,
     TestResultTableComponent,
     TestResultRowComponent,
-    LinkInfoDialogComponent
+    LinkInfoDialogComponent,
+    DragDropComponent,
+    CommentEditDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,10 +89,13 @@ import { LinkInfoDialogComponent } from './components/pages/admin-panel-link/adm
     MatListModule,
     MatMenuModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    DragDropModule,
+    MatTooltipModule
   ],
   entryComponents: [
-    LinkInfoDialogComponent
+    LinkInfoDialogComponent,
+    CommentEditDialogComponent  
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },

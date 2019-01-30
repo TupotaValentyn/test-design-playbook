@@ -12,7 +12,7 @@ export class GetStartedComponent {
 
   constructor(private route: ActivatedRoute) {
     this.token = this.route.snapshot.paramMap.get('token');
-    console.log(this.token);
+    console.log(this.route.snapshot.paramMap);
     if (this.token) {
       localStorage.setItem('token', this.token);
     } else if (!localStorage.getItem('token')) {
