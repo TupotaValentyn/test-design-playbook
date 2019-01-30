@@ -4,7 +4,11 @@ const result = mongoose.Schema({
   applicant: Object,
   solved_models: Array,
   solved_date: Date,
-  token: String
+  token: String,
+  deleted: {
+    type: Boolean,
+    default: false
+  }
 });
 
 result.virtual('mark').get(() => {

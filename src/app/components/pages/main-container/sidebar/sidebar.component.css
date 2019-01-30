@@ -17,6 +17,5 @@ app-sidebar-thumbnail {
 }
 
 .task__elements {
-  height: 100%;
   overflow-y: auto;
 }

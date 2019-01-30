@@ -21,6 +21,10 @@ const applicant = mongoose.Schema({
   expired: {
     type: Date,
     default: (Date.now() + 86400000)
+  },
+  mark: {
+    type: Number,
+    default: 0
   }
 });
 
@@ -33,3 +37,4 @@ module.exports.STATUS_IS_FILLING = 'Is filling'; // Тест почали про
 module.exports.STATUS_IS_SOLVED = 'Is solved'; //Відправлений
 module.exports.STATUS_DEACTIVATED = 'Deactivated'; //Деактивовано з адмінки
 module.exports.STATUS_EXPIRED = 'Expired'; // Час для проходження вичерпано
+module.exports.STATUS_DELETED = 'Deleted'; // Видалено в адмінці

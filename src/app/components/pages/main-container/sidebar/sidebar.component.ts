@@ -17,6 +17,8 @@ export class SidebarComponent implements OnInit {
 
   @Output() onSelect = new EventEmitter<any>();
 
+  @Input() currentSelectedModel: any;
+
   selectedModel: any;
 
   ngOnInit() {

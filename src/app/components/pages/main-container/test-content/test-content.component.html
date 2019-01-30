@@ -11,6 +11,8 @@
       <div class="empty" [ngStyle]="{'background': 'url(' + currentModel.url + ')'}"></div>
       <img [src]="currentModel.url" class="img" alt="current model" />
       <mat-icon class="full__screen__icon" (click)="changeScreenMode()">fullscreen</mat-icon>
+      <div class="left" (click)="openPrevImage()"></div>
+      <div class="right" (click)="openNextImage()"></div>
     </mat-card>
 
     <footer class="comments__contaner">

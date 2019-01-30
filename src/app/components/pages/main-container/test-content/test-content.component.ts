@@ -25,6 +25,9 @@ export class TestContentComponent {
     this.onSend.emit();
   }
 
+  @Output() onNextImg = new EventEmitter();
+  @Output() onPrevImg = new EventEmitter();
+
   isPictureOpened = false;
 
   saveCommentGood(e) {
@@ -47,6 +50,14 @@ export class TestContentComponent {
 
   changeScreenMode() {
     this.isPictureOpened = !this.isPictureOpened
+  }
+
+  openPrevImage() {
+    this.onPrevImg.emit();
+  }
+
+  openNextImage() {
+    this.onNextImg.emit();
   }
 
 }

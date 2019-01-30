@@ -21,6 +21,8 @@ export class MainContainerComponent implements OnInit {
     comment_good: "Nothing found comment good",
     comment_bad: "Nothing found comment bad",
     name: "Nothing found name",
+    comment: 'Nothing found',
+    numberMark: 0
   },
   {
     _id: "test2",
@@ -28,7 +30,9 @@ export class MainContainerComponent implements OnInit {
     mark: false,
     comment_good: "Nothing found comment good",
     comment_bad: "Nothing found comment bad",
-    name: "Nothing found name"
+    name: "Nothing found name",
+    comment: 'Nothing found',
+    numberMark: 0
   }];
 
   currentSelectedCount: number = 0;
@@ -68,6 +72,7 @@ export class MainContainerComponent implements OnInit {
   }
 
   currentSelectModel: Object;
+  currentIndex: number;
 
 
   //saving data to the local storage (used in checkbox's and saveComment functions)
@@ -78,6 +83,7 @@ export class MainContainerComponent implements OnInit {
       e.url = "../../assets" + e.url
     });
     this.currentSelectModel = this.currentModel[0];
+    this.currentIndex = 0;
   }
 
   giveSavedModels(data) {
@@ -86,6 +92,7 @@ export class MainContainerComponent implements OnInit {
     );
     this.currentSelectedCount = this.currentModel.filter(e => e.mark).length;
     this.currentSelectModel = this.currentModel[0];
+    this.currentIndex = 0;
   }
 
   saveUserTestResult() {
@@ -98,7 +105,6 @@ export class MainContainerComponent implements OnInit {
       model: {
         _id: item._id,
         url: item.url,
-        answer: false,
         name: item.name
       },
       mark: item.mark,
@@ -119,7 +125,6 @@ export class MainContainerComponent implements OnInit {
       model: {
         _id: item._id,
         url: item.url,
-        answer: false,
         name: item.name
       },
       mark: item.mark,
@@ -153,12 +158,36 @@ export class MainContainerComponent implements OnInit {
     console.log('[MainContainer]', 'sideBarSelect');
     this.currentModelLog();
     this.currentSelectModel = selectedModel;
+    this.currentIndex = this.currentModel.indexOf(selectedModel);
+
     console.log(this.currentModel.filter(e => e.mark).length);
     setTimeout(() => this.currentSelectedCount = this.currentModel.filter(e => e.mark).length, 0);
   }
 
   currentModelLog() {
     console.log(this.currentModel);
+  }
+
+  nextImg() {
+    if (this.currentIndex === (this.currentModel.length - 1)) {
+      console.log("Index more than the index of last image");
+      this.currentIndex = 0;
+    } else {
+      this.currentIndex = this.currentIndex + 1;
+    }
+
+    this.currentSelectModel = this.currentModel[this.currentIndex];
+  }
+
+  prevImg() {
+    if (this.currentIndex === 0) {
+      console.log("Index less than the index of first image");
+      this.currentIndex = (this.currentModel.length - 1);
+    } else {
+      this.currentIndex = this.currentIndex - 1;
+    }
+
+    this.currentSelectModel = this.currentModel[this.currentIndex];
   }
 
 }

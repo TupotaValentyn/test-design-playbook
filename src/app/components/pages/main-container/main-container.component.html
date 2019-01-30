@@ -3,6 +3,7 @@
     class="sidebar__container" 
     [models]="currentModel"
     [countCheckedElements]="currentSelectedCount"
+    [currentSelectedModel]="currentSelectModel"
     (onSelect)="sideBarSelect($event)">
   </app-sidebar>
 
@@ -10,6 +11,8 @@
     class="test__container" 
     [currentModel]="currentSelectModel"
     [countCheckedElements]="currentSelectedCount"
+    (onNextImg)="nextImg()"
+    (onPrevImg)="prevImg()"
     (onSaveComment)="testComponentSave()"
     (onSaveGoodComment)="commentSaveGood()"
     (onSaveBadComment)="commentSaveBad()"
