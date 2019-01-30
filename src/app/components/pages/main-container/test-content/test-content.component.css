@@ -138,9 +138,8 @@ h3 {
   z-index: 500;
 }
 
-.left {
-  left: 14px;
-  top: calc(100% - 60%);
+.wrapper__arrow {
+  top: 40%;
   width: 50px;
   height: 50px;
   position: absolute;
@@ -154,24 +153,18 @@ h3 {
   justify-content: center;
 }
 
+.left {
+  left: 14px;
+  border-radius: 0 50% 50% 0;
+}
+
 .left:hover {
   opacity: 1;
 }
 
 .right {
   right: 14px;
-  top: calc(100% - 60%);
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  z-index: 750;
-  cursor: pointer;
-  background-color: grey;
-  opacity: 0.7;
   border-radius: 50% 0 0 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .right:hover {
