@@ -159,15 +159,12 @@ h3 {
   border-radius: 0 50% 50% 0;
 }
 
-.left:hover {
-  opacity: 1;
-}
-
 .right {
   right: 14px;
   border-radius: 50% 0 0 50%;
 }
 
+.left:hover,
 .right:hover {
   opacity: 1;
 }
