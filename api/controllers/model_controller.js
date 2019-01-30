@@ -6,6 +6,9 @@ const Result = require('../models/result');
 
 router.get('/model/all', (req, res) => {
   Applicant.findOne({token: req.token}, {status: 1}, (err, docs) => {
+    if (!docs) {
+      return res.status(403).json({ message: 'Access denied' });
+    }
     if (docs.status === Applicant.STATUS_IS_SOLVED) {
       Model.find({}, {mark: 0}, (err, models) => {
         if (err) {
