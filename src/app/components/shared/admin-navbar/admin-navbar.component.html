@@ -10,12 +10,16 @@
         Links</a>
     </div>
     <div class="wrapper">
-      <mat-icon class="link__icon">archive</mat-icon>
-      <a mat-button routerLink="/admin/results" class="link">Results</a>
+      <!-- <mat-icon class="link__icon">archive</mat-icon> -->
+      <a mat-button routerLink="/admin/results" class="link">
+        <mat-icon class="link__icon">archive</mat-icon>
+        Results</a>
     </div>
     <div class="wrapper">
-      <mat-icon class="link__icon">folder</mat-icon>
-      <a mat-button routerLink="/admin/tasks" class="link" disabled="disabled">Tasks</a>
+      <!-- <mat-icon class="link__icon">folder</mat-icon> -->
+      <a mat-button routerLink="/admin/tasks" class="link" disabled="disabled">
+        <mat-icon class="link__icon">folder</mat-icon>
+        Tasks</a>
     </div>
     <!-- <a mat-button routerLink="/admin/links" class="link">Links</a> -->
     <!-- <a mat-button routerLink="/admin/results" class="link">Results</a> -->
@@ -23,7 +27,9 @@
   </div>
 
   <div class="navbar__links">
-    <mat-icon>account_circle</mat-icon>
-    <a mat-button routerLink="/admin/login" (click)="deleteToken()" class="link">Log out</a>
+    <!-- <mat-icon>account_circle</mat-icon> -->
+    <a mat-button routerLink="/admin/login" (click)="deleteToken()" class="link">
+      <mat-icon class="link__icon">account_circle</mat-icon>
+      Log out</a>
   </div>
 </nav>

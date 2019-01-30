@@ -1,3 +1,7 @@
+* {
+  transition: all .3s ease;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -36,8 +40,12 @@
   justify-content: space-around;
 }
 
+.link:hover .link__icon {
+  visibility: visible;
+}
+
 .link__icon {
-  color: white;
+  visibility: hidden;
 }
 
 .navbar__empty__space {
