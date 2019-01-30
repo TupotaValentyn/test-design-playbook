@@ -66,14 +66,14 @@ async function getThisModelMark(item) {
 async function updateMark(models) {
   return new Promise(async (resolve) => {
     let mark = 0;
-    for(let i = 0; i<models.length; i++){
+    for (let i = 0; i < models.length; i++){
       mark += await getThisModelMark(models[i]);
     }
     resolve(mark);
   });
 }
 
-router.post('/results/save',async (req, res) => {
+router.post('/results/save', async (req, res) => {
   const models = req.body.models;
   const token = req.token;
   let mark = await updateMark(models);
@@ -147,7 +147,7 @@ router.get('/results/all', (req, res) => {
     return res.status(403).send('You do not have permission');
   }
   Result
-    .find({ deleted: false }, { deleted:0 }, (err, docs) =>{
+    .find({ deleted: false }, { deleted: 0 }, (err, docs) =>{
       if (err) {
         return res.status(500).send(err);
       }
@@ -160,7 +160,7 @@ router.post('/results/one', (req, res) => {
   Result.findOne({ token: token })
     .then((docs) => {
       if (!docs) {
-        return res.send('Can not find this token');
+        return res.status(500).send('Can not find this token');
       }
       res.send(docs)
     })
@@ -173,9 +173,9 @@ router.post('/results/delete', (req, res) => {
   const token = req.body.token;
   Result.findOneAndUpdate({ token: token }, { deleted: true }, (err) => {
     if (err) {
-      return res.send(err);
+      return res.status(500).send(err);
     }
-    return res.send({m: 'Deleted successfully'});
+    return res.send({ message: 'Deleted successfully' });
   })
 });
 

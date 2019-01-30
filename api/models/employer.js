@@ -11,3 +11,4 @@ const employer = mongoose.Schema({
 const Employer = mongoose.model('employer', employer);
 
 module.exports = Employer;
+module.exports.ACCESS_ADMIN = 'admin';
