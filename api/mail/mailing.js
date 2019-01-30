@@ -6,6 +6,9 @@ const DOMAIN = process.env.DOMAIN;
 const FROM_WHO = process.env.FROM_WHO;
 
 function sendMail(email, subject, text) {
+    if (!API_KEY || !DOMAIN || !FROM_WHO) {
+      return 'Mail not send';
+    }
     const mailgun = new Mailgun({apiKey: API_KEY, domain: DOMAIN});
     const data = {
         from: FROM_WHO,
