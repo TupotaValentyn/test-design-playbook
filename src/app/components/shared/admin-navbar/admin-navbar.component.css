@@ -34,10 +34,10 @@
 .link {
   margin: 0 5px;
   color: white;
+}
 
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+.link__icon {
+  margin-right: 5px;
 }
 
 .navbar__empty__space {
@@ -45,7 +45,7 @@
   height: 55px;
 }
 
-.wrapper {
+.link__wrapper {
   display: flex;
   align-items: center;
   justify-content: space-around;
