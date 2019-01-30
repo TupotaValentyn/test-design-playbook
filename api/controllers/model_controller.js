@@ -4,6 +4,66 @@ const Model = require('../models/model');
 const Applicant = require('../models/user');
 const Result = require('../models/result');
 
+// after refactor
+router.get('/models/all', (req, res) => {
+  let applicant;
+  Applicant.findOne({ token: req.token })
+    .then((applicantDocs) => {
+      if (applicantDocs && (applicantDocs.status === Applicant.STATUS_IS_SOLVED || applicantDocs.status === Applicant.STATUS_IS_FILLING)) {
+        return Applicant.findOneAndUpdate({ token: req.token }, {status: Applicant.STATUS_IS_FILLING});
+      } else {
+        throw { status: 403 };
+      }
+    })
+    .then((applicantDocs) => {
+      applicant = applicantDocs;
+      return Model.find({}, {mark: 0});
+    })
+    .then((modelDocs) => {
+      let result = {
+        solved_models: [],
+        applicant: applicant,
+        solved_date: null
+      };
+
+      modelDocs.forEach((item) => {
+        result.solved_models.push({
+          model: item,
+          mark: false,
+          comment: ""
+        });
+      });
+      res.send(result);
+    })
+    .catch((err) => {
+      res.status(err.status).send(err);
+    })
+});
+
+router.get('/models/solved', (req, res) => {
+  let applicant;
+  Applicant.findOne({ token: req.token })
+    .then((applicantDocs) => {
+      applicant = applicantDocs;
+      if (applicant
+        && (applicant.status === Applicant.STATUS_IS_SOLVED
+          || applicant.status === Applicant.STATUS_IS_FILLING)) {
+        return Result.findOne({ token: applicant.token });
+      } else {
+        throw {status: 403};
+      }
+    })
+    .then((resultDocs) => {
+      if (resultDocs) {
+        res.send(resultDocs);
+      }
+    })
+    .catch((err) => {
+      res.status(err.status).send(err);
+    })
+});
+
+// legacy code
 router.get('/model/all', (req, res) => {
   Applicant.findOne({token: req.token}, {status: 1}, (err, docs) => {
     if (!docs) {
