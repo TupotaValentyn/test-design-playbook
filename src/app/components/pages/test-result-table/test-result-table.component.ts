@@ -30,7 +30,7 @@ export class TestResultTableComponent {
         _id: item._id,
         url: item.url,
         answer: false,
-        name: item.name
+        name: item.name,
       },
       mark: item.mark,
       comment: item.comment

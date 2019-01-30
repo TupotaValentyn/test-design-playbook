@@ -44,6 +44,17 @@
           <img src="../../../../../assets/full-screen.svg" class="img full__screen__image__inner" alt="full screen image" />
         </div>
       </div>
+
+      <div class="left wrapper__arrow" (click)="openPrevImage()">
+        <div>
+          <mat-icon>arrow_back_ios</mat-icon>
+        </div>
+      </div>
+      <div class="right wrapper__arrow" (click)="openNextImage()">
+        <div>
+          <mat-icon>arrow_forward_ios</mat-icon>
+        </div>
+      </div>
     </mat-card>
 
     <footer class="footer">

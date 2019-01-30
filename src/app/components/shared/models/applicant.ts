@@ -4,6 +4,7 @@ export class Applicant {
   static STATUS_EVALUATED: string = 'Evaluated';
   static STATUS_DEACTIVATED: string = 'Deactivated';
   static STATUS_EXPIRED: string = 'Expired';
+  static STATUS_DELETED: string = 'Deleted';
 
   surname: string;
   first_name: string;
@@ -13,6 +14,7 @@ export class Applicant {
   status: string;
   created: Date;
   comment: string;
+  mark: Number;
   expired: Date;
 
 }

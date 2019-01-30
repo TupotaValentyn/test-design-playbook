@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const User = require('../models/user');
+const Applicants = require('../models/user');
 const jwt = require('jsonwebtoken');
 const secret = require("../secret");
 const mail = require('../mail/mailing');
@@ -10,7 +10,7 @@ router.post('/users/token', (req, res) => {
   }
   const token = jwt.sign({ user: req.body.email, access: 'user' }, secret.key, { expiresIn: 86400*7 });
 
-  const user = new User({
+  const user = new Applicants({
     surname: req.body.surname,
     first_name: req.body.first_name,
     second_name: req.body.second_name,
@@ -24,7 +24,7 @@ router.post('/users/token', (req, res) => {
 
 router.post('/users/token/status', (req, res) => {
   const token = req.token;
-  User.findOne({token: token}, {status: 1, _id: 0}, (err, docs) => {
+  Applicants.findOne({ token: token }, { status: 1, _id: 0 }, (err, docs) => {
     if (err) {
       return res.status(500).send('Can not find token');
     }
@@ -33,7 +33,7 @@ router.post('/users/token/status', (req, res) => {
 });
 
 router.post('/users/token/send',async (req, res) => {
-  const user = new User({
+  const user = new Applicants({
     surname: req.body.surname,
     first_name: req.body.first_name,
     second_name: req.body.second_name,
@@ -51,7 +51,7 @@ router.post('/users/token/send',async (req, res) => {
 
 router.post('/users/token/deactivate', (req, res) => {
   const token = req.body.token;
-  User.findOneAndUpdate({ token: token }, { status: User.STATUS_DEACTIVATED }, (err) => {
+  Applicants.findOneAndUpdate({ token: token }, { status: Applicants.STATUS_DEACTIVATED }, (err) => {
     if(err){
       return res.status(500).send(err);
     }
@@ -63,7 +63,7 @@ router.get('/users/token/all', (req, res) => {
   if (req.access !== 'admin') {
     return res.status(403).send('You do not have permission');
   }
-  User.find({ status: { $nin: [User.STATUS_DEACTIVATED, User.STATUS_EXPIRED, User.STATUS_EVALUATED]}})
+  Applicants.find({ status: { $nin: [Applicants.STATUS_DEACTIVATED, Applicants.STATUS_EXPIRED, Applicants.STATUS_EVALUATED]}})
     .then((docs) => {
       res.send(docs);
     })
@@ -72,6 +72,15 @@ router.get('/users/token/all', (req, res) => {
     })
 });
 
+router.post('/users/token/delete', (req, res) => {
+  const token = req.body.token;
+  Applicants.findOneAndUpdate({ token: token }, { status: Applicants.STATUS_DELETED }, (err) => {
+    if(err){
+      return res.status(500).send(err);
+    }
+    res.send({message: 'Deactivated succesfully'});
+  });
+});
 
 console.log('[User Controller]', 'load routes');
 
