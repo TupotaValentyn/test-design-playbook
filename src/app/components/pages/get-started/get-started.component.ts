@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DataSourceService } from '../../shared/service/data-source.service';
+import { Applicant } from '../../shared/models/applicant';
 
 @Component({
   selector: 'app-get-started',
@@ -9,10 +11,14 @@ import { ActivatedRoute } from '@angular/router';
 export class GetStartedComponent {
 
   token: string;
+  userName: string;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private dataSource: DataSourceService) {
     this.token = this.route.snapshot.paramMap.get('token');
-    console.log(this.token);
+    this.dataSource.getFirstNameUser(this.token)
+    .subscribe((data: Applicant) => {
+      this.userName = data.first_name;
+    });
     if (this.token) {
       localStorage.setItem('token', this.token);
     } else if (!localStorage.getItem('token')) {
@@ -20,5 +26,4 @@ export class GetStartedComponent {
     }
   }
 
-  userName = 'Myroslav';
 }

@@ -104,4 +104,9 @@ export class DataSourceService {
       { models: models }
     );
   }
+
+  getFirstNameUser(token): Observable<Object> {
+    return this.http
+      .post('http://localhost:8000/api/users/name', {token: token});
+  }
 }
