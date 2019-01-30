@@ -30,9 +30,23 @@
 .link {
   margin: 0 5px;
   color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.link__icon {
+  color: white;
 }
 
 .navbar__empty__space {
   width: 100%;
   height: 55px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
