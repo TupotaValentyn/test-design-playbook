@@ -189,7 +189,4 @@ export class MainContainerComponent implements OnInit {
 
     this.currentSelectModel = this.currentModel[this.currentIndex];
   }
-
-  onSideNavScroll(event){ event.stopPropagation() }
-
 }

@@ -21,6 +21,8 @@ export class TestContentComponent {
 
   @Output() onSend = new EventEmitter();
 
+  @Output() onOpenCloseSidebar = new EventEmitter();
+
   moveToNextPage() {
     this.onSend.emit();
   }
@@ -52,6 +54,10 @@ export class TestContentComponent {
 
   openNextImage() {
     this.onNextImg.emit();
+  }
+
+  openCloseSidebar() {
+    this.onOpenCloseSidebar.emit();
   }
 
 }

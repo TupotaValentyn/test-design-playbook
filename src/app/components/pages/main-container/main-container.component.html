@@ -27,8 +27,10 @@
 
 </mat-sidenav-container> -->
 
-<mat-sidenav-container class="main__container" (scroll)="onSideNavScroll($event)">
-    <mat-sidenav #sidenav mode="side" class="sidebar__container">
+<mat-sidenav-container class="main__container">
+    <mat-sidenav
+      class="sidebar__container"
+      #sidenav mode="side">
       <app-sidebar 
         class="sidebar__content" 
         [models]="currentModel"
@@ -50,7 +52,8 @@
         (onSaveGoodComment)="commentSaveGood()"
         (onSaveBadComment)="commentSaveBad()"
         (onSend)="testComponentSend()"
-        (onChoose)="testComponentChoose()">
+        (onChoose)="testComponentChoose()"
+        (onOpenCloseSidebar)="sidenav.toggle()">
       </app-test-content>
     </mat-sidenav-content>
   </mat-sidenav-container>

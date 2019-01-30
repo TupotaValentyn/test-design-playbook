@@ -4,7 +4,23 @@
     <img [src]="currentModel.url" class="img" alt="current model" />
   </div>
 
-  <mat-divider></mat-divider>
+  <!-- <mat-divider></mat-divider> -->
+
+  <div class="control__panel">
+      <button class="btn__open__close_sidebar"
+              matTooltip="Open-close sidebar"
+              mat-icon-button color="primary"
+              matTooltipPosition="above"
+              (click)="openCloseSidebar()">
+          <mat-icon aria-label="">code</mat-icon>
+      </button>
+      <!-- <button mat-raised-button color="primary" class="btn__help">Help</button> -->
+      <!-- <div class="progress__info">
+        <p>Total</p>
+        <p>Choosen</p>  
+      </div> -->
+      <!-- <button mat-raised-button color="accent" class="btn__continue">Continue</button> -->
+  </div>
 
   <footer class="comments__contaner">
     <mat-tab-group>

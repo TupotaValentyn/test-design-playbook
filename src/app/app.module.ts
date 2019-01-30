@@ -37,6 +37,7 @@ import { TestResultRowComponent } from './components/pages/test-result-table/tes
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 // service
 import { JwtInterceptorService } from './components/shared/interceptors/jwt-interceptor.service';
@@ -85,7 +86,8 @@ import { LinkInfoDialogComponent } from './components/pages/admin-panel-link/adm
     MatMenuModule,
     MatTabsModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ],
   entryComponents: [
     LinkInfoDialogComponent

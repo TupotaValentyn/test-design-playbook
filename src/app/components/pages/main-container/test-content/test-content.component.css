@@ -13,6 +13,7 @@
   align-self: center;
 }
 
+/* test content */
 .test__content__container {
   display: flex;
   width: 100%;
@@ -28,7 +29,6 @@
 }
 
 .img {
-  z-index: 500;
   width: 100%;
   height: 100%;
   display: flex;
@@ -36,6 +36,23 @@
   object-fit: contain;
 }
 
+/* control panel */
+.control__panel {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border: 1px solid red;
+}
+
+.progress__info {
+  border: 1px solid blue;
+}
+
+.btn__continue {
+  margin-left: auto;
+}
+
+/* arrows */
 .left {
   left: 14px;
   width: calc(30% - 10px);
@@ -54,7 +71,7 @@
   cursor: pointer;
 }
 
-/* tabs footer and textarea styles */
+/* footer and textareas */
 .comments__contaner {
   height: 145px;
   margin: 5px 5px 0 5px;
