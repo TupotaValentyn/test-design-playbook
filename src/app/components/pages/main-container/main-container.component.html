@@ -1,22 +1,56 @@
-<div class="main__container">
-  <app-sidebar 
-    class="sidebar__container" 
-    [models]="currentModel"
-    [countCheckedElements]="currentSelectedCount"
-    [currentSelectedModel]="currentSelectModel"
-    (onSelect)="sideBarSelect($event)">
-  </app-sidebar>
+<!-- <mat-sidenav-container class="main__container">
 
-  <app-test-content
-    class="test__container" 
-    [currentModel]="currentSelectModel"
-    [countCheckedElements]="currentSelectedCount"
-    (onNextImg)="nextImg()"
-    (onPrevImg)="prevImg()"
-    (onSaveComment)="testComponentSave()"
-    (onSaveGoodComment)="commentSaveGood()"
-    (onSaveBadComment)="commentSaveBad()"
-    (onSend)="testComponentSend()"
-    (onChoose)="testComponentChoose()">
-  </app-test-content>
-</div>
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+    <app-sidebar 
+      class="sidebar__container" 
+      [models]="currentModel"
+      [countCheckedElements]="currentSelectedCount"
+      [currentSelectedModel]="currentSelectModel"
+      (onSelect)="sideBarSelect($event)">
+    </app-sidebar>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-test-content
+      class="test__container" 
+      [currentModel]="currentSelectModel"
+      [countCheckedElements]="currentSelectedCount"
+      (onNextImg)="nextImg()"
+      (onPrevImg)="prevImg()"
+      (onSaveComment)="testComponentSave()"
+      (onSaveGoodComment)="commentSaveGood()"
+      (onSaveBadComment)="commentSaveBad()"
+      (onSend)="testComponentSend()"
+      (onChoose)="testComponentChoose()">
+    </app-test-content>
+  </mat-sidenav-content>
+
+</mat-sidenav-container> -->
+
+<mat-sidenav-container class="main__container" (scroll)="onSideNavScroll($event)">
+    <mat-sidenav #sidenav mode="side" class="sidebar__container">
+      <app-sidebar 
+        class="sidebar__content" 
+        [models]="currentModel"
+        [countCheckedElements]="currentSelectedCount"
+        [currentSelectedModel]="currentSelectModel"
+        (onSelect)="sideBarSelect($event)">
+      </app-sidebar>
+    </mat-sidenav>
+  
+    <mat-sidenav-content class="test__container">
+      <button mat-button color="primary" (click)="sidenav.toggle()">sidenav.toggle()</button>
+      <app-test-content
+        class="test__content" 
+        [currentModel]="currentSelectModel"
+        [countCheckedElements]="currentSelectedCount"
+        (onNextImg)="nextImg()"
+        (onPrevImg)="prevImg()"
+        (onSaveComment)="testComponentSave()"
+        (onSaveGoodComment)="commentSaveGood()"
+        (onSaveBadComment)="commentSaveBad()"
+        (onSend)="testComponentSend()"
+        (onChoose)="testComponentChoose()">
+      </app-test-content>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

@@ -173,7 +173,7 @@ export class MainContainerComponent implements OnInit {
       console.log("Index more than the index of last image");
       this.currentIndex = 0;
     } else {
-      this.currentIndex = this.currentIndex + 1;
+      this.currentIndex++;
     }
 
     this.currentSelectModel = this.currentModel[this.currentIndex];
@@ -184,10 +184,12 @@ export class MainContainerComponent implements OnInit {
       console.log("Index less than the index of first image");
       this.currentIndex = (this.currentModel.length - 1);
     } else {
-      this.currentIndex = this.currentIndex - 1;
+      this.currentIndex--;
     }
 
     this.currentSelectModel = this.currentModel[this.currentIndex];
   }
+
+  onSideNavScroll(event){ event.stopPropagation() }
 
 }
