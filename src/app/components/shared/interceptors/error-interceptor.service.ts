@@ -3,12 +3,13 @@ import { HttpInterceptor, HttpHandler, HttpRequest, HttpEvent, HttpErrorResponse
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Injectable()
 
 export class ErrorInterceptorService implements HttpInterceptor{
 
-  constructor(private snackBar: MatSnackBar) { }
+  constructor(private snackBar: MatSnackBar, private router: Router) { }
   
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req)
@@ -19,7 +20,9 @@ export class ErrorInterceptorService implements HttpInterceptor{
           if (err.error instanceof ErrorEvent) {
             errorMessage = `Error: ${ err.error.message }`;
           } else {
-            if (err.status == 0) {
+            if (err.status == 403) {
+              this.router.navigate(['/admin/login']);
+            } else if (err.status == 0) {
               errorMessage = `No connection to the Internet or the server is shut down.`;
             }
             errorMessage += `Error: ${ err.status }\nMessage: ${ err.message }`;

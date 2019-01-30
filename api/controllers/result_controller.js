@@ -134,6 +134,9 @@ router.post('/results/update', (req, res) => {
   Applicant
     .findOne({ token: token})
     .then((docs) => {
+      if (!docs) {
+        return res.status(403).json({message: 'Access denied'});
+      }
       findMoreInfoAboutUser(docs, token, models, res);
     })
 
