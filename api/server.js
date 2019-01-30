@@ -1,5 +1,6 @@
 // server configuration
 require('dotenv').config();
+require('./environment_checker');
 
 const PORT = process.env.PORT || 8000;
 
