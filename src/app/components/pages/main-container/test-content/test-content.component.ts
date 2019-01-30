@@ -28,8 +28,6 @@ export class TestContentComponent {
   @Output() onNextImg = new EventEmitter();
   @Output() onPrevImg = new EventEmitter();
 
-  isPictureOpened = false;
-
   saveCommentGood(e) {
     this.currentModel.good_comment = e.target.value;
     this.onSaveGoodComment.emit(this.currentModel); 
@@ -46,10 +44,6 @@ export class TestContentComponent {
     this.currentModel.mark = e.checked;
     this.onChoose.emit(this.currentModel);
     console.log('IMAGE CHOOSEN');
-  }
-
-  changeScreenMode() {
-    this.isPictureOpened = !this.isPictureOpened
   }
 
   openPrevImage() {
