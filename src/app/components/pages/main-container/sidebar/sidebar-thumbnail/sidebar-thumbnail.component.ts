@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import {SolvedModel} from '../../../../shared/models/solved-model';
 
 @Component({
   selector: 'app-sidebar-thumbnail',
@@ -7,10 +8,10 @@ import { Component, Input } from '@angular/core';
 })
 export class SidebarThumbnailComponent {
 
-  @Input() model: any;
+  @Input() model: SolvedModel;
 
   @Input() index: number;
 
-  @Input() currentSelected: any;
+  @Input() currentSelected: SolvedModel;
 
 }
