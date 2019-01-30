@@ -2,7 +2,7 @@
 <ol>
   <li class="card__wrapper" *ngFor="let resultItem of results; index as index">
     <app-results-card
-      [result_item]="resultItem"
+      [resultItem]="resultItem"
       [index]="index + 1"
       (onRemove)="updateResults()">
 

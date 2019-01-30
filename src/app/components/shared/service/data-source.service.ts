@@ -17,10 +17,10 @@ export class DataSourceService {
         login: login,
         password: pass
       }
-    )
+    );
   }
 
-  disableLink(token) : Observable<Object> {
+  disableLink(token): Observable<Object> {
     return this.http
       .post(
       'http://localhost:8000/api/users/token/deactivate',
@@ -71,7 +71,7 @@ export class DataSourceService {
     return this.http
       .get(
         'http://localhost:8000/api/model/all',
-      )
+      );
   }
 
   updateResult(solvedResults): Observable<Object> {
@@ -82,9 +82,14 @@ export class DataSourceService {
     );
   }
 
-  removeResult(result): void {
-    console.log(result);
+  removeResult(token): Observable<Object> {
+    console.log(token);
     console.log('Result removed');
+    return this.http
+      .post(
+        'http://localhost:8000/api/results/delete',
+        {token: token}
+      );
   }
 
   getAllResults(): Observable<Object> {
@@ -97,6 +102,6 @@ export class DataSourceService {
       .post(
       'http://localhost:8000/api/results/save',
       { models: models }
-    )
+    );
   }
 }

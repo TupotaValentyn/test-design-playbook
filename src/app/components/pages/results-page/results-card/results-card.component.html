@@ -7,7 +7,7 @@
     </div>
     <div class="info__group content">
       <span class="info info__name">
-        {{ result_item.applicant.surname }} {{ result_item.applicant.first_name }} {{ result_item.applicant.second_name }}
+        {{ resultItem.applicant.surname }} {{ resultItem.applicant.first_name }} {{ resultItem.applicant.second_name }}
       </span>
       <span class="info info__rating">
         Rating :
@@ -19,7 +19,7 @@
         </span>
       </span>
       <span class="info info__comment">
-        {{ result_item.applicant.comment }}
+        {{ resultItem.applicant.comment }}
       </span>
     </div>
   </div>
@@ -29,10 +29,10 @@
         New
       </button>
     </div>
-    <button class="btn accept"  color="primary" mat-raised-button routerLink="/admin/results/full/{{result_item.applicant.token}}">
+    <button class="btn accept" color="primary" mat-raised-button routerLink="/admin/results/full/{{resultItem.applicant.token}}">
       More...
     </button>
-    <button class="btn delete"  color="warn" mat-raised-button (click)="removeResult();">
+    <button class="btn delete" color="warn" mat-raised-button (click)="removeResult();">
       Remove
     </button>
   </div>

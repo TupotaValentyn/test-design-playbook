@@ -8,20 +8,16 @@ import { DataSourceService } from '../../../shared/service/data-source.service';
   styleUrls: ['./results-card.component.css']
 })
 export class ResultsCardComponent implements OnInit {
-
-
-  @Input() result_item: Result;
+  @Input() resultItem: Result;
   @Input() index: number;
   @Output() onRemove = new EventEmitter();
 
   constructor(private dataSource: DataSourceService) { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   removeResult() {
-    this.dataSource.removeResult(this.result_item);
+    this.dataSource.removeResult(this.resultItem.applicant.token);
     this.onRemove.emit();
   }
 }
