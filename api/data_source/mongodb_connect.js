@@ -1,14 +1,11 @@
 const mongoose = require('mongoose');
 
-const LOGIN = 'intern';
-const PASSWORD = 'intern';
-const DATABASE_NAME = 'test_design_playbook';
-const DATABASE_URL = `mongodb+srv://${LOGIN}:${PASSWORD}@interlinkpracticecluster-vzihp.mongodb.net/${DATABASE_NAME}?retryWrites=true`;
+const DATABASE_URL = process.env.DATABASE_CONNECTION_URL;
 
 module.exports = () => {
   mongoose
     .connect(DATABASE_URL, { useNewUrlParser: true })
-    .then(() => console.log(`[MongoDB Connect] Connect to ${DATABASE_NAME}`))
+    .then(() => console.log(`[MongoDB Connect] Connect to database successful`))
     .catch((err) => {
       console.error('[MongoDB Connect] Connection error');
       throw err;
