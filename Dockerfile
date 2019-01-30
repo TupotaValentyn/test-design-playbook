@@ -4,15 +4,16 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install --only=prod
+RUN npm install
 
-# копіювання фронта
-# білд фронта
+COPY ./src ./src
+COPY ./angular.json ./
+COPY ./ts*.json ./
+
+RUN npm run postinstall
 
 COPY server.js ./
-COPY ./dist ./dist
 COPY ./api ./api
-
 
 EXPOSE 8000
 
