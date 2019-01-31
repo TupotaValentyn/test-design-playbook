@@ -20,7 +20,7 @@ router.get('/models/all', (req, res) => {
       return Model.find({}, {mark: 0});
     })
     .then((modelDocs) => {
-      let result = {
+      const result = {
         solved_models: [],
         applicant: applicant,
         solved_date: null
@@ -56,48 +56,13 @@ router.get('/models/solved', (req, res) => {
     .then((resultDocs) => {
       if (resultDocs) {
         res.send(resultDocs);
+      } else {
+        res.end();
       }
     })
     .catch((err) => {
       res.status(err.status).send(err);
     })
-});
-
-// legacy code
-router.get('/model/all', (req, res) => {
-  Applicant.findOne({token: req.token}, {status: 1}, (err, docs) => {
-    if (!docs) {
-      return res.status(403).json({ message: 'Access denied' });
-    }
-    if (docs.status === Applicant.STATUS_IS_SOLVED) {
-      Model.find({}, {mark: 0}, (err, models) => {
-        if (err) {
-          return res.status(500).res.send(err);
-        }
-        let modelMap = [];
-
-        models.forEach((model) => {
-          modelMap.push({
-            _id: model._id,
-            url: model.url,
-            comment: "",
-            mark: false,
-            name: model.name
-          });
-        });
-
-        res.send(modelMap);
-      })
-    } else if(docs.status === Applicant.STATUS_IS_FILLING) {
-      Result.findOne({ token: req.token }, (err, docs) => {
-        if (err) {
-          return res.status(500).res.send(err);
-        }
-        res.send(docs);
-      })
-    }
-  });
-
 });
 
 router.get('/model/generate', () => {

@@ -14,7 +14,7 @@ router.post('/results/save', (req, res) => {
     .then(modelsDocs => {
       models.filter(i => i.mark).forEach(item => {
         modelsDocs.forEach(modelDocs => {
-          if (item._id === modelDocs._id) {
+          if (item.model._id.toString() === modelDocs._id.toString()) {
             number += modelDocs.mark;
           }
         })
@@ -29,10 +29,11 @@ router.post('/results/save', (req, res) => {
     })
     .then(applicantDocs => {
       applicant = applicantDocs;
-      Result.findOneAndUpdate({ token: token }, { solved_models: models, applicant: applicantDocs });
+      console.log(applicant);
+      return Result.findOneAndUpdate({ token: token }, { solved_models: models, applicant: applicantDocs });
     })
     .then((modelsDocs) => {
-      return Employer.find({});
+      return Employer.findOne({});
     })
     .then((employer) => {
       return mailgun.testCompleted({
@@ -58,7 +59,8 @@ router.post('/results/update', (req, res) => {
         solved_models: models,
         applicant: applicantDocs,
         token: token,
-        solved_date: Date()
+        solved_date: Date(),
+        deleted: false
       }, { upsert: true });
     })
     .then((results) => {
