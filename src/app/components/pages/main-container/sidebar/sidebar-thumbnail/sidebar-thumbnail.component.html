@@ -8,12 +8,9 @@
     </div>
     <mat-card-title> {{ model.name }} </mat-card-title>
     <mat-card-subtitle>
-      <div *ngIf="model.mark; else empty_text">
+      <div *ngIf="model.mark">
         <span class="like__notification">You like it!</span>
       </div>
-      <ng-template #empty_text>
-        <br>
-      </ng-template>
     </mat-card-subtitle>
   </mat-card-header>
 

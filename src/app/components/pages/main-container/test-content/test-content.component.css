@@ -38,14 +38,49 @@
 
 /* control panel */
 .control__panel {
-  height: 50px;
+  /* height: 70px; */
   display: flex;
+  padding: 15px 10px;
   align-items: center;
-  border: 1px solid red;
+  background-color: #EEEEEE;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 
+.btn__open__close_sidebar {
+  color: white;
+  background-color: #3e4db8;
+}
+
+.btn__help,
+.like__dislike__container,
 .progress__info {
-  border: 1px solid blue;
+  margin-left: 20px;
+}
+
+.like__dislike__container {
+  width: 170px;
+}
+
+.progress__info .prorgess__info__text {
+  margin: 0;
+}
+
+.text__bold {
+  font-weight: bold;
+}
+
+.warning__message {
+  color: #DD2C00;
+}
+
+.like__notification {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #FF4081;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .btn__continue {
