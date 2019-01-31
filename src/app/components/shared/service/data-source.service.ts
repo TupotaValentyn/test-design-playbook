@@ -9,6 +9,16 @@ export class DataSourceService {
 
   constructor(private http: HttpClient) { }
 
+  deleteResult(token): Observable<object> {
+    return this.http
+      .post(
+        'http://localhost:8000/api/results/delete',
+        {
+          token: token
+        }
+      )
+  }
+
   authorize(login, pass): Observable<Object> {
     return this.http
       .post(
