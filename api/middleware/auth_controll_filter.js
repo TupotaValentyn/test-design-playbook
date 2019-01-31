@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
     if (!token || type !== 'Bearer') {
       return res.status(403).send({message: 'Authorization type must be Bearer'});
     }
-    jwt.verify(token, secret.key, (err, decoded) => {
+    jwt.verify(token, process.env.JWT_PRIVATE_KEY, (err, decoded) => {
       if(err) {
         return res.status(403).send({ auth : 'false', message: 'Failed to authenticate token' });
       }
