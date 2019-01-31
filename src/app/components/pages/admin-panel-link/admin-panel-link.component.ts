@@ -13,7 +13,7 @@ export class AdminPanelLinkComponent implements OnInit {
 
   constructor (private dataSource: DataSourceService) { }
 
-  userDataInfoList: Array<Applicant>;
+  userDataInfoList: Array<Applicant> = [];
   token = '';
   link = '';
 

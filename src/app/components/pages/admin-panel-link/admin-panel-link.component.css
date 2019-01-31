@@ -61,5 +61,18 @@ mat-toolbar {
     transform: scale(1.2);
 }
 
+.cat__wrapper {
+  margin-top: 30px;
+  color: #a0a0a0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.cat__image {
+  opacity: 0.5;
+}
+
 
 
