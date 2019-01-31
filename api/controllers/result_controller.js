@@ -1,135 +1,111 @@
 const Result = require('../models/result');
 const Applicant = require('../models/user');
 const router = require('express').Router();
-// const Model = require('../models/model');
-// const mongoose = require('mongoose');
-
-// router.post('/results/save',(req, res) => {
-//   const models = req.body.models;
-//   const token = req.token;
-//
-//   const idArray = models.map(item => mongoose.Types.ObjectId(item._id));
-//   Model
-//     .find({ '_id': { $in: idArray } })
-//     .then((modelDocs) => {
-//       if (modelDocs.length !== models.length) {
-//         throw ('Unprocessable Entity');
-//       }
-//       Result.findOneAndUpdate({ token: token }, { models: models })
-//         .catch(err => {throw (err)})})
-//     .then(() => User.findOneAndUpdate({ token: token }, { status: 'Evaluated' })
-//       .catch(err => {throw (err)})
-//     )
-//     .then(res.send('Saved successfully'))
-//     .catch((err) => {
-//       res.status(422).send(err);
-//     });
-//
-// });
-
-router.post('/results/save/force', (req, res) => {
-  const models = req.body.models;
-  const token = req.token;
-
-  Applicant.findOneAndUpdate({ token: token }, { status: Applicant.STATUS_EVALUATED })
-    .then((docs) => {
-      console.log(docs);
-      let result = new Result({
-        applicant: docs,
-        solved_models: models,
-        solved_date: new Date(),
-        token: token
-      });
-      result.save();
-      res.json(result);
-    })
-});
+const Employer = require('../models/employer');
+const mailgun = require('../mail/mailing');
+const Model = require('../models/model');
 
 router.post('/results/save', (req, res) => {
   const models = req.body.models;
   const token = req.token;
-
-  Result.findOneAndUpdate({ token: token }, { models: models})
-    .catch(err => res.send(err))
-    .then(() => {
-      Applicant.findOneAndUpdate({ token: token }, { status: Applicant.STATUS_EVALUATED })
-        .then(() => {
-          res.json({res: "successful"});
-        });
-    });
-
-});
-
-function updateResultToFillingStatus(user, models, token, res) {
-  const result = new Result({
-    applicant: user,
-    solved_models: models,
-    solved_date: Date(),
-    token: token
-  });
-  result
-    .save()
-    .then(() => {
-      Applicant
-        .findOneAndUpdate({ token: token }, { status: Applicant.STATUS_IS_FILLING })
-        .then(() => {
-          res.json({m:'Updated successfully'});
-        });
-    });
-}
-
-function findMoreInfoAboutUser(docs, token, models, res) {
-  if (docs.status === Applicant.STATUS_IS_SOLVED) {
-    Applicant
-      .findOne({ token: token })
-      .then((user) => {
-        updateResultToFillingStatus(user, models, token, res);
+  let number = 0;
+  let applicant;
+  Model.find({})
+    .then(modelsDocs => {
+      models.filter(i => i.mark).forEach(item => {
+        modelsDocs.forEach(modelDocs => {
+          if (item.model._id.toString() === modelDocs._id.toString()) {
+            number += modelDocs.mark;
+          }
+        })
       });
-  } else {
-    Result.findOneAndUpdate({ token: token }, { solved_models: models })
-      .catch(err => res.send(err))
-      .then(() => {res.json({ m:'Updated successfully' })});
-  }
-}
+      return Promise.resolve(number);
+    })
+    .then(number => {
+      return Applicant.findOneAndUpdate(
+        { token: token },
+        { status: Applicant.STATUS_EVALUATED, mark: number },
+        { upsert: true, new: true});
+    })
+    .then(applicantDocs => {
+      applicant = applicantDocs;
+      return Result.findOneAndUpdate({ token: token }, { solved_models: models, applicant: applicantDocs });
+    })
+    .then((modelsDocs) => {
+      return Employer.findOne({});
+    })
+    .then((employer) => {
+      return mailgun.testCompleted({
+        name: applicant.first_name,
+        surname: applicant.surname,
+        email: employer.email
+      })
+    })
+    .then(() => {
+      res.json({message: 'Save successful'});
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    });
+});
 
 router.post('/results/update', (req, res) => {
   const models = req.body.models;
   const token = req.token;
-  Applicant
-    .findOne({ token: token})
-    .then((docs) => {
-      findMoreInfoAboutUser(docs, token, models, res);
+  Applicant.findOne({ token: token, status: Applicant.STATUS_IS_FILLING })
+    .then((applicantDocs) => {
+      return Result.findOneAndUpdate({ token: token }, {
+        solved_models: models,
+        applicant: applicantDocs,
+        token: token,
+        solved_date: Date(),
+        deleted: false
+      }, { upsert: true });
     })
-
+    .then((results) => {
+      res.send(results);
+    })
+    .catch((err) => {
+      res.status(err.status).send(err);
+    })
 });
 
 router.get('/results/all', (req, res) => {
   if (req.access !== 'admin') {
     return res.status(403).send('You do not have permission');
   }
-  Result
-    .find({}, (err, docs) =>{
-      if (err) {
-        return res.status(500).send(err);
-      }
-
-      res.send(docs);
+  Result.find({ deleted: false }, { deleted: 0 })
+    .then((resultsDocs) => {
+        res.send(resultsDocs);
     })
+    .catch((err) => {
+      res.status(err.status).send(err);
+    });
 });
 
 router.post('/results/one', (req, res) => {
   const token = req.body.token;
   Result.findOne({ token: token })
     .then((docs) => {
-      if (!docs) {
-        return res.send('Can not find this token');
-      }
-      res.send(docs)
+      if (docs) return res.send(docs);
+      throw {status: 422, message: 'Can\'t find token'};
+    })
+    .catch((err) => {
+      res.status(err.status).send(err);
+    });
+});
+
+router.post('/results/delete', (req, res) => {
+  const token = req.body.token;
+  Result.findOneAndUpdate({ token: token }, { deleted: true })
+    .then( (docs) => {
+      res.send({ message: 'Deleted successfully', docs: docs });
     })
     .catch((err) => {
       res.status(500).send(err);
-    })
+    });
 });
+
 console.log('[Result Controller]', 'load routes');
 
 module.exports = router;

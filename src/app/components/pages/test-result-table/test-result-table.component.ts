@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
-import { DataSourceService } from '../../shared/service/data-source.service';
-import { SolvedModel } from '../../shared/models/solved-model';
+import {Component, Input} from '@angular/core';
+import {Router} from '@angular/router';
+import {DataSourceService} from '../../shared/service/data-source.service';
+import {SolvedModel} from '../../shared/models/solved-model';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class TestResultTableComponent {
   @Input() countCheckedElements: number;
   @Input() maxCountCheckedElements: number;
 
-  @Input() models: any;
+  @Input() models: Array<SolvedModel>;
 
   constructor(private dataSource: DataSourceService, private route: Router) {
     this.countCheckedElements = 5;
@@ -25,17 +25,7 @@ export class TestResultTableComponent {
 
   sendData() {
     const sendData = this.models;
-    const solvedResults: Array<SolvedModel> = sendData.map(item => ({
-      model: {
-        _id: item._id,
-        url: item.url,
-        answer: false,
-        name: item.name
-      },
-      mark: item.mark,
-      comment: item.comment
-    }));
-    this.dataSource.saveResults(solvedResults).subscribe( () => {
+    this.dataSource.saveResults(sendData).subscribe( () => {
       this.route.navigate(['/finish'])
     })
 

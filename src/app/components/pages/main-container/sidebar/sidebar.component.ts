@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import {SolvedModel} from '../../../shared/models/solved-model';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,8 +8,10 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  @Input() models: any;
-  @Output() onSelect = new EventEmitter<any>();
+  @Input() models: Array<SolvedModel>;
+  @Output() onSelect = new EventEmitter<SolvedModel>();
+
+  @Input() currentSelectedModel: SolvedModel;
 
   selectedModel: any;
 
@@ -17,7 +20,7 @@ export class SidebarComponent implements OnInit {
   }
 
   onSelectElement(model) {
-    this.selectedModel = model; 
+    this.selectedModel = model;
     this.onSelect.emit(model);
     console.log(this.selectedModel)
   }

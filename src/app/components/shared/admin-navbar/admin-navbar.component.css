@@ -1,3 +1,7 @@
+* {
+  transition: all .3s ease;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -32,7 +36,17 @@
   color: white;
 }
 
+.link__icon {
+  margin-right: 5px;
+}
+
 .navbar__empty__space {
   width: 100%;
   height: 55px;
+}
+
+.link__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }

@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {SolvedModel} from '../../../shared/models/solved-model';
 
 
 @Component({
@@ -8,17 +9,20 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class TestContentComponent {
 
-  @Input() currentModel: any;
+  @Input() currentModel: SolvedModel;
 
   @Input() countCheckedElements = 0;
 
   @Input() maxCountCheckedElements = 5;
 
-  @Output() onSaveComment = new EventEmitter();
+  @Output() onSaveComment = new EventEmitter<SolvedModel>();
 
-  @Output() onSend = new EventEmitter();
+  @Output() onSend = new EventEmitter<void>();
 
-  @Output() onChoose = new EventEmitter();
+  @Output() onChoose = new EventEmitter<SolvedModel>();
+
+  @Output() onNextImg = new EventEmitter<void>();
+  @Output() onPrevImg = new EventEmitter<void>();
 
   isPictureOpened = false;
 
@@ -43,7 +47,12 @@ export class TestContentComponent {
     this.isPictureOpened = !this.isPictureOpened
   }
 
+  openPrevImage() {
+    this.onPrevImg.emit();
+  }
 
-
+  openNextImage() {
+    this.onNextImg.emit();
+  }
 
 }
