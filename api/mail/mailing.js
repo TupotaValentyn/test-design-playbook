@@ -6,8 +6,9 @@ const DOMAIN = process.env.DOMAIN;
 const FROM_WHO = process.env.FROM_WHO;
 
 function sendMail(email, subject, text) {
+  return new Promise((resolve, reject) => {
     if (!API_KEY || !DOMAIN || !FROM_WHO) {
-      return 'Mail not send';
+      return resolve();
     }
     const mailgun = new Mailgun({apiKey: API_KEY, domain: DOMAIN});
     const data = {
@@ -18,11 +19,12 @@ function sendMail(email, subject, text) {
     };
     mailgun.messages().send(data, (error, body) => {
         if (error) {
-            throw error;
+            return reject(error);
         } else {
-            return body;
+            return resolve(body);
         }
     });
+  })
 }
 
 function mailTemplate(title, text) {
