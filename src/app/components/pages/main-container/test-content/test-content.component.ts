@@ -1,4 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { HelpInstructionModalComponent } from '../help-instruction-modal/help-instruction-modal.component';
 
 
 @Component({
@@ -7,6 +9,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./test-content.component.css']
 })
 export class TestContentComponent {
+
+  constructor (public dialog: MatDialog) { }
 
   @Input() currentSelectedModel: any;
 
@@ -70,6 +74,10 @@ export class TestContentComponent {
   selectModel() {
     this.currentSelectedModel.mark = !this.currentSelectedModel.mark;
     this.onSelect.emit(this.currentSelectedModel);
+  }
+
+  openHelpDialog(): void {
+    this.dialog.open(HelpInstructionModalComponent, {width: '400px'});
   }
 
 }

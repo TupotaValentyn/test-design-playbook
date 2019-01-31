@@ -4,8 +4,6 @@
     <img [src]="currentSelectedModel.url" class="img" alt="current model" />
   </div>
 
-  <mat-divider></mat-divider>
-
   <div class="control__panel">
       <button class="btn__open__close_sidebar"
               mat-icon-button color="primary"
@@ -15,7 +13,11 @@
           <mat-icon aria-label="icon">code</mat-icon>
       </button>
 
-      <button mat-raised-button color="primary" class="btn__help">Help</button>
+      <button 
+        mat-raised-button
+        color="primary"
+        class="btn__help"
+        (click)="openHelpDialog()">Help</button>
 
       <div class="like__dislike__container">
         <button
