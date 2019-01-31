@@ -16,6 +16,7 @@ export class DragDropComponent implements OnInit {
   }
 
   flag = false
+  data = ''
 
   position = {
     x: 0,
@@ -61,12 +62,18 @@ export class DragDropComponent implements OnInit {
     }
     const dialogRef = this.dialog.open(CommentEditDialogComponent, {
       width: '250px',
-      data: 'mega-name'
+      data: this.data
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result)
+      if (result) {
+        this.data = result;
+      }
     });
+
   }
+
+  
 }

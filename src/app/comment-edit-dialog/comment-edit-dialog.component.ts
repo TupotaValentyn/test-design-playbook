@@ -13,10 +13,15 @@ export class CommentEditDialogComponent {
     public dialogRef: MatDialogRef<CommentEditDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: string) { }
 
-  // onNoClick(): void {
-  //   this.dialogRef.close();
-  // }
     name = 'this name'
+
+    
+    onNoClick(): void {
+      this.dialogRef.close(this.data);
+    }
+    // onNoClick(): void {
+    //   this.dialogRef.close();
+    // }
 }
 
 
