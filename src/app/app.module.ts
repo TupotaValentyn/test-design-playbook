@@ -41,9 +41,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { JwtInterceptorService } from './components/shared/interceptors/jwt-interceptor.service';
 import { ErrorInterceptorService } from './components/shared/interceptors/error-interceptor.service';
 import { LinkInfoDialogComponent } from './components/pages/admin-panel-link/admin-panel-link-info/link-info-dialog/link-info-dialog.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { AccessDeniedComponent } from './access-denied/access-denied.component';
-import { SmthWentWrongComponent } from './smth-went-wrong/smth-went-wrong.component';
+import { SmthWentWrongComponent } from './components/pages/smth-went-wrong/smth-went-wrong.component';
 
 @NgModule({
   declarations: [
@@ -65,8 +63,6 @@ import { SmthWentWrongComponent } from './smth-went-wrong/smth-went-wrong.compon
     TestResultTableComponent,
     TestResultRowComponent,
     LinkInfoDialogComponent,
-    NotFoundComponent,
-    AccessDeniedComponent,
     SmthWentWrongComponent
   ],
   imports: [
