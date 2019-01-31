@@ -9,12 +9,6 @@ export class SidebarComponent implements OnInit {
 
   @Input() models: any;
 
-  @Input() countCheckedElements: number;
-  
-  maxCountCheckedElements = 5;
-
-  @Output() onSend = new EventEmitter();
-
   @Output() onSelect = new EventEmitter<any>();
 
   @Input() currentSelectedModel: any;
@@ -28,10 +22,6 @@ export class SidebarComponent implements OnInit {
   onSelectElement(model) {
     this.selectedModel = model;
     this.onSelect.emit(model);
-  }
-
-  moveToNextPage() {
-    this.onSend.emit();
   }
 
 }

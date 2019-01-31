@@ -1,11 +1,11 @@
 <mat-sidenav-container class="main__container">
     <mat-sidenav
       class="sidebar__container"
-      #sidenav mode="side">
+      #sidenav 
+      mode="side">
       <app-sidebar 
         class="sidebar__content" 
         [models]="currentModel"
-        [countCheckedElements]="currentSelectedCount"
         [currentSelectedModel]="currentSelectModel"
         (onSelect)="sideBarSelect($event)">
       </app-sidebar>
