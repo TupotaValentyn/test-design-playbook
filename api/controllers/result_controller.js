@@ -29,7 +29,6 @@ router.post('/results/save', (req, res) => {
     })
     .then(applicantDocs => {
       applicant = applicantDocs;
-      console.log(applicant);
       return Result.findOneAndUpdate({ token: token }, { solved_models: models, applicant: applicantDocs });
     })
     .then((modelsDocs) => {
