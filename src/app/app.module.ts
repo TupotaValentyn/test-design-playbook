@@ -43,6 +43,7 @@ import { ErrorInterceptorService } from './components/shared/interceptors/error-
 import { LinkInfoDialogComponent } from './components/pages/admin-panel-link/admin-panel-link-info/link-info-dialog/link-info-dialog.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AccessDeniedComponent } from './access-denied/access-denied.component';
+import { SmthWentWrongComponent } from './smth-went-wrong/smth-went-wrong.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { AccessDeniedComponent } from './access-denied/access-denied.component';
     TestResultRowComponent,
     LinkInfoDialogComponent,
     NotFoundComponent,
-    AccessDeniedComponent
+    AccessDeniedComponent,
+    SmthWentWrongComponent
   ],
   imports: [
     BrowserModule,
