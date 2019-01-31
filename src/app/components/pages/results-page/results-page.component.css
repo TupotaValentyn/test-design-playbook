@@ -10,3 +10,31 @@ ol {
     margin: 0 auto;
 }
 
+.cat__empty__page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eeeeee;
+}
+
+.cat__center__content {
+  font-family: "Times New Roman", serif;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #a0a0a0;
+}
+
+.cat__center__img {
+  margin: 0 auto;
+  opacity: 0.5;
+}
+
+.cat__upper__text {
+  text-shadow: 0 0 0 black;
+  font-size: 50px;
+  font-weight: bold;
+}
+
