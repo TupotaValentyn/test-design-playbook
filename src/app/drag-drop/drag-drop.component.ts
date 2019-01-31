@@ -15,6 +15,8 @@ export class DragDropComponent implements OnInit {
   ngOnInit() {
   }
 
+  flag = false
+
   position = {
     x: 0,
     y: 0,
@@ -25,7 +27,7 @@ export class DragDropComponent implements OnInit {
   dragMoved(event: CdkDragMove) {
     // this.position = `> Position X: ${event.pointerPosition.x} - Y: ${event.pointerPosition.y}`;
     let element = event.source.getRootElement();
-    let boundingClientRect = element.getBoundingClientRect();
+    let boundingClientRect:any = element.getBoundingClientRect();
     let parentPosition = this.getPosition(element);
 
     const width = element.parentElement.offsetWidth
@@ -36,7 +38,7 @@ export class DragDropComponent implements OnInit {
     this.position.xInterest = this.position.x / width
     this.position.yInterest = this.position.y / height
 
-
+    this.flag = true
 
     console.log(this.position)
   }
@@ -53,6 +55,10 @@ export class DragDropComponent implements OnInit {
   }
 
   openDialog(): void {
+    if (this.flag) {
+      this.flag = false
+      return
+    }
     const dialogRef = this.dialog.open(CommentEditDialogComponent, {
       width: '250px',
     });
