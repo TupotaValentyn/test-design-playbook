@@ -10,11 +10,8 @@ router.post('/results/save', (req, res) => {
   const token = req.token;
   let number = 0;
   let applicant;
-  console.log(1);
   Model.find({})
     .then(modelsDocs => {
-
-      console.log(2);
       models.filter(i => i.mark).forEach(item => {
         modelsDocs.forEach(modelDocs => {
           if (item._id === modelDocs._id) {
@@ -22,12 +19,9 @@ router.post('/results/save', (req, res) => {
           }
         })
       });
-
-      console.log(3);
       return Promise.resolve(number);
     })
     .then(number => {
-      console.log(4);
       return Applicant.findOneAndUpdate(
         { token: token },
         { status: Applicant.STATUS_EVALUATED, mark: number },
@@ -35,15 +29,12 @@ router.post('/results/save', (req, res) => {
     })
     .then(applicantDocs => {
       applicant = applicantDocs;
-      console.log(5);
       Result.findOneAndUpdate({ token: token }, { solved_models: models, applicant: applicantDocs });
     })
     .then((modelsDocs) => {
-      console.log(6);
       return Employer.find({});
     })
     .then((employer) => {
-      console.log(6);
       return mailgun.testCompleted({
         name: applicant.first_name,
         surname: applicant.surname,
@@ -51,11 +42,9 @@ router.post('/results/save', (req, res) => {
       })
     })
     .then(() => {
-      console.log(7);
       res.json({message: 'Save successful'});
     })
     .catch((err) => {
-      console.log(8);
       res.status(500).send(err);
     });
 });
@@ -63,12 +52,11 @@ router.post('/results/save', (req, res) => {
 router.post('/results/update', (req, res) => {
   const models = req.body.models;
   const token = req.token;
-  let applicant;
   Applicant.findOne({ token: token, status: Applicant.STATUS_IS_FILLING })
-    .then((docs) => {
+    .then((applicantDocs) => {
       return Result.findOneAndUpdate({ token: token }, {
         solved_models: models,
-        applicant: applicant,
+        applicant: applicantDocs,
         token: token,
         solved_date: Date()
       }, { upsert: true });
