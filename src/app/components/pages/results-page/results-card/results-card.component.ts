@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Result } from '../../../shared/models/result';
 import { DataSourceService } from '../../../shared/service/data-source.service';
 @Component({
@@ -6,15 +6,11 @@ import { DataSourceService } from '../../../shared/service/data-source.service';
   templateUrl: './results-card.component.html',
   styleUrls: ['./results-card.component.css']
 })
-export class ResultsCardComponent implements OnInit {
+export class ResultsCardComponent {
 
   @Output() onDelete = new EventEmitter();
 
   constructor(private dataSource: DataSourceService) {  }
-
-  ngOnInit() {
-
-  }
 
   deleteResult(token) {
     this.dataSource.deleteResult(token)
