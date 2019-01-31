@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const secret = require("../secret");
 
 module.exports = (req, res, next) => {
   if(req.path === '/api/auth' || req.originalUrl === '/api/auth'){
