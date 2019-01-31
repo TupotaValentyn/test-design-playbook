@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Result } from '../../../shared/models/result';
 import { DataSourceService } from '../../../shared/service/data-source.service';
 @Component({
