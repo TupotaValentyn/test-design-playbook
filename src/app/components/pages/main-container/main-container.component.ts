@@ -39,8 +39,10 @@ export class MainContainerComponent implements OnInit {
 
     this.dataSource.getSolvedModel()
       .subscribe( (data: Result) => {
-        this.result = data;
-        this.giveSavedModels(data)
+        if (data && data.solved_models && data.solved_models.length != 0) {
+          this.result = data;
+          this.giveSavedModels(data)
+        }
       })
 
     //take user date from local storage if exist
