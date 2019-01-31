@@ -1,17 +1,22 @@
 .task__card {
   margin: 10px;
-  height: 300px;
+  height: 220px;
+  position: relative;
 }
 
 .header__index {
-  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 4px 0 50% 0;
   font-weight: bold;
   background-color: #3e4db8;
   color: white;
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin-bottom: 15px;
+  align-items: center;
 }
 
 .index__marked {
@@ -21,14 +26,15 @@
 .selected {
   border: 1px solid #3e4db8;
   background-color: #eaebff;
-  transition: 0.2s;
+  transition: .3s;
 }
 
 .like__notification {
-  color: white;
   font-weight: bold;
   font-size: 14px;
-  background-color: #FF4081;
   padding: 5px;
+  margin-left: 10px;
+  color: white;
   border-radius: 5px;
+  background-color: #FF4081;
 }
