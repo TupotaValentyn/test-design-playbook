@@ -22,6 +22,15 @@
 
 .main__content {
     width: 70%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.main__instruction {
+  max-width: 400px;
+  margin-top: 30px;
 }
 
 form {

@@ -9,53 +9,65 @@
     </app-admin-panel-link-info>
   </div>
 
-  <div class="main__content">
+  <div class="main__content" >
+    <div class="main__instruction">
+      <p>To create a link you need to enter the following information about the candidate:</p>
+      <ul style="list-style: none">
+        <li><mat-icon>email</mat-icon> E-mail</li>
+        <li><mat-icon>face</mat-icon> Surname</li>
+        <li><mat-icon>perm_identity</mat-icon> Name</li>
+        <li><mat-icon>supervised_user_circle</mat-icon> Second name</li>
+      </ul>
+      <p>Then press the <code>GET</code> button to get the link. After that, you can click SEND to send to the candidate letter of invitation.</p>
+    </div>
+    <div>
       <form #userDataForm="ngForm">
-          <mat-toolbar>
-              <span>Link</span>
-          </mat-toolbar>
+        <mat-toolbar>
+          <span>Link</span>
+        </mat-toolbar>
 
-          <mat-form-field type="email">
-            <input matInput type="email" placeholder="Email" autocomplete="off" ngModel #email name="email" required email>
-            <mat-icon matSuffix>email</mat-icon>
-          </mat-form-field>
+        <mat-form-field type="email">
+          <input matInput type="email" placeholder="Email" autocomplete="off" ngModel #email name="email" required email>
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
 
-          <mat-form-field type="text">
-            <input matInput type="text" placeholder="Surname" #surname ngModel name="surname" required>
-            <mat-icon matSuffix>face</mat-icon>
-          </mat-form-field>
+        <mat-form-field type="text">
+          <input matInput type="text" placeholder="Surname" #surname ngModel name="surname" required>
+          <mat-icon matSuffix>face</mat-icon>
+        </mat-form-field>
 
-          <mat-form-field type="text">
-              <input matInput type="text" placeholder="Name" #name ngModel name="firstName" required>
-              <mat-icon matSuffix>perm_identity</mat-icon>
-          </mat-form-field>
+        <mat-form-field type="text">
+          <input matInput type="text" placeholder="Name" #name ngModel name="firstName" required>
+          <mat-icon matSuffix>perm_identity</mat-icon>
+        </mat-form-field>
 
-          <mat-form-field type="text">
-            <input matInput type="text" placeholder="Second name" #secondName ngModel name="secondName" required>
-            <mat-icon matSuffix>supervised_user_circle</mat-icon>
-          </mat-form-field>
+        <mat-form-field type="text">
+          <input matInput type="text" placeholder="Second name" #secondName ngModel name="secondName" required>
+          <mat-icon matSuffix>supervised_user_circle</mat-icon>
+        </mat-form-field>
 
-          <div>
-            <button
-              mat-raised-button
-              color="primary"
-              type="submit"
-              [disabled]="!userDataForm.valid"
-              (click)="onSubmit(userDataForm)"
-              >GET</button>
-            <button
-              mat-raised-button
-              color="accent"
-              class="send"
-              (click)="sendLink(email.value, name.value, surname.value, secondName.value, token)"
-              [disabled]="token.length == 0">SEND</button>
-          </div>
+        <div>
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="!userDataForm.valid"
+            (click)="onSubmit(userDataForm)"
+          >GET</button>
+          <button
+            mat-raised-button
+            color="accent"
+            class="send"
+            (click)="sendLink(email.value, name.value, surname.value, secondName.value, token)"
+            [disabled]="token.length == 0">SEND</button>
+        </div>
 
-          <mat-form-field appearance="outline">
-              <mat-label>Invite link here...</mat-label>
-              <input matInput type="url" placeholder="Try one more time..." value="{{ link }}" #linkField readonly>
-              <mat-icon matSuffix class="copy__icon" (click)="copyLink(linkField)">link</mat-icon>
-          </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Invite link here...</mat-label>
+          <input matInput type="url" placeholder="Try one more time..." value="{{ link }}" #linkField readonly>
+          <mat-icon matSuffix class="copy__icon" (click)="copyLink(linkField)">link</mat-icon>
+        </mat-form-field>
       </form>
+    </div>
   </div>
 </div>
