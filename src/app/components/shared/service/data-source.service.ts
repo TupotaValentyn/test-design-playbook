@@ -105,8 +105,8 @@ export class DataSourceService {
     );
   }
 
-  getFirstNameUser(token): Observable<Object> {
+  getApplicantInfo(token): Observable<Object> {
     return this.http
-      .post('http://localhost:8000/api/users/name', {token: token});
+      .post('http://localhost:8000/api/users/info', {token: token});
   }
 }

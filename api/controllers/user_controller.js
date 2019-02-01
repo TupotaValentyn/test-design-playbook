@@ -4,12 +4,15 @@ const jwt = require('jsonwebtoken');
 const secret = require("../secret");
 const mail = require('../mail/mailing');
 
-router.post('/users/name', (req, res) => {
+router.post('/users/info', (req, res) => {
   const token = req.token;
-  Applicants.findOne({ token: token })
-  .then(user => {
-    return res.send({first_name: user.first_name});
-  })
+  Applicants.findOne({ token: token }, {comment: 0, mark: 0})
+    .then(user => {
+      return res.send(user);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    })
 });
 
 router.post('/users/token', (req, res) => {

@@ -11,7 +11,7 @@ import { Applicant } from '../../shared/models/applicant';
 export class GetStartedComponent {
 
   token: string;
-  userName: string;
+  applicant: Applicant = new Applicant();
 
   constructor(private route: ActivatedRoute, private dataSource: DataSourceService) {
     this.token = this.route.snapshot.paramMap.get('token');
@@ -20,9 +20,9 @@ export class GetStartedComponent {
     } else if (!localStorage.getItem('token')) {
       alert('You don`t have permission');
     }
-    this.dataSource.getFirstNameUser(this.token)
-    .subscribe((data: Applicant) => {
-      this.userName = data.first_name;
+    this.dataSource.getApplicantInfo(this.token)
+    .subscribe((applicant: Applicant) => {
+      this.applicant = applicant;
     });
   }
 
