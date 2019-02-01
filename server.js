@@ -33,7 +33,7 @@ app.use('/api/*', require('./api/middleware/auth_controll_filter'));
 console.log('[Server] filters load');
 
 // routes
-app.use('', require('./controllers/lay_controller'));
+app.use('', require('./api/controllers/lay_controller'));
 app.use('/api', require('./api/controllers/auth_controller'));
 app.use('/api', require('./api/controllers/result_controller'));
 app.use('/api', require('./api/controllers/model_controller'));
