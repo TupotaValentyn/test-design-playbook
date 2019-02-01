@@ -86,12 +86,12 @@ export class DataSourceService {
 
   getAllModelsNew(): Observable<Object> {
     return this.http
-      .get('http://localhost:8000/api/models/all')
+      .get('/api/models/all')
   }
 
   getSolvedModel(): Observable<Object> {
     return this.http
-      .get('http://localhost:8000/api/models/solved')
+      .get('/api/models/solved')
   }
 
   updateResult(solvedResults): Observable<Object> {

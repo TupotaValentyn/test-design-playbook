@@ -45,7 +45,7 @@ export class AdminPanelLinkComponent implements OnInit {
         if (data.token) {
           console.log(data.token);
           this.token = `/invite/${data.token}`;
-          this.link = `https://test-design-playbook-a.herokuapp.com${this.token}`;
+          this.link = `https://test-design-playbook.herokuapp.com${this.token}`;
           this.updateUsersDataList();
         } else {
           alert('don\'t have permission');
@@ -54,7 +54,7 @@ export class AdminPanelLinkComponent implements OnInit {
   }
 
   sendLink(email, name, surname, secondname, link) {
-    const newLink = 'https://test-design-playbook-a.herokuapp.com' + link;
+    const newLink = 'https://test-design-playbook.herokuapp.com' + link;
     this.dataSource.sendMailWithLink(email, name, surname, secondname, link)
       .subscribe((data: any) => {
       console.log(data);

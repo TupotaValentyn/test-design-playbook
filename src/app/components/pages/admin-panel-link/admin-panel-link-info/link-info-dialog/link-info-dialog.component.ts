@@ -14,7 +14,7 @@ export class LinkInfoDialogComponent {
 
 
   getLink(token): string {
-    return `http://localhost:4200/invite/${token}`;
+    return `https://test-design-playbook.herokuapp.com/invite/${token}`;
   }
 
   selectLink(element): void {
