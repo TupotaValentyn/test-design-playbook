@@ -13,7 +13,7 @@ export class SidebarComponent implements OnInit {
 
   @Input() currentSelectedModel: SolvedModel;
 
-  selectedModel: any;
+  selectedModel: SolvedModel;
 
   ngOnInit() {
     this.selectedModel = this.models[0];
