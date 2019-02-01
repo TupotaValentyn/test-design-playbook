@@ -3,6 +3,17 @@ const Applicants = require('../models/user');
 const jwt = require('jsonwebtoken');
 const mail = require('../mail/mailing');
 
+router.post('/users/info', (req, res) => {
+  const token = req.token;
+  Applicants.findOne({ token: token }, {comment: 0, mark: 0})
+    .then(user => {
+      return res.send(user);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    })
+});
+
 router.post('/users/token', (req, res) => {
   if (req.access !== 'admin') {
     return res.status(403).send('You do not have permission');
