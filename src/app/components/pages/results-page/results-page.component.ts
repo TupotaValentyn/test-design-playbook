@@ -14,6 +14,13 @@ export class ResultsPageComponent implements OnInit {
   constructor(private dataSource: DataSourceService) {  }
 
   ngOnInit(): void {
+    this.update();
+  }
+
+  updateAfterDelete() {
+    this.update();
+  }
+  update() {
     this.dataSource.getAllResults()
       .subscribe((data: Array<Result>) => {
         this.results = data;
@@ -22,3 +29,4 @@ export class ResultsPageComponent implements OnInit {
       });
   }
 }
+

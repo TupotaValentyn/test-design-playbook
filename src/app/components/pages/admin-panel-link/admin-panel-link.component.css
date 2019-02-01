@@ -9,12 +9,14 @@
     min-width: 200px;
     width: 20%;
     background-color: #eeeeee;
-    padding: 0 20px 10px 20px;
+    padding: 0 10px 0 10px;
     overflow-y: auto;
 }
 
 .sidebar__title {
-    margin-top: 10px;
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
     text-align: center;
 }
 

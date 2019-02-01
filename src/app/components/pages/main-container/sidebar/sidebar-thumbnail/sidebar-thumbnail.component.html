@@ -1,23 +1,23 @@
 <mat-card class="task__card" [class.selected]="currentSelected == model">
 
-  <img mat-card-image [src]="model.url" [alt]="model.name">
+  <img mat-card-image [src]="model.model.url" [alt]="model.model.name">
 
-  <span 
+  <span
    mat-card-avatar
    class="header__index"
-   [class.index__marked]="model.mark">
+   [class.index__marked]="model.model.mark">
     {{ index }}
   </span>
 
   <mat-card-actions>
-    <div *ngIf="!model.mark; else unset">
-      <button mat-button color="primary" (click)="model.mark = true">LIKE</button>
+    <div *ngIf="!model.model.mark; else unset">
+      <button mat-button color="primary" (click)="model.model.mark = true">LIKE</button>
     </div>
     <ng-template #unset>
-      <button mat-button color="accent" (click)="model.mark = false">DISLIKE</button>
+      <button mat-button color="accent" (click)="model.model.mark = false">DISLIKE</button>
     </ng-template>
     <span
-      *ngIf="model.mark"
+      *ngIf="model.model.mark"
       class="like__notification">You like it!</span>
   </mat-card-actions>
 

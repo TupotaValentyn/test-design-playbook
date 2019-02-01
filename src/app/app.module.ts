@@ -43,6 +43,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { JwtInterceptorService } from './components/shared/interceptors/jwt-interceptor.service';
 import { ErrorInterceptorService } from './components/shared/interceptors/error-interceptor.service';
 import { LinkInfoDialogComponent } from './components/pages/admin-panel-link/admin-panel-link-info/link-info-dialog/link-info-dialog.component';
+import { SmthWentWrongComponent } from './components/pages/smth-went-wrong/smth-went-wrong.component';
 import { HelpInstructionModalComponent } from './components/pages/main-container/help-instruction-modal/help-instruction-modal.component';
 
 @NgModule({
@@ -65,7 +66,8 @@ import { HelpInstructionModalComponent } from './components/pages/main-container
     TestResultTableComponent,
     TestResultRowComponent,
     LinkInfoDialogComponent,
-    HelpInstructionModalComponent
+    HelpInstructionModalComponent,
+    SmthWentWrongComponent
   ],
   imports: [
     BrowserModule,

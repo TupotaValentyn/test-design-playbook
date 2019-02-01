@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import {SolvedModel} from '../../../shared/models/solved-model';
 
 @Component({
   selector: 'app-test-result-row',
@@ -8,7 +9,7 @@ import { Component, Input } from '@angular/core';
 export class TestResultRowComponent {
 
   @Input() index: number;
-  @Input() userDataItem: any;
+  @Input() userDataItem: SolvedModel;
 
   constructor() { }
 

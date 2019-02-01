@@ -1,14 +1,24 @@
 const router = require('express').Router();
 const Applicants = require('../models/user');
 const jwt = require('jsonwebtoken');
-const secret = require("../secret");
 const mail = require('../mail/mailing');
+
+router.post('/users/info', (req, res) => {
+  const token = req.token;
+  Applicants.findOne({ token: token }, {comment: 0, mark: 0})
+    .then(user => {
+      return res.send(user);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    })
+});
 
 router.post('/users/token', (req, res) => {
   if (req.access !== 'admin') {
     return res.status(403).send('You do not have permission');
   }
-  const token = jwt.sign({ user: req.body.email, access: 'user' }, secret.key, { expiresIn: 86400*7 });
+  const token = jwt.sign({ user: req.body.email, access: 'user' }, process.env.JWT_PRIVATE_KEY, { expiresIn: 86400*7 });
 
   const user = new Applicants({
     surname: req.body.surname,

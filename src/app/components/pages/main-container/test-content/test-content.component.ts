@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { HelpInstructionModalComponent } from '../help-instruction-modal/help-instruction-modal.component';
+import {SolvedModel} from '../../../shared/models/solved-model';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { HelpInstructionModalComponent } from '../help-instruction-modal/help-in
 })
 export class TestContentComponent {
 
+  @Input() currentModel: SolvedModel;
   constructor (public dialog: MatDialog) { }
 
   @Input() currentSelectedModel: any;
@@ -18,14 +20,16 @@ export class TestContentComponent {
 
   @Output() onSaveBadComment = new EventEmitter();
 
-  @Output() onChoose = new EventEmitter();
+  @Output() onChoose = new EventEmitter<SolvedModel>();
 
   //for button "Continue" (Input from main-cont)
   @Input() countCheckedElements: number;
 
   maxCountCheckedElements = 5;
+  @Output() onNextImg = new EventEmitter<void>();
+  @Output() onPrevImg = new EventEmitter<void>();
 
-  @Input() models: any; 
+  @Input() models: any;
 
   @Output() onSelect = new EventEmitter();
   //end
@@ -38,17 +42,14 @@ export class TestContentComponent {
     this.onSend.emit();
   }
 
-  @Output() onNextImg = new EventEmitter();
-  @Output() onPrevImg = new EventEmitter();
-
   saveCommentGood(e) {
     this.currentSelectedModel.good_comment = e.target.value;
-    this.onSaveGoodComment.emit(this.currentSelectedModel); 
+    this.onSaveGoodComment.emit(this.currentSelectedModel);
   }
 
   saveCommentBad(e) {
     this.currentSelectedModel.bad_comment = e.target.value;
-    this.onSaveBadComment.emit(this.currentSelectedModel); 
+    this.onSaveBadComment.emit(this.currentSelectedModel);
   }
 
   //delete
@@ -69,7 +70,7 @@ export class TestContentComponent {
 
   openCloseSidebar() {
     this.onOpenCloseSidebar.emit();
-  } 
+  }
 
   selectModel() {
     this.currentSelectedModel.mark = !this.currentSelectedModel.mark;

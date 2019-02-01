@@ -13,7 +13,7 @@
           <mat-icon aria-label="icon">code</mat-icon>
       </button>
 
-      <button 
+      <button
         mat-raised-button
         color="primary"
         class="btn__help"
@@ -22,7 +22,7 @@
       <div class="like__dislike__container">
         <button
           *ngIf="!currentSelectedModel.mark; else unset"
-          mat-button 
+          mat-button
           color="primary"
           (click)="selectModel()">LIKE</button>
         <ng-template #unset>
@@ -32,7 +32,7 @@
             (click)="selectModel()">DISLIKE</button>
         </ng-template>
         <span
-          *ngIf="currentSelectedModel.mark" 
+          *ngIf="currentSelectedModel.mark"
           class="like__notification">You like it!</span>
       </div>
 
@@ -48,8 +48,8 @@
           </span>
         </p>
       </div>
-      
-      <button 
+
+      <button
         mat-raised-button
         matTooltip="Finish test"
         matTooltipPosition="above"
@@ -89,4 +89,4 @@
     </mat-tab-group>
   </footer>
 
-</div>
+  </div>
