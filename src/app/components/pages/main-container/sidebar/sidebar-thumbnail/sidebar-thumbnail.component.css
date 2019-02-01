@@ -1,7 +1,7 @@
 .task__card {
   margin: 10px;
-  height: 250px;
   position: relative;
+  border: 1px solid transparent;
 }
 
 .header__index {
@@ -24,7 +24,7 @@
 }
 
 .selected {
-  border: 1px solid #3e4db8;
+  border-color: #3e4db8;
   background-color: #eaebff;
   transition: .3s;
 }
