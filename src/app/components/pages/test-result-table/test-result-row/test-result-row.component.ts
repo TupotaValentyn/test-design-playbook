@@ -15,7 +15,7 @@ export class TestResultRowComponent {
 
   //checking comments for null and spaced
   isNotEmptyOrSpaces(str){
-    return !(str === null || str.match(/^ *$/) !== null);
+    return !(str && str.match(/^ *$/));
   }
 
 }

@@ -1,7 +1,7 @@
 <div class="test__content__container">
 
   <div class="main__image__container">
-    <img [src]="currentSelectedModel.url" class="img" alt="current model" />
+    <img [src]="currentSelectedModel.model.url" class="img" alt="current model" />
   </div>
 
   <div class="control__panel">
@@ -56,7 +56,7 @@
         color="accent"
         class="btn__continue"
         (click)="moveToNextPage()"
-        [disabled]="countCheckedElements !== 5" class="btn__continue">
+        [disabled]="countCheckedElements !== 5">
         Continue
       </button>
   </div>
@@ -69,8 +69,8 @@
           Positive
         </ng-template>
         <mat-form-field class="comment__field">
-          <textarea matInput placeholder="Leave positive comment about this image" #comment class="comment__field__text"
-            [(ngModel)]="currentSelectedModel.good_comment" (blur)="saveCommentGood($event)">
+          <textarea matInput placeholder="Leave positive comment about this image" class="comment__field__text"
+            [(ngModel)]="good_comment" (blur)="saveCommentGood($event)">
             </textarea>
         </mat-form-field>
       </mat-tab>
@@ -81,8 +81,8 @@
           Negative
         </ng-template>
         <mat-form-field class="comment__field">
-          <textarea matInput placeholder="Leave negative comment about this image" #comment class="comment__field__text"
-            [(ngModel)]="currentSelectedModel.bad_comment" (blur)="saveCommentBad($event)">
+          <textarea matInput placeholder="Leave negative comment about this image" class="comment__field__text"
+            [(ngModel)]="bad_comment" (blur)="saveCommentBad($event)">
             </textarea>
         </mat-form-field>
       </mat-tab>

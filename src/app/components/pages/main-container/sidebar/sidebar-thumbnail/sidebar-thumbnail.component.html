@@ -5,19 +5,19 @@
   <span
    mat-card-avatar
    class="header__index"
-   [class.index__marked]="model.model.mark">
+   [class.index__marked]="model.mark">
     {{ index }}
   </span>
 
   <mat-card-actions>
-    <div *ngIf="!model.model.mark; else unset">
-      <button mat-button color="primary" (click)="model.model.mark = true">LIKE</button>
+    <div *ngIf="!model.mark; else unset">
+      <button mat-button color="primary" (click)="model.mark = true">LIKE</button>
     </div>
     <ng-template #unset>
-      <button mat-button color="accent" (click)="model.model.mark = false">DISLIKE</button>
+      <button mat-button color="accent" (click)="model.mark = false">DISLIKE</button>
     </ng-template>
     <span
-      *ngIf="model.model.mark"
+      *ngIf="model.mark"
       class="like__notification">You like it!</span>
   </mat-card-actions>
 

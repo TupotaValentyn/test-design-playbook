@@ -11,44 +11,38 @@ import {SolvedModel} from '../../../shared/models/solved-model';
 })
 export class TestContentComponent {
 
-  @Input() currentModel: SolvedModel;
   constructor (public dialog: MatDialog) { }
 
-  @Input() currentSelectedModel: any;
-
-  @Output() onSaveGoodComment = new EventEmitter();
-
-  @Output() onSaveBadComment = new EventEmitter();
-
-  @Output() onChoose = new EventEmitter<SolvedModel>();
-
+  @Input() currentModel: SolvedModel;
+  @Input() currentSelectedModel: SolvedModel;
+  @Input() models: Array<SolvedModel>;
   //for button "Continue" (Input from main-cont)
   @Input() countCheckedElements: number;
 
-  maxCountCheckedElements = 5;
+  @Output() onSaveGoodComment = new EventEmitter();
+  @Output() onSaveBadComment = new EventEmitter();
+  @Output() onChoose = new EventEmitter<SolvedModel>();
   @Output() onNextImg = new EventEmitter<void>();
   @Output() onPrevImg = new EventEmitter<void>();
-
-  @Input() models: any;
-
   @Output() onSelect = new EventEmitter();
-  //end
-
   @Output() onSend = new EventEmitter();
-
   @Output() onOpenCloseSidebar = new EventEmitter();
+
+  maxCountCheckedElements = 5;
+  good_comment: string = "";
+  bad_comment: string = "";
 
   moveToNextPage() {
     this.onSend.emit();
   }
 
   saveCommentGood(e) {
-    this.currentSelectedModel.good_comment = e.target.value;
+    this.good_comment = e.target.value;
     this.onSaveGoodComment.emit(this.currentSelectedModel);
   }
 
   saveCommentBad(e) {
-    this.currentSelectedModel.bad_comment = e.target.value;
+    this.bad_comment = e.target.value;
     this.onSaveBadComment.emit(this.currentSelectedModel);
   }
 
