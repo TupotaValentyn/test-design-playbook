@@ -16,6 +16,7 @@ export class GetStartedComponent {
   constructor(private route: ActivatedRoute, private dataSource: DataSourceService) {
     this.token = this.route.snapshot.paramMap.get('token');
     if (this.token) {
+      document.cookie = `token=${this.token}; path=/`;
       localStorage.setItem('token', this.token);
     } else if (!localStorage.getItem('token')) {
       alert('You don`t have permission');

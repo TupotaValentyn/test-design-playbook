@@ -65,7 +65,7 @@ export class MainContainerComponent implements OnInit {
     this.currentModel = data.solved_models;
 
     this.currentModel.forEach(e => {
-      e.model.url = "../../assets" + e.model.url;
+      e.model.url = "http://localhost:8000/layouts?img=" + e.model.url;
     });
 
     this.selectFirstElement();
