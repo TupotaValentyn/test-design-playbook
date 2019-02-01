@@ -38,7 +38,6 @@
 
 /* control panel */
 .control__panel {
-  /* height: 70px; */
   display: flex;
   padding: 15px 10px;
   align-items: center;
@@ -52,14 +51,16 @@
   background-color: #3e4db8;
 }
 
-.btn__help,
 .like__dislike__container,
 .progress__info {
-  margin-left: 20px;
+  margin-left: 30px;
 }
 
 .like__dislike__container {
   width: 170px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .progress__info .prorgess__info__text {
@@ -83,8 +84,8 @@
   border-radius: 5px;
 }
 
-.btn__continue {
-  margin-left: auto;
+.btn__help {
+  margin: 0 40px 0 auto;
 }
 
 /* arrows */
