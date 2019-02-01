@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.static(__dirname + '/dist/test-design-playbook/'));
 
-app.use('/layouts', require('./middleware/layout_control_filter'));
+app.use('/layouts', require('./api/middleware/layout_control_filter'));
 app.use('/api/*', require('./api/middleware/auth_controll_filter'));
 
 console.log('[Server] filters load');
