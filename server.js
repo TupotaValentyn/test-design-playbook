@@ -9,6 +9,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 
 console.log('[Server] Application start...');
 
@@ -17,6 +18,7 @@ require('./api/data_source/mongodb_connect')();
 
 // support json encoded bodies
 const bodyParser = require('body-parser');
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -25,11 +27,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.static(__dirname + '/dist/test-design-playbook/'));
 
+app.use('/layouts', require('./middleware/layout_control_filter'));
 app.use('/api/*', require('./api/middleware/auth_controll_filter'));
 
 console.log('[Server] filters load');
 
 // routes
+app.use('', require('./controllers/lay_controller'));
 app.use('/api', require('./api/controllers/auth_controller'));
 app.use('/api', require('./api/controllers/result_controller'));
 app.use('/api', require('./api/controllers/model_controller'));

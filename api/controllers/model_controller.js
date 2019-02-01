@@ -30,7 +30,10 @@ router.get('/models/all', (req, res) => {
         result.solved_models.push({
           model: item,
           mark: false,
-          comment: ""
+          comment: {
+            good: "",
+            bad: ""
+          }
         });
       });
       res.send(result);
@@ -66,8 +69,9 @@ router.get('/models/solved', (req, res) => {
 });
 
 router.get('/model/generate', () => {
+  console.log('22');
   for(let i = 1; i<24; i++) {
-    let url = '/models/template_' + i + '.png';
+    let url = 'template_' + i + '.png';
     let name = 'template_' + i;
     let model = new Model({
       url: url,

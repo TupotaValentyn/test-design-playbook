@@ -1,21 +1,13 @@
-<mat-card class="example__card" [class.selected]="currentSelected == model">
-
-  <mat-card-header>
-    <div mat-card-avatar class="header__index">
-      <span> {{ index }} </span>
-    </div>
-    <mat-card-title> {{ model.model.name }} </mat-card-title>
-    <mat-card-subtitle>
-      <div *ngIf="model.mark; else empty_text">
-        <span class="like__notification">You like it!</span>
-      </div>
-      <ng-template #empty_text>
-        <br>
-      </ng-template>
-    </mat-card-subtitle>
-  </mat-card-header>
+<mat-card class="task__card" [class.selected]="currentSelected == model">
 
   <img mat-card-image [src]="model.model.url" [alt]="model.model.name">
+
+  <span
+   mat-card-avatar
+   class="header__index"
+   [class.index__marked]="model.mark">
+    {{ index }}
+  </span>
 
   <mat-card-actions>
     <div *ngIf="!model.mark; else unset">
@@ -24,6 +16,9 @@
     <ng-template #unset>
       <button mat-button color="accent" (click)="model.mark = false">DISLIKE</button>
     </ng-template>
+    <span
+      *ngIf="model.mark"
+      class="like__notification">You like it!</span>
   </mat-card-actions>
 
 </mat-card>

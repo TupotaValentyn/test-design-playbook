@@ -1,0 +1,25 @@
+.btn__open__close__sidebar,
+.btn__continue {
+    margin: 0 10px;
+    color: white;
+}
+
+.btn__continue {
+    padding: 4px 10px;
+    border-radius: 4px;        
+}
+
+.btn__open__close__sidebar {
+    border-radius: 50%;
+    padding: 5px;
+    background-color: #3e4db8;
+}
+
+.btn__continue {
+    background-color: #FF4081;
+    margin-right: 0px;
+}
+
+.btn__got__it {
+    margin-top: 10px;
+}

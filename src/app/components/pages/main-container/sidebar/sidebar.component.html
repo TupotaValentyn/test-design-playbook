@@ -1,12 +1,3 @@
-<mat-card class="static__text">
-  Templates to choose
-</mat-card>
-<app-sidebar-thumbnail *ngFor="let model of models; let index = index"
-                       [model]="model"
-                       [index]="index + 1"
-                       [currentSelected]="currentSelectedModel"
-                       (click)="onSelectElement(model)">
+<app-sidebar-thumbnail *ngFor="let model of models; let index = index" [model]="model" [index]="index + 1"
+  [currentSelected]="selectedModel" (click)="onSelectElement(model)">
 </app-sidebar-thumbnail>
-<mat-card class="static__text">
-  End of the list
-</mat-card>

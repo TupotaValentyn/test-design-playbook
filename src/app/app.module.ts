@@ -34,14 +34,17 @@ import { ResultsCardComponent } from './components/pages/results-page/results-ca
 import { MatMenuModule } from '@angular/material';
 import { TestResultTableComponent } from './components/pages/test-result-table/test-result-table.component';
 import { TestResultRowComponent } from './components/pages/test-result-table/test-result-row/test-result-row.component';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 // service
 import { JwtInterceptorService } from './components/shared/interceptors/jwt-interceptor.service';
 import { ErrorInterceptorService } from './components/shared/interceptors/error-interceptor.service';
 import { LinkInfoDialogComponent } from './components/pages/admin-panel-link/admin-panel-link-info/link-info-dialog/link-info-dialog.component';
 import { SmthWentWrongComponent } from './components/pages/smth-went-wrong/smth-went-wrong.component';
+import { HelpInstructionModalComponent } from './components/pages/main-container/help-instruction-modal/help-instruction-modal.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +66,7 @@ import { SmthWentWrongComponent } from './components/pages/smth-went-wrong/smth-
     TestResultTableComponent,
     TestResultRowComponent,
     LinkInfoDialogComponent,
+    HelpInstructionModalComponent,
     SmthWentWrongComponent
   ],
   imports: [
@@ -84,11 +88,14 @@ import { SmthWentWrongComponent } from './components/pages/smth-went-wrong/smth-
     MatIconModule,
     MatListModule,
     MatMenuModule,
+    MatTabsModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ],
   entryComponents: [
-    LinkInfoDialogComponent
+    LinkInfoDialogComponent,
+    HelpInstructionModalComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },

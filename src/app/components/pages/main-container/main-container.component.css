@@ -1,18 +1,28 @@
 .main__container {
-  width: 100vw;
-  height: 100vh;
   display: flex;
-  background: #fafafa;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .sidebar__container {
-  flex: 2;
-  overflow-y: auto;
+  width: 20%;
   border-right: 1px solid lightgray;
-  background: white;
+}
+
+.sidebar__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
 }
 
 .test__container {
-  flex: 8;
-  overflow: hidden;
+  width: 100%;
+}
+
+.test__content {
+  width: 80%;
 }
