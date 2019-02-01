@@ -27,24 +27,50 @@
   margin: 0 0 0 20px;
 }
 
-.comment,
-.comment__field {
-  width: 100%;
+
+.users__mark__true,
+.users__mark__false {
+  margin-left: 10px;
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 5px;
 }
 
-.comment__field {
-  cursor: pointer;
-  padding: 10px 0;
-  border-bottom: 2px solid black;
+.users__mark__true {
+  background-color: #FF4081;
 }
 
-.index,
-.answer,
-.comment {
-  margin: 15px;
-  cursor: pointer;
+.users__mark__false {
+  background-color: #3e4db8;
 }
 
-.cursor {
-  cursor: pointer;
+.comments__field__title {
+  font-size: 16px;
+}
+
+.comments__field {
+  display: flex;
+  justify-content: space-around;
+  height: 110px;
+}
+.comment__positive,
+.comment__negative {
+  width: 46%;
+  overflow-y: auto;
+  padding-bottom: 10px;
+}
+
+.comment__positive {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.comment__negative {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.empty {
+  color: rgba(175, 181, 191, .9);
 }

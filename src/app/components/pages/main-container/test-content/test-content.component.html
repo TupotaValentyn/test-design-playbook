@@ -1,69 +1,92 @@
-<div class="full__screen__content" [ngStyle]="{display: (isPictureOpened) ? 'block' : 'none'}">
-  <img [src]="currentModel.model.url" alt="image" class="img" />
-  <div (click)="changeScreenMode()" class="img__container">
-    <img src="../../../../../assets/cancel.svg" class="img exit__full__screen__image" alt="cancel" />
+<div class="test__content__container">
+
+  <div class="main__image__container">
+    <img [src]="currentSelectedModel.model.url" class="img" alt="current model" />
   </div>
-</div>
 
-<div class="container__wrapper">
-  <div class="container">
-    <div class="container__header">
+  <div class="control__panel">
+      <button class="btn__open__close_sidebar"
+              mat-icon-button color="primary"
+              matTooltip="Open-close sidebar"
+              matTooltipPosition="above"
+              (click)="openCloseSidebar()">
+          <mat-icon aria-label="icon">code</mat-icon>
+      </button>
 
-      <mat-card class="tasks">
-        <div>
-          Task:<br>
-          To choose {{ maxCountCheckedElements }} the best templates of 23.
-        </div>
-      </mat-card>
+      <div class="like__dislike__container">
+        <button
+          *ngIf="!currentSelectedModel.mark; else unset"
+          mat-raised-button
+          color="primary"
+          (click)="selectModel()">LIKE</button>
+        <ng-template #unset>
+          <button
+            mat-raised-button
+            color="accent"
+            (click)="selectModel()">DISLIKE</button>
+        </ng-template>
+        <span
+          *ngIf="currentSelectedModel.mark"
+          class="like__notification">You like it!</span>
+      </div>
 
-      <mat-card class="counters">
-        <div class="counter__wrapper">
-          Total amount: 23.<br>
-          Ticked: {{ countCheckedElements }}/{{ maxCountCheckedElements }}.
-          <span *ngIf="countCheckedElements > maxCountCheckedElements" class="warning__message">
-            (too many templates are ticked.)
+      <div class="progress__info">
+        <p class="prorgess__info__text">
+          <span class="text__bold">Total amount:</span> {{ 23 }}.
+        </p>
+        <p class="prorgess__info__text">
+          <span class="text__bold">Ticked: </span>
+          <span [class.warning__message]="countCheckedElements > maxCountCheckedElements"
+                [class.text__bold]="countCheckedElements > maxCountCheckedElements">
+            {{ countCheckedElements }}/{{ maxCountCheckedElements }}.
           </span>
-        </div>
-
-        <button mat-raised-button color="accent" (click)="moveToNextPage()" [disabled]="countCheckedElements !== 5"
-          class="btn__continue">
-          Continue
-        </button>
-      </mat-card>
-
-
-    </div>
-
-    <mat-card class="main__image__card">
-      <div class="empty__wrapper"></div>
-      <div class="empty" [ngStyle]="{'background': 'url(' + currentModel.model.url + ')'}"></div>
-
-      <img [src]="currentModel.model.url" class="img" alt="current model" />
-      <div class="main__image__wrapper">
-        <div class="full__screen__button" (click)="changeScreenMode()">
-          <img src="../../../../../assets/full-screen.svg" class="img full__screen__image__inner" alt="full screen image" />
-        </div>
+        </p>
       </div>
 
-      <div class="left wrapper__arrow" (click)="openPrevImage()">
-        <div>
-          <mat-icon>arrow_back_ios</mat-icon>
-        </div>
-      </div>
-      <div class="right wrapper__arrow" (click)="openNextImage()">
-        <div>
-          <mat-icon>arrow_forward_ios</mat-icon>
-        </div>
-      </div>
-    </mat-card>
+      <button
+        mat-button
+        color="primary"
+        class="btn__help"
+        (click)="openHelpDialog()">Help</button>
 
-    <footer class="footer">
-      <mat-form-field class="comment">
-        <textarea matInput placeholder="Leave comment about this image" #comment class="comment" [(ngModel)]="currentModel.comment"
-          (blur)="saveComment($event)">
-          </textarea>
-      </mat-form-field>
-    </footer>
+      <button
+        mat-raised-button
+        matTooltip="Finish test"
+        matTooltipPosition="above"
+        color="accent"
+        class="btn__continue"
+        (click)="moveToNextPage()"
+        [disabled]="countCheckedElements !== 5">
+        Continue
+      </button>
+  </div>
+
+  <footer class="comments__contaner">
+    <mat-tab-group>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="comment__tab__icon">thumb_up</mat-icon>
+          Positive
+        </ng-template>
+        <mat-form-field class="comment__field">
+          <textarea matInput placeholder="Leave positive comment about this image" class="comment__field__text"
+            [(ngModel)]="currentSelectedModel.comment.good" (blur)="saveCommentGood($event)">
+            </textarea>
+        </mat-form-field>
+      </mat-tab>
+
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="comment__tab__icon">thumb_down</mat-icon>
+          Negative
+        </ng-template>
+        <mat-form-field class="comment__field">
+          <textarea matInput placeholder="Leave negative comment about this image" class="comment__field__text"
+            [(ngModel)]="currentSelectedModel.comment.bad" (blur)="saveCommentBad($event)">
+            </textarea>
+        </mat-form-field>
+      </mat-tab>
+    </mat-tab-group>
+  </footer>
 
   </div>
-</div>

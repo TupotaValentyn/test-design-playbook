@@ -9,7 +9,13 @@ import {SolvedModel} from '../../../shared/models/solved-model';
 export class TestResultRowComponent {
 
   @Input() index: number;
-  @Input() item: SolvedModel;
+  @Input() userDataItem: SolvedModel;
 
-  constructor() {}
+  constructor() { }
+
+  //checking comments for null and spaced
+  isNotEmptyOrSpaces(str){
+    return !(str && str.match(/^ *$/));
+  }
+
 }
