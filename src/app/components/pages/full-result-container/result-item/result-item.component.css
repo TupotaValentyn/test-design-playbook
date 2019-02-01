@@ -92,7 +92,7 @@ mat-form-field {
 
 .comment__group:first-child {
     margin: 0 10px 0 0;
-    border-radius: 5px 0 0 px;
+    border-radius: 10px 0 0 10px;
 }
 
 .comment__group:last-child {
