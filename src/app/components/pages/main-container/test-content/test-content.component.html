@@ -38,7 +38,7 @@
 
       <div class="progress__info">
         <p class="prorgess__info__text">
-          <span class="text__bold">Total amount:</span> {{ models.length }}.
+          <span class="text__bold">Total amount:</span> {{ 23 }}.
         </p>
         <p class="prorgess__info__text">
           <span class="text__bold">Ticked: </span>
@@ -70,7 +70,7 @@
         </ng-template>
         <mat-form-field class="comment__field">
           <textarea matInput placeholder="Leave positive comment about this image" class="comment__field__text"
-            [(ngModel)]="good_comment" (blur)="saveCommentGood($event)">
+            [(ngModel)]="currentSelectedModel.comment.good" (blur)="saveCommentGood($event)">
             </textarea>
         </mat-form-field>
       </mat-tab>
@@ -82,7 +82,7 @@
         </ng-template>
         <mat-form-field class="comment__field">
           <textarea matInput placeholder="Leave negative comment about this image" class="comment__field__text"
-            [(ngModel)]="bad_comment" (blur)="saveCommentBad($event)">
+            [(ngModel)]="currentSelectedModel.comment.bad" (blur)="saveCommentBad($event)">
             </textarea>
         </mat-form-field>
       </mat-tab>

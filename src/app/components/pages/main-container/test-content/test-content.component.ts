@@ -13,9 +13,7 @@ export class TestContentComponent {
 
   constructor (public dialog: MatDialog) { }
 
-  @Input() currentModel: SolvedModel;
   @Input() currentSelectedModel: SolvedModel;
-  @Input() models: Array<SolvedModel>;
   //for button "Continue" (Input from main-cont)
   @Input() countCheckedElements: number;
 
@@ -29,20 +27,18 @@ export class TestContentComponent {
   @Output() onOpenCloseSidebar = new EventEmitter();
 
   maxCountCheckedElements = 5;
-  good_comment: string = "";
-  bad_comment: string = "";
 
   moveToNextPage() {
     this.onSend.emit();
   }
 
   saveCommentGood(e) {
-    this.good_comment = e.target.value;
+    this.currentSelectedModel.comment.good = e.target.value;
     this.onSaveGoodComment.emit(this.currentSelectedModel);
   }
 
   saveCommentBad(e) {
-    this.bad_comment = e.target.value;
+    this.currentSelectedModel.comment.bad = e.target.value;
     this.onSaveBadComment.emit(this.currentSelectedModel);
   }
 

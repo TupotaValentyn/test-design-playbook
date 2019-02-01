@@ -30,7 +30,10 @@ router.get('/models/all', (req, res) => {
         result.solved_models.push({
           model: item,
           mark: false,
-          comment: ""
+          comment: {
+            good: "",
+            bad: ""
+          }
         });
       });
       res.send(result);

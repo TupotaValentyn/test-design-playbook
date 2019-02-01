@@ -18,8 +18,8 @@
           <mat-card-title class="comments__field__title">Positive comment</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <p *ngIf="isNotEmptyOrSpaces(userDataItem.good_comment); else empty">
-            {{ userDataItem.good_comment }}
+          <p *ngIf="isNotEmptyOrSpaces(userDataItem.comment.good); else empty">
+            {{ userDataItem.comment.good }}
           </p>
           <ng-template #empty>
             <p class="empty">Empty...</p>
@@ -31,8 +31,8 @@
           <mat-card-title class="comments__field__title">Negative comment</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <p *ngIf="isNotEmptyOrSpaces(userDataItem.bad_comment); else empty">
-            {{ userDataItem.bad_comment }}
+          <p *ngIf="isNotEmptyOrSpaces(userDataItem.comment.bad); else empty">
+            {{ userDataItem.comment.bad }}
           </p>
           <ng-template #empty>
             <p class="empty">Empty...</p>

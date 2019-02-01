@@ -22,7 +22,10 @@ export class MainContainerComponent implements OnInit {
       name: "Empty",
       answer: false
     },
-    comment: 'Nothing found',
+    comment: {
+      bad: "",
+      good: ""
+    },
     mark: false
   }];
 
