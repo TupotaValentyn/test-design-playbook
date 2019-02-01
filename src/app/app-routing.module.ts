@@ -10,11 +10,13 @@ import { AdminPanelLinkComponent } from './components/pages/admin-panel-link/adm
 import { FullResultContainerComponent } from './components/pages/full-result-container/full-result-container.component';
 import { AdminLoginComponent } from './components/pages/admin-login/admin-login.component';
 import { TestResultTableComponent } from './components/pages/test-result-table/test-result-table.component';
+import { SmthWentWrongComponent } from './components/pages/smth-went-wrong/smth-went-wrong.component';
 
 const routes: Routes = [
   { path: 'main', component: MainContainerComponent },
   { path: '', component: GetStartedComponent },
   { path: 'invite/:token', component: GetStartedComponent },
+  { path: 'error', component: SmthWentWrongComponent },
   { path: 'result/table', component: TestResultTableComponent },
   { path: 'finish', component: ThxPageComponent },
   { path: 'admin/results', component: ResultsPageComponent },

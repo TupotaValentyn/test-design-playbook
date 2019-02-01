@@ -26,7 +26,7 @@ export class MainContainerComponent implements OnInit {
     mark: false
   }];
 
-  currentSelectModel: SolvedModel;
+  currentSelectModel: SolvedModel = this.currentModel[0];
   currentIndex: number;
   currentSelectedCount: number = 0;
 
