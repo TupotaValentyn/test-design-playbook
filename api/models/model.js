@@ -6,6 +6,6 @@ const model = mongoose.Schema({
   name: String
 });
 
-const Model = mongoose.model('models', model);
+const Model = mongoose.model('images', model);
 
 module.exports = Model;
