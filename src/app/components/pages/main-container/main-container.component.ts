@@ -35,13 +35,15 @@ export class MainContainerComponent implements OnInit {
       .subscribe((data: Result) => {
         this.result = data;
         this.giveNewModels(data);
+        console.log(data);
       });
 
     this.dataSource.getSolvedModel()
       .subscribe( (data: Result) => {
         if (data && data.solved_models && data.solved_models.length != 0) {
           this.result = data;
-          this.giveSavedModels(data)
+          this.giveSavedModels(data);
+          console.log(data)
         }
       })
   }
@@ -53,13 +55,14 @@ export class MainContainerComponent implements OnInit {
 
   //saving data to the local storage (used in checkbox's and saveComment functions)
   giveNewModels(data: Result) {
-    this.currentModel = data.solved_models;
+    if (this.currentModel.length <= 1) {
+      this.currentModel = data.solved_models;
+      this.currentModel.forEach(e => {
+        e.model.url = "../../assets" + e.model.url;
+      });
 
-    this.currentModel.forEach(e => {
-      e.model.url = "../../assets" + e.model.url;
-    });
-
-    this.selectFirstElement();
+      this.selectFirstElement();
+    }
   }
 
   giveSavedModels(data: Result) {
@@ -95,9 +98,7 @@ export class MainContainerComponent implements OnInit {
     this.saveUserTestResult();
   }
 
-  testComponentChoose() {
-    this.currentModelLog();
-  }
+  testComponentChoose() { }
 
   sideBarSelect(selectedModel) {
     this.saveUserTestResult();
