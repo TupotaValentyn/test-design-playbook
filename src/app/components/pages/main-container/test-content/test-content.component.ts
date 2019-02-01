@@ -77,7 +77,7 @@ export class TestContentComponent {
   }
 
   openHelpDialog(): void {
-    this.dialog.open(HelpInstructionModalComponent, {width: '400px'});
+    this.dialog.open(HelpInstructionModalComponent, {width: '600px'});
   }
 
 }
