@@ -16,6 +16,7 @@ export class AdminPanelLinkComponent implements OnInit {
   userDataInfoList: Array<Applicant> = [];
   token = '';
   link = '';
+  isAllLinkLoaded: boolean = false;
 
   ngOnInit() {
     this.updateUsersDataList();
@@ -26,6 +27,7 @@ export class AdminPanelLinkComponent implements OnInit {
       .subscribe((data: Array<Applicant>) => {
         this.userDataInfoList = data;
         console.log(data);
+        this.isAllLinkLoaded = true;
       });
   }
 

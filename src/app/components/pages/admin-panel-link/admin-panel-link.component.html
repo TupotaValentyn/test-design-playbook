@@ -2,7 +2,7 @@
 <div class="wrapper">
   <div class="side__bar">
     <mat-card class="sidebar__title">Active links</mat-card>
-    <div *ngIf="userDataInfoList.length !== 0; else cat">
+    <div *ngIf="userDataInfoList.length !== 0 || !isAllLinkLoaded; else cat">
       <app-admin-panel-link-info
           *ngFor="let userInfoItem of userDataInfoList"
           (onDisable)="updateUsersDataList()"
@@ -11,9 +11,9 @@
     </div>
     <ng-template #cat>
       <div class="side__bar cat__wrapper">
-        <img src="../../../../assets/cat3.png" class="cat__image">
+        <img src="../../../../assets/lazy_cat.png" class="cat__image" alt="Lazy cat">
         <p align="center">No active link here yet...</p>
-        <p align="center">As long as the applicant <br> does not pass the test,<br> the link will be here</p>
+        <p align="center">As long as the applicant<br>does not pass the test,<br>the link will be here</p>
       </div>
     </ng-template>
   </div>
