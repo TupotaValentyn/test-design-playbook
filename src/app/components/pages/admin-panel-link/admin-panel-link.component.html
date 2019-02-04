@@ -19,16 +19,6 @@
   </div>
 
   <div class="main__content" >
-    <div class="main__instruction">
-      <p>To create a link you need to enter the following information about the candidate:</p>
-      <ul style="list-style: none">
-        <li><mat-icon>email</mat-icon> E-mail</li>
-        <li><mat-icon>face</mat-icon> Surname</li>
-        <li><mat-icon>perm_identity</mat-icon> Name</li>
-        <li><mat-icon>supervised_user_circle</mat-icon> Second name</li>
-      </ul>
-      <p>Then press the <code>GET</code> button to get the link. After that, you can click SEND to send to the candidate letter of invitation.</p>
-    </div>
     <div>
       <form #userDataForm="ngForm">
         <mat-toolbar>
@@ -77,6 +67,20 @@
           <mat-icon matSuffix class="copy__icon" (click)="copyLink(linkField)">link</mat-icon>
         </mat-form-field>
       </form>
+    </div>
+
+    <div class="main__instruction">
+      <mat-toolbar>
+        <span>Instruction</span>
+      </mat-toolbar>
+      <p>To create a link you need to enter the following information about the candidate:</p>
+      <ul style="list-style: none">
+        <li><mat-icon>email</mat-icon> E-mail</li>
+        <li><mat-icon>face</mat-icon> Surname</li>
+        <li><mat-icon>perm_identity</mat-icon> Name</li>
+        <li><mat-icon>supervised_user_circle</mat-icon> Second name</li>
+      </ul>
+      <p>Then press the <code>GET</code> button to get the link. After that, you can click SEND to send to the candidate letter of invitation.</p>
     </div>
   </div>
 </div>

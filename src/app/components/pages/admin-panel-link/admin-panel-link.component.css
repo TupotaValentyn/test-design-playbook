@@ -21,16 +21,17 @@
 }
 
 .main__content {
-    width: 70%;
+    width: 100%;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-start;
     flex-wrap: wrap;
+    overflow-y: auto;
 }
 
 .main__instruction {
   max-width: 400px;
-  margin-top: 30px;
+  margin: 0 40px;
 }
 
 form {
