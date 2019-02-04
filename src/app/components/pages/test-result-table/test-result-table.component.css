@@ -17,7 +17,7 @@
 }
 
 .toggle__btn {
-  width: 100%;
+  flex-grow: 1;
 }
 
 .result__table {
