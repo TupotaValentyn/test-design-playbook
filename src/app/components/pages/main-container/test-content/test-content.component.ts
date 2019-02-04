@@ -28,7 +28,7 @@ export class TestContentComponent {
   @Output() onChoose = new EventEmitter<SolvedModel>();
   @Output() onNextImg = new EventEmitter<void>();
   @Output() onPrevImg = new EventEmitter<void>();
-  @Output() onSelect = new EventEmitter();
+  @Output() onSelect = new EventEmitter<SolvedModel>();
   @Output() onSend = new EventEmitter();
   @Output() onOpenCloseSidebar = new EventEmitter();
   @Output() DragDrop = new EventEmitter();
@@ -87,8 +87,6 @@ export class TestContentComponent {
     })
     this.comment = this.comment.filter(item => item)
     this.parent = parent
-    console.log(parent)
-    console.log(this.comment)
   }
 
 }
