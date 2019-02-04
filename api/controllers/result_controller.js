@@ -97,6 +97,21 @@ router.post('/results/one', (req, res) => {
     });
 });
 
+
+router.post('/results/surname', (req, res) => {
+  const surname = req.body.surname;
+  Result.find({ deleted: false }, { deleted: 0 })
+    .then((docs) => {
+      if (docs) {
+        return res.send(docs.filter((item) => item.applicant.surname === surname))
+      }
+      throw {status: 422, message: 'Can\'t find surname'};
+    })
+    .catch((err) =>{
+      res.status(err.status).send(err);
+    })
+});
+
 router.post('/results/delete', (req, res) => {
   const token = req.body.token;
   Result.findOneAndUpdate({ token: token }, { deleted: true })
