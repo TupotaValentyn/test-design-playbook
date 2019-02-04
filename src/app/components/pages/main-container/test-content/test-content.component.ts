@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { HelpInstructionModalComponent } from '../help-instruction-modal/help-instruction-modal.component';
-import {SolvedModel} from '../../../shared/models/solved-model';
-
+import { SolvedModel } from '../../../shared/models/solved-model';
+// import { DRAGDROP } from '../../../shared/drag-drop'
 
 @Component({
   selector: 'app-test-content',
@@ -12,6 +12,12 @@ import {SolvedModel} from '../../../shared/models/solved-model';
 export class TestContentComponent {
 
   constructor (public dialog: MatDialog) { }
+  
+
+  comment = [
+  ]
+  parent: HTMLElement
+  
 
   @Input() currentSelectedModel: SolvedModel;
   //for button "Continue" (Input from main-cont)
@@ -25,8 +31,10 @@ export class TestContentComponent {
   @Output() onSelect = new EventEmitter();
   @Output() onSend = new EventEmitter();
   @Output() onOpenCloseSidebar = new EventEmitter();
+  @Output() DragDrop = new EventEmitter();
 
   maxCountCheckedElements = 5;
+  mark = false;
 
   moveToNextPage() {
     this.onSend.emit();
@@ -69,6 +77,18 @@ export class TestContentComponent {
 
   openHelpDialog(): void {
     this.dialog.open(HelpInstructionModalComponent, {width: '600px'});
+  }
+
+  addDragDrop(parent) {
+    this.mark = true
+    this.comment.push({
+      index: this.comment.length++,
+      subject: 'some subject value'
+    })
+    this.comment = this.comment.filter(item => item)
+    this.parent = parent
+    console.log(parent)
+    console.log(this.comment)
   }
 
 }

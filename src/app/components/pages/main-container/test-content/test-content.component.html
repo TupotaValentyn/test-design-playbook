@@ -1,7 +1,15 @@
-<div class="test__content__container">
+<div class="test__content__container" #container>
 
   <div class="main__image__container">
     <img [src]="currentSelectedModel.model.url" class="img" alt="current model" />
+    <div *ngFor="let drag of comment">
+      <app-drag-drop 
+        [testDrag]="comment"
+        [dataParent]="parent"
+      >
+
+      </app-drag-drop>
+    </div>
   </div>
 
   <div class="control__panel">
@@ -43,6 +51,9 @@
         </p>
       </div>
 
+      <button (click)="addDragDrop(container)">
+        add drag & drop
+      </button>
       <button
         mat-button
         color="primary"
