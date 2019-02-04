@@ -3,7 +3,6 @@ import { DataSourceService } from '../../shared/service/data-source.service';
 import { Applicant } from '../../shared/models/applicant';
 import { NgForm } from '@angular/forms';
 
-
 @Component({
   selector: 'app-admin-panel-link',
   templateUrl: './admin-panel-link.component.html',

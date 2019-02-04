@@ -1,13 +1,13 @@
 body {
-    display: flex;
+  display: flex;
 }
 
 ol {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .cat__empty__page {
@@ -20,7 +20,6 @@ ol {
 }
 
 .cat__center__content {
-  font-family: "Times New Roman", serif;
   display: flex;
   align-items: center;
   flex-direction: column;

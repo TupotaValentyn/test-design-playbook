@@ -4,9 +4,9 @@
     <mat-card class="sidebar__title">Active links</mat-card>
     <div *ngIf="userDataInfoList.length !== 0 || !isAllLinkLoaded; else cat">
       <app-admin-panel-link-info
-          *ngFor="let userInfoItem of userDataInfoList"
-          (onDisable)="updateUsersDataList()"
-          [usersDataItem]="userInfoItem">
+        *ngFor="let userInfoItem of userDataInfoList"
+        (onDisable)="updateUsersDataList()"
+        [usersDataItem]="userInfoItem">
       </app-admin-panel-link-info>
     </div>
     <ng-template #cat>
@@ -18,7 +18,7 @@
     </ng-template>
   </div>
 
-  <div class="main__content" >
+  <div class="main__content">
     <div>
       <form #userDataForm="ngForm">
         <mat-toolbar>
@@ -26,7 +26,8 @@
         </mat-toolbar>
 
         <mat-form-field type="email">
-          <input matInput type="email" placeholder="Email" autocomplete="off" ngModel #email name="email" required email>
+          <input matInput type="email" placeholder="Email" autocomplete="off" ngModel #email name="email" required
+                 email>
           <mat-icon matSuffix>email</mat-icon>
         </mat-form-field>
 
@@ -51,14 +52,15 @@
             color="primary"
             type="submit"
             [disabled]="!userDataForm.valid"
-            (click)="onSubmit(userDataForm)"
-          >GET</button>
+            (click)="onSubmit(userDataForm)">GET
+          </button>
           <button
             mat-raised-button
             color="accent"
             class="send"
             (click)="sendLink(email.value, name.value, surname.value, secondName.value, token)"
-            [disabled]="token.length == 0">SEND</button>
+            [disabled]="token.length == 0">SEND
+          </button>
         </div>
 
         <mat-form-field appearance="outline">
@@ -75,12 +77,25 @@
       </mat-toolbar>
       <p>To create a link you need to enter the following information about the candidate:</p>
       <ul style="list-style: none">
-        <li><mat-icon>email</mat-icon> E-mail</li>
-        <li><mat-icon>face</mat-icon> Surname</li>
-        <li><mat-icon>perm_identity</mat-icon> Name</li>
-        <li><mat-icon>supervised_user_circle</mat-icon> Second name</li>
+        <li>
+          <mat-icon>email</mat-icon>
+          E-mail
+        </li>
+        <li>
+          <mat-icon>face</mat-icon>
+          Surname
+        </li>
+        <li>
+          <mat-icon>perm_identity</mat-icon>
+          Name
+        </li>
+        <li>
+          <mat-icon>supervised_user_circle</mat-icon>
+          Second name
+        </li>
       </ul>
-      <p>Then press the <code>GET</code> button to get the link. After that, you can click SEND to send to the candidate letter of invitation.</p>
+      <p>Then press the <code>GET</code> button to get the link. After that, you can click SEND to send to the candidate
+        letter of invitation.</p>
     </div>
   </div>
 </div>

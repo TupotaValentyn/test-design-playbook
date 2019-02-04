@@ -1,25 +1,25 @@
 mat-card {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 mat-card-subtitle a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 mat-card-actions {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .info__field {
-    height: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+  height: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .info {
-    font-weight: bold;
+  font-weight: bold;
 }
 
