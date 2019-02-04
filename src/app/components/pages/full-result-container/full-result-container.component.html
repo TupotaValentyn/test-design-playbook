@@ -61,8 +61,13 @@
   </div>
 
   <div class="results__container">
-    <app-result-item class="result__item__container" *ngFor="let item of resultItemsDefalut; let i = index"
+    <app-result-item 
+      class="result__item__container" 
+      *ngFor="let item of resultItemsDefalut; let i = index"
       [item]="item" [index]="i + 1">
     </app-result-item>
+    <ng-template [ngIf]="resultItemsDefalut.length === 0">
+        <div class="show__info">Nothing was found!</div>
+      </ng-template>
   </div>
 </div>

@@ -21,10 +21,6 @@
     background: #fafafa;
 }
 
-span {
-    text-decoration: underline;
-}
-
 .result__item__container,
 .filter__select__field,
 .sidebar__textarea  {
@@ -33,4 +29,10 @@ span {
 
 .sidebar__card {
   margin: 10px;
+}
+
+.show__info {
+    font-size: 30px;
+    font-size: bold;
+    margin: 20px auto 0 auto;
 }
