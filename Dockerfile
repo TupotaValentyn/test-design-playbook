@@ -18,15 +18,14 @@ FROM node:8.9-alpine AS production
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY ./api/package*.json ./
 
 RUN npm install --only=production
 
 COPY --from=base ./app/dist ./dist
-COPY server.js ./
 COPY ./api ./api
 COPY ./.env ./
 
 EXPOSE 8000
 
-CMD ["node", "server.js"]
+CMD ["node", "api/server.js"]
