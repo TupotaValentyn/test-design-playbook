@@ -5,7 +5,6 @@
   <div class="sidebar__container">
 
     <mat-card class="sidebar__card">
-
       <mat-card-header>
         <mat-card-title>Profile</mat-card-title>
         <mat-card-subtitle>information about user</mat-card-subtitle>
@@ -27,32 +26,42 @@
           <mat-list-item>Mark: {{ resultItem.applicant.mark }}</mat-list-item>
         </mat-list>
       </mat-card-content>
-
     </mat-card>
 
     <mat-card class="sidebar__card">
+      <mat-card-header>
+        <mat-card-title>Filter</mat-card-title>
+        <mat-card-subtitle>Set filter so as to display candidate's results in appropriate ways</mat-card-subtitle>
+      </mat-card-header>
 
+      <mat-card-content>
+        <mat-form-field class="filter__select__field">
+          <mat-select class="filter__select__field" placeholder="Choose filter" [(ngModel)]="resultItemsDefalut">
+            <mat-option [value]="resultItem.solved_models" selected="selected">All</mat-option>
+            <mat-option [value]="resultItemsMarkedOnly">Marked</mat-option>
+            <mat-option [value]="resultItemsWithCommentsOnly">Commented</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="sidebar__card">
       <mat-card-header>
         <mat-card-title>Employer's feedback</mat-card-title>
       </mat-card-header>
 
       <mat-card-content>
         <mat-form-field class="sidebar__textarea">
-          <textarea
-           matInput
-           placeholder="Leave feedback about this applicant"
-           cdkTextareaAutosize
-           cdkAutosizeMinRows="2"
-           cdkAutosizeMaxRows="4"></textarea>
+          <textarea matInput placeholder="Leave feedback about this applicant" cdkTextareaAutosize cdkAutosizeMinRows="2"
+            cdkAutosizeMaxRows="4"></textarea>
         </mat-form-field>
       </mat-card-content>
-
     </mat-card>
 
   </div>
 
   <div class="results__container">
-    <app-result-item class="result__item__container" *ngFor="let item of resultItem.solved_models; let i = index"
+    <app-result-item class="result__item__container" *ngFor="let item of resultItemsDefalut; let i = index"
       [item]="item" [index]="i + 1">
     </app-result-item>
   </div>

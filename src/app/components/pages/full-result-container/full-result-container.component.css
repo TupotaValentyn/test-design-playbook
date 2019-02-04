@@ -9,7 +9,7 @@
 .sidebar__container {
     width: 20%;
     border-right: 1px solid #c9c9c9;
-    overflow: auto;
+    overflow-y: auto;
     background: #efebed;
 }
 
@@ -17,7 +17,7 @@
     width: 80%;
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow-y: auto;
     background: #fafafa;
 }
 
@@ -25,14 +25,12 @@ span {
     text-decoration: underline;
 }
 
-.result__item__container {
+.result__item__container,
+.filter__select__field,
+.sidebar__textarea  {
     width: 100%;
 }
 
 .sidebar__card {
   margin: 10px;
-}
-
-.sidebar__textarea {
-  width: 100%;
 }
