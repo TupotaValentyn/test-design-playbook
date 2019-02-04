@@ -38,7 +38,8 @@ router.post('/results/save', (req, res) => {
       return mailgun.testCompleted({
         name: applicant.first_name,
         surname: applicant.surname,
-        email: employer.email
+        email: employer.email,
+        mark: applicant.mark
       })
     })
     .then(() => {
