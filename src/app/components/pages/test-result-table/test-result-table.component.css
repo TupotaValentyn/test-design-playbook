@@ -11,6 +11,15 @@
     padding: 15px 0;
 }
 
+.switch__wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.toggle__btn {
+    width: 100%;
+}
+
 .result__table {
     display: flex;
     flex-direction: column;
