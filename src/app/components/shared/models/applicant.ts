@@ -1,5 +1,5 @@
 export class Applicant {
-  static STATUS_IS_SOLVED: string = 'Is solved';
+  static STATUS_IS_SOLVED: string = 'Sent';
   static STATUS_IS_FILLING: string = 'Is filling';
   static STATUS_EVALUATED: string = 'Evaluated';
   static STATUS_DEACTIVATED: string = 'Deactivated';
