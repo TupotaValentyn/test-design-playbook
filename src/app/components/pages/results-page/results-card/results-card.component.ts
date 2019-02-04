@@ -17,7 +17,6 @@ export class ResultsCardComponent {
   constructor(private dataSource: DataSourceService, public dialog: MatDialog) {  }
 
   openDialog() {
-
     const dialogRef = this.dialog.open(ConfirmRemoveComponent, {
       data: this.result_item.applicant
     });
@@ -30,8 +29,4 @@ export class ResultsCardComponent {
     }
     });
   }
-
-
-
-
 }
