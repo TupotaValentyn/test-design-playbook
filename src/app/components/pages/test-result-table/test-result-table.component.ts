@@ -27,7 +27,7 @@ export class TestResultTableComponent {
   }
 
   constructor(private dataSource: DataSourceService, private route: Router) {
-    this.onlySelected = false;
+    this.onlySelected = true;
 
     this.countCheckedElements = 5;
     this.maxCountCheckedElements = 5;
