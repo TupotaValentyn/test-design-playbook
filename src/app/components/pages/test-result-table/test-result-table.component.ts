@@ -16,19 +16,7 @@ export class TestResultTableComponent {
 
   @Input() models: Array<SolvedModel>;
 
-  onlySelected: boolean;
-
-  displayAll() {
-    this.onlySelected = false;
-  }
-
-  displaySelected() {
-    this.onlySelected = true;
-  }
-
   constructor(private dataSource: DataSourceService, private route: Router) {
-    this.onlySelected = true;
-
     this.countCheckedElements = 5;
     this.maxCountCheckedElements = 5;
 

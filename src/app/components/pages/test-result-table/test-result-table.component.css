@@ -1,37 +1,23 @@
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  background: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    background: #f0f0f0;
 }
 
 .nav {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 15px 0;
-}
-
-.route__btn {
-  display: flex;
-  align-self: start;
-}
-
-.switch__wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.toggle__btn {
-  flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 0;
 }
 
 .result__table {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .result__row {
-  display: flex;
-  width: 100%;
+    display: flex;
+    width: 100%;
 }

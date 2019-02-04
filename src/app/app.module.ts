@@ -38,7 +38,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 // service
 import { JwtInterceptorService } from './components/shared/interceptors/jwt-interceptor.service';
@@ -92,8 +91,7 @@ import { HelpInstructionModalComponent } from './components/pages/main-container
     MatTabsModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatTooltipModule,
-    MatButtonToggleModule
+    MatTooltipModule
   ],
   entryComponents: [
     LinkInfoDialogComponent,
