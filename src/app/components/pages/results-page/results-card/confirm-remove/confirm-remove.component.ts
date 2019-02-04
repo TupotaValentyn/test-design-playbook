@@ -8,10 +8,5 @@ import { Applicant } from '../../../../shared/models/applicant';
   styleUrls: ['./confirm-remove.component.css']
 })
 export class ConfirmRemoveComponent implements OnInit {
-
   constructor(@Inject(MAT_DIALOG_DATA) public data: Applicant) { }
-
-  ngOnInit() {
-  }
-
 }
