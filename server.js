@@ -1,6 +1,6 @@
 // server configuration
 require('dotenv').config();
-require('./environment_checker');
+require('./api/environment_checker');
 
 const PORT = process.env.PORT || 8000;
 
@@ -26,13 +26,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
 app.use(express.static(path.resolve(__dirname + '/dist/test-design-playbook/')));
-app.use('/layouts', require('./middleware/layout_control_filter'));
+app.use('/layouts', require('./api/middleware/layout_control_filter'));
 app.use('/api/*', require('./api/middleware/auth_controll_filter'));
 
 console.log('[Server] filters load');
 
 // routes
-app.use('', require('./controllers/lay_controller'));
+app.use('', require('./api/controllers/lay_controller'));
 app.use('/api', require('./api/controllers/auth_controller'));
 app.use('/api', require('./api/controllers/result_controller'));
 app.use('/api', require('./api/controllers/model_controller'));
