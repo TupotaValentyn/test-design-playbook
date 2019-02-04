@@ -89,47 +89,40 @@
 }
 
 /* arrows */
-.left {
-  left: 14px;
-  width: calc(30% - 10px);
-  height: calc(100% - 25px);
-}
-
-.wrapper__arrow {
-  top: 40%;
-  width: 50px;
+.left__arrow,
+.right__arrow {
   height: 50px;
-  position: absolute;
-  z-index: 750;
-  cursor: pointer;
-  background-color: grey;
-  opacity: 0.7;
-  border-radius: 0 50% 50% 0;
+  width: 50px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 42%;
+  border-radius: 50%;
+  border: 3px solid rgba(201, 206, 214, 0.5);
+  color: rgba(201, 206, 214, 0.5);
+  font-size: 50px;
+  font-weight: bold;
+  cursor: pointer;
   transition: all .3s linear;
-
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
 }
 
-.left {
-  left: 14px;
-  border-radius: 0 50% 50% 0;
+.left__arrow:hover,
+.right__arrow:hover {
+  border-color: rgba(201, 206, 214, 1);
+  color: rgba(201, 206, 214, 1);
 }
 
-.right {
-  right: 14px;
-  border-radius: 50% 0 0 50%;
+.scroll__page__icon {
+  transform: scale(2.5);
 }
 
-.left:hover,
-.right:hover {
-  opacity: 1;
+.left__arrow {
+  left: 20px;
+}
+
+.right__arrow {
+  right: 20px;
 }
 
 /* footer and textareas */
