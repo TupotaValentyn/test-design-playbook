@@ -21,7 +21,7 @@ export class ErrorInterceptorService implements HttpInterceptor{
             errorMessage = `Error: ${ err.error.message }`;
           } else {
             if (err.status == 403) {
-              this.router.navigate(['/admin/login']);
+              this.router.navigate(['/error']);
             } else if (err.status == 0) {
               errorMessage = `No connection to the Internet or the server is shut down.`;
             }
