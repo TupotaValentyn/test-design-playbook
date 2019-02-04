@@ -99,7 +99,7 @@ router.post('/results/surname', (req, res) => {
   Result.find({ deleted: false }, { deleted: 0 })
     .then((docs) => {
       if (docs) {
-        return res.send(docs.filter((item) => item.applicant.surname === surname))
+        return res.send(docs.filter((item) => item.applicant.surname.startsWith(surname)))
       }
       throw { status: 422, message: 'Can\'t find surname' };
     })
