@@ -80,9 +80,7 @@ router.get('/results/all', (req, res) => {
       resultsDocs.sort((a, b) => b.solved_date - a.solved_date);
       res.send(resultsDocs);
     })
-    .catch((err) => {
-      res.status(err.status).send(err);
-    });
+    .catch((err) => res.status(err.status).send(err));
 });
 
 router.post('/results/one', (req, res) => {
@@ -92,9 +90,8 @@ router.post('/results/one', (req, res) => {
       if (docs) return res.send(docs);
       throw {status: 422, message: 'Can\'t find token'};
     })
-    .catch((err) => {
-      res.status(err.status).send(err);
-    });
+    .catch((err) => res.status(err.status).send(err)
+    );
 });
 
 
@@ -107,9 +104,7 @@ router.post('/results/surname', (req, res) => {
       }
       throw { status: 422, message: 'Can\'t find surname' };
     })
-    .catch((err) =>{
-      res.status(err.status).send(err);
-    })
+    .catch((err) => res.status(err.status).send(err))
 });
 
 router.post('/results/delete', (req, res) => {
