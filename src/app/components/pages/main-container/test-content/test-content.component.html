@@ -2,6 +2,18 @@
 
   <div class="main__image__container">
     <img [src]="currentSelectedModel.model.url" class="img" alt="current model" />
+    <div class="left__arrow"
+         (click)="openPrevImage()"
+         matTooltip="Go to previous template"
+         matTooltipPosition="above">
+      <mat-icon class="scroll__page__icon">chevron_left</mat-icon>
+    </div>
+    <div class="right__arrow"
+         (click)="openNextImage()"
+         matTooltip="Go to next template"
+         matTooltipPosition="above">
+      <mat-icon class="scroll__page__icon">chevron_right</mat-icon>
+    </div>
   </div>
 
   <div class="control__panel">

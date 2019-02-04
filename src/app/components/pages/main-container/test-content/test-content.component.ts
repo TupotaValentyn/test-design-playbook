@@ -22,7 +22,7 @@ export class TestContentComponent {
   @Output() onChoose = new EventEmitter<SolvedModel>();
   @Output() onNextImg = new EventEmitter<void>();
   @Output() onPrevImg = new EventEmitter<void>();
-  @Output() onSelect = new EventEmitter();
+  @Output() onSelect = new EventEmitter<SolvedModel>();
   @Output() onSend = new EventEmitter();
   @Output() onOpenCloseSidebar = new EventEmitter();
 
