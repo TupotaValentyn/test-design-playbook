@@ -22,6 +22,7 @@ export class TestContentComponent {
   @Input() currentSelectedModel: SolvedModel;
   //for button "Continue" (Input from main-cont)
   @Input() countCheckedElements: number;
+  @Input() DragDrop:Array<Object>
 
   @Output() onSaveGoodComment = new EventEmitter();
   @Output() onSaveBadComment = new EventEmitter();
@@ -31,7 +32,6 @@ export class TestContentComponent {
   @Output() onSelect = new EventEmitter<SolvedModel>();
   @Output() onSend = new EventEmitter();
   @Output() onOpenCloseSidebar = new EventEmitter();
-  @Output() DragDrop = new EventEmitter();
 
   maxCountCheckedElements = 5;
   mark = false;
@@ -83,10 +83,12 @@ export class TestContentComponent {
     this.mark = true
     this.comment.push({
       index: this.comment.length++,
-      subject: 'some subject value'
+      body: ''
     })
     this.comment = this.comment.filter(item => item)
     this.parent = parent
+    this.DragDrop = this.comment
+    console.log(this.DragDrop, '[test-content]')
   }
 
 }

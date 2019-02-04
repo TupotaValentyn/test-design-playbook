@@ -1,10 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CdkDragEnd, CdkDragStart, CdkDragMove } from '@angular/cdk/drag-drop';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 // import { CommentEditDialogComponent } from '../../../../../comment-edit-dialog/comment-edit-dialog.component'
 import { CommentEditDialogComponent } from '../../../../../comment-edit-dialog/comment-edit-dialog.component'
-
-import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-drag-drop',
@@ -13,23 +11,32 @@ import { EventEmitter } from 'protractor';
 })
 export class DragDropComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
-
+  constructor(public dialog: MatDialog) { 
+    interface DragType {
+      body: string,
+      index: number
+    } 
+  }
 
   ngOnInit() {
     this.DragComment = this.testDrag
     this.parent = '.' + this.dataParent.className
-    console.log(this.parent, '[Drag&Drop]')
+    this.ind = this.index
     console.log(this.DragComment, '[Drag&Drop]')
   }
 
-  @Input() testDrag:Array<Object> ;
-  @Input() dataParent:HTMLElement;
+  @Output() DragChange = new EventEmitter();
 
-  DragComment:Array<Object>
+  @Input() testDrag:any ;
+  @Input() dataParent:HTMLElement;
+  @Input() index: number;
+
+
+  DragComment:any
   flag = false
   data = ''
   parent: string
+  ind: number
 
   position = {
     x: 0,
@@ -81,11 +88,14 @@ export class DragDropComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result)
+      // console.log('The dialog was closed');
+      // console.log(result)
+      this.testDrag[this.index - 1].body = result || ''
       if (result) {
         this.data = result;
       }
+      this.DragChange.emit()
+      console.log(this.testDrag)
     });
 
   }

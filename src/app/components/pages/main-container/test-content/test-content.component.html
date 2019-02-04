@@ -4,12 +4,13 @@
     <div class="parent">
       <img [src]="currentSelectedModel.model.url" class="img" alt="current model" />
       
-      <div *ngFor="let drag of comment">
+      <div *ngFor="let drag of comment; index as ind;">
         <app-drag-drop 
-          [testDrag]="comment"
+          [(testDrag)]="comment"
           [dataParent]="parent"
+          [index]="ind + 1"
         >
-  
+
         </app-drag-drop>
       </div>
     </div>
