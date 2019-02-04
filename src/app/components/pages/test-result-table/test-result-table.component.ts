@@ -1,7 +1,7 @@
-import {Component, Input} from '@angular/core';
-import {Router} from '@angular/router';
-import {DataSourceService} from '../../shared/service/data-source.service';
-import {SolvedModel} from '../../shared/models/solved-model';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataSourceService } from '../../shared/service/data-source.service';
+import { SolvedModel } from '../../shared/models/solved-model';
 
 
 @Component({
@@ -16,11 +16,23 @@ export class TestResultTableComponent {
 
   @Input() models: Array<SolvedModel>;
 
+  onlySelected: boolean = true;
+
   constructor(private dataSource: DataSourceService, private route: Router) {
+    this.onlySelected = true;
+
     this.countCheckedElements = 5;
     this.maxCountCheckedElements = 5;
 
     this.models = JSON.parse(localStorage.getItem('savedTestResults'))
+  }
+
+  displayAll() {
+    this.onlySelected = false;
+  }
+
+  displaySelected() {
+    this.onlySelected = true;
   }
 
   sendData() {
