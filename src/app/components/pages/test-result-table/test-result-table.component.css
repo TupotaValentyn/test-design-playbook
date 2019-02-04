@@ -1,6 +1,4 @@
 .wrapper {
-  display: flex;
-  flex-direction: column;
   background: #f0f0f0;
 }
 
@@ -20,7 +18,9 @@
   background-color: #d3d2d1;
 }
 
-.switch__wrapper {
+.wrapper,
+.switch__wrapper,
+.result__table {
   display: flex;
   flex-direction: column;
 }
@@ -30,8 +30,6 @@
 }
 
 .result__table {
-  display: flex;
-  flex-direction: column;
   width: 100%;
 }
 
