@@ -48,6 +48,7 @@ import { DragDropComponent } from './components/pages/main-container/test-conten
 import { CommentEditDialogComponent } from './comment-edit-dialog/comment-edit-dialog.component';
 import { SmthWentWrongComponent } from './components/pages/smth-went-wrong/smth-went-wrong.component';
 import { HelpInstructionModalComponent } from './components/pages/main-container/help-instruction-modal/help-instruction-modal.component';
+import { ConfirmRemoveComponent } from './components/pages/results-page/results-card/confirm-remove/confirm-remove.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { HelpInstructionModalComponent } from './components/pages/main-container
     DragDropComponent,
     CommentEditDialogComponent,
     HelpInstructionModalComponent,
-    SmthWentWrongComponent
+    SmthWentWrongComponent,
+    ConfirmRemoveComponent
   ],
   imports: [
     BrowserModule,
@@ -102,7 +104,8 @@ import { HelpInstructionModalComponent } from './components/pages/main-container
   entryComponents: [
     LinkInfoDialogComponent,
     CommentEditDialogComponent,  
-    HelpInstructionModalComponent
+    HelpInstructionModalComponent,
+    ConfirmRemoveComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
