@@ -105,7 +105,7 @@ router.post('/results/surname', (req, res) => {
       if (docs) {
         return res.send(docs.filter((item) => item.applicant.surname === surname))
       }
-      throw {status: 422, message: 'Can\'t find surname'};
+      throw { status: 422, message: 'Can\'t find surname' };
     })
     .catch((err) =>{
       res.status(err.status).send(err);
