@@ -11,6 +11,11 @@
   padding: 15px 0;
 }
 
+.route__btn {
+  display: flex;
+  align-self: start;
+}
+
 .switch__wrapper {
   display: flex;
   flex-direction: column;

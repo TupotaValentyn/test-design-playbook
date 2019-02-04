@@ -1,6 +1,6 @@
 <div class="wrapper">
   <nav class="nav">
-    <a mat-button routerLink="/main">Back</a>
+    <a mat-button routerLink="/main" class="route__btn">Back</a>
     <div class="switch__wrapper">
       <span>Please check your choice before sending</span>
       <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
@@ -8,7 +8,7 @@
         <mat-button-toggle value="selected" class="toggle__btn" (click)="displaySelected()">Selected templates</mat-button-toggle>
       </mat-button-toggle-group>
     </div>
-    <a mat-button (click)="sendData()">
+    <a mat-button (click)="sendData()" class="route__btn">
       Finish
     </a>
   </nav>
