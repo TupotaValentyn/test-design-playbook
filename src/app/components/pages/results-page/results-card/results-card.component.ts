@@ -16,8 +16,6 @@ export class ResultsCardComponent {
 
   constructor(private dataSource: DataSourceService, public dialog: MatDialog) {  }
 
-  // <button class="btn delete" color="warn" mat-raised-button (click)="deleteResult(result_item.applicant.token)">
-
   openDialog() {
 
     const dialogRef = this.dialog.open(ConfirmRemoveComponent, {
