@@ -24,6 +24,7 @@ export class ResultsPageComponent implements OnInit {
     this.dataSource.getAllResults()
       .subscribe((data: Array<Result>) => {
         this.results = data;
+        console.log("[RESULTS]", this.results);
       }, (error) => {
         alert(error);
       });

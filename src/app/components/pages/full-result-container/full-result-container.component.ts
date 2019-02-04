@@ -24,11 +24,8 @@ export class FullResultContainerComponent implements OnInit {
   resultItemsDefalut: Array<SolvedModel>;
 
   resultItemsMarkedOnly: Array<SolvedModel>;
-  resultItemsWithCommentsOnly: Array<SolvedModel>
-  
-  a = "string";
-
-  test: any;
+  resultItemsWithCommentsOnly: Array<SolvedModel>;
+  resultItemsMarkedAndCommented:Array<SolvedModel>;
 
   ngOnInit(): void {
     const token = this.route.snapshot.paramMap.get('token');
@@ -49,7 +46,12 @@ export class FullResultContainerComponent implements OnInit {
               return true;
           });
 
-          this.test = this.resultItemsMarkedOnly;
+          this.resultItemsMarkedAndCommented = this.resultItem.solved_models.filter((itemMarkedAndCommented) => {
+            if (itemMarkedAndCommented.comment.good ||
+               itemMarkedAndCommented.comment.bad ||
+               itemMarkedAndCommented.mark)
+              return true;
+          });
 
           console.log('[Result item]', this.resultItem);
         });
