@@ -1,68 +1,59 @@
 <app-admin-navbar></app-admin-navbar>
+
 <div class="full__result__container">
+
   <div class="sidebar__container">
-    <div>
-      <mat-card class="sidebar__card">
-        <mat-card-header>
-          <mat-card-title>
-            Profile
-          </mat-card-title>
-          <mat-card-subtitle>
-            information about user
-          </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <mat-list>
-            <mat-divider></mat-divider>
-            <mat-list-item>{{ resultItem.applicant.surname }} {{ resultItem.applicant.first_name }} {{ resultItem.applicant.second_name }}</mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item><a href="mailto:{{ resultItem.applicant.email }}">{{ resultItem.applicant.email }}</a></mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>Created link: <time datetime="2018-01-01 12:00">{{ resultItem.applicant.created | date: "mediumDate" }}</time></mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>Test pass: <time datetime="2019-01-01 12:00">{{ resultItem.solved_date | date: "mediumDate" }}</time></mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>Mark: {{ resultItem.applicant.mark }}</mat-list-item>
-          </mat-list>
-        </mat-card-content>
-      </mat-card>
-      <mat-card class="sidebar__card">
-        <mat-card-header>
-          <mat-card-title>
-            Employer feedback
-          </mat-card-title>
-          <mat-card-subtitle>
-            you can leave your feedback about this applicant
-          </mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <mat-form-field class="sidebar__textarea">
-            <textarea matInput placeholder="Leave feedback here" cdkTextareaAutosize cdkAutosizeMinRows="5"
-              cdkAutosizeMaxRows="5"></textarea>
-          </mat-form-field>
-        </mat-card-content>
-      </mat-card>
-    </div>
 
     <mat-card class="sidebar__card">
+
       <mat-card-header>
-        <mat-card-title>
-          Tasks information
-        </mat-card-title>
+        <mat-card-title>Profile</mat-card-title>
+        <mat-card-subtitle>information about user</mat-card-subtitle>
       </mat-card-header>
+
       <mat-card-content>
-        Counts of tasks: 23 <br>
-        Max selected tasks: 5
+        <mat-list>
+          <mat-divider></mat-divider>
+          <mat-list-item>{{ resultItem.applicant.surname }} {{ resultItem.applicant.first_name }} {{
+            resultItem.applicant.second_name }}</mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item><a href="mailto:{{ resultItem.applicant.email }}">{{ resultItem.applicant.email }}</a></mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>Created link: <time datetime="2018-01-01 12:00">{{ resultItem.applicant.created | date:
+              "mediumDate" }}</time></mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>Test pass: <time datetime="2019-01-01 12:00">{{ resultItem.solved_date | date: "mediumDate" }}</time></mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item>Mark: {{ resultItem.applicant.mark }}</mat-list-item>
+        </mat-list>
       </mat-card-content>
+
     </mat-card>
+
+    <mat-card class="sidebar__card">
+
+      <mat-card-header>
+        <mat-card-title>Employer's feedback</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <mat-form-field class="sidebar__textarea">
+          <textarea
+           matInput
+           placeholder="Leave feedback about this applicant"
+           cdkTextareaAutosize
+           cdkAutosizeMinRows="2"
+           cdkAutosizeMaxRows="4"></textarea>
+        </mat-form-field>
+      </mat-card-content>
+
+    </mat-card>
+
   </div>
 
   <div class="results__container">
-    <app-result-item
-      class="result__item__container"
-      *ngFor="let item of resultItem.solved_models; let i = index"
-      [item]="item"
-      [index]="i + 1">
+    <app-result-item class="result__item__container" *ngFor="let item of resultItem.solved_models; let i = index"
+      [item]="item" [index]="i + 1">
     </app-result-item>
   </div>
 </div>

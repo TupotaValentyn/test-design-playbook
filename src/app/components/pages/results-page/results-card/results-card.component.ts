@@ -10,7 +10,7 @@ export class ResultsCardComponent {
 
   @Output() onDelete = new EventEmitter();
 
-  constructor(private dataSource: DataSourceService) {  }
+  constructor(private dataSource: DataSourceService) { }
 
   deleteResult(token) {
     this.dataSource.deleteResult(token)
