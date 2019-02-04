@@ -45,6 +45,7 @@ import { ErrorInterceptorService } from './components/shared/interceptors/error-
 import { LinkInfoDialogComponent } from './components/pages/admin-panel-link/admin-panel-link-info/link-info-dialog/link-info-dialog.component';
 import { SmthWentWrongComponent } from './components/pages/smth-went-wrong/smth-went-wrong.component';
 import { HelpInstructionModalComponent } from './components/pages/main-container/help-instruction-modal/help-instruction-modal.component';
+import { ConfirmRemoveComponent } from './components/pages/results-page/results-card/confirm-remove/confirm-remove.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { HelpInstructionModalComponent } from './components/pages/main-container
     TestResultRowComponent,
     LinkInfoDialogComponent,
     HelpInstructionModalComponent,
-    SmthWentWrongComponent
+    SmthWentWrongComponent,
+    ConfirmRemoveComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +97,8 @@ import { HelpInstructionModalComponent } from './components/pages/main-container
   ],
   entryComponents: [
     LinkInfoDialogComponent,
-    HelpInstructionModalComponent
+    HelpInstructionModalComponent,
+    ConfirmRemoveComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
