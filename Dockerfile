@@ -24,7 +24,6 @@ RUN npm install --only=production
 
 COPY --from=base ./app/dist ./dist
 COPY ./api ./api
-COPY ./.env ./
 
 EXPOSE 8000
 
