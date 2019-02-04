@@ -4,13 +4,23 @@
     <div class="switch__wrapper">
       <span>Please check your choice before sending</span>
       <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-        <mat-button-toggle value="all" class="toggle__btn" (click)="displayAll()">All templates</mat-button-toggle>
-        <mat-button-toggle value="selected" class="toggle__btn" (click)="displaySelected()">Selected templates</mat-button-toggle>
+        <mat-button-toggle
+        value="all"
+        class="toggle__btn"
+        (click)="displayAll()"
+        [class.is__chosen]="!onlySelected">
+          All templates
+        </mat-button-toggle>
+        <mat-button-toggle
+        value="selected"
+        class="toggle__btn"
+        (click)="displaySelected()"
+        [class.is__chosen]="onlySelected">
+          Selected templates
+        </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
-    <a mat-button (click)="sendData()" class="route__btn">
-      Finish
-    </a>
+    <a mat-button (click)="sendData()" class="route__btn">Finish</a>
   </nav>
   <mat-divider></mat-divider>
 

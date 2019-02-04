@@ -13,7 +13,11 @@
 
 .route__btn {
   display: flex;
-  align-self: start;
+  align-self: center;
+}
+
+.is__chosen {
+  background-color: #d3d2d1;
 }
 
 .switch__wrapper {
