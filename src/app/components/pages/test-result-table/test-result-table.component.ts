@@ -18,14 +18,6 @@ export class TestResultTableComponent {
 
   onlySelected: boolean = true;
 
-  displayAll() {
-    this.onlySelected = false;
-  }
-
-  displaySelected() {
-    this.onlySelected = true;
-  }
-
   constructor(private dataSource: DataSourceService, private route: Router) {
     this.onlySelected = true;
 
@@ -33,6 +25,14 @@ export class TestResultTableComponent {
     this.maxCountCheckedElements = 5;
 
     this.models = JSON.parse(localStorage.getItem('savedTestResults'))
+  }
+
+  displayAll() {
+    this.onlySelected = false;
+  }
+
+  displaySelected() {
+    this.onlySelected = true;
   }
 
   sendData() {
