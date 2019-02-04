@@ -11,6 +11,11 @@
   <mat-divider></mat-divider>
 
   <div class="result__table">
-    <app-test-result-row class="result__row" *ngFor="let model of models; let i = index" [item]="model" [index]="i + 1"></app-test-result-row>
+    <app-test-result-row
+     class="result__row"
+     *ngFor="let model of models; let i = index"
+     [userDataItem]="model"
+     [index]="i + 1">
+    </app-test-result-row>
   </div>
 </div>

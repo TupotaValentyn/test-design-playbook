@@ -22,3 +22,9 @@
   text-align: justify;
   text-indent: 30px;
 }
+
+.contact__as__message {
+  font-size: 10px;
+  position: absolute;
+  bottom: 10px;
+}

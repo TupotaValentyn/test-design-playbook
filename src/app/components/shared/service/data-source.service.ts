@@ -9,6 +9,16 @@ export class DataSourceService {
 
   constructor(private http: HttpClient) { }
 
+  deleteResult(token): Observable<object> {
+    return this.http
+      .post(
+        'http://localhost:8000/api/results/delete',
+        {
+          token: token
+        }
+      )
+  }
+
   authorize(login, pass): Observable<Object> {
     return this.http
       .post(
@@ -17,10 +27,10 @@ export class DataSourceService {
         login: login,
         password: pass
       }
-    )
+    );
   }
 
-  disableLink(token) : Observable<Object> {
+  disableLink(token): Observable<Object> {
     return this.http
       .post(
       'http://localhost:8000/api/users/token/deactivate',
@@ -46,7 +56,7 @@ export class DataSourceService {
         first_name: name,
         email: email,
         second_name: secondname
-      })
+      });
   }
 
   sendMailWithLink(email, name, surname, secondname, link): Observable<Object> {
@@ -71,7 +81,17 @@ export class DataSourceService {
     return this.http
       .get(
         'http://localhost:8000/api/model/all',
-      )
+      );
+  }
+
+  getAllModelsNew(): Observable<Object> {
+    return this.http
+      .get('http://localhost:8000/api/models/all')
+  }
+
+  getSolvedModel(): Observable<Object> {
+    return this.http
+      .get('http://localhost:8000/api/models/solved')
   }
 
   updateResult(solvedResults): Observable<Object> {
@@ -79,7 +99,17 @@ export class DataSourceService {
       .post(
       'http://localhost:8000/api/results/update',
       { models: solvedResults }
-    )
+    );
+  }
+
+  removeResult(token): Observable<Object> {
+    console.log(token);
+    console.log('Result removed');
+    return this.http
+      .post(
+        'http://localhost:8000/api/results/delete',
+        {token: token}
+      );
   }
 
   getAllResults(): Observable<Object> {
@@ -92,6 +122,11 @@ export class DataSourceService {
       .post(
       'http://localhost:8000/api/results/save',
       { models: models }
-    )
+    );
+  }
+
+  getApplicantInfo(token): Observable<Object> {
+    return this.http
+      .post('http://localhost:8000/api/users/info', {token: token});
   }
 }

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { SolvedModel } from '../../shared/models/solved-model';
-import { Router } from '@angular/router';
-import { DataSourceService } from '../../shared/service/data-source.service';
+import {Component, OnInit} from '@angular/core';
+import {SolvedModel} from '../../shared/models/solved-model';
+import {Router} from '@angular/router';
+import {DataSourceService} from '../../shared/service/data-source.service';
+import {Result} from '../../shared/models/result';
 
 @Component({
   selector: 'app-main-container',
@@ -13,85 +14,71 @@ export class MainContainerComponent implements OnInit {
 
   constructor (private dataSource: DataSourceService, private route: Router) { }
 
-  currentModel: any = [{
-    _id: "",
-    url: "../../assets/empty-img.png",
-    mark: false,
-    comment: 'Nothing found',
-    name: "Nothing found",
-    numberMark: 0
-  },
-  {
-    _id: "",
-    url: "../../assets/empty-img.png",
-    mark: false,
-    comment: 'Nothing found',
-    name: "Nothing found",
-    numberMark: 0
+  result: Result;
+  currentModel: Array<SolvedModel> = [{
+    model: {
+      _id: "",
+      url: "../../assets/empty-img.png",
+      name: "Empty",
+      answer: false
+    },
+    comment: {
+      bad: "",
+      good: ""
+    },
+    mark: false
   }];
+
+  currentSelectModel: SolvedModel = this.currentModel[0];
+  currentIndex: number;
   currentSelectedCount: number = 0;
 
   ngOnInit() {
-    this.dataSource.getAllModels()
-      .subscribe(data => {
-        if(!data['token']) {
-          this.giveNewModels(data)
-        } else {
-          this.giveSavedModels(data)
-        }});
+    this.dataSource.getAllModelsNew()
+      .subscribe((data: Result) => {
+        this.result = data;
+        this.giveNewModels(data);
+        console.log(data);
+      });
 
-    //take user date from local storage if exist
-    // if (localStorage.getItem('savedTestResults')) {
-    //   this.currentModel = JSON.parse( localStorage.getItem('savedTestResults') );
-    //   this.currentSelectedCount = this.currentModel.filter(e => e.mark).length;
-    // }
-    // //setting first element of test after defining existing localStorageDate
-    // this.currentSelectModel = this.currentModel[0];
-
+    this.dataSource.getSolvedModel()
+      .subscribe( (data: Result) => {
+        if (data && data.solved_models && data.solved_models.length != 0) {
+          this.result = data;
+          this.giveSavedModels(data);
+          console.log(data)
+        }
+      })
   }
 
-  currentSelectModel: Object;
-  currentIndex: number;
-
+  selectFirstElement() {
+    this.currentSelectModel = this.currentModel[0];
+    this.currentIndex = 0;
+  }
 
   //saving data to the local storage (used in checkbox's and saveComment functions)
-  giveNewModels(data) {
-    this.currentModel = data;
-    console.log(data);
-    this.currentModel.forEach(e => {
-      e.url = "../../assets" + e.url
-    });
-    this.currentSelectModel = this.currentModel[0];
-    this.currentIndex = 0;
+  giveNewModels(data: Result) {
+    if (this.currentModel.length <= 1) {
+      this.currentModel = data.solved_models;
+      this.currentModel.forEach(e => {
+        e.model.url = "http://localhost:8000/layouts?img=" + e.model.url;
+      });
+
+      this.selectFirstElement();
+    }
   }
 
-  giveSavedModels(data) {
-    this.currentModel = data['solved_models'].map((item) => (
-      {_id: item.model._id, url: item.model.url, mark: item.mark, comment: item.comment,})
-    );
+  giveSavedModels(data: Result) {
+    this.currentModel = data.solved_models;
     this.currentSelectedCount = this.currentModel.filter(e => e.mark).length;
-    this.currentSelectModel = this.currentModel[0];
-    this.currentIndex = 0;
+    this.selectFirstElement();
   }
 
   saveUserTestResult() {
-    console.log('IMAGE CHOOSEN', this.currentModel);
     localStorage.setItem('savedTestResults', JSON.stringify(this.currentModel));
-    console.log("Sending...");
-    this.currentModelLog();
-    const sendData = this.currentModel;
-    const solvedResults: Array<SolvedModel> = sendData.map(item => ({
-      model: {
-        _id: item._id,
-        url: item.url,
-        name: item.name
-      },
-      mark: item.mark,
-      comment: item.comment
-    }));
 
-    this.dataSource.updateResult(solvedResults).subscribe(() => {})
-
+    const sendData: Array<SolvedModel> = this.currentModel;
+    this.dataSource.updateResult(sendData).subscribe(() => {})
   }
 
   testComponentSend() {
@@ -100,40 +87,27 @@ export class MainContainerComponent implements OnInit {
     localStorage.setItem('savedTestResults', JSON.stringify(this.currentModel));
     const sendData = this.currentModel;
     console.log(this.currentModel);
-    const solvedResults: Array<SolvedModel> = sendData.map(item => ({
-      model: {
-        _id: item._id,
-        url: item.url,
-        name: item.name
-      },
-      mark: item.mark,
-      comment: item.comment
-    }));
 
-    this.dataSource.updateResult(solvedResults).subscribe(() => {
+    this.dataSource.updateResult(sendData).subscribe(() => {
       this.route.navigate(['/result/table'])
     })
   }
 
-  testComponentSave() {
+  commentSaveGood() {
     this.saveUserTestResult();
   }
 
-  testComponentChoose() {
-    this.currentModelLog();
+  commentSaveBad() {
+    this.saveUserTestResult();
   }
+
+  testComponentChoose() { }
 
   sideBarSelect(selectedModel) {
     this.saveUserTestResult();
-
-    console.log(this.currentSelectedCount);
-
-    console.log('[MainContainer]', 'sideBarSelect');
-    this.currentModelLog();
     this.currentSelectModel = selectedModel;
     this.currentIndex = this.currentModel.indexOf(selectedModel);
 
-    console.log(this.currentModel.filter(e => e.mark).length);
     setTimeout(() => this.currentSelectedCount = this.currentModel.filter(e => e.mark).length, 0);
   }
 
@@ -143,10 +117,9 @@ export class MainContainerComponent implements OnInit {
 
   nextImg() {
     if (this.currentIndex === (this.currentModel.length - 1)) {
-      console.log("Index more than the index of last image");
       this.currentIndex = 0;
     } else {
-      this.currentIndex = this.currentIndex + 1;
+      this.currentIndex++;
     }
 
     this.currentSelectModel = this.currentModel[this.currentIndex];
@@ -154,10 +127,9 @@ export class MainContainerComponent implements OnInit {
 
   prevImg() {
     if (this.currentIndex === 0) {
-      console.log("Index less than the index of first image");
-      this.currentIndex = (this.currentModel.length - 1);
+      this.currentIndex = this.currentModel.length - 1;
     } else {
-      this.currentIndex = this.currentIndex - 1;
+      this.currentIndex--;
     }
 
     this.currentSelectModel = this.currentModel[this.currentIndex];

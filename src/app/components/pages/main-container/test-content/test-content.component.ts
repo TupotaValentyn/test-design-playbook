@@ -1,4 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { HelpInstructionModalComponent } from '../help-instruction-modal/help-instruction-modal.component';
+import {SolvedModel} from '../../../shared/models/solved-model';
 
 
 @Component({
@@ -8,42 +11,43 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class TestContentComponent {
 
-  @Input() currentModel: any;
+  constructor (public dialog: MatDialog) { }
 
-  @Input() countCheckedElements = 0;
+  @Input() currentSelectedModel: SolvedModel;
+  //for button "Continue" (Input from main-cont)
+  @Input() countCheckedElements: number;
 
-  @Input() maxCountCheckedElements = 5;
-
-  @Output() onSaveComment = new EventEmitter();
-
+  @Output() onSaveGoodComment = new EventEmitter();
+  @Output() onSaveBadComment = new EventEmitter();
+  @Output() onChoose = new EventEmitter<SolvedModel>();
+  @Output() onNextImg = new EventEmitter<void>();
+  @Output() onPrevImg = new EventEmitter<void>();
+  @Output() onSelect = new EventEmitter();
   @Output() onSend = new EventEmitter();
+  @Output() onOpenCloseSidebar = new EventEmitter();
 
-  @Output() onChoose = new EventEmitter();
-
-  @Output() onNextImg = new EventEmitter();
-  @Output() onPrevImg = new EventEmitter();
-
-  isPictureOpened = false;
-
-  saveComment(e) {
-    this.currentModel.comment = e.target.value;
-    this.onSaveComment.emit(this.currentModel); 
-  }
+  maxCountCheckedElements = 5;
 
   moveToNextPage() {
     this.onSend.emit();
   }
 
+  saveCommentGood(e) {
+    this.currentSelectedModel.comment.good = e.target.value;
+    this.onSaveGoodComment.emit(this.currentSelectedModel);
+  }
+
+  saveCommentBad(e) {
+    this.currentSelectedModel.comment.bad = e.target.value;
+    this.onSaveBadComment.emit(this.currentSelectedModel);
+  }
+
   //delete
   chooseImage(e) {
     console.log(e.checked);
-    this.currentModel.mark = e.checked;
-    this.onChoose.emit(this.currentModel);
+    this.currentSelectedModel.mark = e.checked;
+    this.onChoose.emit(this.currentSelectedModel);
     console.log('IMAGE CHOOSEN');
-  }
-
-  changeScreenMode() {
-    this.isPictureOpened = !this.isPictureOpened
   }
 
   openPrevImage() {
@@ -52,6 +56,19 @@ export class TestContentComponent {
 
   openNextImage() {
     this.onNextImg.emit();
+  }
+
+  openCloseSidebar() {
+    this.onOpenCloseSidebar.emit();
+  }
+
+  selectModel() {
+    this.currentSelectedModel.mark = !this.currentSelectedModel.mark;
+    this.onSelect.emit(this.currentSelectedModel);
+  }
+
+  openHelpDialog(): void {
+    this.dialog.open(HelpInstructionModalComponent, {width: '600px'});
   }
 
 }

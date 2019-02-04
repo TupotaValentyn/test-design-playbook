@@ -1,6 +1,33 @@
 # TestDesignPlaybook
 
+This project was designed by students to learn new technologies and improve their skills.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
+
+## Requirements
+
+Node.JS `10.15`
+
+NPM `6.4.1`
+
+MongoDB `4.0.5`
+
+### Environment variables
+You can find an `.env` example file in the root of the project with the name `.env.sample`
+
+For mailing:
+* `API_KEY`
+* `DOMAIN`
+* `FROM_WHO`
+
+_If you don't specify them - all letters will be ignored_
+
+For database:
+* `DATABASE_CONNECTION_URL`
+
+For API server:
+* `PORT`
+* `JWT_PRIVATE_KEY`
+
 
 ## Development server
 

@@ -17,6 +17,7 @@ export class AdminLoginComponent {
   auth(login, pass) {
     this.dataSource.authorize(login, pass).subscribe((data: any) => {
       if(data.auth === 'true') {
+        document.cookie = `token=${data.token}; path=/`;
         localStorage.setItem('token', data.token);
         this.router.navigate(['admin/links'])
           .catch((error) => alert(error));

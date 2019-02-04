@@ -35,9 +35,10 @@ import { ResultsCardComponent } from './components/pages/results-page/results-ca
 import { MatMenuModule } from '@angular/material';
 import { TestResultTableComponent } from './components/pages/test-result-table/test-result-table.component';
 import { TestResultRowComponent } from './components/pages/test-result-table/test-result-row/test-result-row.component';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 // service
 import { JwtInterceptorService } from './components/shared/interceptors/jwt-interceptor.service';
@@ -45,6 +46,8 @@ import { ErrorInterceptorService } from './components/shared/interceptors/error-
 import { LinkInfoDialogComponent } from './components/pages/admin-panel-link/admin-panel-link-info/link-info-dialog/link-info-dialog.component';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
 import { CommentEditDialogComponent } from './comment-edit-dialog/comment-edit-dialog.component';
+import { SmthWentWrongComponent } from './components/pages/smth-went-wrong/smth-went-wrong.component';
+import { HelpInstructionModalComponent } from './components/pages/main-container/help-instruction-modal/help-instruction-modal.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +71,8 @@ import { CommentEditDialogComponent } from './comment-edit-dialog/comment-edit-d
     LinkInfoDialogComponent,
     DragDropComponent,
     CommentEditDialogComponent,
+    HelpInstructionModalComponent,
+    SmthWentWrongComponent
   ],
   imports: [
     BrowserModule,
@@ -88,6 +93,7 @@ import { CommentEditDialogComponent } from './comment-edit-dialog/comment-edit-d
     MatIconModule,
     MatListModule,
     MatMenuModule,
+    MatTabsModule,
     MatSnackBarModule,
     MatDialogModule,
     DragDropModule,
@@ -95,7 +101,8 @@ import { CommentEditDialogComponent } from './comment-edit-dialog/comment-edit-d
   ],
   entryComponents: [
     LinkInfoDialogComponent,
-    CommentEditDialogComponent  
+    CommentEditDialogComponent,  
+    HelpInstructionModalComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },

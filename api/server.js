@@ -1,5 +1,6 @@
 // server configuration
 require('dotenv').config();
+require('./environment_checker');
 
 const PORT = process.env.PORT || 8000;
 
@@ -7,6 +8,7 @@ const PORT = process.env.PORT || 8000;
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 
 console.log('[Server] Application start...');
 
@@ -15,6 +17,7 @@ require('./data_source/mongodb_connect')();
 
 // support json encoded bodies
 const bodyParser = require('body-parser');
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -22,12 +25,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
 // app.use(express.static(__dirname + '/../src/assets'));
-
+app.use('/layouts', require('./middleware/layout_control_filter'));
 app.use('/api/*', require('./middleware/auth_controll_filter'));
 
 console.log('[Server] filters load');
 
 // routes
+app.use('', require('./controllers/lay_controller'));
 app.use('/api', require('./controllers/auth_controller'));
 app.use('/api', require('./controllers/result_controller'));
 app.use('/api', require('./controllers/model_controller'));
