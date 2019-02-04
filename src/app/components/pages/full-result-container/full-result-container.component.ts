@@ -17,7 +17,17 @@ export class FullResultContainerComponent implements OnInit {
     solved_date: new Date()
   };
 
+  onlySelected = true;
+
   constructor(private route: ActivatedRoute, private dataSource: DataSourceService) {  }
+
+  displayAll() {
+    this.onlySelected = false;
+  }
+
+  displaySelected() {
+    this.onlySelected = true;
+  }
 
   ngOnInit(): void {
     const token = this.route.snapshot.paramMap.get('token');

@@ -14,13 +14,16 @@
         <mat-card-content>
           <mat-list>
             <mat-divider></mat-divider>
-            <mat-list-item>{{ resultItem.applicant.surname }} {{ resultItem.applicant.first_name }} {{ resultItem.applicant.second_name }}</mat-list-item>
+            <mat-list-item>{{ resultItem.applicant.surname }} {{ resultItem.applicant.first_name }} {{
+              resultItem.applicant.second_name }}</mat-list-item>
             <mat-divider></mat-divider>
             <mat-list-item><a href="mailto:{{ resultItem.applicant.email }}">{{ resultItem.applicant.email }}</a></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>Created link: <time datetime="2018-01-01 12:00">{{ resultItem.applicant.created | date: "mediumDate" }}</time></mat-list-item>
+            <mat-list-item>Created link: <time datetime="2018-01-01 12:00">{{ resultItem.applicant.created | date:
+                "mediumDate" }}</time></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>Test pass: <time datetime="2019-01-01 12:00">{{ resultItem.solved_date | date: "mediumDate" }}</time></mat-list-item>
+            <mat-list-item>Test pass: <time datetime="2019-01-01 12:00">{{ resultItem.solved_date | date: "mediumDate"
+                }}</time></mat-list-item>
             <mat-divider></mat-divider>
             <mat-list-item>Mark: {{ resultItem.applicant.mark }}</mat-list-item>
           </mat-list>
@@ -42,6 +45,27 @@
           </mat-form-field>
         </mat-card-content>
       </mat-card>
+
+      <mat-card class="sidebar__card">
+        <mat-card-header>
+          <mat-card-title>
+            Display result
+          </mat-card-title>
+          <mat-card-subtitle>
+            you can choose display all or only selected templates
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="all" class="toggle__btn" (click)="displayAll()" [ngStyle]="{'background-color': !onlySelected ? '#d3d2d1': 'white'}">
+              All templates
+            </mat-button-toggle>
+            <mat-button-toggle value="selected" class="toggle__btn" (click)="displaySelected()" [ngStyle]="{'background-color': onlySelected ? '#d3d2d1': 'white'}">
+              Selected templates
+            </mat-button-toggle>
+          </mat-button-toggle-group>
+        </mat-card-content>
+      </mat-card>
     </div>
 
     <mat-card class="sidebar__card">
@@ -58,11 +82,20 @@
   </div>
 
   <div class="results__container">
-    <app-result-item
-      class="result__item__container"
-      *ngFor="let item of resultItem.solved_models; let i = index"
-      [item]="item"
-      [index]="i + 1">
-    </app-result-item>
+    <div class="result__item__container">
+      <ng-template #test>
+        <div *ngFor="let item of resultItem.solved_models; let i = index">
+          <app-result-item [item]="item" [index]="i + 1">
+          </app-result-item>
+        </div>
+      </ng-template>
+
+      <div *ngIf="onlySelected; else test">
+        <div *ngFor="let item of resultItem.solved_models; let i = index">
+          <app-result-item *ngIf="item.mark" [item]="item" [index]="i + 1">
+          </app-result-item>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

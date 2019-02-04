@@ -38,3 +38,7 @@ span {
 .sidebar__textarea {
   width: 100%;
 }
+
+.route__btn {
+  background-color: white;
+}
