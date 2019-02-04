@@ -1,0 +1,8 @@
+<mat-dialog-content class="mat-typography">
+  <h2 mat-dialog-title>Confirm remove</h2>
+  <p>Remove {{ data.surname }} {{ data.first_name }} {{ data.second_name }} results?</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button mat-raised-button [mat-dialog-close]="true" class="btn delete" color="warn" cdkFocusInitial>Remove</button>
+</mat-dialog-actions>
