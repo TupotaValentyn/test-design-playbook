@@ -56,14 +56,11 @@
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="btn__group">
-            <mat-button-toggle value="all" class="toggle__btn" (click)="displayAll()" [ngStyle]="{'background-color': !onlySelected ? '#d3d2d1': 'white'}">
-              All templates
-            </mat-button-toggle>
-            <mat-button-toggle value="selected" class="toggle__btn" (click)="displaySelected()" [ngStyle]="{'background-color': onlySelected ? '#d3d2d1': 'white'}">
-              Selected templates
-            </mat-button-toggle>
-          </mat-button-toggle-group>
+          <mat-slide-toggle
+            [(ngModel)]="onlySelected"
+            (change)="changeSlider()">
+            Only selected `{{ onlySelected }}`
+          </mat-slide-toggle>
         </mat-card-content>
       </mat-card>
     </div>

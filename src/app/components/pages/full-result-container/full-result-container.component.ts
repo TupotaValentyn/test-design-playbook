@@ -33,11 +33,8 @@ export class FullResultContainerComponent implements OnInit {
     }
   }
 
-  displayAll() {
-    this.onlySelected = false;
+  changeSlider() {
+    this.onlySelected = !this.onlySelected;
   }
-
-  displaySelected() {
-    this.onlySelected = true;
-  }
+  
 }
