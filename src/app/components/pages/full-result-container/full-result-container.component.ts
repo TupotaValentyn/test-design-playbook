@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Result } from '../../shared/models/result';
 import { ActivatedRoute } from '@angular/router';
 import { Applicant } from '../../shared/models/applicant';
