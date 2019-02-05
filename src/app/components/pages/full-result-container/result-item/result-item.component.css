@@ -5,14 +5,13 @@
 .result__item__container {
     display: flex;
     padding: 20px;
-    margin: 20px;
-    height: 90%;
-    height: 80%;
+    margin: 0 20px;
+    height: fit-content;
 }
 
 .result__image__block {
     display: flex;
-    height: 100%;
+    /* height: 100%; */
     align-items: center;
 }
 
@@ -70,6 +69,7 @@ mat-form-field {
 .comment {
     box-sizing: border-box;
     width: 100%;
+    height: 300px;
     display: flex;
     margin: 0 0 20px 0;
     justify-content: space-between;
@@ -78,14 +78,15 @@ mat-form-field {
 }
 
 .comment__group {
-    width: 100%;
+    min-width: 300px;
+    width: 45%;
     height: calc(100% - 20px);
     margin: 0 0 20px 0;
     padding: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .comment__group:first-child {
+    border-right: 1px solid #999;
     margin: 0 10px 0 0;
     border-radius: 10px 0 0 10px;
 }

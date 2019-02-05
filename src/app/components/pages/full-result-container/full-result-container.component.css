@@ -33,8 +33,21 @@ span {
 
 .sidebar__card {
   margin: 10px;
+  min-width: 200px;
+  
 }
 
 .sidebar__textarea {
   width: 100%;
+}
+
+.list__item {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.result__information__block {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
 }

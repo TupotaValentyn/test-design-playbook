@@ -14,15 +14,15 @@
         <mat-card-content>
           <mat-list>
             <mat-divider></mat-divider>
-            <mat-list-item>{{ resultItem.applicant.surname }} {{ resultItem.applicant.first_name }} {{ resultItem.applicant.second_name }}</mat-list-item>
+            <mat-list-item class="list__item">{{ resultItem.applicant.surname }} {{ resultItem.applicant.first_name }} {{ resultItem.applicant.second_name }}</mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item><a href="mailto:{{ resultItem.applicant.email }}">{{ resultItem.applicant.email }}</a></mat-list-item>
+            <mat-list-item class="list__item"><a href="mailto:{{ resultItem.applicant.email }}">{{ resultItem.applicant.email }}</a></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>Created link: <time datetime="2018-01-01 12:00">{{ resultItem.applicant.created | date: "mediumDate" }}</time></mat-list-item>
+            <mat-list-item class="list__item">Created link: <time datetime="2018-01-01 12:00">{{ resultItem.applicant.created | date: "mediumDate" }}</time></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>Test pass: <time datetime="2019-01-01 12:00">{{ resultItem.solved_date | date: "mediumDate" }}</time></mat-list-item>
+            <mat-list-item class="list__item">Test pass: <time datetime="2019-01-01 12:00">{{ resultItem.solved_date | date: "mediumDate" }}</time></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item>Mark: {{ resultItem.applicant.mark }}</mat-list-item>
+            <mat-list-item class="list__item">Mark: {{ resultItem.applicant.mark }}</mat-list-item>
           </mat-list>
         </mat-card-content>
       </mat-card>
