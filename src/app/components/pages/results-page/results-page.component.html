@@ -1,9 +1,20 @@
 <app-admin-navbar></app-admin-navbar>
-
-<ol>
+<ol *ngIf="results.length !== 0 || !isLoadedContent; else cat">
   <li class="card__wrapper" *ngFor="let resultItem of results; index as index">
-    <app-results-card (onDelete)="updateAfterDelete()" [result_item]="resultItem" [index]="index + 1">
+    <app-results-card
+      (onDelete)="updateAfterDelete()"
+      [result_item]="resultItem"
+      [index]="index + 1">
 
     </app-results-card>
   </li>
 </ol>
+<ng-template #cat>
+  <div class="cat__empty__page">
+    <div class="cat__center__content">
+      <span class="cat__upper__text">Nothing here yet...</span>
+      <img src="../../../../assets/happy_cat.png" class="cat__center__img" alt="Happy cat">
+      <span>You can create new link in <a routerLink="/admin/links">here</a></span>
+    </div>
+  </div>
+</ng-template>
