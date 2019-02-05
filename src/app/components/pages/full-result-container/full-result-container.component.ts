@@ -37,4 +37,17 @@ export class FullResultContainerComponent implements OnInit {
     this.onlySelected = !this.onlySelected;
   }
   
+  addComment(comment) {
+    this.resultItem.applicant.comment = comment.value;
+
+    this.updateComment();
+  }
+
+  updateComment() {
+    const token = this.resultItem.applicant.token;
+    const comment = this.resultItem.applicant.comment;
+
+    this.dataSource.updateCommentAboutUser(token, comment)
+    .subscribe();
+  }
 }
