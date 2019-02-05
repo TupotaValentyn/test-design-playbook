@@ -1,55 +1,78 @@
 .wrapper {
-    width: 100%;
-    height: calc(100% - 56px);
-    display: flex;
-    align-items: stretch;
+  width: 100%;
+  height: calc(100% - 56px);
+  display: flex;
+  align-items: stretch;
 }
 
 .side__bar {
-    min-width: 200px;
-    width: 20%;
-    background-color: #eeeeee;
-    padding: 0 10px 0 10px;
-    overflow-y: auto;
+  min-width: 200px;
+  width: 20%;
+  background-color: #eeeeee;
+  padding: 0 10px 0 10px;
+  overflow-y: auto;
 }
 
 .sidebar__title {
-    margin-top: 0;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    text-align: center;
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  text-align: center;
 }
 
 .main__content {
-    width: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+
+.main__instruction {
+  width: 400px;
+  margin: 0 40px;
 }
 
 form {
-    width: 300px;
-    height: 500px;
-    margin-left: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  width: 300px;
+  height: 500px;
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 form,
 mat-toolbar {
-    background-color: white;
-    width: 380px;
+  background-color: white;
+  width: 380px;
 }
-  
+
 .send {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .copy__icon {
-   cursor: pointer;
-   transition: all .1s linear;
+  cursor: pointer;
+  transition: all .1s linear;
 }
 
 .copy__icon:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.cat__wrapper {
+  margin-top: 30px;
+  color: #a0a0a0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.cat__image {
+  opacity: 0.5;
 }
 
 
