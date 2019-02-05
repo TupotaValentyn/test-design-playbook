@@ -1,17 +1,5 @@
 <app-admin-navbar></app-admin-navbar>
 
-<!-- <div
-  *ngFor="let resultGroup of resultMap.entries()"
-  class="results__card__group">
-  <h2>{{ resultGroup[0] }}</h2>
-  <app-results-card
-      *ngFor="let resultItem of resultGroup[1]; let index = index"
-      (onDelete)="updateAfterDelete()"
-      [result_item]="resultItem"
-      [index]="index + 1">
-  </app-results-card>
-</div> -->
-
 <div
   *ngFor="let resultGroup of resultMap.entries() "
   class="results__card__group">

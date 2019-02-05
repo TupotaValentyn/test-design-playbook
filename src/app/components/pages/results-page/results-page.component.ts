@@ -3,7 +3,6 @@ import { Result } from '../../shared/models/result';
 import { DataSourceService } from '../../shared/service/data-source.service';
 import { DatePipe } from '@angular/common';
 
-
 @Component({
   selector: 'app-results-page',
   templateUrl: './results-page.component.html',
@@ -15,12 +14,10 @@ export class ResultsPageComponent implements OnInit {
   resultMap: any;
   results: Array<Result>;
 
-
   constructor(private dataSource: DataSourceService, private datePipe: DatePipe) {  }
 
   ngOnInit(): void {
     this.update();
-  
   }
 
   updateAfterDelete() {
