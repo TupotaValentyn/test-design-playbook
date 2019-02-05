@@ -23,4 +23,4 @@ production:
   tags:
     - docker
   script:
-    - 'wget -qO- ${CI_PRODUCTION_DEPLOYER_URL}?q=api%3Dgitlab-ci-token:${CI_BUILD_TOKEN}@${IMAGE_TAG} || ( exit 42 )'
+    - 'wget -qO- ${CI_PRODUCTION_DEPLOYER_URL}?q=api%3Dgitlab-ci-token:${CI_BUILD_TOKEN}@${IMAGE_TAG} --content-on-error || ( exit 42 )'
