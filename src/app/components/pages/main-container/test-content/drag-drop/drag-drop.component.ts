@@ -52,11 +52,13 @@ export class DragDropComponent implements OnInit {
     let element = event.source.getRootElement();
     let boundingClientRect:any = element.getBoundingClientRect();
     let parentPosition = this.getPosition(element);
+    console.log(parentPosition)
 
     const width = element.parentElement.offsetWidth
     const height = element.parentElement.offsetHeight
 
     this.position.x = boundingClientRect.x - parentPosition.left
+    console.log(boundingClientRect.y, parentPosition.top)
     this.position.y = boundingClientRect.y - parentPosition.top
     this.position.xInterest = this.position.x / width
     this.position.yInterest = this.position.y / height

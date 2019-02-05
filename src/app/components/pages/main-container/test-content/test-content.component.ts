@@ -2,7 +2,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { HelpInstructionModalComponent } from '../help-instruction-modal/help-instruction-modal.component';
 import { SolvedModel } from '../../../shared/models/solved-model';
-// import { DRAGDROP } from '../../../shared/drag-drop'
 
 @Component({
   selector: 'app-test-content',
