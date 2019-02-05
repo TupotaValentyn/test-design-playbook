@@ -1,7 +1,7 @@
 image: docker
 
 variables:
-  IMAGE_TAG: "${CI_PROJECT_ID}-${CI_COMMIT_SHA}"
+  IMAGE_TAG: "$CI_REGISTRY_IMAGE/api:$CI_COMMIT_SHA"
 
 stages:
   - build
