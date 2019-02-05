@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Applicants = require('../models/user');
+const Results = require('../models/result');
 const jwt = require('jsonwebtoken');
 const mail = require('../mail/mailing');
 
@@ -96,9 +97,13 @@ router.post('/users/token/delete', (req, res) => {
 router.post('/users/update', (req, res) => {
   const token = req.body.token;
   const comment = req.body.comment;
-  Applicants.findOneAndUpdate({ token: token }, {$set: { comment: comment }})
+  Applicants.findOneAndUpdate({ token: token }, { comment: comment }, { new: true })
     .then(user => {
-      return res.send(user);
+      return Results.findOneAndUpdate({ token: token }, { applicant: user }, { new: true })
+    })
+    .then(result => {
+      console.log(result);
+      res.send(result);
     })
     .catch((err) => {
       res.status(500).send(err);
