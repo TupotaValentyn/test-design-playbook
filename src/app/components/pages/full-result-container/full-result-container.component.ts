@@ -21,14 +21,6 @@ export class FullResultContainerComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private dataSource: DataSourceService) {  }
 
-  displayAll() {
-    this.onlySelected = false;
-  }
-
-  displaySelected() {
-    this.onlySelected = true;
-  }
-
   ngOnInit(): void {
     const token = this.route.snapshot.paramMap.get('token');
     if (token) {
@@ -39,5 +31,13 @@ export class FullResultContainerComponent implements OnInit {
           console.log(this.resultItem);
         });
     }
+  }
+
+  displayAll() {
+    this.onlySelected = false;
+  }
+
+  displaySelected() {
+    this.onlySelected = true;
   }
 }
