@@ -5,8 +5,8 @@
 .result__item__container {
     display: flex;
     padding: 20px;
-    margin: 0 20px;
-    height: fit-content;
+    margin: 5px 20px;
+    height: 400px;
 }
 
 .result__image__block {
