@@ -12,7 +12,7 @@ export class DataSourceService {
   deleteResult(token): Observable<object> {
     return this.http
       .post(
-        'http://localhost:8000/api/results/delete',
+        '/api/results/delete',
         {
           token: token
         }
@@ -22,7 +22,7 @@ export class DataSourceService {
   authorize(login, pass): Observable<Object> {
     return this.http
       .post(
-      'http://localhost:8000/api/auth',
+      '/api/auth',
       {
         login: login,
         password: pass
@@ -33,7 +33,7 @@ export class DataSourceService {
   disableLink(token): Observable<Object> {
     return this.http
       .post(
-      'http://localhost:8000/api/users/token/deactivate',
+      '/api/users/token/deactivate',
       {
         token: token
       }
@@ -43,14 +43,14 @@ export class DataSourceService {
   getAllLinks(): Observable<Object> {
     return this.http
       .get(
-      'http://localhost:8000/api/users/token/all',
+      '/api/users/token/all',
     );
   }
 
   createLinkForUser(email, name, surname, secondname): Observable<Object> {
     return this.http
       .post(
-      'http://localhost:8000/api/users/token',
+      '/api/users/token',
       {
         surname: surname,
         first_name: name,
@@ -62,7 +62,7 @@ export class DataSourceService {
   sendMailWithLink(email, name, surname, secondname, link): Observable<Object> {
     return this.http
       .post(
-      'http://localhost:8000/api/users/token/send',
+      '/api/users/token/send',
       {
         surname: surname,
         first_name: name,
@@ -74,30 +74,30 @@ export class DataSourceService {
 
   getResultForUser(token): Observable<Object> {
     return this.http
-      .post('http://localhost:8000/api/results/one', {token: token});
+      .post('/api/results/one', {token: token});
   }
 
   getAllModels(): Observable<Object> {
     return this.http
       .get(
-        'http://localhost:8000/api/model/all',
+        '/api/model/all',
       );
   }
 
   getAllModelsNew(): Observable<Object> {
     return this.http
-      .get('http://localhost:8000/api/models/all')
+      .get('/api/models/all')
   }
 
   getSolvedModel(): Observable<Object> {
     return this.http
-      .get('http://localhost:8000/api/models/solved')
+      .get('/api/models/solved')
   }
 
   updateResult(solvedResults): Observable<Object> {
     return this.http
       .post(
-      'http://localhost:8000/api/results/update',
+      '/api/results/update',
       { models: solvedResults }
     );
   }
@@ -107,26 +107,26 @@ export class DataSourceService {
     console.log('Result removed');
     return this.http
       .post(
-        'http://localhost:8000/api/results/delete',
+        '/api/results/delete',
         {token: token}
       );
   }
 
   getAllResults(): Observable<Object> {
     return this.http
-      .get('http://localhost:8000/api/results/all');
+      .get('/api/results/all');
   }
 
   saveResults(models): Observable<Object> {
     return this.http
       .post(
-      'http://localhost:8000/api/results/save',
+      '/api/results/save',
       { models: models }
     );
   }
 
   getApplicantInfo(token): Observable<Object> {
     return this.http
-      .post('http://localhost:8000/api/users/info', {token: token});
+      .post('/api/users/info', {token: token});
   }
 }
