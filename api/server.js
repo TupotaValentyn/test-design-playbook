@@ -15,6 +15,7 @@ console.log('[Server] Application start...');
 
 // connect to database
 require('./data_source/mongodb_connect')();
+require('./startup/database_checker')();
 
 // support json encoded bodies
 const bodyParser = require('body-parser');
