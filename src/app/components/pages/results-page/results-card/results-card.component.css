@@ -14,13 +14,17 @@ mat-card {
 }
 
 .info__group.number {
-  padding: 10px;
+  padding: 0 10px;
   border-right: 1px solid red;
   margin: 0 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-end;
+}
+
+.date__info {
+  opacity: 0.5;
 }
 
 mat-card, .button__container {
