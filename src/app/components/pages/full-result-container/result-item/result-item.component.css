@@ -5,20 +5,15 @@
 .result__item__container {
     display: flex;
     padding: 20px;
-    /* justify-content: space-between; */
-    /* align-items: flex-start; */
     margin: 20px;
     height: 90%;
     height: 80%;
-    /* width: 90%; */
-    /* overflow-x: hidden;  */
 }
 
 .result__image__block {
     display: flex;
     height: 100%;
     align-items: center;
-    /* flex: 1; */
 }
 
 .result__information__block {
@@ -108,8 +103,6 @@ mat-form-field {
     overflow-y: auto;
     position: relative;
 }
-
-
 
 .comment__child:first-child {
     margin: 0 20px 0 0;
