@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import {SolvedModel} from '../../../shared/models/solved-model';
+import { SolvedModel } from '../../../shared/models/solved-model';
 
 @Component({
   selector: 'app-sidebar',

@@ -38,7 +38,8 @@ router.post('/results/save', (req, res) => {
       return mailgun.testCompleted({
         name: applicant.first_name,
         surname: applicant.surname,
-        email: employer.email
+        email: employer.email,
+        mark: applicant.mark
       })
     })
     .then(() => {
@@ -76,7 +77,8 @@ router.get('/results/all', (req, res) => {
   }
   Result.find({ deleted: false }, { deleted: 0 })
     .then((resultsDocs) => {
-        res.send(resultsDocs);
+      resultsDocs.sort((a, b) => b.solved_date - a.solved_date);
+      res.send(resultsDocs);
     })
     .catch((err) => {
       res.status(err.status).send(err);

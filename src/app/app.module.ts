@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
+
 
 // component
 import { AppRoutingModule } from './app-routing.module';
@@ -39,6 +41,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 // service
 import { JwtInterceptorService } from './components/shared/interceptors/jwt-interceptor.service';
@@ -46,6 +49,7 @@ import { ErrorInterceptorService } from './components/shared/interceptors/error-
 import { LinkInfoDialogComponent } from './components/pages/admin-panel-link/admin-panel-link-info/link-info-dialog/link-info-dialog.component';
 import { SmthWentWrongComponent } from './components/pages/smth-went-wrong/smth-went-wrong.component';
 import { HelpInstructionModalComponent } from './components/pages/main-container/help-instruction-modal/help-instruction-modal.component';
+import { ConfirmRemoveComponent } from './components/pages/results-page/results-card/confirm-remove/confirm-remove.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +72,8 @@ import { HelpInstructionModalComponent } from './components/pages/main-container
     TestResultRowComponent,
     LinkInfoDialogComponent,
     HelpInstructionModalComponent,
-    SmthWentWrongComponent
+    SmthWentWrongComponent,
+    ConfirmRemoveComponent
   ],
   imports: [
     BrowserModule,
@@ -93,15 +98,18 @@ import { HelpInstructionModalComponent } from './components/pages/main-container
     MatSnackBarModule,
     MatDialogModule,
     MatTooltipModule,
-    MatSelectModule
+    MatSelectModule,
+    MatButtonToggleModule
   ],
   entryComponents: [
     LinkInfoDialogComponent,
-    HelpInstructionModalComponent
+    HelpInstructionModalComponent,
+    ConfirmRemoveComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true},
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

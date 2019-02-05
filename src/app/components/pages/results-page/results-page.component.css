@@ -2,11 +2,17 @@ body {
     display: flex;
 }
 
-ol {
-    list-style: none;
+.results__card__group {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto;
+    padding: 10px;
+    /* border: 1px solid red; */
+    margin-top: 20px;
+}
+
+h2 {
+    align-self: flex-start;
+    margin-left: 170px;
 }
 

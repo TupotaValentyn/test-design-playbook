@@ -1,10 +1,13 @@
 <app-admin-navbar></app-admin-navbar>
-<ol>
-  <li class="card__wrapper" *ngFor="let resultItem of results; index as index">
-    <app-results-card
+
+<div
+  *ngFor="let resultGroup of resultMap.entries()"
+  class="results__card__group">
+  <h2>{{ resultGroup[0] }}</h2>
+  <app-results-card
+      *ngFor="let resultItem of resultGroup[1]; index as index"
       (onDelete)="updateAfterDelete()"
       [result_item]="resultItem"
       [index]="index + 1">
-    </app-results-card>
-  </li>
-</ol>
+  </app-results-card>
+</div>
