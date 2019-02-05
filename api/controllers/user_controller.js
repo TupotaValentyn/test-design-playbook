@@ -73,7 +73,10 @@ router.get('/users/token/all', (req, res) => {
   if (req.access !== 'admin') {
     return res.status(403).send('You do not have permission');
   }
-  Applicants.find({ status: { $nin: [Applicants.STATUS_DEACTIVATED, Applicants.STATUS_EXPIRED, Applicants.STATUS_EVALUATED]}})
+  Applicants.find({
+    status: { $nin: [Applicants.STATUS_DEACTIVATED, Applicants.STATUS_EXPIRED, Applicants.STATUS_EVALUATED]},
+    expired: {$gte: Date.now()}
+  })
     .then((docs) => {
       docs.sort((a, b) => b.created - a.created);
       res.send(docs);
