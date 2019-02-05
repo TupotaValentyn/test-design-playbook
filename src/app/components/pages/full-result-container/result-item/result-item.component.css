@@ -11,7 +11,6 @@
 
 .result__image__block {
   display: flex;
-  /* height: 100%; */
   align-items: center;
 }
 
