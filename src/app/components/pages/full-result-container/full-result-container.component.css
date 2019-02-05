@@ -42,3 +42,9 @@ span {
 .route__btn {
   background-color: white;
 }
+
+.btn__group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

@@ -56,7 +56,7 @@
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style" class="btn__group">
             <mat-button-toggle value="all" class="toggle__btn" (click)="displayAll()" [ngStyle]="{'background-color': !onlySelected ? '#d3d2d1': 'white'}">
               All templates
             </mat-button-toggle>
