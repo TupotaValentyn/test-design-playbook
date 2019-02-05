@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {SolvedModel} from '../../shared/models/solved-model';
-import {Router} from '@angular/router';
-import {DataSourceService} from '../../shared/service/data-source.service';
-import {Result} from '../../shared/models/result';
+import { Component, OnInit } from '@angular/core';
+import { SolvedModel } from '../../shared/models/solved-model';
+import { Router } from '@angular/router';
+import { DataSourceService } from '../../shared/service/data-source.service';
+import { Result } from '../../shared/models/result';
 
 @Component({
   selector: 'app-main-container',
