@@ -96,7 +96,7 @@ router.post('/users/token/delete', (req, res) => {
 router.post('/users/update', (req, res) => {
   const token = req.body.token;
   const comment = req.body.comment;
-  Applicants.findOne({ token: token }, {comment: comment})
+  Applicants.findOneAndUpdate({ token: token }, {$set: { comment: comment }})
     .then(user => {
       return res.send(user);
     })
