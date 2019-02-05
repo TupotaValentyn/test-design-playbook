@@ -32,7 +32,6 @@ export class FullResultContainerComponent implements OnInit {
   }
 
   addComment(comment) {
-    console.log(comment.value);
     this.resultItem.applicant.comment = comment.value;
 
     this.updateComment();
@@ -41,9 +40,6 @@ export class FullResultContainerComponent implements OnInit {
   updateComment() {
     const token = this.resultItem.applicant.token;
     const comment = this.resultItem.applicant.comment;
-
-    console.log(token);
-    console.log(comment);
 
     this.dataSource.updateCommentAboutUser(token, comment)
     .subscribe();

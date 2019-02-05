@@ -102,7 +102,6 @@ router.post('/users/update', (req, res) => {
       return Results.findOneAndUpdate({ token: token }, { applicant: user }, { new: true })
     })
     .then(result => {
-      console.log(result);
       res.send(result);
     })
     .catch((err) => {
