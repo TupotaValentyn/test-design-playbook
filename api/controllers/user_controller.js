@@ -93,6 +93,18 @@ router.post('/users/token/delete', (req, res) => {
   });
 });
 
+router.post('/users/update', (req, res) => {
+  const token = req.body.token;
+  const comment = req.body.comment;
+  Applicants.findOne({ token: token }, {comment: comment})
+    .then(user => {
+      return res.send(user);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    })
+});
+
 console.log('[User Controller]', 'load routes');
 
 
