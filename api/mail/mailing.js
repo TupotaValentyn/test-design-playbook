@@ -53,7 +53,7 @@ module.exports.testCompleted = (user) => {
         'Test completed.',
         mailTemplate(
             '',
-            `Candidate ${user.surname} ${user.name} passed the test. Results are available on our website.`
+            `Candidate ${user.surname} ${user.name} passed the test. His marks&nbsp${user.mark}. Full results are available on our website.`
         )
     )
 };

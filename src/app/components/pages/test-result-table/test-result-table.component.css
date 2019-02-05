@@ -1,23 +1,39 @@
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    background: #f0f0f0;
+  background: #f0f0f0;
 }
 
 .nav {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px 0;
+}
+
+.route__btn {
+  display: flex;
+  align-self: center;
+}
+
+.is__chosen {
+  background-color: #d3d2d1;
+}
+
+.wrapper,
+.switch__wrapper,
+.result__table {
+  display: flex;
+  flex-direction: column;
+}
+
+.toggle__btn {
+  flex-grow: 1;
 }
 
 .result__table {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  width: 100%;
 }
 
 .result__row {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 }

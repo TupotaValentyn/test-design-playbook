@@ -75,6 +75,7 @@ router.get('/users/token/all', (req, res) => {
   }
   Applicants.find({ status: { $nin: [Applicants.STATUS_DEACTIVATED, Applicants.STATUS_EXPIRED, Applicants.STATUS_EVALUATED]}})
     .then((docs) => {
+      docs.sort((a, b) => b.created - a.created);
       res.send(docs);
     })
     .catch((err) => {
