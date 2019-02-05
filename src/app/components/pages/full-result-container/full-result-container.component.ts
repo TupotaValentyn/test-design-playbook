@@ -17,14 +17,7 @@ export class FullResultContainerComponent implements OnInit {
     solved_date: new Date()
   };
 
-  @Output() onSaveComment = new EventEmitter();
-
   constructor(private route: ActivatedRoute, private dataSource: DataSourceService) {  }
-
-  addComment(comment) {
-    this.resultItem.applicant.comment = comment.value;
-    this.onSaveComment.emit(this.resultItem);
-  }
 
   ngOnInit(): void {
     const token = this.route.snapshot.paramMap.get('token');
@@ -36,5 +29,19 @@ export class FullResultContainerComponent implements OnInit {
           console.log(this.resultItem);
         });
     }
+  }
+
+  addComment(comment) {
+    this.resultItem.applicant.comment = comment.value;
+
+    this.updateComment();
+  }
+
+  updateComment() {
+    const token = this.resultItem.applicant.token;
+    const comment = this.resultItem.applicant.comment;
+
+    this.dataSource.updateCommentAboutUser(token, comment)
+    .subscribe();
   }
 }
