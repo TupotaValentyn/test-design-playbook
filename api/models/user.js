@@ -28,7 +28,7 @@ const applicant = mongoose.Schema({
   },
   expired: {
     type: Date,
-    default: (Date.now() + 86400000)
+    default: (Date.now() + Number(process.env.LINK_EXPIRES) * 1000)
   },
   mark: {
     type: Number,

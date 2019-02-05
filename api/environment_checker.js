@@ -21,5 +21,8 @@ if (!process.env.JWT_PRIVATE_KEY) {
   throw 'JWT Exception: JWT_PRIVATE_KEY not set';
 }
 
-
+if (!process.env.LINK_EXPIRES) {
+  console.error('[post_application]', 'WARN\n', 'LINK_EXPIRES environment variable not set. Use default 604800 (7 days)', '\n');
+  process.env.LINK_EXPIRES = '604800';
+}
 
