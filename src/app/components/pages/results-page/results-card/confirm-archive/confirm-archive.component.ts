@@ -3,10 +3,10 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 import { Applicant } from '../../../../shared/models/applicant';
 
 @Component({
-  selector: 'app-confirm-remove',
-  templateUrl: './confirm-remove.component.html',
-  styleUrls: ['./confirm-remove.component.css']
+  selector: 'app-confirm-archive',
+  templateUrl: './confirm-archive.component.html',
+  styleUrls: ['./confirm-archive.component.css']
 })
-export class ConfirmRemoveComponent {
+export class ConfirmArchiveComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: Applicant) { }
 }

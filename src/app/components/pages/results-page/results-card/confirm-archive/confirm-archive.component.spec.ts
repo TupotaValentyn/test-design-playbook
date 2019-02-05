@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConfirmRemoveComponent } from './confirm-remove.component';
+import { ConfirmArchiveComponent } from './confirm-archive.component';
 
-describe('ConfirmRemoveComponent', () => {
-  let component: ConfirmRemoveComponent;
-  let fixture: ComponentFixture<ConfirmRemoveComponent>;
+describe('ConfirmArchiveComponent', () => {
+  let component: ConfirmArchiveComponent;
+  let fixture: ComponentFixture<ConfirmArchiveComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConfirmRemoveComponent ]
+      declarations: [ ConfirmArchiveComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConfirmRemoveComponent);
+    fixture = TestBed.createComponent(ConfirmArchiveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
