@@ -17,7 +17,7 @@ if (!process.env.DATABASE_CONNECTION_URL) {
 }
 
 if (!process.env.JWT_PRIVATE_KEY) {
-  console.error('[post_application] WARN: JWT_PRIVATE_KEY not set. Use default `some_key`\n');
+  console.error('[post_application] WARN: JWT_PRIVATE_KEY not set. Need set JWT_PRIVATE_KEY in .env\n');
   throw 'JWT Exception: JWT_PRIVATE_KEY not set';
 }
 
