@@ -1,11 +1,16 @@
 image: docker
 
+variables:
+  IMAGE_TAG: "${CI_PROJECT_ID}-${CI_COMMIT_SHA}"
+
 stages:
   - build
 
-build:
+job1:
   stage: build
   tags:
     - docker
   script:
-    - docker build .
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build -t "$IMAGE_TAG" .
+    - docker push "$IMAGE_TAG"
