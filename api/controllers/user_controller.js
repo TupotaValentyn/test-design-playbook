@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Applicants = require('../models/user');
+const Results = require('../models/result');
 const jwt = require('jsonwebtoken');
 const mail = require('../mail/mailing');
 
@@ -91,6 +92,21 @@ router.post('/users/token/delete', (req, res) => {
     }
     res.send({message: 'Deactivated succesfully'});
   });
+});
+
+router.post('/users/update', (req, res) => {
+  const token = req.body.token;
+  const comment = req.body.comment;
+  Applicants.findOneAndUpdate({ token: token }, { comment: comment }, { new: true })
+    .then(user => {
+      return Results.findOneAndUpdate({ token: token }, { applicant: user }, { new: true })
+    })
+    .then(result => {
+      res.send(result);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    })
 });
 
 console.log('[User Controller]', 'load routes');
