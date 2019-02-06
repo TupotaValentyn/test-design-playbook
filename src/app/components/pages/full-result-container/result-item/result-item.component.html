@@ -18,9 +18,17 @@
             Applicant doesn't like it!
           </span>
         </ng-template>
+        <!-- <mat-form-field>
+          <mat-label>User comment</mat-label>
+          <textarea matInput
+                    cdkTextareaAutosize
+                    cdkAutosizeMinRows="3"
+                    cdkAutosizeMaxRows="5"
+                    readonly="readonly">{{ item.comment }}</textarea>
+        </mat-form-field> -->
     </div>
-
     <div class="comment">
+
         <div class="comment__group">
           <h3 class="commaent__name">
             Positive comment
@@ -29,16 +37,18 @@
             {{ goodComment }}
           </p>
         </div>
+      
+      
         <div class="comment__group">
             <h3 class="commaent__name">
-              Negative comment
+              Negative negative
             </h3>
             <p class="comment__child negative">
               {{ badComment }}
             </p>
         </div>
+      
     </div>
-    
   </div>
 
   <div class="result__image__block">

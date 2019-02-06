@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Result } from '../../shared/models/result';
 import { DataSourceService } from '../../shared/service/data-source.service';
 import { DatePipe } from '@angular/common';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-results-page',
@@ -17,7 +18,9 @@ export class ResultsPageComponent implements OnInit {
   
   isLoadedContent: boolean = false;
   
-  constructor(private dataSource: DataSourceService, private datePipe: DatePipe) {  }
+  constructor(private dataSource: DataSourceService,
+              private datePipe: DatePipe,
+              private snackBar: MatSnackBar) {  }
   
   ngOnInit(): void {
     this.update();
@@ -51,7 +54,7 @@ export class ResultsPageComponent implements OnInit {
 
         this.isLoadedContent = true;
       }, (error) => {
-        alert(error);
+        this.snackBar.open(error, 'Close', { duration: 2000 });
       });
   }
 }
