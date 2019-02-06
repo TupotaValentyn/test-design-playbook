@@ -144,4 +144,10 @@ export class DataSourceService {
     return this.http
       .post('http://localhost:8000/api/change/password', {password: oldPassword, newPassword: newPassword});
   }
+  
+  getAllArchiveResults():Observable<Object> {
+    return this.http
+      .get('http://localhost:8000/api/results/archived')
+  }
+
 }
