@@ -10,6 +10,7 @@ import { DataSourceService } from '../../shared/service/data-source.service';
 export class ResultsPageComponent implements OnInit {
 
   results: Array<Result> = [];
+  isLoadedContent: boolean = false;
 
   constructor(private dataSource: DataSourceService) {  }
 
@@ -24,6 +25,7 @@ export class ResultsPageComponent implements OnInit {
     this.dataSource.getAllResults()
       .subscribe((data: Array<Result>) => {
         this.results = data;
+        this.isLoadedContent = true;
       }, (error) => {
         alert(error);
       });

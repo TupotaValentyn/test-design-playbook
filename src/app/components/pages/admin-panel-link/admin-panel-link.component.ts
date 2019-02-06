@@ -3,7 +3,6 @@ import { DataSourceService } from '../../shared/service/data-source.service';
 import { Applicant } from '../../shared/models/applicant';
 import { NgForm } from '@angular/forms';
 
-
 @Component({
   selector: 'app-admin-panel-link',
   templateUrl: './admin-panel-link.component.html',
@@ -13,9 +12,10 @@ export class AdminPanelLinkComponent implements OnInit {
 
   constructor (private dataSource: DataSourceService) { }
 
-  userDataInfoList: Array<Applicant>;
+  userDataInfoList: Array<Applicant> = [];
   token = '';
   link = '';
+  isAllLinkLoaded: boolean = false;
 
   ngOnInit() {
     this.updateUsersDataList();
@@ -26,6 +26,7 @@ export class AdminPanelLinkComponent implements OnInit {
       .subscribe((data: Array<Applicant>) => {
         this.userDataInfoList = data;
         console.log(data);
+        this.isAllLinkLoaded = true;
       });
   }
 

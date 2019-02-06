@@ -23,6 +23,21 @@ router.get('/auth/generate', () => {
   employer.save();
 });
 
+router.post('/change/password', (req, res) => {
+  const token = req.token;
+  jwt.verify(token, process.env.JWT_PRIVATE_KEY, (err, decoded) => {
+    Employer.findOne({ login: decoded.user, password: req.body.password })
+      .then((docs) => {
+        if (docs === null) {
+          throw 'Bad auth data';
+        }
+        return Employer.findOneAndUpdate({ login: decoded.user }, { password: req.body.newPassword })
+      })
+      .then(() => res.send({ m: 'Successfully updated '}))
+      .catch(err => res.status(500).send(err))
+  })
+
+});
 
 console.log('[Auth Controller]', 'load routes');
 

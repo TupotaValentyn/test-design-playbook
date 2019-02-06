@@ -30,4 +30,18 @@ export class FullResultContainerComponent implements OnInit {
         });
     }
   }
+
+  addComment(comment) {
+    this.resultItem.applicant.comment = comment.value;
+
+    this.updateComment();
+  }
+
+  updateComment() {
+    const token = this.resultItem.applicant.token;
+    const comment = this.resultItem.applicant.comment;
+
+    this.dataSource.updateCommentAboutUser(token, comment)
+    .subscribe();
+  }
 }
