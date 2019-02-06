@@ -2,7 +2,7 @@
 <ol *ngIf="results.length !== 0 || !isLoadedContent; else cat">
   <div class="search">
     <mat-form-field>
-      <input matInput type="text" placeholder="Search request" (keydown)="onKeyDown($event)" #search_request>
+      <input matInput type="text" placeholder="Search request" (keydown)="onKeyDown($event)">
     </mat-form-field>
     <mat-icon>search</mat-icon>
   </div>
