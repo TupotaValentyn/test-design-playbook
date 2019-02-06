@@ -16,3 +16,16 @@
   flex-direction: column;
   padding: 5px;
 }
+
+.input__width {
+  width: 400px;
+}
+
+.info__text {
+  color: #a0a0a0;
+  font-size: 10px;
+}
+
+.update__password__button {
+  margin: 5px;
+}

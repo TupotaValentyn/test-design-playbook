@@ -11,20 +11,21 @@
   <div class="central__container">
     <h2>Change password</h2>
     <mat-divider></mat-divider>
-    <mat-form-field style="width: 400px">
+    <mat-form-field class="input__width">
       <input matInput placeholder="Old password" #oldPassword type="password">
     </mat-form-field>
 
-    <mat-form-field style="width: 400px">
+    <mat-form-field class="input__width">
       <input matInput placeholder="New password" #newPassword type="password">
     </mat-form-field>
 
-    <mat-form-field style="width: 400px">
+    <mat-form-field class="input__width">
       <input matInput placeholder="Confirm new password" #confirmPassword type="password">
     </mat-form-field>
-    <span style="color: #a0a0a0; font-size: 10px">Make sure it's more than 15 characters OR at least 8 characters including a number and a lowercase letter.</span>
+    <span class="info__text">Make sure it's more than 15 characters OR at least 8 characters including a number and a lowercase letter.</span>
     <div>
-      <button mat-raised-button (click)="changePassword(oldPassword.value, newPassword.value, confirmPassword.value)" color="accent" style="margin: 5px">Update password</button>
+      <button mat-raised-button (click)="changePassword(oldPassword, newPassword, confirmPassword)" color="accent"
+              class="update__password__button">Update password</button>
     </div>
   </div>
 </div>

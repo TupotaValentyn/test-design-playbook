@@ -11,16 +11,18 @@ export class AdminSettingsComponent {
 
   constructor(private snackBar: MatSnackBar, private dataSource: DataSourceService) { }
 
-  changePassword(oldPassword: string, newPassword: string, confirmPassword: string): void {
-    if (newPassword !== confirmPassword) {
+  changePassword(oldPassword: HTMLInputElement, newPassword: HTMLInputElement, confirmPassword: HTMLInputElement): void {
+    if (newPassword.value !== confirmPassword.value) {
       this.snackBar.open('Password confirmation doesn\'t match the password', 'Close', { duration: 1000 });
       return;
     }
-    this.dataSource.changePassword(oldPassword, newPassword)
+    this.dataSource.changePassword(oldPassword.value, newPassword.value)
       .subscribe((data) => {
-      this.snackBar.open('Password change successful', 'Close', { duration: 1000 });
+        oldPassword.value = "";
+        newPassword.value = "";
+        confirmPassword.value = "";
+        this.snackBar.open('Password change successful', 'Close', { duration: 1000 });
     });
-
   }
 
 }
