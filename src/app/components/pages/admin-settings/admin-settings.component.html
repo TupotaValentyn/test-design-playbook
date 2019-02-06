@@ -1,0 +1,30 @@
+<app-admin-navbar></app-admin-navbar>
+<div class="main__container">
+  <div>
+    <mat-button-toggle-group vertical class="left__toggle__menu">
+      <mat-button-toggle disabled="disabled">Profile</mat-button-toggle>
+      <mat-button-toggle>Security</mat-button-toggle>
+      <mat-button-toggle disabled="disabled">E-mail</mat-button-toggle>
+      <mat-button-toggle disabled="disabled">Notification</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <div class="central__container">
+    <h2>Change password</h2>
+    <mat-divider></mat-divider>
+    <mat-form-field style="width: 400px">
+      <input matInput placeholder="Old password" #oldPassword type="password">
+    </mat-form-field>
+
+    <mat-form-field style="width: 400px">
+      <input matInput placeholder="New password" #newPassword type="password">
+    </mat-form-field>
+
+    <mat-form-field style="width: 400px">
+      <input matInput placeholder="Confirm new password" #confirmPassword type="password">
+    </mat-form-field>
+    <span style="color: #a0a0a0; font-size: 10px">Make sure it's more than 15 characters OR at least 8 characters including a number and a lowercase letter.</span>
+    <div>
+      <button mat-raised-button (click)="changePassword(oldPassword.value, newPassword.value, confirmPassword.value)" color="accent" style="margin: 5px">Update password</button>
+    </div>
+  </div>
+</div>
