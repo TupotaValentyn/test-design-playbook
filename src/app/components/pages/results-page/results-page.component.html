@@ -2,12 +2,9 @@
 <ol *ngIf="results.length !== 0 || !isLoadedContent; else cat">
   <div class="search">
     <mat-form-field>
-      <input matInput type="text" #search_request>
+      <input matInput type="text" placeholder="Search request" (keydown)="onKeyDown($event)" #search_request>
     </mat-form-field>
-    <button mat-button (click)="searchResults(search_request)">
-      <mat-icon>search</mat-icon>
-      Search
-    </button>
+    <mat-icon>search</mat-icon>
   </div>
 
   <li class="card__wrapper" *ngFor="let resultItem of resultsDisplay; index as index">

@@ -35,11 +35,7 @@ export class ResultsPageComponent implements OnInit {
       });
   }
 
-  searchResults(search_request) {
-    console.log(search_request);
-
-    const keyword = search_request.value;
-
+  searchResults(keyword) {
     this.resultsDisplay = [];
 
     if (keyword === "") {
@@ -53,6 +49,12 @@ export class ResultsPageComponent implements OnInit {
         this.resultsDisplay.push(res);
       }
     });
+  }
+
+  onKeyDown(event) {
+    if (event.key === "Enter") {
+      this.searchResults(event.target.value);
+    }
   }
 }
 
