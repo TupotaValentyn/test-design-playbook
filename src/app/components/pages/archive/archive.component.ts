@@ -21,6 +21,10 @@ export class ArchiveComponent implements OnInit {
     })
   }
 
+  updateCardData(index) {
+    console.log(index)
+  }
+
 
 
 }

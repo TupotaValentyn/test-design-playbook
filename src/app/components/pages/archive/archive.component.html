@@ -3,7 +3,7 @@
 <ol class="list" >
     <li class="card" *ngFor="let resultItem of data; index as index">
       <app-results-card
-      (onDelete)="updateAfterDelete()"
+      (onDelete)="updateCardData(index)"
       [result_item]="resultItem"
       [index]="index + 1">
       >
