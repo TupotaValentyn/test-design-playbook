@@ -102,7 +102,11 @@ router.post('/users/update', (req, res) => {
   const comment = req.body.comment;
   Applicants.findOneAndUpdate({ token: token }, { comment: comment }, { new: true })
     .then(user => {
-      return Results.findOneAndUpdate({ token: token }, { applicant: user }, { new: true })
+      if (user) {
+        return Results.findOneAndUpdate({ token: token }, { applicant: user }, { new: true })
+      } else {
+        throw {message: `No such user found with token ${token}`};
+      }
     })
     .then(result => {
       res.send(result);
