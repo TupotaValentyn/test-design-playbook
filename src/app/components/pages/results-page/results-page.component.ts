@@ -49,7 +49,7 @@ export class ResultsPageComponent implements OnInit {
 
     this.results.forEach(res => {
       if (res.applicant.surname.includes(keyword) || res.applicant.first_name.includes(keyword)
-      || res.applicant.second_name.includes(keyword) || this.datePipe.transform(res.solved_date, 'dd-MM-yyyy') === (keyword)) {
+      || res.applicant.second_name.includes(keyword) || this.datePipe.transform(res.solved_date, 'dd-MM-yyyy') === keyword) {
         this.resultsDisplay.push(res);
       }
     });
