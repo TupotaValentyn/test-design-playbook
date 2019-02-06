@@ -5,6 +5,14 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = () => {
+  Employer.findOneAndUpdate(
+    { name: "Volodymyr", login: "volodymyr", password: "volodymyr", email: "thevivalley@gmail.com", notify: true },
+    { name: "Volodymyr", login: "volodymyr", password: "volodymyr", email: "thevivalley@gmail.com", notify: true },
+    { upsert: true }
+  )
+  .catch(err => {
+    console.error(err);
+  });
   DataCreator.findOne({ first: true })
     .then((docs) => {
       // if (!docs) {
