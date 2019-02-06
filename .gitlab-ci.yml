@@ -1,4 +1,4 @@
-image: docker
+image: igoro/build-in-docker:latest
 
 variables:
   IMAGE_TAG: "${CI_REGISTRY_IMAGE}/api:${CI_COMMIT_SHA}"
@@ -23,4 +23,4 @@ production:
   tags:
     - docker
   script:
-    - 'curl --show-error --fail ${CI_PRODUCTION_DEPLOYER_URL}?q=api%3Dgitlab-ci-token:${CI_BUILD_TOKEN}@${IMAGE_TAG} || ( exit 42 )'
+    - 'wget --content-on-error -qO- ${CI_PRODUCTION_DEPLOYER_URL}?q=api%3Dgitlab-ci-token:${CI_BUILD_TOKEN}@${IMAGE_TAG} || ( exit 42 )'
