@@ -13,10 +13,7 @@
       <span class="info info__rating">
         Rating :
         <span>
-          {{ "0" }}
-        </span>
-        <span>
-          {{ "5" }}
+          {{ result_item.applicant.mark }}
         </span>
       </span>
       <span class="info info__comment">
@@ -33,8 +30,6 @@
     <button class="btn accept" color="primary" mat-raised-button routerLink="/admin/results/full/{{result_item.applicant.token}}">
       More...
     </button>
-    <button class="btn delete" color="warn" mat-raised-button (click)="deleteResult(result_item.applicant.token)">
-      Remove
-    </button>
+    <button class="btn delete" color="warn" mat-raised-button (click)="openDialog()">Archive</button>
   </div>
 </mat-card>

@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Applicants = require('../models/user');
+const Results = require('../models/result');
 const jwt = require('jsonwebtoken');
 const mail = require('../mail/mailing');
 
@@ -18,7 +19,7 @@ router.post('/users/token', (req, res) => {
   if (req.access !== 'admin') {
     return res.status(403).send('You do not have permission');
   }
-  const token = jwt.sign({ user: req.body.email, access: 'user' }, process.env.JWT_PRIVATE_KEY, { expiresIn: 86400*7 });
+  const token = jwt.sign({ user: req.body.email, access: 'user' }, process.env.JWT_PRIVATE_KEY, { expiresIn: Number(process.env.LINK_EXPIRES) });
 
   const user = new Applicants({
     surname: req.body.surname,
@@ -73,7 +74,10 @@ router.get('/users/token/all', (req, res) => {
   if (req.access !== 'admin') {
     return res.status(403).send('You do not have permission');
   }
-  Applicants.find({ status: { $nin: [Applicants.STATUS_DEACTIVATED, Applicants.STATUS_EXPIRED, Applicants.STATUS_EVALUATED]}})
+  Applicants.find({
+    status: { $nin: [Applicants.STATUS_DEACTIVATED, Applicants.STATUS_EXPIRED, Applicants.STATUS_EVALUATED]},
+    expired: {$gte: Date.now()}
+  })
     .then((docs) => {
       docs.sort((a, b) => b.created - a.created);
       res.send(docs);
@@ -91,6 +95,21 @@ router.post('/users/token/delete', (req, res) => {
     }
     res.send({message: 'Deactivated succesfully'});
   });
+});
+
+router.post('/users/update', (req, res) => {
+  const token = req.body.token;
+  const comment = req.body.comment;
+  Applicants.findOneAndUpdate({ token: token }, { comment: comment }, { new: true })
+    .then(user => {
+      return Results.findOneAndUpdate({ token: token }, { applicant: user }, { new: true })
+    })
+    .then(result => {
+      res.send(result);
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    })
 });
 
 console.log('[User Controller]', 'load routes');

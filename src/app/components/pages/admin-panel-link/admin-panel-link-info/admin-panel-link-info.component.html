@@ -1,24 +1,24 @@
 <mat-card>
-    <mat-card-header>
-      <mat-card-title>{{ getShortUserName() }}</mat-card-title>
-      <mat-card-subtitle>
-          <a href="mailto:{{ usersDataItem.email }}">{{ usersDataItem.email }}</a>
-      </mat-card-subtitle>
-    </mat-card-header>
+  <mat-card-header>
+    <mat-card-title>{{ getShortUserName() }}</mat-card-title>
+    <mat-card-subtitle>
+      <a href="mailto:{{ usersDataItem.email }}">{{ usersDataItem.email }}</a>
+    </mat-card-subtitle>
+  </mat-card-header>
 
-    <mat-card-content>
-      <div class="info__field">
-        <span class="info">Created:</span>
-        <span>{{ usersDataItem.created | date:"mediumDate" }}</span>
-      </div>
-      <div class="info__field">
-        <span class="info">Expires:</span>
-        <span>{{ usersDataItem.expired | date:"mediumDate" }}</span>
-      </div>
-    </mat-card-content>
-      
-    <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="showMoreInfoDialog()">MORE</button>
-      <button mat-raised-button color="warn" (click)="disable(usersDataItem.token)" >DISABLE</button>
-    </mat-card-actions>
+  <mat-card-content>
+    <div class="info__field">
+      <span class="info">Created:</span>
+      <span>{{ usersDataItem.created | date:"mediumDate" }}</span>
+    </div>
+    <div class="info__field">
+      <span class="info">Expires:</span>
+      <span>{{ usersDataItem.expired | date:"mediumDate" }}</span>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="showMoreInfoDialog()">MORE</button>
+    <button mat-raised-button color="warn" (click)="disable(usersDataItem.token)">DISABLE</button>
+  </mat-card-actions>
 </mat-card>

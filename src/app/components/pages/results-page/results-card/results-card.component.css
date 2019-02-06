@@ -1,16 +1,22 @@
-mat-card, .card__wrapper, .wrapper, .info__group, .content, .button__container{
+mat-card, 
+.card__wrapper,
+.wrapper, 
+.info__group, 
+.content, 
+.button__container {
   display: flex;
 }
 
-.content, .button__container {
+.content,
+.button__container {
   margin: 0 10px;
 }
 
 mat-card {
   width: 900px;
   height: fit-content;
-  margin: 10px 0;
   justify-content: space-between;
+  margin: 10px auto;
 }
 
 .info__group.number {
@@ -27,7 +33,8 @@ mat-card {
   opacity: 0.5;
 }
 
-mat-card, .button__container {
+mat-card, 
+.button__container {
   align-items: center;
 }
 
