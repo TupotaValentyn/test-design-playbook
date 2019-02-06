@@ -21,11 +21,11 @@ export class FullResultContainerComponent implements OnInit {
   constructor(private route: ActivatedRoute, private dataSource: DataSourceService) {  }
 
   //objects for filters
-  resultItemsDefalut: Array<SolvedModel>;
+  resultItemsDefalut: Array<SolvedModel> = [];
 
-  resultItemsMarkedOnly: Array<SolvedModel>;
-  resultItemsWithCommentsOnly: Array<SolvedModel>;
-  resultItemsMarkedAndCommented:Array<SolvedModel>;
+  resultItemsMarkedOnly: Array<SolvedModel>  = [];
+  resultItemsWithCommentsOnly: Array<SolvedModel> = [];
+  resultItemsMarkedAndCommented:Array<SolvedModel> = [];
 
   ngOnInit(): void {
     const token = this.route.snapshot.paramMap.get('token');
