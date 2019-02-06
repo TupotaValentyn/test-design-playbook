@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
+
 
 // component
 import { AppRoutingModule } from './app-routing.module';
@@ -38,6 +40,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 // service
@@ -99,6 +102,7 @@ import { AdminSettingsComponent } from './components/pages/admin-settings/admin-
     MatSnackBarModule,
     MatDialogModule,
     MatTooltipModule,
+    MatSelectModule,
     MatButtonToggleModule
   ],
   entryComponents: [
@@ -108,7 +112,8 @@ import { AdminSettingsComponent } from './components/pages/admin-settings/admin-
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true},
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })
