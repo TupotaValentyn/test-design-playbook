@@ -133,10 +133,15 @@ export class DataSourceService {
   updateCommentAboutUser(token, comment): Observable<Object> {
     return this.http
       .post(
-      'http://localhost:8000/api/users/update', 
+      'http://localhost:8000/api/users/update',
       {
         token: token,
         comment: comment
       });
+  }
+
+  changePassword(oldPassword: string, newPassword: string): Observable<Object> {
+    return this.http
+      .post('http://localhost:8000/api/change/password', {password: oldPassword, newPassword: newPassword});
   }
 }
