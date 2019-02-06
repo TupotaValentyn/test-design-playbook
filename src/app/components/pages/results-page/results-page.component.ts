@@ -12,12 +12,14 @@ export class ResultsPageComponent implements OnInit {
 
   results: Array<Result> = [];
   resultsDisplay: Array<Result> = []; // for search
+  resultsSet: Set<Result>;
   isLoadedContent: boolean = false;
 
   constructor(private dataSource: DataSourceService, private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     this.update();
+    this.resultsSet = new Set<Result>();
   }
 
   updateAfterDelete() {
@@ -35,19 +37,28 @@ export class ResultsPageComponent implements OnInit {
       });
   }
 
-  searchResults(keyword) {
+  searchResults(request) {
     this.resultsDisplay = [];
+    this.resultsSet.clear();
 
-    if (keyword === "") {
+    if (request === "") {
       this.resultsDisplay = this.results;
       return;
     }
 
-    this.results.forEach(res => {
-      if (res.applicant.surname.includes(keyword) || res.applicant.first_name.includes(keyword)
-      || res.applicant.second_name.includes(keyword) || this.datePipe.transform(res.solved_date, 'dd-MM-yyyy') === keyword) {
-        this.resultsDisplay.push(res);
-      }
+    const allKeywords = request.split(" ");
+    console.log(allKeywords);
+
+    allKeywords.forEach(keyword => {
+      this.results.forEach(res => {
+        if (res.applicant.surname.includes(keyword) || res.applicant.first_name.includes(keyword)
+        || res.applicant.second_name.includes(keyword) || this.datePipe.transform(res.solved_date, 'dd-MM-yyyy') === keyword) {
+          if (!this.resultsSet.has(res)) {
+            this.resultsSet.add(res);
+            this.resultsDisplay.push(res);
+          }
+        }
+      });
     });
   }
 

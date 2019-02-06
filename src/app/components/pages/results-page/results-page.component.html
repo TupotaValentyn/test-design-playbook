@@ -1,11 +1,10 @@
 <app-admin-navbar></app-admin-navbar>
 <ol *ngIf="results.length !== 0 || !isLoadedContent; else cat">
-  <div class="search">
-    <mat-form-field>
-      <input matInput type="text" placeholder="Search request" (keydown)="onKeyDown($event)">
-    </mat-form-field>
-    <mat-icon>search</mat-icon>
-  </div>
+  <mat-form-field appearance="outline" class="search">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Write search request here..." (keydown)="onKeyDown($event)">
+      <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
 
   <li class="card__wrapper" *ngFor="let resultItem of resultsDisplay; index as index">
     <app-results-card
