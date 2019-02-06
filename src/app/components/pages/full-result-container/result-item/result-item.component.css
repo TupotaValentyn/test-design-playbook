@@ -36,7 +36,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #3e4db8;
   color: white;
   border-radius: 50%;
 }
@@ -46,23 +45,33 @@ mat-form-field {
   margin-top: 20px;
 }
 
-.right {
-  color: cadetblue;
+.selected,
+.not__selected {
+  display: block;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  margin-left: 15px;
+  border-radius: 4px;
 }
 
-.wrong {
-  color: indianred;
-  margin: 10px;
+.selected {
+  background-color: #FF4081;
+}
+
+.not__selected {
+  background-color: #3e4db8;
 }
 
 .first__group {
   display: flex;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
 .index {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
 }
 
 .comment {

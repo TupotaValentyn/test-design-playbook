@@ -2,30 +2,20 @@
   <div class="result__information__block">
     <div class="first__group">
         <div class="index">
-          <span class="template__index">{{ index }}</span>
+          <span 
+          [ngStyle]="{'background-color': item.mark ? '#FF4081' : '#3e4db8' }"
+          class="template__index">{{ index }}</span>
           <span class="result__title">{{ item.model.name }}</span>
         </div>
-        <label
-          *ngIf="item.mark; else applicant_not_like"
-          [class.right]="item.mark == item.model.answer"
-          [class.wrong]="item.mark != item.model.answer">
+
+        <span *ngIf="item.mark; else applicant_not_like" class="selected">
           Applicant like it!
-        </label>
+        </span>
         <ng-template #applicant_not_like>
-          <span
-            [class.right]="item.mark == item.model.answer"
-            [class.wrong]="item.mark != item.model.answer">
+          <span class="not__selected">
             Applicant doesn't like it!
           </span>
         </ng-template>
-        <!-- <mat-form-field>
-          <mat-label>User comment</mat-label>
-          <textarea matInput
-                    cdkTextareaAutosize
-                    cdkAutosizeMinRows="3"
-                    cdkAutosizeMaxRows="5"
-                    readonly="readonly">{{ item.comment }}</textarea>
-        </mat-form-field> -->
     </div>
     <div class="comment">
 
@@ -37,7 +27,6 @@
             {{ goodComment }}
           </p>
         </div>
-      
       
         <div class="comment__group">
             <h3 class="commaent__name">
