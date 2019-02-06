@@ -72,27 +72,11 @@ router.post('/results/update', (req, res) => {
 });
 
 router.get('/results/all', (req, res) => {
-  if (req.access !== 'admin') {
-    return res.status(403).send('You do not have permission');
-  }
-  Result.find({ deleted: false }, { deleted: 0 })
-    .then((resultsDocs) => {
-      resultsDocs.sort((a, b) => b.solved_date - a.solved_date);
-      res.send(resultsDocs);
-    })
-    .catch((err) => res.status(err.status).send(err));
+  getResults(false, req, res);
 });
 
 router.get('/results/archived', (req, res) => {
-  if (req.access !== 'admin') {
-    return res.status(403).send('You do not have permission');
-  }
-  Result.find({ deleted: true }, { deleted: 0 })
-    .then((resultsDocs) => {
-      resultsDocs.sort((a, b) => b.solved_date - a.solved_date);
-      res.send(resultsDocs);
-    })
-    .catch((err) => res.status(err.status).send(err));
+  getResults(true, req, res);
 });
 
 router.post('/results/one', (req, res) => {
@@ -131,4 +115,17 @@ router.post('/results/delete', (req, res) => {
 
 console.log('[Result Controller]', 'load routes');
 
+function getResults(deleted, req, res) {
+  if (req.access !== 'admin') {
+    return res.status(403).send('You do not have permission');
+  }
+  Result.find({ deleted: deleted }, { deleted: 0 })
+    .then((resultsDocs) => {
+      resultsDocs.sort((a, b) => b.solved_date - a.solved_date);
+      res.send(resultsDocs);
+    })
+    .catch((err) => res.status(err.status).send(err));
+}
+
 module.exports = router;
+
