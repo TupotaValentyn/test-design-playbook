@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 // component
 import { AppRoutingModule } from './app-routing.module';
@@ -104,7 +105,8 @@ import { ConfirmArchiveComponent } from './components/pages/results-page/results
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true},
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

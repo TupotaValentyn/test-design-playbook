@@ -1,6 +1,12 @@
 <app-admin-navbar></app-admin-navbar>
 <ol *ngIf="results.length !== 0 || !isLoadedContent; else cat">
-  <li class="card__wrapper" *ngFor="let resultItem of results; index as index">
+  <div class="search">
+    <mat-icon>search</mat-icon>
+    <input matInput type="text" #search_request>
+    <button (click)="searchResults(search_request)">Search</button>
+  </div>
+
+  <li class="card__wrapper" *ngFor="let resultItem of resultsDisplay; index as index">
     <app-results-card
       (onDelete)="updateAfterDelete()"
       [result_item]="resultItem"

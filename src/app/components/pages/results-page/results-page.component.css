@@ -37,3 +37,8 @@ ol {
   font-weight: bold;
 }
 
+.search {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+}
