@@ -1,6 +1,5 @@
 .main__container {
   display: flex;
-  flex-direction: row;
 }
 
 .left__toggle__menu {
