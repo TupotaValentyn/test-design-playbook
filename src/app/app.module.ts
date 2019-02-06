@@ -48,6 +48,7 @@ import { SmthWentWrongComponent } from './components/pages/smth-went-wrong/smth-
 import { HelpInstructionModalComponent } from './components/pages/main-container/help-instruction-modal/help-instruction-modal.component';
 import { ConfirmArchiveComponent } from './components/pages/results-page/results-card/confirm-archive/confirm-archive.component';
 import { ArchiveComponent } from '../app/components/pages/archive/archive.component';
+import { AdminSettingsComponent } from './components/pages/admin-settings/admin-settings.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { ArchiveComponent } from '../app/components/pages/archive/archive.compon
     HelpInstructionModalComponent,
     SmthWentWrongComponent,
     ConfirmArchiveComponent,
-    ArchiveComponent
+    ArchiveComponent,
+    AdminSettingsComponent
   ],
   imports: [
     BrowserModule,

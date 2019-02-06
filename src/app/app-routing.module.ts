@@ -12,6 +12,7 @@ import { AdminLoginComponent } from './components/pages/admin-login/admin-login.
 import { TestResultTableComponent } from './components/pages/test-result-table/test-result-table.component';
 import { SmthWentWrongComponent } from './components/pages/smth-went-wrong/smth-went-wrong.component';
 import { ArchiveComponent } from '../app/components/pages/archive/archive.component';
+import { AdminSettingsComponent } from './components/pages/admin-settings/admin-settings.component';
 
 const routes: Routes = [
   { path: 'main', component: MainContainerComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'admin/links', component: AdminPanelLinkComponent },
   { path: 'admin/archive', component: ArchiveComponent },
   { path: 'admin/login', component: AdminLoginComponent },
+  { path: 'admin/settings', component: AdminSettingsComponent }
 ];
 
 @NgModule({
