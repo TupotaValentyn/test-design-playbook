@@ -9,45 +9,33 @@
 .sidebar__container {
   width: 20%;
   border-right: 1px solid #c9c9c9;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  overflow-y: auto;
   background: #efebed;
+}
+
+.sidebar__card {
+  margin: 10px;
+  min-width: 200px;
+}
+
+.feedback__textarea__container,
+.filter__select__field {
+  width: 100%;
+}
+
+.result__item__container {
+  max-width: 100%;
 }
 
 .results__container {
   width: 80%;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
-  background: #fafafa;
+  overflow-y: auto;
 }
 
-span {
-  text-decoration: underline;
-}
-
-.result__item__container {
-  width: 100%;
-}
-
-.sidebar__card {
-  margin: 10px;
-  min-width: 200px;
-  
-}
-
-.sidebar__textarea {
-  width: 100%;
-}
-
-.list__item {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.result__information__block {
-  display: flex;
-  flex-wrap: wrap;
-  flex-grow: 1;
+.show__info {
+  font-size: 30px;
+  font-size: bold;
+  margin: 20px auto 0 auto;
 }
