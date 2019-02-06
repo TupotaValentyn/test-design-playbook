@@ -47,7 +47,7 @@ import { LinkInfoDialogComponent } from './components/pages/admin-panel-link/adm
 import { SmthWentWrongComponent } from './components/pages/smth-went-wrong/smth-went-wrong.component';
 import { HelpInstructionModalComponent } from './components/pages/main-container/help-instruction-modal/help-instruction-modal.component';
 import { ConfirmArchiveComponent } from './components/pages/results-page/results-card/confirm-archive/confirm-archive.component';
-import { ArchiveComponent } from './src/app/components/pages/archive/archive.component';
+import { ArchiveComponent } from '../app/components/pages/archive/archive.component';
 
 @NgModule({
   declarations: [
