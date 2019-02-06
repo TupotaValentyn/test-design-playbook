@@ -1,9 +1,11 @@
 <app-admin-navbar></app-admin-navbar>
 
-<ol class="list">
-    <li class="card">
+<ol class="list" >
+    <li class="card" *ngFor="let resultItem of data; index as index">
       <app-results-card
-        
+      (onDelete)="updateAfterDelete()"
+      [result_item]="resultItem"
+      [index]="index + 1">
       >
       </app-results-card>
     </li>
