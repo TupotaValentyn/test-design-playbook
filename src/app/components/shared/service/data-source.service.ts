@@ -129,4 +129,14 @@ export class DataSourceService {
     return this.http
       .post('/api/users/info', {token: token});
   }
+
+  updateCommentAboutUser(token, comment): Observable<Object> {
+    return this.http
+      .post(
+      'http://localhost:8000/api/users/update', 
+      {
+        token: token,
+        comment: comment
+      });
+  }
 }
