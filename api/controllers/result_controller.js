@@ -83,6 +83,18 @@ router.get('/results/all', (req, res) => {
     .catch((err) => res.status(err.status).send(err));
 });
 
+router.get('/results/archived', (req, res) => {
+  if (req.access !== 'admin') {
+    return res.status(403).send('You do not have permission');
+  }
+  Result.find({ deleted: true }, { deleted: 0 })
+    .then((resultsDocs) => {
+      resultsDocs.sort((a, b) => b.solved_date - a.solved_date);
+      res.send(resultsDocs);
+    })
+    .catch((err) => res.status(err.status).send(err));
+});
+
 router.post('/results/one', (req, res) => {
   const token = req.body.token;
   Result.findOne({ token: token })
