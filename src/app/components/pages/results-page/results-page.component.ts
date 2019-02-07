@@ -45,15 +45,9 @@ export class ResultsPageComponent implements OnInit {
       });
   }
 
-  transformDate(date) {
-    return this.datePipe.transform(date, 'dd-MM-yyyy');
-  }
-
   searchResults(request) {
     this.resultsDisplay = [];
     this.resultsSet.clear();
-
-    request = request.toUpperCase();
 
     if (!request) {
       this.resultsDisplay = this.results;
@@ -61,8 +55,15 @@ export class ResultsPageComponent implements OnInit {
       return;
     }
 
+    this.checkAllKeywords(request);
+    this.checkAllKeywords(request.toUpperCase());
+    this.checkAllKeywords(request.toLowerCase());
+
+    this.groupResults = ResultsPageComponent.doGroupResults(this.resultsDisplay);
+  }
+
+  checkAllKeywords(request) {
     const allKeywords = request.split(" ");
-    console.log(allKeywords);
 
     allKeywords.forEach(keyword => {
       this.results.forEach(res => {
@@ -75,8 +76,10 @@ export class ResultsPageComponent implements OnInit {
         }
       });
     });
+  }
 
-    this.groupResults = ResultsPageComponent.doGroupResults(this.resultsDisplay);
+  transformDate(date) {
+    return this.datePipe.transform(date, 'dd-MM-yyyy');
   }
 
   onKeyDown(event) {
