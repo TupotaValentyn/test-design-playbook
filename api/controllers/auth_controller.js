@@ -48,7 +48,7 @@ router.post('/change/password', (req, res) => {
         }
         return Employer.findOneAndUpdate({ login: decoded.user }, { password: req.body.newPassword })
       })
-      .then(() => res.send({ m: 'Successfully updated '}))
+      .then(() => res.send({ message: 'Successfully updated '}))
       .catch(err => res.status(500).send(err))
   })
 });
@@ -61,12 +61,12 @@ router.post('/change/email', (req, res) => {
   jwt.verify(token, process.env.JWT_PRIVATE_KEY, (err, decoded) => {
     Employer.findOne({ login: decoded.user })
       .then((docs) => {
-        if (docs === null) {
+        if (!docs) {
           throw 'Bad auth data';
         }
         return Employer.findOneAndUpdate({ login: decoded.user }, { email: req.body.email })
       })
-      .then(() => res.send({ m: 'Successfully updated '}))
+      .then(() => res.send({ message: 'Successfully updated '}))
       .catch(err => res.status(500).send(err))
   })
 });
