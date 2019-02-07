@@ -19,7 +19,7 @@ api:
 production:
   stage: deploy
   only:
-    - docker
+    - master
   tags:
     - docker
   script:
