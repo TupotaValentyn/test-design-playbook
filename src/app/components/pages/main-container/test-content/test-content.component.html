@@ -1,6 +1,6 @@
 <div class="test__content__container">
 
-  <div class="main__image__container">
+  <div class="main__image__container" (keyup)="changeTemplate($event)" tabindex="0">
     <img [src]="currentSelectedModel.model.url" class="img" alt="current model" />
     <div class="left__arrow"
          (click)="openPrevImage()"
@@ -44,10 +44,7 @@
 
       <div class="progress__info">
         <p class="prorgess__info__text">
-          <span class="text__bold">Total amount:</span> {{ 23 }}.
-        </p>
-        <p class="prorgess__info__text">
-          <span class="text__bold">Ticked: </span>
+          <span class="text__bold">Selected: </span>
           <span [class.warning__message]="countCheckedElements > maxCountCheckedElements"
                 [class.text__bold]="countCheckedElements > maxCountCheckedElements">
             {{ countCheckedElements }}/{{ maxCountCheckedElements }}.
