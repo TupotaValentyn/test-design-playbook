@@ -17,7 +17,7 @@ router.post('/auth', (req, res) => {
   });
 });
 
-router.get('/auth/generate', () => {
+router.get('/auth/generate', (req, res) => {
   const employer = new Employer({
     name: "Oleksiy",
     login: "admin",
@@ -26,6 +26,7 @@ router.get('/auth/generate', () => {
     notify: true
   });
   employer.save();
+  res.end();
 });
 
 router.post('/change/password', (req, res) => {
