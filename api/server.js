@@ -11,6 +11,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 
+const morgan = require('morgan');
 console.log('[Server] Application start...');
 
 // connect to database
@@ -24,7 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // filters
-
+app.use(morgan('dev'));
 app.use(cors());
 app.use(express.static(path.resolve(__dirname + './../dist/test-design-playbook/')));
 app.use('/layouts', require('./middleware/layout_control_filter'));
