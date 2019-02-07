@@ -14,17 +14,13 @@ export class ResultsPageComponent implements OnInit {
   results: Array<Result> = [];
   resultsDisplay: Array<Result> = []; // for search
   resultsSet: Set<Result>;
-  // isLoadedContent: boolean = false;
+  groupResults: Map<String, Array<Result>> = new Map<String, Array<Result>>();
+  isLoadedContent: boolean = false;
 
-  // dateResultMap: Map<String, Array<Result>>;
-
-  //for date-sorted display
-  // resultMap: Map<string, Array<Result>> = new Map();
-  
   constructor(private dataSource: DataSourceService,
               private datePipe: DatePipe,
               private snackBar: MatSnackBar) {  }
-  
+
   ngOnInit(): void {
     this.update();
     this.resultsSet = new Set<Result>();
@@ -37,27 +33,13 @@ export class ResultsPageComponent implements OnInit {
   update() {
     this.dataSource.getAllResults()
       .subscribe((data: Array<Result>) => {
-
         this.results = data;
         this.resultsDisplay = data;
+        
+        this.isLoadedContent = true;
 
-        // console.log("[RESULTS]", this.results);
+        this.groupResults = ResultsPageComponent.doGroupResults(this.results);
 
-        // Grouping elements breaks other functional 
-        // HZ kak eto ispravit
-        // this.results.forEach(item => {
-        //   let respons = this.resultMap.get(this.datePipe.transform(item.solved_date, 'dd-MM-yyyy'));
-        //   if (respons) {
-        //     respons.push(item)
-        //   } else {
-        //     this.resultMap.set(this.datePipe.transform(item.solved_date, 'dd-MM-yyyy'), [item])
-        //   }
-        // });
-        // console.log('value', this.resultMap.values());
-        // console.log('keys', this.resultMap.keys());
-        // console.log('entries', this.resultMap.entries());
-
-        // this.isLoadedContent = true;
       }, (error) => {
         this.snackBar.open(error, 'Close', { duration: 2000 });
       });
@@ -97,5 +79,30 @@ export class ResultsPageComponent implements OnInit {
       this.searchResults(event.target.value);
     }
   }
-}
 
+  private static doGroupResults(value: Array<Result>): Map<String, Array<Result>>  {
+    const groupResults: Map<String, Array<Result>> = new Map<String, Array<Result>>();
+    value.forEach((item: Result) => {
+      const solved_date = new Date(item.solved_date);
+      const daytime = ResultsPageComponent.dateFormat(solved_date);
+      if (groupResults.get(daytime)) {
+        groupResults.get(daytime).push(item);
+      } else {
+        groupResults.set(daytime, [item]);
+      }
+    });
+    groupResults.forEach((results, key) => {
+      results.sort((a, b) => new Date(a.solved_date).getTime() - new Date(b.solved_date).getTime());
+    });
+    return groupResults;
+  }
+
+  private static dateFormat(solved_date) {
+    return ResultsPageComponent.timeFormat(solved_date.getDate() + 1) + '/' + ResultsPageComponent.timeFormat(solved_date.getMonth() + 1) + '/' + solved_date.getFullYear();
+  }
+
+  private static timeFormat(value: Number): String {
+    return value < 10 ? '0' + value : value.toString();
+  }
+
+}

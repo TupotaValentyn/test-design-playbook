@@ -2,11 +2,6 @@ body {
   display: flex;
 }
 
-h2 {
-  align-self: flex-start;
-  margin-left: 170px;
-}
-
 .cat__empty__page {
   width: 100%;
   height: calc(100% - 55px);
@@ -53,4 +48,15 @@ h2 {
   margin-bottom: 0;
   max-width: 500px;
   width: 100%;
+}
+
+/* FROM MASTER */
+
+.item__group {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.list {
+  list-style: none;
 }
