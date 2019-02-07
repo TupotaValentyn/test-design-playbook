@@ -28,3 +28,8 @@
 .update__password__button {
   margin: 5px;
 }
+
+.child__setting__page {
+  display: flex;
+  flex-direction: column;
+}

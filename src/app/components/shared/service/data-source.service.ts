@@ -144,4 +144,14 @@ export class DataSourceService {
     return this.http
       .post('http://localhost:8000/api/change/password', {password: oldPassword, newPassword: newPassword});
   }
+
+  changeEmail(newEmail: string): Observable<Object> {
+    return this.http
+      .post('http://localhost:8000/api/change/email', { email: newEmail });
+  }
+
+  getEmployerInfo(): Observable<Object> {
+    return this.http
+      .get('http://localhost:8000/api/employers/info');
+  }
 }

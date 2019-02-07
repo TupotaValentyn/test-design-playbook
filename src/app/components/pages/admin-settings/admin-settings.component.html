@@ -2,30 +2,71 @@
 <div class="main__container">
   <div>
     <mat-button-toggle-group vertical class="left__toggle__menu">
-      <mat-button-toggle disabled="disabled">Profile</mat-button-toggle>
-      <mat-button-toggle>Security</mat-button-toggle>
-      <mat-button-toggle disabled="disabled">E-mail</mat-button-toggle>
-      <mat-button-toggle disabled="disabled">Notification</mat-button-toggle>
+      <mat-button-toggle (click)="openProfile()">Profile</mat-button-toggle>
+      <mat-button-toggle (click)="openSecurity()">Security</mat-button-toggle>
+      <mat-button-toggle (click)="openEmail()">E-mail</mat-button-toggle>
+      <mat-button-toggle disabled>Notification</mat-button-toggle>
     </mat-button-toggle-group>
   </div>
-  <div class="central__container">
-    <h2>Change password</h2>
-    <mat-divider></mat-divider>
-    <mat-form-field class="input__width">
-      <input matInput placeholder="Old password" #oldPassword type="password">
-    </mat-form-field>
+  <div class="central__container" [ngSwitch]="currentMenus">
 
-    <mat-form-field class="input__width">
-      <input matInput placeholder="New password" #newPassword type="password">
-    </mat-form-field>
-
-    <mat-form-field class="input__width">
-      <input matInput placeholder="Confirm new password" #confirmPassword type="password">
-    </mat-form-field>
-    <span class="info__text">Make sure it's more than 15 characters OR at least 8 characters including a number and a lowercase letter.</span>
-    <div>
-      <button mat-raised-button (click)="changePassword(oldPassword, newPassword, confirmPassword)" color="accent"
-              class="update__password__button">Update password</button>
+    <div *ngSwitchCase="MENU_PROFILE" class="child__setting__page">
+      <h2>Profile</h2>
+      <mat-divider></mat-divider>
+      <p><b>Name: </b> {{ employer.name }}</p>
+      <p><b>Login: </b> {{ employer.login }}</p>
+      <p><b>E-Mail: </b> {{ employer.email }}</p>
     </div>
+
+    <div *ngSwitchCase="MENU_SECURITY" class="child__setting__page">
+      <h2>Change password</h2>
+      <mat-divider></mat-divider>
+      <mat-form-field class="input__width">
+        <input matInput placeholder="Old password" #oldPassword type="password">
+      </mat-form-field>
+
+      <mat-form-field class="input__width">
+        <input matInput placeholder="New password" #newPassword type="password">
+      </mat-form-field>
+
+      <mat-form-field class="input__width">
+        <input matInput placeholder="Confirm new password" #confirmPassword type="password">
+      </mat-form-field>
+      <span class="info__text">Make sure it's more than 15 characters OR at least 8 characters including a number and a lowercase letter.</span>
+      <div>
+        <button mat-raised-button (click)="changePassword(oldPassword, newPassword, confirmPassword)" color="accent"
+                class="update__password__button">Update password</button>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="MENU_EMAIL" class="child__setting__page">
+      <h2>Change e-mail</h2>
+      <mat-divider></mat-divider>
+      <p class="input__width">
+        Current e-mail: {{ employer.email }}
+      </p>
+
+      <mat-form-field class="input__width">
+        <input matInput placeholder="New email" #newEmail type="email">
+      </mat-form-field>
+
+      <div>
+        <button mat-raised-button (click)="changeEmail(newEmail)" color="accent"
+                class="update__password__button">Update e-mail</button>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="MENU_NOTIFY" class="child__setting__page">
+      <h2>Notification</h2>
+      <mat-divider></mat-divider>
+
+      <mat-checkbox  [value]="'notify new results by mail'" type="checkbox"></mat-checkbox>
+
+      <div>
+        <button mat-raised-button (click)="changeEmail(newEmail)" color="accent"
+                class="update__password__button">Update e-mail</button>
+      </div>
+    </div>
+
   </div>
 </div>
