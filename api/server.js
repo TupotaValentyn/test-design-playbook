@@ -9,7 +9,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-
+const morgan = require('morgan');
 console.log('[Server] Application start...');
 
 // connect to database
@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // filters
-
+app.use(morgan('dev'));
 app.use(cors());
 // app.use(express.static(__dirname + '/../src/assets'));
 app.use('/layouts', require('./middleware/layout_control_filter'));
