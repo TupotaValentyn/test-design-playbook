@@ -39,6 +39,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 // service
@@ -98,6 +99,7 @@ import { AdminSettingsComponent } from './components/pages/admin-settings/admin-
     MatSnackBarModule,
     MatDialogModule,
     MatTooltipModule,
+    MatSelectModule,
     MatButtonToggleModule
   ],
   entryComponents: [
