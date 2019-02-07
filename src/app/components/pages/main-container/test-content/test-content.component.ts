@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { HostListener, Component, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { HelpInstructionModalComponent } from '../help-instruction-modal/help-instruction-modal.component';
 import {SolvedModel} from '../../../shared/models/solved-model';
@@ -7,7 +7,10 @@ import {SolvedModel} from '../../../shared/models/solved-model';
 @Component({
   selector: 'app-test-content',
   templateUrl: './test-content.component.html',
-  styleUrls: ['./test-content.component.css']
+  styleUrls: ['./test-content.component.css'],
+  host: {
+    '(document:keyup)': 'onKeyUp($event)'
+  }
 })
 export class TestContentComponent {
 
@@ -70,5 +73,15 @@ export class TestContentComponent {
   openHelpDialog(): void {
     this.dialog.open(HelpInstructionModalComponent, {width: '600px'});
   }
+
+
+  // @HostListener('document:keyup', ['$event'])
+  // onKeyUp(event:KeyboardEvent) {
+  //   if (event.key === 'ArrowRight') {
+  //     console.log(`The user just pressed ${event.key}!`);
+  //   } else if (event.key === 'ArrowLeft') {
+  //     console.log(`The user just pressed ${event.key}!`);
+  //   }
+  // }
 
 }
