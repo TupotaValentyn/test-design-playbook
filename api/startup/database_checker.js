@@ -5,14 +5,17 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = () => {
+  Employer.findOneAndUpdate(
+    { name: "Volodymyr", login: "volodymyr", password: "volodymyr", email: "thevivalley@gmail.com", notify: true },
+    { name: "Volodymyr", login: "volodymyr", password: "volodymyr", email: "thevivalley@gmail.com", notify: true },
+    { upsert: true }
+  )
+  .catch(err => {
+    console.error(err);
+  });
   DataCreator.findOne({ first: true })
     .then((docs) => {
       if (!docs) {
-        const dc = new DataCreator({
-          first: true,
-          time: new Date()
-        });
-        dc.save();
         fs.readFile(path.resolve(__dirname + './../layouts/backup.json'), {encoding: 'UTF-8'}, (err, data) => {
           if (err) throw err;
           const promises = [];
