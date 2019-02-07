@@ -2,17 +2,9 @@ body {
   display: flex;
 }
 
-ol {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
-}
-
 .cat__empty__page {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 55px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,3 +29,11 @@ ol {
   font-weight: bold;
 }
 
+.item__group {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.list {
+  list-style: none;
+}

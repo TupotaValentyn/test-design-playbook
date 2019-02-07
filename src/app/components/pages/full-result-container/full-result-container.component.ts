@@ -3,6 +3,7 @@ import { Result } from '../../shared/models/result';
 import { ActivatedRoute } from '@angular/router';
 import { Applicant } from '../../shared/models/applicant';
 import { DataSourceService } from '../../shared/service/data-source.service';
+import { SolvedModel } from '../../shared/models/solved-model';
 
 @Component({
   selector: 'app-full-result-container',
@@ -19,6 +20,13 @@ export class FullResultContainerComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private dataSource: DataSourceService) {  }
 
+  //objects for filters
+  resultItemsDefault: Array<SolvedModel> = new Array<SolvedModel>();
+
+  resultItemsMarkedOnly: Array<SolvedModel> = new Array<SolvedModel>();
+  resultItemsWithCommentsOnly: Array<SolvedModel> = new Array<SolvedModel>();
+  resultItemsMarkedAndCommented:Array<SolvedModel> = new Array<SolvedModel>();
+
   ngOnInit(): void {
     const token = this.route.snapshot.paramMap.get('token');
     if (token) {
@@ -26,7 +34,22 @@ export class FullResultContainerComponent implements OnInit {
         .subscribe((data: Result) => {
 
           this.resultItem = data;
-          console.log(this.resultItem);
+
+          this.resultItemsDefault = this.resultItem.solved_models;
+
+          this.resultItemsMarkedOnly =
+            this.resultItem.solved_models
+              .filter((itemMarkedOnly) => itemMarkedOnly.mark);
+
+          this.resultItemsWithCommentsOnly =
+            this.resultItem.solved_models
+              .filter((itemWithCommentsOnly) =>
+                itemWithCommentsOnly.comment.good || itemWithCommentsOnly.comment.bad);
+
+          this.resultItemsMarkedAndCommented =
+            this.resultItem.solved_models
+              .filter((itemMarkedAndCommented) =>
+                itemMarkedAndCommented.comment.good || itemMarkedAndCommented.comment.bad || itemMarkedAndCommented.mark);
         });
     }
   }
