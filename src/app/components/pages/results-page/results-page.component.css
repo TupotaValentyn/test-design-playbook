@@ -28,3 +28,12 @@ body {
   font-size: 50px;
   font-weight: bold;
 }
+
+.item__group {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.list {
+  list-style: none;
+}

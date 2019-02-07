@@ -1,13 +1,20 @@
 <app-admin-navbar></app-admin-navbar>
+<ol class="list" *ngIf="results.length !== 0 || !isLoadedContent; else cat">
+  <li *ngFor="let resultItem of groupResults | keyvalue">
 
-<div *ngIf="results.length !== 0 || !isLoadedContent; else cat">
-    <app-results-card
-      *ngFor="let resultItem of results; let index = index"
-      (onDelete)="updateAfterDelete()"
-      [result_item]="resultItem" 
-      [index]="index + 1">
-    </app-results-card>
-</div>
+    <div class="item__group">
+      <h3 class="list__title">{{ resultItem.key }}</h3>
+      <app-results-card
+        *ngFor="let r of resultItem.value; index as innerIndex"
+        (onDelete)="updateAfterDelete()"
+        [result_item]="r"
+        [index]="innerIndex + 1">
+
+      </app-results-card>
+    </div>
+
+  </li>
+</ol>
 <ng-template #cat>
     <div class="cat__empty__page">
       <div class="cat__center__content">
@@ -17,3 +24,4 @@
       </div>
     </div>
 </ng-template>
+

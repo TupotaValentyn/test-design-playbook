@@ -12,18 +12,33 @@ router.post('/auth', (req, res) => {
     }
   });
 });
-router.get('/auth/generate', () => {
-  const employer = new Employer({
-    name: "Oleksiy",
-    login: "admin",
-    password: "admin",
-    email: "aleseyko@gmail.com",
-    notify: true
-  });
-  employer.save();
+
+router.post('/auth/register', (req,res) => {
+  if (req.access !== 'admin') {
+    return res.status(403).send('You do not have permission');
+  }
+  Employer.findOne({ $or: [{ login: req.body.login }, { email: req.body.email }] })
+    .then(docs => {
+      if (docs) throw 'Login or email already exists';
+    })
+    .then(() => {
+      const employer = new Employer({
+        name: req.body.name || 'Admin',
+        login: req.body.login,
+        password: req.body.password,
+        email: req.body.email,
+        notify: true
+      });
+      return employer.save();
+    })
+    .then(() => res.send({ message: 'Saved successfully' }))
+    .catch(err => res.status(422).send(err));
 });
 
 router.post('/change/password', (req, res) => {
+  if (req.access !== 'admin') {
+    return res.status(403).send('You do not have permission');
+  }
   const token = req.token;
   jwt.verify(token, process.env.JWT_PRIVATE_KEY, (err, decoded) => {
     Employer.findOne({ login: decoded.user, password: req.body.password })

@@ -59,7 +59,7 @@
       </mat-card-header>
       <mat-card-content>
         <mat-form-field class="filter__select__field">
-          <mat-select placeholder="Choose filter" [(ngModel)]="resultItemsDefalut">
+          <mat-select placeholder="Choose filter" [(ngModel)]="resultItemsDefault">
             <mat-option [value]="resultItem.solved_models" selected="selected">All</mat-option>
             <mat-option [value]="resultItemsMarkedOnly">Marked</mat-option>
             <mat-option [value]="resultItemsWithCommentsOnly">Commented</mat-option>
@@ -74,11 +74,11 @@
   <div class="results__container">
     <app-result-item
      class="result__item__container" 
-     *ngFor="let item of resultItemsDefalut; let i = index" 
+     *ngFor="let item of resultItemsDefault; let i = index"
      [item]="item"
      [index]="i + 1">
     </app-result-item>
-    <ng-template [ngIf]="resultItemsDefalut.length === 0">
+    <ng-template [ngIf]="resultItemsDefault.length === 0">
       <div class="show__info">Nothing was found!</div>
     </ng-template>
   </div>

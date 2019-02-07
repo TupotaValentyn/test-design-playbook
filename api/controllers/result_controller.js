@@ -103,17 +103,25 @@ router.post('/results/surname', (req, res) => {
 });
 
 router.post('/results/delete', (req, res) => {
+  updateStatus(true, req, res);
+});
+
+router.post('/results/undelete', (req, res) => {
+  updateStatus(false, req, res);
+});
+
+console.log('[Result Controller]', 'load routes');
+
+function updateStatus(deleted, req, res) {
   const token = req.body.token;
-  Result.findOneAndUpdate({ token: token }, { deleted: true })
+  Result.findOneAndUpdate({ token: token }, { deleted: deleted })
     .then( (docs) => {
       res.send({ message: 'Deleted successfully', docs: docs });
     })
     .catch((err) => {
       res.status(500).send(err);
     });
-});
-
-console.log('[Result Controller]', 'load routes');
+}
 
 function getResults(deleted, req, res) {
   if (req.access !== 'admin') {
