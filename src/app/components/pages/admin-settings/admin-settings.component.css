@@ -20,11 +20,6 @@
   width: 400px;
 }
 
-.info__text {
-  color: #a0a0a0;
-  font-size: 10px;
-}
-
 .update__password__button {
   margin: 5px;
 }
@@ -32,4 +27,8 @@
 .child__setting__page {
   display: flex;
   flex-direction: column;
+}
+
+.update__button__wrapper {
+  margin-top: 20px;
 }
