@@ -2,11 +2,6 @@ body {
   display: flex;
 }
 
-h2 {
-  align-self: flex-start;
-  margin-left: 170px;
-}
-
 .cat__empty__page {
   width: 100%;
   height: calc(100% - 55px);
@@ -32,4 +27,13 @@ h2 {
   text-shadow: 0 0 0 black;
   font-size: 50px;
   font-weight: bold;
+}
+
+.item__group {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.list {
+  list-style: none;
 }
