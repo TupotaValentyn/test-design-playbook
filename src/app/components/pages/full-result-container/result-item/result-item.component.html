@@ -3,12 +3,12 @@
     <div class="first__group">
         <div class="index">
           <span 
-          [ngStyle]="{'background-color': item.mark ? '#FF4081' : '#3e4db8' }"
+          [ngStyle]="{'background-color': solvedModel.mark ? '#FF4081' : '#3e4db8' }"
           class="template__index">{{ index }}</span>
-          <span class="result__title">{{ item.model.name }}</span>
+          <span class="result__title">{{ solvedModel.model.name }}</span>
         </div>
 
-        <span *ngIf="item.mark; else applicant_not_like" class="selected">
+        <span *ngIf="solvedModel.mark; else applicant_not_like" class="selected">
           Applicant like it!
         </span>
         <ng-template #applicant_not_like>
@@ -24,7 +24,7 @@
             Positive comment
           </h3>
           <p class="comment__child positive">
-            {{ goodComment }}
+            {{ solvedModel.comment.good }}
           </p>
         </div>
       
@@ -33,7 +33,7 @@
               Negative negative
             </h3>
             <p class="comment__child negative">
-              {{ badComment }}
+              {{ solvedModel.comment.bad }}
             </p>
         </div>
       
@@ -43,6 +43,6 @@
   <div class="result__image__block">
     <img
       class="result__image"
-      [src]="item.model.url" alt="result image"/>
+      [src]="solvedModel.model.url" alt="result image"/>
   </div>
 </mat-card>

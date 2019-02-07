@@ -9,12 +9,14 @@ import { Applicant } from '../../../../shared/models/applicant';
 })
 export class LinkInfoDialogComponent {
 
+  fullDomain = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port: '');
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Applicant) {}
 
 
   getLink(token): string {
-    return `http://localhost:4200/invite/${token}`;
+    return `${this.fullDomain}/invite/${token}`;
   }
 
   selectLink(element): void {
