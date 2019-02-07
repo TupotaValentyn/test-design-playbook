@@ -15,7 +15,7 @@ export class ResultsPageComponent implements OnInit {
   resultsDisplay: Array<Result> = []; // for search
   resultsSet: Set<Result>;
   groupResults: Map<String, Array<Result>> = new Map<String, Array<Result>>();
-  isLoadedContent: boolean = false;
+  isLoadedContent: boolean;
 
   constructor(private dataSource: DataSourceService,
               private datePipe: DatePipe,
@@ -53,7 +53,9 @@ export class ResultsPageComponent implements OnInit {
     this.resultsDisplay = [];
     this.resultsSet.clear();
 
-    if (request === "") {
+    request = request.toUpperCase();
+
+    if (!request) {
       this.resultsDisplay = this.results;
       this.groupResults = ResultsPageComponent.doGroupResults(this.resultsDisplay);
       return;

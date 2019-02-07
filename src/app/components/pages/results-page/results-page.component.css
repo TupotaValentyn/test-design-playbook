@@ -38,23 +38,17 @@ body {
   list-style: none;
 }
 
-/* FIX THESE STYLES */
-
-.search__wrapper {
-  width: 100%;
+.search__wrapper,
+.wrapper {
   display: flex;
   justify-content: center;
 }
 
 .wrapper {
-  display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .search {
   margin-top: 15px;
-  margin-bottom: 0;
-  max-width: 500px;
-  width: 100%;
+  width: 30%;
 }
