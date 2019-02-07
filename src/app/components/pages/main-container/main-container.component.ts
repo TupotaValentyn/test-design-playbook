@@ -3,7 +3,7 @@ import { SolvedModel } from '../../shared/models/solved-model';
 import { Router } from '@angular/router';
 import { DataSourceService } from '../../shared/service/data-source.service';
 import { Result } from '../../shared/models/result';
-import {environment} from '../../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-main-container',
