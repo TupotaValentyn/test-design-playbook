@@ -15,12 +15,7 @@ module.exports = () => {
   });
   DataCreator.findOne({ first: true })
     .then((docs) => {
-      // if (!docs) {
-        // const dc = new DataCreator({
-        //   first: true,
-        //   time: new Date()
-        // });
-        // dc.save();
+      if (!docs) {
         fs.readFile(path.resolve(__dirname + './../layouts/backup.json'), {encoding: 'UTF-8'}, (err, data) => {
           if (err) throw err;
           const promises = [];
@@ -50,7 +45,7 @@ module.exports = () => {
               console.error(err);
             })
         });
-      // }
+      }
     });
 };
 

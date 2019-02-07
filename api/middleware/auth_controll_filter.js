@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
-  if(req.path === '/api/auth' || req.path === '/api/auth/generate' || req.originalUrl === '/api/auth' || req.originalUrl === '/api/auth/generate'){
+  if(req.path === '/api/auth' || req.originalUrl === '/api/auth'){
     return next();
   }
   const authorization = req.get('Authorization');
