@@ -16,6 +16,7 @@ router.post('/auth', (req, res) => {
     }
   });
 });
+
 router.get('/auth/generate', () => {
   const employer = new Employer({
     name: "Oleksiy",
