@@ -52,6 +52,8 @@ import { HelpInstructionModalComponent } from './components/pages/main-container
 import { ConfirmArchiveComponent } from './components/pages/results-page/results-card/confirm-archive/confirm-archive.component';
 import { ArchiveComponent } from '../app/components/pages/archive/archive.component';
 import { AdminSettingsComponent } from './components/pages/admin-settings/admin-settings.component';
+import { ArchiveCardComponent } from './components/pages/archive/archive-card/archive-card.component';
+import { ConfirmRestoreComponent } from './components/pages/archive/archive-card/confirm-restore/confirm-restore.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +79,9 @@ import { AdminSettingsComponent } from './components/pages/admin-settings/admin-
     SmthWentWrongComponent,
     ConfirmArchiveComponent,
     ArchiveComponent,
-    AdminSettingsComponent
+    AdminSettingsComponent,
+    ArchiveCardComponent,
+    ConfirmRestoreComponent
   ],
   imports: [
     BrowserModule,

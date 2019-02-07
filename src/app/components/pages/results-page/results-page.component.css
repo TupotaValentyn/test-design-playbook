@@ -2,11 +2,6 @@ body {
   display: flex;
 }
 
-h2 {
-  align-self: flex-start;
-  margin-left: 170px;
-}
-
 .cat__empty__page {
   width: 100%;
   height: calc(100% - 55px);

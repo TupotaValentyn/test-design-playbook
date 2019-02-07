@@ -150,4 +150,9 @@ export class DataSourceService {
       .get('http://localhost:8000/api/results/archived')
   }
 
+  updateArchiveData (token:string) {
+    return this.http.post('http://localhost:8000/api/results/archived', {
+      token: token
+    })
+  }
 }

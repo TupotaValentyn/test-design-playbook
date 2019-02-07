@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataSourceService } from '../../shared/service/data-source.service';
+import { Result } from '../../shared/models/result';
 
 
 @Component({
@@ -9,20 +10,21 @@ import { DataSourceService } from '../../shared/service/data-source.service';
 })
 export class ArchiveComponent implements OnInit {
 
-  data:any
+  archive: any
+  isLoadedContent = false
   constructor(private dataSource: DataSourceService) { }
 
   ngOnInit() {
     this.dataSource.getAllArchiveResults().subscribe(allResults => {
-      this.data = allResults
-      console.log(this.data)
+      this.archive = allResults
+      console.log(this.archive)
     }, err => {
       console.log(err)
     })
   }
 
-  updateCardData(index) {
-    console.log(index)
+  updateCardAfterDelete(token: string) {
+    
   }
 
 

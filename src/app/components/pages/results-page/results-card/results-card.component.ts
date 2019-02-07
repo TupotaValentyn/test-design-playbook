@@ -3,6 +3,7 @@ import { Result } from '../../../shared/models/result';
 import { DataSourceService } from '../../../shared/service/data-source.service';
 import { MatDialog } from '@angular/material';
 import { ConfirmArchiveComponent } from './confirm-archive/confirm-archive.component';
+
 @Component({
   selector: 'app-results-card',
   templateUrl: './results-card.component.html',
