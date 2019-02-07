@@ -41,6 +41,9 @@ router.post('/change/password', (req, res) => {
   }
   const token = req.token;
   jwt.verify(token, process.env.JWT_PRIVATE_KEY, (err, decoded) => {
+    if(err) {
+      return res.status(500).send(err)
+    }
     Employer.findOne({ login: decoded.user, password: req.body.password })
       .then((docs) => {
         if (docs === null) {
@@ -59,6 +62,9 @@ router.post('/change/email', (req, res) => {
   }
   const token = req.token;
   jwt.verify(token, process.env.JWT_PRIVATE_KEY, (err, decoded) => {
+    if(err) {
+      return res.status(500).send(err)
+    }
     Employer.findOne({ login: decoded.user })
       .then((docs) => {
         if (!docs) {
@@ -77,10 +83,13 @@ router.get('/employers/info', (req, res) => {
   }
   const token = req.token;
   jwt.verify(token, process.env.JWT_PRIVATE_KEY, (err, decoded) => {
+    if(err) {
+      return res.status(500).send(err)
+    }
     const login = decoded.user;
     Employer.findOne({ login: login }, { password: 0 , _id: 0 })
       .then((docs) => {
-        if (docs === null) {
+        if (!docs) {
           throw 'Can\'t get info';
         }
         res.send(docs);
