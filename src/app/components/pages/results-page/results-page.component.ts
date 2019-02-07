@@ -55,6 +55,7 @@ export class ResultsPageComponent implements OnInit {
 
     if (request === "") {
       this.resultsDisplay = this.results;
+      this.groupResults = ResultsPageComponent.doGroupResults(this.resultsDisplay);
       return;
     }
 
@@ -64,7 +65,7 @@ export class ResultsPageComponent implements OnInit {
     allKeywords.forEach(keyword => {
       this.results.forEach(res => {
         if (res.applicant.surname.includes(keyword) || res.applicant.first_name.includes(keyword)
-        || res.applicant.second_name.includes(keyword) || this.datePipe.transform(res.solved_date, 'dd-MM-yyyy') === keyword) {
+        || res.applicant.second_name.includes(keyword) || keyword === this.transformDate(res.solved_date)) {
           if (!this.resultsSet.has(res)) {
             this.resultsSet.add(res);
             this.resultsDisplay.push(res);
@@ -72,6 +73,8 @@ export class ResultsPageComponent implements OnInit {
         }
       });
     });
+
+    this.groupResults = ResultsPageComponent.doGroupResults(this.resultsDisplay);
   }
 
   onKeyDown(event) {

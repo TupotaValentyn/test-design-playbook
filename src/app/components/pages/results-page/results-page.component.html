@@ -8,15 +8,6 @@
     </mat-form-field>
 </div>
 
-<div *ngIf="results.length !== 0; else cat" class="wrapper">
-    <app-results-card
-      *ngFor="let resultItem of resultsDisplay; let index = index"
-      (onDelete)="updateAfterDelete()"
-      [result_item]="resultItem" 
-      [index]="index + 1">
-    </app-results-card>
-</div>
-
 <ol class="list" *ngIf="results.length !== 0 || !isLoadedContent; else cat">
   <li *ngFor="let resultItem of groupResults | keyvalue">
 

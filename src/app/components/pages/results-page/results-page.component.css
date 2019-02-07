@@ -29,6 +29,15 @@ body {
   font-weight: bold;
 }
 
+.item__group {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.list {
+  list-style: none;
+}
+
 /* FIX THESE STYLES */
 
 .search__wrapper {
@@ -48,15 +57,4 @@ body {
   margin-bottom: 0;
   max-width: 500px;
   width: 100%;
-}
-
-/* FROM MASTER */
-
-.item__group {
-  width: 900px;
-  margin: 0 auto;
-}
-
-.list {
-  list-style: none;
 }
