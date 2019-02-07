@@ -10,7 +10,9 @@
     </div>
     <div class="info__group content">
       <span class="info info__name">
-        {{ result_item.applicant.surname }} {{ result_item.applicant.first_name }} {{ result_item.applicant.second_name }}
+        {{ result_item.applicant.surname }} 
+        {{ result_item.applicant.first_name }} 
+        {{ result_item.applicant.second_name }}
       </span>
       <span class="info info__rating">
         Rating :
@@ -31,6 +33,6 @@
     class="btn delete" 
     color="warn" 
     mat-raised-button 
-    (click)="openDialog()">Re-Archive</button>
+    (click)="openDialog()">Restore</button>
   </div>
 </mat-card>

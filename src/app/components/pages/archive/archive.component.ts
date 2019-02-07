@@ -23,8 +23,13 @@ export class ArchiveComponent implements OnInit {
     })
   }
 
-  updateCardAfterDelete(token: string) {
-    
+  updateCardAfterDelete() {
+    this.dataSource.getAllArchiveResults().subscribe(allResults => {
+      this.archive = allResults
+      console.log(this.archive)
+    }, err => {
+      console.log(err)
+    })
   }
 
 

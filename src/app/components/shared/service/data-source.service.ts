@@ -151,7 +151,7 @@ export class DataSourceService {
   }
 
   updateArchiveData (token:string) {
-    return this.http.post('http://localhost:8000/api/results/archived', {
+    return this.http.post('http://localhost:8000/api/results/undelete', {
       token: token
     })
   }

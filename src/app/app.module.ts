@@ -112,7 +112,8 @@ import { ConfirmRestoreComponent } from './components/pages/archive/archive-card
   entryComponents: [
     LinkInfoDialogComponent,
     HelpInstructionModalComponent,
-    ConfirmArchiveComponent
+    ConfirmArchiveComponent,
+    ConfirmRestoreComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },

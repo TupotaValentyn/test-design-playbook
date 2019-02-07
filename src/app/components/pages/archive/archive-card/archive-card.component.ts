@@ -2,7 +2,7 @@ import { Component, Input, OnInit,Output, EventEmitter } from '@angular/core';
 import { Result } from '../../../shared/models/result';
 import { DataSourceService } from '../../../shared/service/data-source.service';
 import { MatDialog } from '@angular/material';
-// import { ConfirmArchiveComponent } from './confirm-archive/confirm-archive.component';
+import { ConfirmRestoreComponent } from './confirm-restore/confirm-restore.component';
 
 
 @Component({
@@ -19,20 +19,20 @@ export class ArchiveCardComponent implements OnInit{
   constructor(private dataSource: DataSourceService, public dialog: MatDialog) {  }
 
   ngOnInit () {
-    console.log(this.result_item)
-    console.log(111)
+
   }
-  // openDialog() {
-  //   const dialogRef = this.dialog.open(ConfirmArchiveComponent, {
-  //     data: this.result_item.applicant
-  //   });
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     if (result === true) {
-  //       this.dataSource.deleteResult(this.result_item.applicant.token)
-  //       .subscribe(() => {
-  //         this.onDelete.emit();
-  //     });
-  //   }
-  //   });
-  // }
+  openDialog() {
+    console.log(11111)
+    const dialogRef = this.dialog.open(ConfirmRestoreComponent, {
+      data: this.result_item.applicant
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.dataSource.updateArchiveData(this.result_item.applicant.token)
+        .subscribe(() => {
+          this.onDelete.emit();
+      });
+    }
+    });
+  }
 }
