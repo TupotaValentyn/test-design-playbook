@@ -3,7 +3,9 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin: 10px 20px 0 40px;
+  margin: 10px 40px;
+  padding: 10px;
+  border-radius: 4px;
 }
 
 .img__wrapper {
@@ -50,15 +52,36 @@
 }
 
 .comments__field {
+  height: 110px;
   display: flex;
   justify-content: space-around;
-  height: 110px;
 }
+
 .comment__positive,
 .comment__negative {
   width: 46%;
-  overflow-y: auto;
   padding-bottom: 10px;
+  word-wrap: break-word;
+  margin: 0 10px;
+}
+
+.comment__icon {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.5px solid black;
+  border-radius: 50%;
+  padding: 2px;
+  background-color: white;
+  font-size: 18px;
+}
+
+.comments__field__text {
+  height: 100%;
+  overflow-y: auto;
 }
 
 .comment__positive {

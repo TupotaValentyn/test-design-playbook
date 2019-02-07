@@ -29,11 +29,8 @@
   flex-grow: 1;
 }
 
-.result__table {
-  width: 100%;
-}
-
 .result__row {
   display: flex;
   width: 100%;
+  border-bottom: 1px solid lightgrey;
 }
