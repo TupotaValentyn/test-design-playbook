@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
+
 
 // component
 import { AppRoutingModule } from './app-routing.module';
@@ -38,6 +40,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 // service
@@ -47,6 +50,7 @@ import { LinkInfoDialogComponent } from './components/pages/admin-panel-link/adm
 import { SmthWentWrongComponent } from './components/pages/smth-went-wrong/smth-went-wrong.component';
 import { HelpInstructionModalComponent } from './components/pages/main-container/help-instruction-modal/help-instruction-modal.component';
 import { ConfirmArchiveComponent } from './components/pages/results-page/results-card/confirm-archive/confirm-archive.component';
+import { AdminSettingsComponent } from './components/pages/admin-settings/admin-settings.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +74,8 @@ import { ConfirmArchiveComponent } from './components/pages/results-page/results
     LinkInfoDialogComponent,
     HelpInstructionModalComponent,
     SmthWentWrongComponent,
-    ConfirmArchiveComponent
+    ConfirmArchiveComponent,
+    AdminSettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -95,6 +100,7 @@ import { ConfirmArchiveComponent } from './components/pages/results-page/results
     MatSnackBarModule,
     MatDialogModule,
     MatTooltipModule,
+    MatSelectModule,
     MatButtonToggleModule
   ],
   entryComponents: [
@@ -104,7 +110,8 @@ import { ConfirmArchiveComponent } from './components/pages/results-page/results
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptorService, multi: true},
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

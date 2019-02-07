@@ -4,6 +4,7 @@
       <span class="info info__number">
         # {{ index }}
       </span>
+      <span class="date__info">{{ result_item.solved_date | date: "HH:mm" }}</span>
     </div>
     <div class="info__group content">
       <span class="info info__name">
@@ -23,7 +24,7 @@
   <div class="button__container">
     <div *ngIf="false">
       <button class="new__data" mat-stroked-button color="primary">
-        New
+        New 
       </button>
     </div>
     <button class="btn accept" color="primary" mat-raised-button routerLink="/admin/results/full/{{result_item.applicant.token}}">

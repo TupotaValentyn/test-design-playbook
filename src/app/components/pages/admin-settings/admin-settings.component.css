@@ -1,0 +1,30 @@
+.main__container {
+  display: flex;
+}
+
+.left__toggle__menu {
+  margin: 15px;
+  width: 250px;
+}
+
+.central__container {
+  margin: 15px 15px 15px 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.input__width {
+  width: 400px;
+}
+
+.info__text {
+  color: #a0a0a0;
+  font-size: 10px;
+}
+
+.update__password__button {
+  margin: 5px;
+}
