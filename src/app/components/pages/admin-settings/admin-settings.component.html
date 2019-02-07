@@ -21,11 +21,15 @@
 
     <mat-form-field class="input__width">
       <input matInput placeholder="Confirm new password" #confirmPassword type="password">
+      <mat-hint>Make sure it's more than 15 characters OR at least 8 characters including a number and a lowercase letter.</mat-hint>
     </mat-form-field>
-    <span class="info__text">Make sure it's more than 15 characters OR at least 8 characters including a number and a lowercase letter.</span>
-    <div>
-      <button mat-raised-button (click)="changePassword(oldPassword, newPassword, confirmPassword)" color="accent"
-              class="update__password__button">Update password</button>
+    
+    <div class="update__pass__btn__container">
+      <button 
+        mat-raised-button
+        (click)="changePassword(oldPassword, newPassword, confirmPassword)"
+        color="accent">Update password</button>
     </div>
+
   </div>
 </div>

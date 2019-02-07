@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataSourceService } from '../../shared/service/data-source.service';
 import { Applicant } from '../../shared/models/applicant';
 import { NgForm } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-admin-panel-link',
@@ -10,7 +11,8 @@ import { NgForm } from '@angular/forms';
 })
 export class AdminPanelLinkComponent implements OnInit {
 
-  constructor (private dataSource: DataSourceService) { }
+  constructor (private dataSource: DataSourceService,
+               private snackBar: MatSnackBar ) { }
 
   userDataInfoList: Array<Applicant> = [];
   token = '';
@@ -66,5 +68,6 @@ export class AdminPanelLinkComponent implements OnInit {
     target.focus();
     target.select();
     document.execCommand('copy');
+    this.snackBar.open('Invitation link was copied', 'Close', { duration: 2000 });
   }
 }
