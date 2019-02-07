@@ -68,6 +68,12 @@ router.get('/models/solved', (req, res) => {
     })
 });
 
+router.get('/models/count', (req, res) => {
+  Model.find({})
+    .then(docs => res.send({ count: docs.length }))
+    .catch(err => res.send(err))
+})
+
 router.get('/model/generate', () => {
   console.log('22');
   for(let i = 1; i<24; i++) {

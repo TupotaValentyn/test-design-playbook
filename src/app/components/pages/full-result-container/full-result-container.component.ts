@@ -21,11 +21,11 @@ export class FullResultContainerComponent implements OnInit {
   constructor(private route: ActivatedRoute, private dataSource: DataSourceService) {  }
 
   //objects for filters
-  resultItemsDefalut: Array<SolvedModel>;
+  resultItemsDefault: Array<SolvedModel> = new Array<SolvedModel>();
 
-  resultItemsMarkedOnly: Array<SolvedModel>;
-  resultItemsWithCommentsOnly: Array<SolvedModel>;
-  resultItemsMarkedAndCommented:Array<SolvedModel>;
+  resultItemsMarkedOnly: Array<SolvedModel> = new Array<SolvedModel>();
+  resultItemsWithCommentsOnly: Array<SolvedModel> = new Array<SolvedModel>();
+  resultItemsMarkedAndCommented:Array<SolvedModel> = new Array<SolvedModel>();
 
   ngOnInit(): void {
     const token = this.route.snapshot.paramMap.get('token');
@@ -35,25 +35,21 @@ export class FullResultContainerComponent implements OnInit {
 
           this.resultItem = data;
 
-          this.resultItemsDefalut = this.resultItem.solved_models;
+          this.resultItemsDefault = this.resultItem.solved_models;
 
-          this.resultItemsMarkedOnly = this.resultItem.solved_models.filter((itemMarkedOnly) => {
-            if (itemMarkedOnly.mark) return true;
-          });
+          this.resultItemsMarkedOnly =
+            this.resultItem.solved_models
+              .filter((itemMarkedOnly) => itemMarkedOnly.mark);
 
-          this.resultItemsWithCommentsOnly = this.resultItem.solved_models.filter((itemWithCommentsOnly) => {
-            if (itemWithCommentsOnly.comment.good || itemWithCommentsOnly.comment.bad)
-              return true;
-          });
+          this.resultItemsWithCommentsOnly =
+            this.resultItem.solved_models
+              .filter((itemWithCommentsOnly) =>
+                itemWithCommentsOnly.comment.good || itemWithCommentsOnly.comment.bad);
 
-          this.resultItemsMarkedAndCommented = this.resultItem.solved_models.filter((itemMarkedAndCommented) => {
-            if (itemMarkedAndCommented.comment.good ||
-               itemMarkedAndCommented.comment.bad ||
-               itemMarkedAndCommented.mark)
-              return true;
-          });
-
-          console.log('[Result item]', this.resultItem);
+          this.resultItemsMarkedAndCommented =
+            this.resultItem.solved_models
+              .filter((itemMarkedAndCommented) =>
+                itemMarkedAndCommented.comment.good || itemMarkedAndCommented.comment.bad || itemMarkedAndCommented.mark);
         });
     }
   }
