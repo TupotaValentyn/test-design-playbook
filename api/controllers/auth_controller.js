@@ -23,7 +23,7 @@ router.post('/auth/register', (req,res) => {
     })
     .then(() => {
       const employer = new Employer({
-        name: req.body.name|| 'Admin',
+        name: req.body.name || 'Admin',
         login: req.body.login,
         password: req.body.password,
         email: req.body.email,
@@ -31,7 +31,7 @@ router.post('/auth/register', (req,res) => {
       });
       return employer.save();
     })
-    .then(() => res.send('Saved successfully'))
+    .then(() => res.send({ message: 'Saved successfully' }))
     .catch(err => res.status(422).send(err));
 });
 
