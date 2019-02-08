@@ -27,7 +27,8 @@ const routes: Routes = [
   { path: 'admin/archive', component: ArchiveComponent },
   { path: 'admin/login', component: AdminLoginComponent },
   { path: 'admin/settings', component: AdminSettingsComponent },
-  { path: '', redirectTo: 'admin/login', pathMatch: 'full' }
+  { path: '', redirectTo: 'admin/login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'error', pathMatch: 'full' }
 ];
 
 @NgModule({

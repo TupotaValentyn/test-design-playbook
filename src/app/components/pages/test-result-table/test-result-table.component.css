@@ -32,5 +32,13 @@
 .result__row {
   display: flex;
   width: 100%;
-  border-bottom: 1px solid lightgrey;
+}
+
+.toggle__btn {
+  color: black;
+}
+
+.is__chosen {
+  background: blueviolet;
+  color: white;
 }
