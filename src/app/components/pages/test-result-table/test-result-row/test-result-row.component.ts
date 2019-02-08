@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {SolvedModel} from '../../../shared/models/solved-model';
+import { SolvedModel } from '../../../shared/models/solved-model';
 
 @Component({
   selector: 'app-test-result-row',
@@ -14,8 +14,22 @@ export class TestResultRowComponent {
   constructor() { }
 
   //checking comments for null and spaced
-  isNotEmptyOrSpaces(str){
-    return !(str && str.match(/^ *$/));
+  // isNotEmptyOrSpaces(str){
+  //   return !(str && str.match(/^ *$/));
+  // }
+
+  // changeMarkTemplate() {
+  //   this.userDataItem.mark = !this.userDataItem.mark;
+  // }
+
+  saveCommentGood(event) {
+    console.log(event.target.value);
+    this.userDataItem.comment.good = event.target.value;
+  }
+
+  saveCommentBad(event) {
+    console.log(event.target.value);
+    this.userDataItem.comment.bad = event.target.value;
   }
 
 }

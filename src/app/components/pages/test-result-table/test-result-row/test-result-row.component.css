@@ -27,7 +27,6 @@
   margin: 0 0 0 20px;
 }
 
-
 .users__mark__true,
 .users__mark__false {
   margin-left: 10px;
@@ -54,10 +53,11 @@
   justify-content: space-around;
   height: 110px;
 }
+
 .comment__positive,
 .comment__negative {
   width: 46%;
-  overflow-y: auto;
+  overflow: hidden;
   padding-bottom: 10px;
 }
 
@@ -69,6 +69,24 @@
 .comment__negative {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.mat-card-header .mat-card-title {
+  margin-bottom: 0;
+}
+
+.btn__like,
+.btn__dislike {
+  margin-left: 15px;
+}
+
+.comment__field { 
+  width: 100%;
+}
+
+.comment__field textarea {
+  height: 35px;
+  resize: none;
 }
 
 .empty {

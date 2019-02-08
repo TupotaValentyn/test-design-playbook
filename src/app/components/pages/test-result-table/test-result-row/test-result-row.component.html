@@ -4,13 +4,33 @@
   </div>
 
   <div class="answer__wrapper">
-    <p>
+    <div>
       <span class="index"># {{ index }}</span>
-      <span class="users__mark__true" *ngIf="userDataItem.mark; else dislike">You liked it!</span>
+
+      <div *ngIf="userDataItem.mark; then like; else dislike"></div>
+
+      <ng-template #like>
+        <!-- <button
+          mat-raised-button
+          color="accent"
+          class="btn__dislike"
+          (click)="changeMarkTemplate()">
+          DISLIKE
+        </button> -->
+        <span class="users__mark__true">You liked it!</span>
+      </ng-template>
+      
       <ng-template #dislike>
+        <!-- <button
+          mat-raised-button
+          color="primary"
+          class="btn__like"
+          (click)="changeMarkTemplate()">
+          LIKE
+        </button> -->
         <span class="users__mark__false">You disliked it!</span>
       </ng-template>
-    </p>
+    </div>
 
     <div class="comments__field">
       <mat-card class="comment__positive">
@@ -18,12 +38,9 @@
           <mat-card-title class="comments__field__title">Positive comment</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <p *ngIf="isNotEmptyOrSpaces(userDataItem.comment.good); else empty">
-            {{ userDataItem.comment.good }}
-          </p>
-          <ng-template #empty>
-            <p class="empty">Empty...</p>
-          </ng-template>
+          <mat-form-field class="comment__field">
+            <textarea matInput (blur)="saveCommentGood($event)" rows="1">{{ userDataItem.comment.good }}</textarea>
+          </mat-form-field>
         </mat-card-content>
       </mat-card>
       <mat-card class="comment__negative">
@@ -31,12 +48,9 @@
           <mat-card-title class="comments__field__title">Negative comment</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <p *ngIf="isNotEmptyOrSpaces(userDataItem.comment.bad); else empty">
-            {{ userDataItem.comment.bad }}
-          </p>
-          <ng-template #empty>
-            <p class="empty">Empty...</p>
-          </ng-template>
+          <mat-form-field class="comment__field">
+            <textarea matInput (blur)="saveCommentBad($event)">{{ userDataItem.comment.bad }}</textarea>
+          </mat-form-field>
         </mat-card-content>
       </mat-card>
     </div>

@@ -42,4 +42,12 @@ export class TestResultTableComponent {
     })
 
   }
+
+  saveData() {
+    localStorage.setItem('savedTestResults', JSON.stringify(this.models));
+    const sendData = this.models;
+    console.log(this.models);
+
+    this.dataSource.updateResult(sendData).subscribe();
+  }
 }
