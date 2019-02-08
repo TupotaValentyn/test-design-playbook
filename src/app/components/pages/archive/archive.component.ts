@@ -17,7 +17,6 @@ export class ArchiveComponent implements OnInit {
   ngOnInit() {
     this.dataSource.getAllArchiveResults().subscribe((allResults: Array<Result>) => {
       this.archive = allResults
-      console.log(this.archive)
     }, err => {
       console.log(err)
     })

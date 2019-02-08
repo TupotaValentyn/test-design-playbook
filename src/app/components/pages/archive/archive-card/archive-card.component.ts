@@ -4,11 +4,10 @@ import { DataSourceService } from '../../../shared/service/data-source.service';
 import { MatDialog } from '@angular/material';
 import { ConfirmRestoreComponent } from './confirm-restore/confirm-restore.component';
 
-
 @Component({
   selector: 'app-archive-card',
   templateUrl: './archive-card.component.html',
-  styleUrls: ['./archive-card.component.css']
+  styleUrls: ['./archive-card.component.css', '../../results-page/results-card/results-card.component.css']
 })
 export class ArchiveCardComponent implements OnInit{
 
