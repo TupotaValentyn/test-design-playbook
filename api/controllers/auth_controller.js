@@ -84,6 +84,27 @@ router.post('/change/email', (req, res) => {
   })
 });
 
+router.post('/change/email', (req, res) => {
+  if (req.access !== 'admin') {
+    return res.status(403).send('You do not have permission');
+  }
+  const token = req.token;
+  jwt.verify(token, process.env.JWT_PRIVATE_KEY, (err, decoded) => {
+    if(err) {
+      return res.status(500).send(err)
+    }
+    Employer.findOne({ login: decoded.user })
+      .then((docs) => {
+        if (!docs) {
+          throw 'Bad auth data';
+        }
+        return Employer.findOneAndUpdate({ login: decoded.user }, { notify: req.body.notify })
+      })
+      .then(() => res.send({ message: 'Successfully updated '}))
+      .catch(err => res.status(500).send(err))
+  })
+});
+
 router.get('/employers/info', (req, res) => {
   if (req.access !== 'admin') {
     return res.status(403).send('You do not have permission');
