@@ -34,7 +34,6 @@ export class FullResultContainerComponent implements OnInit {
         .subscribe((data: Result) => {
 
           this.resultItem = data;
-          console.log(this.resultItem);
 
           this.resultItemsDefault = this.resultItem.solved_models;
 

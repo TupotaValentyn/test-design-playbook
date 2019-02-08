@@ -19,7 +19,6 @@ export class GetStartedComponent implements OnInit {
     this.dataSource.getApplicantInfo(this.token)
     .subscribe((applicant: Applicant) => {
       this.applicant = applicant;
-      console.log(this.applicant);
     });
     
     this.dataSource.getTotalAmount()
