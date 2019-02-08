@@ -24,7 +24,8 @@ const routes: Routes = [
   { path: 'admin/results/full/:token', component: FullResultContainerComponent },
   { path: 'admin/links', component: AdminPanelLinkComponent },
   { path: 'admin/login', component: AdminLoginComponent },
-  { path: 'admin/settings', component: AdminSettingsComponent }
+  { path: 'admin/settings', component: AdminSettingsComponent },
+  { path: '', redirectTo: 'admin/login', pathMatch: 'full' }
 ];
 
 @NgModule({
