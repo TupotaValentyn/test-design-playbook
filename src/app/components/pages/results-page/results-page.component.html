@@ -1,4 +1,13 @@
 <app-admin-navbar></app-admin-navbar>
+
+<div class="search__wrapper">
+    <mat-form-field  class="search">
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Write search request here..." (keydown)="onKeyDown($event)">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+</div>
+
 <ol class="list" *ngIf="results.length !== 0 || !isLoadedContent; else cat">
   <li *ngFor="let resultItem of groupResults | keyvalue">
 
@@ -15,6 +24,7 @@
 
   </li>
 </ol>
+
 <ng-template #cat>
     <div class="cat__empty__page">
       <div class="cat__center__content">

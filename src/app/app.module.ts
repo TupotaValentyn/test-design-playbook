@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 
-
 // component
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -50,7 +49,10 @@ import { LinkInfoDialogComponent } from './components/pages/admin-panel-link/adm
 import { SmthWentWrongComponent } from './components/pages/smth-went-wrong/smth-went-wrong.component';
 import { HelpInstructionModalComponent } from './components/pages/main-container/help-instruction-modal/help-instruction-modal.component';
 import { ConfirmArchiveComponent } from './components/pages/results-page/results-card/confirm-archive/confirm-archive.component';
+import { ArchiveComponent } from '../app/components/pages/archive/archive.component';
 import { AdminSettingsComponent } from './components/pages/admin-settings/admin-settings.component';
+import { ArchiveCardComponent } from './components/pages/archive/archive-card/archive-card.component';
+import { ConfirmRestoreComponent } from './components/pages/archive/archive-card/confirm-restore/confirm-restore.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +77,10 @@ import { AdminSettingsComponent } from './components/pages/admin-settings/admin-
     HelpInstructionModalComponent,
     SmthWentWrongComponent,
     ConfirmArchiveComponent,
-    AdminSettingsComponent
+    ArchiveComponent,
+    AdminSettingsComponent,
+    ArchiveCardComponent,
+    ConfirmRestoreComponent
   ],
   imports: [
     BrowserModule,
@@ -106,7 +111,8 @@ import { AdminSettingsComponent } from './components/pages/admin-settings/admin-
   entryComponents: [
     LinkInfoDialogComponent,
     HelpInstructionModalComponent,
-    ConfirmArchiveComponent
+    ConfirmArchiveComponent,
+    ConfirmRestoreComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },

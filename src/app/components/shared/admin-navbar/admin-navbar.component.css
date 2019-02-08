@@ -13,11 +13,13 @@
   z-index: 777;
 }
 
-.logo {
+.logo__wrapper {
+  display: flex;
+  align-items: center;
   cursor: pointer;
 }
 
-.navbar__icon {
+.logo__icon {
   height: 30px;
   width: 30px;
 }
@@ -28,11 +30,11 @@
   align-items: center;
 }
 
-.navbar__title {
+.logo__title {
   color: white;
   font-weight: bold;
   font-size: 14px;
-  margin-right: 15px;
+  margin: 0 15px 0 10px;
 }
 
 .link {
@@ -47,10 +49,4 @@
 .navbar__empty__space {
   width: 100%;
   height: 55px;
-}
-
-.link__wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 }

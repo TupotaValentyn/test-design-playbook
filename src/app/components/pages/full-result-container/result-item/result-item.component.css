@@ -86,8 +86,7 @@ mat-form-field {
 }
 
 .comment__group {
-  max-width: 300px;
-  width: 45%;
+  width: 50%;
   height: calc(100% - 20px);
   margin: 0 0 20px 0;
   padding: 10px;
