@@ -171,4 +171,9 @@ export class DataSourceService {
   setNotification(notify: boolean): Observable<Object> {
     return this.http.post(environment.API_DOMAIN + '/api/change/notify', { notify: notify });
   }
+
+  getTotalAmount() {
+    return this.http.get(environment.API_DOMAIN + '/api/models/count');
+  }
+
 }
