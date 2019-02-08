@@ -1,0 +1,13 @@
+<app-admin-navbar></app-admin-navbar>
+
+<ol class="list" >
+  <li class="card" >
+    <app-archive-card
+    *ngFor="let resultItem of archive; let index = index"
+    [result_item]="resultItem"
+    [index]="index + 1"
+    (onDelete)="updateCardAfterDelete()">
+
+    </app-archive-card>
+  </li>
+</ol>

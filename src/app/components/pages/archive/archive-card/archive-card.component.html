@@ -1,0 +1,38 @@
+<mat-card>
+  <div class="wrapper">
+    <div class="info__group number">
+      <span class="info info__number">
+        # {{ index }}
+      </span>
+      <span class="date__info">
+        {{ result_item.solved_date | date: "HH:mm" }}
+      </span>
+    </div>
+    <div class="info__group content">
+      <span class="info info__name">
+        {{ result_item.applicant.surname }} 
+        {{ result_item.applicant.first_name }} 
+        {{ result_item.applicant.second_name }}
+      </span>
+      <span class="info info__rating">
+        Rating :
+        <span>
+          {{ result_item.applicant.mark }}
+        </span>
+      </span>
+      <span class="info info__comment">
+        {{ result_item.applicant.comment }}
+      </span>
+    </div>
+  </div>
+  <div class="button__container">
+    <button class="btn accept" color="primary" mat-raised-button routerLink="/admin/results/full/{{result_item.applicant.token}}">
+      More...
+    </button>
+    <button 
+    class="btn delete" 
+    color="warn" 
+    mat-raised-button 
+    (click)="openDialog()">Restore</button>
+  </div>
+</mat-card>
