@@ -24,6 +24,7 @@ export class GetStartedComponent {
     this.dataSource.getApplicantInfo(this.token)
     .subscribe((applicant: Applicant) => {
       this.applicant = applicant;
+      console.log(this.applicant);
     });
   }
 
