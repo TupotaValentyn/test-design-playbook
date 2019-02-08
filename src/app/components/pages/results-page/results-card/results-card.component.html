@@ -1,22 +1,19 @@
 <mat-card>
   <div class="wrapper">
-    <div class="info__group number">
-      <span class="info info__number">
-        # {{ index }}
-      </span>
-      <span class="date__info">{{ result_item.solved_date | date: "HH:mm" }}</span>
+    <div class="info__group date">
+      <span>{{ result_item.solved_date | date: "HH:mm" }}</span>
     </div>
     <div class="info__group content">
-      <span class="info info__name">
+      <span class="info__name">
         {{ result_item.applicant.surname }} {{ result_item.applicant.first_name }} {{ result_item.applicant.second_name }}
       </span>
-      <span class="info info__rating">
+      <span class="info__rating">
         Rating :
         <span>
           {{ result_item.applicant.mark }}
         </span>
       </span>
-      <span class="info info__comment">
+      <span class="info__comment">
         {{ result_item.applicant.comment }}
       </span>
     </div>
