@@ -1,29 +1,25 @@
 <div class="wrapper">
-  <nav class="nav">
-    <button mat-raised-button color="primary" routerLink="/main" class="route__btn left">
-      <div class="btn__wrapper">
-        <mat-icon class="icon">keyboard_backspace</mat-icon>
-        <span class="btn__text">Back</span>
-      </div>
+  <nav>
+    <button mat-raised-button color="primary" routerLink="/main" class="back__btn">
+      <mat-icon class="icon">keyboard_backspace</mat-icon>
+      <span class="btn__text">Back</span>
     </button>
 
     <div class="switch__wrapper">
       <span>Please check your choice before sending</span>
       <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-        <mat-button-toggle value="all" class="toggle__btn" (click)="displayAll()" [class.is__chosen]="!onlySelected">
+        <mat-button-toggle value="all" class="filter__btn" (click)="displayAll()" [class.is__chosen]="!onlySelected">
           All templates
         </mat-button-toggle>
-        <mat-button-toggle value="selected" class="toggle__btn" (click)="displaySelected()" [class.is__chosen]="onlySelected">
+        <mat-button-toggle value="selected" class="filter__btn" (click)="displaySelected()" [class.is__chosen]="onlySelected">
           Selected templates
         </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
 
-    <button mat-raised-button color="primary" (click)="sendData()" class="route__btn right">
-      <div class="btn__wrapper">
-        <span class="btn__text">Finish</span>
-        <mat-icon class="icon">done</mat-icon>
-      </div>
+    <button mat-raised-button color="primary" (click)="sendData()" class="finish__btn">
+      <span class="btn__text">Finish</span>
+      <mat-icon class="icon">done</mat-icon>
     </button>
   </nav>
   <mat-divider></mat-divider>
