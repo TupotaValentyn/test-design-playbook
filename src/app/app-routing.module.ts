@@ -16,7 +16,7 @@ import { AdminSettingsComponent } from './components/pages/admin-settings/admin-
 
 const routes: Routes = [
   { path: 'main', component: MainContainerComponent },
-  { path: '', component: GetStartedComponent },
+  { path: '', redirectTo: 'admin/login', pathMatch: 'full' },
   { path: 'invite/:token', component: GetStartedComponent },
   { path: 'error', component: SmthWentWrongComponent },
   { path: 'result/table', component: TestResultTableComponent },
