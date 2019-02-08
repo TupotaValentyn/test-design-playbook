@@ -56,19 +56,17 @@ export class ResultsPageComponent implements OnInit {
     }
 
     this.checkAllKeywords(request);
-    this.checkAllKeywords(request.toUpperCase());
-    this.checkAllKeywords(request.toLowerCase());
 
     this.groupResults = ResultsPageComponent.doGroupResults(this.resultsDisplay);
   }
 
-  checkAllKeywords(request) {
-    const allKeywords = request.split(" ");
+  checkAllKeywords(request: string) {
+    const allKeywords = request.toLowerCase().trim().split(" ");
 
     allKeywords.forEach(keyword => {
       this.results.forEach(res => {
-        if (res.applicant.surname.includes(keyword) || res.applicant.first_name.includes(keyword)
-        || res.applicant.second_name.includes(keyword) || keyword === this.transformDate(res.solved_date)) {
+        if (res.applicant.surname.toLowerCase().includes(keyword) || res.applicant.first_name.toLocaleLowerCase().includes(keyword)
+        || res.applicant.second_name.toLowerCase().includes(keyword) || keyword === this.transformDate(res.solved_date)) {
           if (!this.resultsSet.has(res)) {
             this.resultsSet.add(res);
             this.resultsDisplay.push(res);
