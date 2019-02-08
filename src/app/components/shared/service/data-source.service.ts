@@ -144,7 +144,7 @@ export class DataSourceService {
 
   changePassword(oldPassword: string, newPassword: string): Observable<Object> {
     return this.http
-      .post(environment.API_DOMAIN + '/api/change/password', {password: oldPassword, newPassword: newPassword});
+      .post(environment.API_DOMAIN + '/api/change/password', { password: oldPassword, newPassword: newPassword });
   }
 
   changeEmail(newEmail: string): Observable<Object> {
@@ -172,7 +172,7 @@ export class DataSourceService {
     return this.http.post(environment.API_DOMAIN + '/api/change/notify', { notify: notify });
   }
 
-  getTotalAmount() {
+  getTotalAmount(): Observable<Object> {
     return this.http.get(environment.API_DOMAIN + '/api/models/count');
   }
 
