@@ -37,3 +37,12 @@
   display: flex;
   width: 100%;
 }
+
+.toggle__btn {
+  color: black;
+}
+
+.is__chosen {
+  background: blueviolet;
+  color: white;
+}
