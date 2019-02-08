@@ -1,40 +1,42 @@
 <div class="wrapper">
-  <nav class="nav">
-    <a mat-button routerLink="/main" class="route__btn">Back</a>
+  <nav>
+    <button mat-raised-button color="primary" routerLink="/main" class="back__btn">
+      <mat-icon class="icon">keyboard_backspace</mat-icon>
+      <span class="btn__text">Back</span>
+    </button>
+
     <div class="switch__wrapper">
       <span>Please check your choice before sending</span>
       <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-        <mat-button-toggle
-        value="all"
-        class="toggle__btn"
-        (click)="displayAll()"
-        [class.is__chosen]="!onlySelected">
+        <mat-button-toggle value="all" class="filter__btn" (click)="displayAll()" [class.is__chosen]="!onlySelected">
           All templates
         </mat-button-toggle>
-        <mat-button-toggle
-        value="selected"
-        class="toggle__btn"
-        (click)="displaySelected()"
-        [class.is__chosen]="onlySelected">
+        <mat-button-toggle value="selected" class="filter__btn" (click)="displaySelected()" [class.is__chosen]="onlySelected">
           Selected templates
         </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
-    <a mat-button (click)="sendData()" class="route__btn">Finish</a>
+
+    <button mat-raised-button color="primary" (click)="sendData()" class="finish__btn">
+      <span class="btn__text">Finish</span>
+      <mat-icon class="icon">done</mat-icon>
+    </button>
   </nav>
   <mat-divider></mat-divider>
 
-  <div *ngIf="onlySelected; then selectedBlock; else allBlock"></div>
-  <ng-template #selectedBlock>
-    <div class="result__table" *ngFor="let model of models; let i = index">
-      <app-test-result-row class="result__row" *ngIf="model.mark" [userDataItem]="model" [index]="i + 1"></app-test-result-row>
-    </div>
-    <mat-divider></mat-divider>
-  </ng-template>
-  <ng-template #allBlock>
-    <div class="result__table" *ngFor="let model of models; let i = index">
-      <app-test-result-row class="result__row" [userDataItem]="model" [index]="i + 1"></app-test-result-row>
-    </div>
-    <mat-divider></mat-divider>
-  </ng-template>
+  <div class="table__wrapper">
+    <div *ngIf="onlySelected; then selectedBlock; else allBlock"></div>
+    <ng-template #selectedBlock>
+      <div class="result__table" *ngFor="let model of models; let i = index">
+        <app-test-result-row class="result__row" *ngIf="model.mark" [userDataItem]="model" [index]="i + 1">
+        </app-test-result-row>
+      </div><mat-divider></mat-divider>
+    </ng-template>
+    <ng-template #allBlock>
+      <div class="result__table" *ngFor="let model of models; let i = index">
+        <app-test-result-row class="result__row" [userDataItem]="model" [index]="i + 1">
+        </app-test-result-row>
+      </div><mat-divider></mat-divider>
+    </ng-template>
+  </div>
 </div>
