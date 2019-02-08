@@ -90,7 +90,7 @@
           Positive
         </ng-template>
         <mat-form-field class="comment__field">
-          <textarea matInput placeholder="Leave positive comment about this image" class="comment__field__text"
+          <textarea matInput placeholder="Leave positive comment about this template" class="comment__field__text"
             [(ngModel)]="currentSelectedModel.comment.good" (blur)="saveCommentGood($event)">
             </textarea>
         </mat-form-field>
@@ -102,7 +102,7 @@
           Negative
         </ng-template>
         <mat-form-field class="comment__field">
-          <textarea matInput placeholder="Leave negative comment about this image" class="comment__field__text"
+          <textarea matInput placeholder="Leave negative comment about this template" class="comment__field__text"
             [(ngModel)]="currentSelectedModel.comment.bad" (blur)="saveCommentBad($event)">
             </textarea>
         </mat-form-field>

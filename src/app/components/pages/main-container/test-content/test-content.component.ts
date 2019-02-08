@@ -70,10 +70,8 @@ export class TestContentComponent {
   changeTemplate(event) {
     if (event.key === 'ArrowRight') {
       this.openNextImage();
-      console.log(`The user just pressed ${event.key}!`);    
     } else if (event.key === 'ArrowLeft') {
       this.openPrevImage();
-      console.log(`The user just pressed ${event.key}!`);
     }
   }
 
