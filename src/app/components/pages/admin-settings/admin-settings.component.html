@@ -5,7 +5,7 @@
       <mat-button-toggle (click)="openProfile()">Profile</mat-button-toggle>
       <mat-button-toggle (click)="openSecurity()">Security</mat-button-toggle>
       <mat-button-toggle (click)="openEmail()">E-mail</mat-button-toggle>
-      <mat-button-toggle disabled>Notification</mat-button-toggle>
+      <mat-button-toggle (click)="openNotification()">Notification</mat-button-toggle>
     </mat-button-toggle-group>
   </div>
   <div class="central__container" [ngSwitch]="currentMenus">
@@ -60,12 +60,18 @@
       <h2>Notification</h2>
       <mat-divider></mat-divider>
 
-      <mat-checkbox  [value]="'notify new results by mail'" type="checkbox"></mat-checkbox>
-
-      <div>
-        <button mat-raised-button (click)="changeEmail(newEmail)" color="accent"
-                class="update__password__button">Update e-mail</button>
+      <div *ngIf="!employer.notify; else unsubscribe">
+        <p>You are not currently notified of each applicant's completion of the test</p>
+        <button mat-raised-button (click)="subscribeToNotify()" color="accent"
+                class="update__password__button">Subscribe</button>
       </div>
+      <ng-template #unsubscribe>
+        <div>
+          <p>You now receive a notification of each applicant's completion of the test</p>
+          <button mat-raised-button (click)="unsubscribeFromNotify()" color="accent"
+                  class="update__password__button">Unsubscribe</button>
+        </div>
+      </ng-template>
     </div>
 
   </div>

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
-import { Result } from '../models/result'
 import { SolvedModel } from '../models/solved-model'
 
 @Injectable({
@@ -164,8 +163,12 @@ export class DataSourceService {
   }
 
   updateArchiveData (token: string) {
-    return this.http.post(environment.API_DOMAIN + 'api/results/undelete', {
+    return this.http.post(environment.API_DOMAIN + '/api/results/undelete', {
       token: token
     })
+  }
+
+  setNotification(notify: boolean): Observable<Object> {
+    return this.http.post(environment.API_DOMAIN + '/api/change/notify', { notify: notify });
   }
 }
