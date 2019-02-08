@@ -10,6 +10,4 @@ import { Applicant } from '../../../../shared/models/applicant';
 export class ConfirmRestoreComponent {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: Applicant) { }
-
-
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit,Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Result } from '../../../shared/models/result';
 import { DataSourceService } from '../../../shared/service/data-source.service';
 import { MatDialog } from '@angular/material';
@@ -9,7 +9,7 @@ import { ConfirmRestoreComponent } from './confirm-restore/confirm-restore.compo
   templateUrl: './archive-card.component.html',
   styleUrls: ['./archive-card.component.css', '../../results-page/results-card/results-card.component.css']
 })
-export class ArchiveCardComponent implements OnInit{
+export class ArchiveCardComponent {
 
   @Input() result_item: Result;
   @Input() index: number;
@@ -17,9 +17,6 @@ export class ArchiveCardComponent implements OnInit{
 
   constructor(private dataSource: DataSourceService, public dialog: MatDialog) {  }
 
-  ngOnInit () {
-
-  }
   openDialog() {
     const dialogRef = this.dialog.open(ConfirmRestoreComponent, {
       data: this.result_item.applicant

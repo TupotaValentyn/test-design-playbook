@@ -30,7 +30,4 @@ export class ArchiveComponent implements OnInit {
       console.log(err)
     })
   }
-
-
-
 }

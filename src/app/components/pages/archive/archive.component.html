@@ -6,8 +6,7 @@
     *ngFor="let resultItem of archive; let index = index"
     [result_item]="resultItem"
     [index]="index + 1"
-    (onDelete)="updateCardAfterDelete()"
-    >
+    (onDelete)="updateCardAfterDelete()">
 
     </app-archive-card>
   </li>
