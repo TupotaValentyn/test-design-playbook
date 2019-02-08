@@ -75,7 +75,7 @@
     <app-result-item
      class="result__item__container" 
      *ngFor="let item of resultItemsDefault; let i = index"
-     [item]="item"
+     [solvedModel]="item"
      [index]="i + 1">
     </app-result-item>
     <ng-template [ngIf]="resultItemsDefault.length === 0">

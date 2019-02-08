@@ -9,7 +9,9 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 
+const morgan = require('morgan');
 console.log('[Server] Application start...');
 
 // connect to database
@@ -23,9 +25,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // filters
-
+app.use(morgan('dev'));
 app.use(cors());
-// app.use(express.static(__dirname + '/../src/assets'));
+app.use(express.static(path.resolve(__dirname + './../dist/test-design-playbook/')));
 app.use('/layouts', require('./middleware/layout_control_filter'));
 app.use('/api/*', require('./middleware/auth_controll_filter'));
 
@@ -37,6 +39,10 @@ app.use('/api', require('./controllers/auth_controller'));
 app.use('/api', require('./controllers/result_controller'));
 app.use('/api', require('./controllers/model_controller'));
 app.use('/api', require('./controllers/user_controller'));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname + './../dist/test-design-playbook/index.html'));
+});
 
 // start
 app.listen(PORT, () => {

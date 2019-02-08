@@ -3,6 +3,7 @@ import { SolvedModel } from '../../shared/models/solved-model';
 import { Router } from '@angular/router';
 import { DataSourceService } from '../../shared/service/data-source.service';
 import { Result } from '../../shared/models/result';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-main-container',
@@ -61,7 +62,7 @@ export class MainContainerComponent implements OnInit {
     if (this.currentModel.length <= 1) {
       this.currentModel = data.solved_models;
       this.currentModel.forEach(e => {
-        e.model.url = "http://localhost:8000/layouts?img=" + e.model.url;
+        e.model.url = environment.API_DOMAIN + "/layouts?img=" + e.model.url;
       });
 
       this.selectFirstElement();
