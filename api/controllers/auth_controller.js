@@ -84,7 +84,7 @@ router.post('/change/email', (req, res) => {
   })
 });
 
-router.post('/change/email', (req, res) => {
+router.post('/change/notify', (req, res) => {
   if (req.access !== 'admin') {
     return res.status(403).send('You do not have permission');
   }
