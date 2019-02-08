@@ -9,7 +9,7 @@
 </div>
 
 <ol class="list" *ngIf="results.length !== 0 || !isLoadedContent; else cat">
-  <li *ngFor="let resultItem of groupResults | keyvalue">
+  <li *ngFor="let resultItem of groupResults | keyvalue: reverseKeyOrder">
 
     <div class="item__group">
       <h3 class="list__title">{{ resultItem.key }}</h3>

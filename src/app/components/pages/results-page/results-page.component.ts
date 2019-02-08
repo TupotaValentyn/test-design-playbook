@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Result } from '../../shared/models/result';
 import { DataSourceService } from '../../shared/service/data-source.service';
-import { DatePipe } from '@angular/common';
+import {DatePipe, KeyValue} from '@angular/common';
 import { MatSnackBar } from '@angular/material';
 
 @Component({
@@ -88,6 +88,7 @@ export class ResultsPageComponent implements OnInit {
 
   private static doGroupResults(value: Array<Result>): Map<String, Array<Result>>  {
     const groupResults: Map<String, Array<Result>> = new Map<String, Array<Result>>();
+
     value.forEach((item: Result) => {
       const solved_date = new Date(item.solved_date);
       const daytime = ResultsPageComponent.dateFormat(solved_date);
@@ -97,10 +98,17 @@ export class ResultsPageComponent implements OnInit {
         groupResults.set(daytime, [item]);
       }
     });
+
+    console.log(groupResults);
+
     groupResults.forEach((results, key) => {
-      results.sort((a, b) => new Date(a.solved_date).getTime() - new Date(b.solved_date).getTime());
+      results.sort((a, b) => new Date(b.solved_date).getTime() - new Date(a.solved_date).getTime());
     });
     return groupResults;
+  }
+
+  reverseKeyOrder = (a: KeyValue<String, Array<Result>>, b: KeyValue<String, Array<Result>>): number => {
+    return a.key > b.key ? -1 : (b.key > a.key ? 1 : 0);
   }
 
   private static dateFormat(solved_date) {
