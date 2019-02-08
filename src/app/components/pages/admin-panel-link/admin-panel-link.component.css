@@ -43,10 +43,14 @@ form {
   justify-content: space-between;
 }
 
-form,
-mat-toolbar {
+form {
   background-color: white;
   width: 380px;
+}
+
+.create__invitation {
+  background-color: #28a745;
+  color: white;
 }
 
 .send {

@@ -26,6 +26,7 @@
 .main__image__container {
   flex-grow: 1;
   overflow-y: auto;
+  outline: none;
 }
 
 .img {
@@ -47,6 +48,15 @@
 .btn__open__close_sidebar {
   color: white;
   background-color: #3e4db8;
+}
+
+.open__close__sidebar__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  width: 100%;
+  height: 100%;
 }
 
 .like__dislike__container,

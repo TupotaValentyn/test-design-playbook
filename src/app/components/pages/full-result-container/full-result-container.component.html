@@ -7,23 +7,19 @@
     <div>
       <mat-card class="sidebar__card">
         <mat-card-header>
-          <mat-card-title>Profile</mat-card-title>
-          <mat-card-subtitle>information about user</mat-card-subtitle>
+          <mat-card-title>{{ resultItem.applicant.first_name }} {{ resultItem.applicant.surname }} {{ resultItem.applicant.second_name }}</mat-card-title>
+          <mat-card-subtitle>
+            <a href="mailto:{{ resultItem.applicant.email }}"> {{ resultItem.applicant.email }}</a>
+          </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
           <mat-list>
             <mat-divider></mat-divider>
-            <mat-list-item>{{ resultItem.applicant.surname }} {{ resultItem.applicant.first_name }} {{ resultItem.applicant.second_name }}</mat-list-item>
+            <mat-list-item>
+              Created: {{ resultItem.applicant.created | date: "mediumDate" }}</mat-list-item>
             <mat-divider></mat-divider>
             <mat-list-item>
-              <a href="mailto:{{ resultItem.applicant.email }}"> {{ resultItem.applicant.email }}</a>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>
-              Created link: {{ resultItem.applicant.created | date: "mediumDate" }}</mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item>
-              Test pass: {{ resultItem.solved_date | date: "mediumDate" }}</mat-list-item>
+              Test finished: {{ resultItem.solved_date | date: "mediumDate" }}</mat-list-item>
             <mat-divider></mat-divider>
             <mat-list-item>Mark: {{ resultItem.applicant.mark }}</mat-list-item>
           </mat-list>

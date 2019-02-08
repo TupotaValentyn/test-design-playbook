@@ -12,10 +12,5 @@ export class TestResultRowComponent {
   @Input() userDataItem: SolvedModel;
 
   constructor() { }
-
-  //checking comments for null and spaced
-  isNotEmptyOrSpaces(str){
-    return !(str && str.match(/^ *$/));
-  }
-
+  
 }

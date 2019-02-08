@@ -1,4 +1,4 @@
-<mat-card class="result__row">
+<div class="result__row">
   <div class="img__wrapper">
     <img class="image" [src]="userDataItem.model.url" alt="userDataItem.url">
   </div>
@@ -12,33 +12,31 @@
       </ng-template>
     </p>
 
+
     <div class="comments__field">
       <mat-card class="comment__positive">
         <mat-card-header>
-          <mat-card-title class="comments__field__title">Positive comment</mat-card-title>
+          <mat-icon class="comment__icon">thumb_up</mat-icon>
         </mat-card-header>
-        <mat-card-content>
-          <p *ngIf="isNotEmptyOrSpaces(userDataItem.comment.good); else empty">
+        <mat-card-content class="comments__field__text">
+          <p>
             {{ userDataItem.comment.good }}
           </p>
-          <ng-template #empty>
-            <p class="empty">Empty...</p>
-          </ng-template>
         </mat-card-content>
       </mat-card>
+
       <mat-card class="comment__negative">
         <mat-card-header>
-          <mat-card-title class="comments__field__title">Negative comment</mat-card-title>
+          <mat-icon class="comment__icon">thumb_down</mat-icon>
         </mat-card-header>
-        <mat-card-content>
-          <p *ngIf="isNotEmptyOrSpaces(userDataItem.comment.bad); else empty">
+        <mat-card-content class="comments__field__text">
+          <p>
             {{ userDataItem.comment.bad }}
           </p>
-          <ng-template #empty>
-            <p class="empty">Empty...</p>
-          </ng-template>
         </mat-card-content>
       </mat-card>
     </div>
+
   </div>
-</mat-card>
+</div>
+<mat-divider></mat-divider>

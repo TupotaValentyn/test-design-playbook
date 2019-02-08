@@ -1,11 +1,31 @@
 .wrapper {
   width: 100vw;
   height: 100vh;
+  position: relative;
   background: url('../../../../assets/get-started-background.jpg') no-repeat;
   background-size: cover;
   display: flex;
+  flex-direction: column; 
   justify-content: center;
   align-items: center;
+}
+
+.logo__container {
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.logo__icon {
+  width: 120px;
+  height: 120px;
+}
+
+.logo__title {
+  margin-left: 10px;
 }
 
 .card {
