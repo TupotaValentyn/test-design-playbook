@@ -22,12 +22,11 @@ export class ArchiveCardComponent implements OnInit{
 
   }
   openDialog() {
-    console.log(11111)
     const dialogRef = this.dialog.open(ConfirmRestoreComponent, {
       data: this.result_item.applicant
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result === true) {
+      if (result) {
         this.dataSource.updateArchiveData(this.result_item.applicant.token)
         .subscribe(() => {
           this.onDelete.emit();

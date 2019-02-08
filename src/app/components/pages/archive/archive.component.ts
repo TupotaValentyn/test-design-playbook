@@ -10,12 +10,12 @@ import { Result } from '../../shared/models/result';
 })
 export class ArchiveComponent implements OnInit {
 
-  archive: any
+  archive: Array<Result>
   isLoadedContent = false
   constructor(private dataSource: DataSourceService) { }
 
   ngOnInit() {
-    this.dataSource.getAllArchiveResults().subscribe(allResults => {
+    this.dataSource.getAllArchiveResults().subscribe((allResults: Array<Result>) => {
       this.archive = allResults
       console.log(this.archive)
     }, err => {
@@ -24,7 +24,7 @@ export class ArchiveComponent implements OnInit {
   }
 
   updateCardAfterDelete() {
-    this.dataSource.getAllArchiveResults().subscribe(allResults => {
+    this.dataSource.getAllArchiveResults().subscribe((allResults: Array<Result>) => {
       this.archive = allResults
       console.log(this.archive)
     }, err => {
