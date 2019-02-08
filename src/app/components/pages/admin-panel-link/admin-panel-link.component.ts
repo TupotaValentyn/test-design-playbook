@@ -62,6 +62,7 @@ export class AdminPanelLinkComponent implements OnInit {
     this.dataSource.sendMailWithLink(email, name, surname, secondname, newLink)
       .subscribe((data: any) => {
       console.log(data);
+      this.snackBar.open('Message sent successful', 'Close', { duration: 2000 })
     });
 }
 
