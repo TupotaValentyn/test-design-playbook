@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataSourceService } from '../../shared/service/data-source.service';
 import { SolvedModel } from '../../shared/models/solved-model';
+import { Result } from '../../shared/models/result';
 
 
 @Component({
@@ -14,7 +15,8 @@ export class TestResultTableComponent {
   @Input() countCheckedElements: number;
   @Input() maxCountCheckedElements: number;
 
-  @Input() models: Array<SolvedModel>;
+  @Input() result: Result;
+  models: Array<SolvedModel> = this.result.solved_models;
 
   onlySelected: boolean = true;
 
@@ -44,10 +46,10 @@ export class TestResultTableComponent {
   }
 
   saveData() {
-    localStorage.setItem('savedTestResults', JSON.stringify(this.models));
-    const sendData = this.models;
-    console.log(this.models);
+    localStorage.setItem('savedTestResults', JSON.stringify(this.result));
+    const sendData = this.result;
+    console.log(this.result);
 
-    this.dataSource.updateResult(sendData).subscribe();
+    // this.dataSource.updateResult(sendData).subscribe();
   }
 }
