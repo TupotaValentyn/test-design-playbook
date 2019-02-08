@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../../environments/environment';
+import { SolvedModel } from '../models/solved-model'
 
 @Injectable({
   providedIn: 'root'
@@ -9,20 +11,20 @@ export class DataSourceService {
 
   constructor(private http: HttpClient) { }
 
-  deleteResult(token): Observable<object> {
+  deleteResult(token: string): Observable<object> {
     return this.http
       .post(
-        'http://localhost:8000/api/results/delete',
+        environment.API_DOMAIN + '/api/results/delete',
         {
           token: token
         }
       )
   }
 
-  authorize(login, pass): Observable<Object> {
+  authorize(login: string, pass: string): Observable<Object> {
     return this.http
       .post(
-      'http://localhost:8000/api/auth',
+      environment.API_DOMAIN + '/api/auth',
       {
         login: login,
         password: pass
@@ -30,10 +32,10 @@ export class DataSourceService {
     );
   }
 
-  disableLink(token): Observable<Object> {
+  disableLink(token: string): Observable<Object> {
     return this.http
       .post(
-      'http://localhost:8000/api/users/token/deactivate',
+      environment.API_DOMAIN + '/api/users/token/deactivate',
       {
         token: token
       }
@@ -43,14 +45,14 @@ export class DataSourceService {
   getAllLinks(): Observable<Object> {
     return this.http
       .get(
-      'http://localhost:8000/api/users/token/all',
+      environment.API_DOMAIN + '/api/users/token/all',
     );
   }
 
-  createLinkForUser(email, name, surname, secondname): Observable<Object> {
+  createLinkForUser(email: string, name: string, surname: string, secondname: string): Observable<Object> {
     return this.http
       .post(
-      'http://localhost:8000/api/users/token',
+      environment.API_DOMAIN + '/api/users/token',
       {
         surname: surname,
         first_name: name,
@@ -59,10 +61,10 @@ export class DataSourceService {
       });
   }
 
-  sendMailWithLink(email, name, surname, secondname, link): Observable<Object> {
+  sendMailWithLink(email: string, name: string, surname: string, secondname: string, link: string): Observable<Object> {
     return this.http
       .post(
-      'http://localhost:8000/api/users/token/send',
+      environment.API_DOMAIN + '/api/users/token/send',
       {
         surname: surname,
         first_name: name,
@@ -72,68 +74,68 @@ export class DataSourceService {
       });
   }
 
-  getResultForUser(token): Observable<Object> {
+  getResultForUser(token: string): Observable<Object> {
     return this.http
-      .post('http://localhost:8000/api/results/one', {token: token});
+      .post(environment.API_DOMAIN + '/api/results/one', {token: token});
   }
 
   getAllModels(): Observable<Object> {
     return this.http
       .get(
-        'http://localhost:8000/api/model/all',
+        environment.API_DOMAIN + '/api/model/all',
       );
   }
 
   getAllModelsNew(): Observable<Object> {
     return this.http
-      .get('http://localhost:8000/api/models/all')
+      .get(environment.API_DOMAIN + '/api/models/all')
   }
 
   getSolvedModel(): Observable<Object> {
     return this.http
-      .get('http://localhost:8000/api/models/solved')
+      .get(environment.API_DOMAIN + '/api/models/solved')
   }
 
-  updateResult(solvedResults): Observable<Object> {
+  updateResult(solvedResults: Array<SolvedModel>): Observable<Object> {
     return this.http
       .post(
-      'http://localhost:8000/api/results/update',
+      environment.API_DOMAIN + '/api/results/update',
       { models: solvedResults }
     );
   }
 
-  removeResult(token): Observable<Object> {
+  removeResult(token: string): Observable<Object> {
     console.log(token);
     console.log('Result removed');
     return this.http
       .post(
-        'http://localhost:8000/api/results/delete',
+        environment.API_DOMAIN + '/api/results/delete',
         {token: token}
       );
   }
 
   getAllResults(): Observable<Object> {
     return this.http
-      .get('http://localhost:8000/api/results/all');
+      .get(environment.API_DOMAIN + '/api/results/all');
   }
 
-  saveResults(models): Observable<Object> {
+  saveResults(models: Array<SolvedModel>): Observable<Object> {
     return this.http
       .post(
-      'http://localhost:8000/api/results/save',
+      environment.API_DOMAIN + '/api/results/save',
       { models: models }
     );
   }
 
-  getApplicantInfo(token): Observable<Object> {
+  getApplicantInfo(token: string): Observable<Object> {
     return this.http
-      .post('http://localhost:8000/api/users/info', {token: token});
+      .post(environment.API_DOMAIN + '/api/users/info', {token: token});
   }
 
-  updateCommentAboutUser(token, comment): Observable<Object> {
+  updateCommentAboutUser(token: string, comment): Observable<Object> {
     return this.http
       .post(
-      'http://localhost:8000/api/users/update',
+      environment.API_DOMAIN + '/api/users/update',
       {
         token: token,
         comment: comment
@@ -142,6 +144,36 @@ export class DataSourceService {
 
   changePassword(oldPassword: string, newPassword: string): Observable<Object> {
     return this.http
-      .post('http://localhost:8000/api/change/password', {password: oldPassword, newPassword: newPassword});
+      .post(environment.API_DOMAIN + '/api/change/password', { password: oldPassword, newPassword: newPassword });
   }
+
+  changeEmail(newEmail: string): Observable<Object> {
+    return this.http
+      .post(environment.API_DOMAIN + '/api/change/email', { email: newEmail });
+  }
+
+  getEmployerInfo(): Observable<Object> {
+    return this.http
+      .get(environment.API_DOMAIN + '/api/employers/info');
+  }
+  
+  getAllArchiveResults():Observable<Object> {
+    return this.http
+      .get(environment.API_DOMAIN + '/api/results/archived')
+  }
+
+  updateArchiveData (token: string) {
+    return this.http.post(environment.API_DOMAIN + '/api/results/undelete', {
+      token: token
+    })
+  }
+
+  setNotification(notify: boolean): Observable<Object> {
+    return this.http.post(environment.API_DOMAIN + '/api/change/notify', { notify: notify });
+  }
+
+  getTotalAmount(): Observable<Object> {
+    return this.http.get(environment.API_DOMAIN + '/api/models/count');
+  }
+
 }

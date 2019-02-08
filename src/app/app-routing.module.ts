@@ -11,11 +11,12 @@ import { FullResultContainerComponent } from './components/pages/full-result-con
 import { AdminLoginComponent } from './components/pages/admin-login/admin-login.component';
 import { TestResultTableComponent } from './components/pages/test-result-table/test-result-table.component';
 import { SmthWentWrongComponent } from './components/pages/smth-went-wrong/smth-went-wrong.component';
+import { ArchiveComponent } from '../app/components/pages/archive/archive.component';
 import { AdminSettingsComponent } from './components/pages/admin-settings/admin-settings.component';
 
 const routes: Routes = [
   { path: 'main', component: MainContainerComponent },
-  { path: '', component: GetStartedComponent },
+  { path: '', redirectTo: 'admin/login', pathMatch: 'full' },
   { path: 'invite/:token', component: GetStartedComponent },
   { path: 'error', component: SmthWentWrongComponent },
   { path: 'result/table', component: TestResultTableComponent },
@@ -23,8 +24,11 @@ const routes: Routes = [
   { path: 'admin/results', component: ResultsPageComponent },
   { path: 'admin/results/full/:token', component: FullResultContainerComponent },
   { path: 'admin/links', component: AdminPanelLinkComponent },
+  { path: 'admin/archive', component: ArchiveComponent },
   { path: 'admin/login', component: AdminLoginComponent },
-  { path: 'admin/settings', component: AdminSettingsComponent }
+  { path: 'admin/settings', component: AdminSettingsComponent },
+  { path: '', redirectTo: 'admin/login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'error', pathMatch: 'full' }
 ];
 
 @NgModule({

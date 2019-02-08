@@ -44,9 +44,3 @@
   width: 100%;
   height: 55px;
 }
-
-.link__wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}

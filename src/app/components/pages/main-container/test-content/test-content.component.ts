@@ -42,14 +42,6 @@ export class TestContentComponent {
     this.onSaveBadComment.emit(this.currentSelectedModel);
   }
 
-  //delete
-  chooseImage(e) {
-    console.log(e.checked);
-    this.currentSelectedModel.mark = e.checked;
-    this.onChoose.emit(this.currentSelectedModel);
-    console.log('IMAGE CHOOSEN');
-  }
-
   openPrevImage() {
     this.onPrevImg.emit();
   }

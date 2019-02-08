@@ -32,15 +32,19 @@ router.post('/results/save', (req, res) => {
       return Result.findOneAndUpdate({ token: token }, { solved_models: models, applicant: applicantDocs });
     })
     .then((modelsDocs) => {
-      return Employer.findOne({});
+      return Employer.find({ notify: true });
     })
-    .then((employer) => {
-      return mailgun.testCompleted({
-        name: applicant.first_name,
-        surname: applicant.surname,
-        email: employer.email,
-        mark: applicant.mark
-      })
+    .then((employers) => {
+      const sends = employers.map((employer) => {
+        return mailgun.testCompleted({
+          name: applicant.first_name,
+          surname: applicant.surname,
+          email: employer.email,
+          mark: applicant.mark
+        })
+      });
+      return Promise.all(sends);
+
     })
     .then(() => {
       res.json({message: 'Save successful'});

@@ -10,6 +10,8 @@ import { NgForm } from '@angular/forms';
 })
 export class AdminPanelLinkComponent implements OnInit {
 
+  fullDomain = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port: '');
+
   constructor (private dataSource: DataSourceService) { }
 
   userDataInfoList: Array<Applicant> = [];
@@ -46,7 +48,7 @@ export class AdminPanelLinkComponent implements OnInit {
         if (data.token) {
           console.log(data.token);
           this.token = `/invite/${data.token}`;
-          this.link = `http://localhost:4200${this.token}`;
+          this.link = `${this.fullDomain}${this.token}`;
           this.updateUsersDataList();
         } else {
           alert('don\'t have permission');
@@ -55,7 +57,7 @@ export class AdminPanelLinkComponent implements OnInit {
   }
 
   sendLink(email, name, surname, secondname, link) {
-    const newLink = 'http://localhost:4200' + link;
+    const newLink = this.fullDomain + link;
     this.dataSource.sendMailWithLink(email, name, surname, secondname, newLink)
       .subscribe((data: any) => {
       console.log(data);
