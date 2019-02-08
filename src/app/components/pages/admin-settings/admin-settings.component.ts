@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { DataSourceService } from '../../shared/service/data-source.service';
 import { Employer } from '../../shared/models/employer';
@@ -15,7 +15,7 @@ export class AdminSettingsComponent implements OnInit {
   public MENU_EMAIL = 3;
   public MENU_NOTIFY = 4;
 
-  public employer: Employer = new Employer();
+  @Input() employer: Employer = new Employer();
 
   public currentMenus: Number = this.MENU_PROFILE;
 
@@ -31,7 +31,7 @@ export class AdminSettingsComponent implements OnInit {
       return;
     }
     this.dataSource.changePassword(oldPassword.value, newPassword.value)
-      .subscribe((data) => {
+      .subscribe(() => {
         oldPassword.value = "";
         newPassword.value = "";
         confirmPassword.value = "";
@@ -42,8 +42,11 @@ export class AdminSettingsComponent implements OnInit {
   changeEmail(mail: HTMLInputElement): void {
     const mailLine = mail.value;
     if (AdminSettingsComponent.validateEmail(mailLine)) {
-      this.dataSource.changeEmail(mailLine).subscribe(value => this.snackBar.open('Change successful', 'Close', { duration: 2000} ));
-      this.getEmployerInfo();
+      this.dataSource.changeEmail(mailLine)
+        .subscribe(() => {
+          this.snackBar.open('Change successful', 'Close', { duration: 2000 });
+          this.getEmployerInfo();
+        });
       mail.value = "";
     } else {
       this.snackBar.open('E-Mail is invalid', 'Close', { duration: 2000 });
@@ -58,7 +61,7 @@ export class AdminSettingsComponent implements OnInit {
 
 
   static validateEmail(email) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   }
 
@@ -78,6 +81,20 @@ export class AdminSettingsComponent implements OnInit {
 
   openNotification() {
     this.currentMenus = this.MENU_NOTIFY;
+  }
+
+  subscribeToNotify(): void {
+    this.dataSource.setNotification(true).subscribe(() => {
+      this.snackBar.open('You subscribe successful', 'Close', { duration: 2000 });
+      this.getEmployerInfo();
+    })
+  }
+
+  unsubscribeFromNotify(): void {
+    this.dataSource.setNotification(false).subscribe(() => {
+      this.snackBar.open('You unsubscribe successful', 'Close', { duration: 2000 });
+      this.getEmployerInfo();
+    })
   }
 
 
