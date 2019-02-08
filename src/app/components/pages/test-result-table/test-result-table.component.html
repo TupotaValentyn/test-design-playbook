@@ -27,14 +27,14 @@
   <div *ngIf="onlySelected; then selectedBlock; else allBlock"></div>
   <ng-template #selectedBlock>
     <div class="result__table" *ngFor="let model of models; let i = index">
-      <app-test-result-row class="result__row" *ngIf="model.mark" [userDataItem]="model" [index]="i + 1">
-      </app-test-result-row>
+      <app-test-result-row class="result__row" *ngIf="model.mark" [userDataItem]="model" [index]="i + 1"></app-test-result-row>
     </div>
+    <mat-divider></mat-divider>
   </ng-template>
   <ng-template #allBlock>
     <div class="result__table" *ngFor="let model of models; let i = index">
-      <app-test-result-row class="result__row" [userDataItem]="model" [index]="i + 1">
-      </app-test-result-row>
+      <app-test-result-row class="result__row" [userDataItem]="model" [index]="i + 1"></app-test-result-row>
     </div>
+    <mat-divider></mat-divider>
   </ng-template>
 </div>

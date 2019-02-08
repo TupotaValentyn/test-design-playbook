@@ -1,6 +1,6 @@
 <div class="test__content__container">
 
-  <div class="main__image__container">
+  <div class="main__image__container" (keyup)="changeTemplate($event)" tabindex="0">
     <img [src]="currentSelectedModel.model.url" class="img" alt="current model" />
     <div class="left__arrow"
          (click)="openPrevImage()"
@@ -19,10 +19,22 @@
   <div class="control__panel">
       <button class="btn__open__close_sidebar"
               mat-icon-button color="primary"
-              matTooltip="Open-close sidebar"
-              matTooltipPosition="above"
-              (click)="openCloseSidebar()">
-          <mat-icon aria-label="icon">code</mat-icon>
+              (click)="openCloseSidebar()">      
+        <mat-icon
+          class="open__close__sidebar__icon" 
+          *ngIf="opedenClosedSidebar; else sidebarIsClosed"
+          aria-label="icon"
+          matTooltip="Close sidebar"
+          matTooltipPosition="above">keyboard_arrow_left
+        </mat-icon>
+        <ng-template #sidebarIsClosed>
+          <mat-icon 
+            class="open__close__sidebar__icon"
+            aria-label="icon"
+            matTooltip="Open sidebar"
+            matTooltipPosition="above">keyboard_arrow_right
+          </mat-icon>
+        </ng-template>
       </button>
 
       <div class="like__dislike__container">
@@ -44,10 +56,7 @@
 
       <div class="progress__info">
         <p class="prorgess__info__text">
-          <span class="text__bold">Total amount:</span> {{ 23 }}.
-        </p>
-        <p class="prorgess__info__text">
-          <span class="text__bold">Ticked: </span>
+          <span class="text__bold">Selected: </span>
           <span [class.warning__message]="countCheckedElements > maxCountCheckedElements"
                 [class.text__bold]="countCheckedElements > maxCountCheckedElements">
             {{ countCheckedElements }}/{{ maxCountCheckedElements }}.
@@ -81,7 +90,7 @@
           Positive
         </ng-template>
         <mat-form-field class="comment__field">
-          <textarea matInput placeholder="Leave positive comment about this image" class="comment__field__text"
+          <textarea matInput placeholder="Leave positive comment about this template" class="comment__field__text"
             [(ngModel)]="currentSelectedModel.comment.good" (blur)="saveCommentGood($event)">
             </textarea>
         </mat-form-field>
@@ -93,7 +102,7 @@
           Negative
         </ng-template>
         <mat-form-field class="comment__field">
-          <textarea matInput placeholder="Leave negative comment about this image" class="comment__field__text"
+          <textarea matInput placeholder="Leave negative comment about this template" class="comment__field__text"
             [(ngModel)]="currentSelectedModel.comment.bad" (blur)="saveCommentBad($event)">
             </textarea>
         </mat-form-field>

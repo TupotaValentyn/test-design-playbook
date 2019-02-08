@@ -2,7 +2,8 @@
     <mat-sidenav
       class="sidebar__container"
       #sidenav 
-      mode="side">
+      mode="side"
+      [(opened)]="opened">
       <app-sidebar 
         class="sidebar__content" 
         [models]="currentModel"
@@ -23,6 +24,7 @@
         (onSend)="testComponentSend()"
         (onChoose)="testComponentChoose()"
         (onOpenCloseSidebar)="sidenav.toggle()"
+        [opedenClosedSidebar]="opened"
         (onSelect)="sideBarSelect($event)">
       </app-test-content>
     </mat-sidenav-content>

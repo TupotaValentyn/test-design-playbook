@@ -1,11 +1,16 @@
 <div class="navbar__empty__space"></div>
 <nav class="navbar">
   <div class="navbar__links">
-    <img class="navbar__icon" src="../../../../assets/fire.svg" alt="logo" />
-    <div class="navbar__title">Test design playbook</div>
+
+    <div class="logo__wrapper" routerLink="/admin/links">
+      <img class="logo__icon" src="../../../../assets/fire.svg" alt="logo" />
+      <div class="logo__title">Test Design Playbook</div>
+    </div>
+
+    <div>
       <a mat-button routerLink="/admin/links" class="link">
         <mat-icon class="link__icon">create</mat-icon>
-        Links
+        Applicant
       </a>
       <a mat-button routerLink="/admin/results" class="link">
         <mat-icon class="link__icon">archive</mat-icon>
@@ -19,14 +24,18 @@
         <mat-icon class="link__icon">library_books</mat-icon>
         Archive
       </a>
+    </div>
+
   </div>
 
   <div class="navbar__links">
     <a mat-button routerLink="/admin/settings" class="link">
       <mat-icon class="link__icon">account_circle</mat-icon>
-      Profile</a>
+      Profile
+    </a>
     <a mat-button routerLink="/admin/login" (click)="deleteToken()" class="link">
       <mat-icon class="link__icon">exit_to_app</mat-icon>
-      Log out</a>
+      Log out
+    </a>
   </div>
 </nav>

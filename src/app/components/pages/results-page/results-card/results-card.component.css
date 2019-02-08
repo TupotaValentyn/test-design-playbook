@@ -19,18 +19,14 @@ mat-card {
   margin: 10px 0;
 }
 
-.info__group.number {
+.info__group.date {
   padding: 0 10px;
   border-right: 1px solid red;
   margin: 0 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: flex-end;
-}
-
-.date__info {
-  opacity: 0.5;
 }
 
 mat-card, 
@@ -49,14 +45,4 @@ mat-card,
 .btn {
   width: 80px;
   margin: 5px;
-}
-
-.info {
-  cursor: pointer;
-}
-
-.info__number {
-  white-space: pre;
-  width: 60px;
-  text-align: right; 
 }

@@ -18,7 +18,7 @@ export class FullResultContainerComponent implements OnInit {
     solved_date: new Date()
   };
 
-  constructor(private route: ActivatedRoute, private dataSource: DataSourceService) {  }
+  constructor(private route: ActivatedRoute, private dataSource: DataSourceService) { }
 
   //objects for filters
   resultItemsDefault: Array<SolvedModel> = new Array<SolvedModel>();

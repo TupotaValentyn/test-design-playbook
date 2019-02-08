@@ -17,6 +17,9 @@ export class TestContentComponent {
   //for button "Continue" (Input from main-cont)
   @Input() countCheckedElements: number;
 
+  //open close sidebar (opended by default)
+  @Input() opedenClosedSidebar: boolean;
+
   @Output() onSaveGoodComment = new EventEmitter();
   @Output() onSaveBadComment = new EventEmitter();
   @Output() onChoose = new EventEmitter<SolvedModel>();
@@ -25,6 +28,7 @@ export class TestContentComponent {
   @Output() onSelect = new EventEmitter<SolvedModel>();
   @Output() onSend = new EventEmitter();
   @Output() onOpenCloseSidebar = new EventEmitter();
+
 
   maxCountCheckedElements = 5;
 
@@ -61,6 +65,14 @@ export class TestContentComponent {
 
   openHelpDialog(): void {
     this.dialog.open(HelpInstructionModalComponent, {width: '600px'});
+  }
+
+  changeTemplate(event) {
+    if (event.key === 'ArrowRight') {
+      this.openNextImage();
+    } else if (event.key === 'ArrowLeft') {
+      this.openPrevImage();
+    }
   }
 
 }

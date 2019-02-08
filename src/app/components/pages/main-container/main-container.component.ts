@@ -112,6 +112,9 @@ export class MainContainerComponent implements OnInit {
     setTimeout(() => this.currentSelectedCount = this.currentModel.filter(e => e.mark).length, 0);
   }
 
+  //open close sidebar (opended by default)
+  opened: boolean = true;
+
   currentModelLog() {
     console.log(this.currentModel);
   }
