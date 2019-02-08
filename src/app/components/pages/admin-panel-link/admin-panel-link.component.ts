@@ -11,8 +11,9 @@ import { MatSnackBar } from '@angular/material';
 })
 export class AdminPanelLinkComponent implements OnInit {
 
-  constructor (private dataSource: DataSourceService,
-               private snackBar: MatSnackBar ) { }
+  fullDomain = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port: '');
+
+  constructor (private dataSource: DataSourceService, private snackBar: MatSnackBar) { }
 
   userDataInfoList: Array<Applicant> = [];
   token = '';
@@ -48,7 +49,7 @@ export class AdminPanelLinkComponent implements OnInit {
         if (data.token) {
           console.log(data.token);
           this.token = `/invite/${data.token}`;
-          this.link = `http://localhost:4200${this.token}`;
+          this.link = `${this.fullDomain}${this.token}`;
           this.updateUsersDataList();
         } else {
           alert('don\'t have permission');
@@ -57,7 +58,7 @@ export class AdminPanelLinkComponent implements OnInit {
   }
 
   sendLink(email, name, surname, secondname, link) {
-    const newLink = 'http://localhost:4200' + link;
+    const newLink = this.fullDomain + link;
     this.dataSource.sendMailWithLink(email, name, surname, secondname, newLink)
       .subscribe((data: any) => {
       console.log(data);

@@ -19,10 +19,22 @@
   <div class="control__panel">
       <button class="btn__open__close_sidebar"
               mat-icon-button color="primary"
-              matTooltip="Open-close sidebar"
-              matTooltipPosition="above"
-              (click)="openCloseSidebar()">
-          <mat-icon aria-label="icon">code</mat-icon>
+              (click)="openCloseSidebar()">      
+        <mat-icon
+          class="open__close__sidebar__icon" 
+          *ngIf="opedenClosedSidebar; else sidebarIsClosed"
+          aria-label="icon"
+          matTooltip="Close sidebar"
+          matTooltipPosition="above">keyboard_arrow_left
+        </mat-icon>
+        <ng-template #sidebarIsClosed>
+          <mat-icon 
+            class="open__close__sidebar__icon"
+            aria-label="icon"
+            matTooltip="Open sidebar"
+            matTooltipPosition="above">keyboard_arrow_right
+          </mat-icon>
+        </ng-template>
       </button>
 
       <div class="like__dislike__container">
